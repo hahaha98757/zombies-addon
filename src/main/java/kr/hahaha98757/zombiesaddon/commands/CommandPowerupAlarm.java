@@ -7,7 +7,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
