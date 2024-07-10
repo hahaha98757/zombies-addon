@@ -1,16 +1,16 @@
 [
   {
     "modid": "${modid}",
-    "name": "Xample Mod",
-    "description": "A mod that is used as an example.",
+    "name": "Zombies Addon",
+    "description": "A mod that helps playing hypixel zombies. Use /info command to view mod's description.",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "https://github.com/romangraef/Forge1.8.9Template/",
-    "updateUrl": "",
+    "url": "https://github.com/hahaha98757/ZombiesAddon",
+    "updateUrl": "https://github.com/hahaha98757/ZombiesAddon/releases",
     "authorList": [
-      "You"
+      "hahaha98757"
     ],
-    "credits": "",
+    "credits": "Thanks by syeyoung, tahmid-23, and Stachelbeere1248 for the code used in this mod.",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []
