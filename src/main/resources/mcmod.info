@@ -5,8 +5,8 @@
     "description": "A mod that helps playing hypixel zombies. Use /info command to view mod's description.",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "https://github.com/hahaha98757/ZombiesAddon",
-    "updateUrl": "https://github.com/hahaha98757/ZombiesAddon/releases",
+    "url": "https://github.com/hahaha98757/zombies-addon",
+    "updateUrl": "https://github.com/hahaha98757/zombies-addon/releases",
     "authorList": [
       "hahaha98757"
     ],

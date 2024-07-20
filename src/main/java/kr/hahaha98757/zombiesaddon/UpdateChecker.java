@@ -202,7 +202,7 @@ public class UpdateChecker {
 			text.appendSibling(text2);
 
 			Minecraft.getMinecraft().thePlayer.addChatComponentMessage(text);
-			ClientCrash.update();
+			ClientCrash.setUpdate();
 			MinecraftForge.EVENT_BUS.register(new ClientCrash());
 		}
 	}

@@ -14,7 +14,9 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 
@@ -60,6 +62,13 @@ public class EventListener {
 	public void showMods(RenderGameOverlayEvent.Post event) {
 		if (ClientCrash.update) {
 			String str = "Zombies Addon update required!";
+			FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
+			fr.drawStringWithShadow(str, (float) ((new ScaledResolution(Minecraft.getMinecraft())).getScaledWidth()
+					- fr.getStringWidth(str)), 0.0F, 16733525);
+			return;
+		}
+		if (ClientCrash.unlegit) {
+			String str = "Detected Unlegit Mods!";
 			FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
 			fr.drawStringWithShadow(str, (float) ((new ScaledResolution(Minecraft.getMinecraft())).getScaledWidth()
 					- fr.getStringWidth(str)), 0.0F, 16733525);
@@ -148,6 +157,16 @@ public class EventListener {
 		PowerupAlarmListener.instaPattern = 0;
 		PowerupAlarmListener.maxPattern = 0;
 		PowerupAlarmListener.ssPattern = 0;
+
+		LastWeaponsListener.gameOver = true;
+	}
+
+	public static void gameStart() {
+		PowerupAlarmListener.spawnedEntities.clear();
+
+		PowerupAlarmListener.instaPattern = 0;
+		PowerupAlarmListener.maxPattern = 0;
+		PowerupAlarmListener.ssPattern = 0;
 	}
 
 	@SubscribeEvent
@@ -171,5 +190,33 @@ public class EventListener {
 		}
 
 		join = true;
+	}
+
+	@SubscribeEvent
+	public void detectUnlegitMods(EntityJoinWorldEvent event) {
+		if (!ZombiesAddonConfig.enableMod) {
+			return;
+		}
+
+		if (event.entity != Minecraft.getMinecraft().thePlayer) {
+			return;
+		}
+
+		if (!ZombiesAddonConfig.detectUnlegitMods) {
+			return;
+		}
+
+		if (!ZombiesAddon.detectUnlegit) {
+			return;
+		}
+
+
+		Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText(CommandInfo.LINE + "\n\u00A7cYou are using ZombiesSatellite, Zombies Explorer, or TeammatesOutline.\n\u00A7cThey are unlegit mods. Please remove them.\n\u00A7c\u00A7lThe game ends after 10 seconds.\n" + CommandInfo.LINE));
+		ClientCrash.setUnlegit();
+		MinecraftForge.EVENT_BUS.register(new ClientCrash());
+
+
+
+
 	}
 }

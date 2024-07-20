@@ -26,6 +26,7 @@ public class ZombiesAddonGuiConfig extends GuiConfig {
 				new ArrayList<>(ZombiesAddonConfig.sla.values())));
 		list.add(new DummyConfigElement.DummyCategoryElement("Others", "",
 				new ArrayList<>(ZombiesAddonConfig.others.values())));
+		list.add(new DummyConfigElement.DummyCategoryElement("Patchers", "", new ArrayList<>(ZombiesAddonConfig.patchers.values())));
 		return list;
 
 	}

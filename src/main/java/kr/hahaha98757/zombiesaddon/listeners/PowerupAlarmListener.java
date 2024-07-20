@@ -6,7 +6,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.HashSet;
@@ -16,7 +19,6 @@ import java.util.regex.Pattern;
 public class PowerupAlarmListener {
 	private static final String[] IGNORE_ENTITY_SET = { "Armor Stand", "\u00A7c\u00A7lTarget Practice",
 			"\u00A7e\u00A7lHOLD SNEAK TO REVIVE!", "\u00A7e\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0"};
-	private static final Pattern REVIVE_SECONDS_PATTERN = Pattern.compile("\u00A7c\\d+\\.\\d+s");
 
 	private static final int[] INSTA_PATTERN1 = { 2, 5, 8, 11, 14, 17, 20, 23 };
 	private static final int[] INSTA_PATTERN2 = { 3, 6, 9, 12, 15, 18, 21, 24 };
@@ -226,6 +228,109 @@ public class PowerupAlarmListener {
 							- fr.getStringWidth(str)), y - 92, 0);
 				}
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onLivingUpdateEvent(LivingEvent.LivingUpdateEvent livingUpdateEvent) {
+		if (!ZombiesAddonConfig.enableMod) {
+			return;
+		}
+
+		if (!GameDetect.isZombiesGame() || !ZombiesAddonConfig.togglePowerupAlarm) {
+			return;
+		}
+		EntityLivingBase entity = livingUpdateEvent.entityLiving;
+		if (!(entity instanceof EntityArmorStand)) {
+			return;
+		}
+
+		String name = entity.getName();
+
+		for (String i : IGNORE_ENTITY_SET) {
+			if (i.equals(name)) {
+				return;
+			}
+		}
+
+		if (spawnedEntities.contains(entity)) {
+			return;
+		}
+
+		isInsta(entity);
+		isMax(entity);
+		isSS(entity);
+	}
+
+	public void isInsta(EntityLivingBase entity) {
+		String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName())
+				.replaceAll("[^A-Z\uAC00-\uD7A3]", "");
+		if (name.equals("INSTAKILL") || name.equals("\uC989\uC2DC\ucc98\uCE58")) {
+			spawnedEntities.add(entity);
+
+			for (int i : INSTA_PATTERN1) {
+				if (i == GameDetect.getRound()) {
+					instaPattern = 2;
+					break;
+				}
+			}
+			for (int i : INSTA_PATTERN2) {
+				if (i == GameDetect.getRound()) {
+					instaPattern = 3;
+					break;
+				}
+			}
+
+		}
+	}
+
+	public void isMax(EntityLivingBase entity) {
+		String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName())
+				.replaceAll("[^A-Z\uAC00-\uD7A3]", "");
+		if (name.equals("MAXAMMO") || name.equals("\uD0C4\uC57D\uCDA9\uC804")) {
+			spawnedEntities.add(entity);
+
+			for (int i : MAX_PATTERN1) {
+				if (i == GameDetect.getRound()) {
+					maxPattern = 2;
+					break;
+				}
+			}
+			for (int i : MAX_PATTERN2) {
+				if (i == GameDetect.getRound()) {
+					maxPattern = 3;
+					break;
+				}
+			}
+
+		}
+	}
+
+	public void isSS(EntityLivingBase entity) {
+		String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName())
+				.replaceAll("[^A-Z\uAC00-\uD7A3]", "");
+		if (name.equals("SHOPPINGSPREE") || name.equals("\uC9C0\uB984\uC2E0\uAC15\uB9BC")) {
+			spawnedEntities.add(entity);
+
+			for (int i : SS_PATTERN1) {
+				if (i == GameDetect.getRound()) {
+					ssPattern = 5;
+					break;
+				}
+			}
+			for (int i : SS_PATTERN2) {
+				if (i == GameDetect.getRound()) {
+					ssPattern = 6;
+					break;
+				}
+			}
+			for (int i : SS_PATTERN3) {
+				if (i == GameDetect.getRound()) {
+					ssPattern = 7;
+					break;
+				}
+			}
+
 		}
 	}
 }

@@ -13,6 +13,7 @@ import kr.hahaha98757.zombiesaddon.packet.PacketInterceptor;
 import kr.hahaha98757.zombiesaddon.splitter.LiveSplitSplitter;
 import kr.hahaha98757.zombiesaddon.splitter.internal.InternalSplitter;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -41,7 +42,7 @@ import java.util.concurrent.ScheduledExecutorService;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.0.1";
+	public static final String VERSION = "4.1.0-pre1";
 	public static final String CONFIG_VERSION = "15";
 
 	@Instance(MODID)
@@ -56,6 +57,7 @@ public class ZombiesAddon {
 
 	public static boolean isConfigReset;
 	public static boolean oldSST;
+	public static boolean detectUnlegit;
 
 	public static ZombiesAddon getInstance() {
 		return instance;
@@ -140,6 +142,9 @@ public class ZombiesAddon {
 		MinecraftForge.EVENT_BUS.register(new PowerupAlarmListener());
 		MinecraftForge.EVENT_BUS.register(new ZSVListener());
 		MinecraftForge.EVENT_BUS.register(new AutoSLAListener());
+		MinecraftForge.EVENT_BUS.register(new KoreanPatchListener());
+		MinecraftForge.EVENT_BUS.register(new SSTPatchListener());
+		MinecraftForge.EVENT_BUS.register(new LastWeaponsListener());
 
 		RoundListener roundListener = new RoundListener();
 		MinecraftForge.EVENT_BUS.register(roundListener);
@@ -166,6 +171,9 @@ public class ZombiesAddon {
 	public void postInit(FMLPostInitializationEvent event) {
 		if (Loader.isModLoaded("ShowSpawnTime")) {
 			oldSST = true;
+		}
+		if (Loader.isModLoaded("zombiesatellite") || Loader.isModLoaded("zombiesexplorer") || Loader.isModLoaded("TeammatesOutline")) {
+			detectUnlegit = true;
 		}
 	}
 }

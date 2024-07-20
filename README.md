@@ -76,13 +76,22 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 
 ## Update Log
 
-# 4.0.1
+### 4.1.0-pre1
+- Fixed bugs.
+- Fixed Powerup Alarm.
+- Added SST Patch.
+- Added Korean Patch.
+- Added Last Weapons.
+- Added Detect Unlegit Mods.
+
+
+### 4.0.1
 - Fixed bugs.
 - Fixed SLA.
 - Fixed Powerup Alarm.
 - Fixed Wave Delays.
 
-# 4.0.0
+### 4.0.0
 - Removed DPS Counter.
 - Removed Player Tracker.
 - Removed Boss Tracker.
@@ -340,7 +349,7 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 
 ### 1.7.0
 - Fixed Auto Splits.
-- Fixed /ZSV, /SLA command.
+- Fixed /ZSV and /SLA command.
 - Fixed Auto Rejoin.
 - Added config for Auto Splits.
 
@@ -374,7 +383,7 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 - Fixed bug.
 
 ### 1.5.0
-- Added Auto Rejoin mod.
+- Added Auto Rejoin.
 - Fixed bug.
 - Fixed Auto Splits.
 
@@ -391,32 +400,32 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 
 ### 1.4.2
 - Fixed bug.
-- Block Alarm fixed.
+- Fixed Block Alarm.
 - Added /blockAlarm command.
 
 ### 1.4.1
 - Fixed mod's message.
 
 ### 1.4.0
-- Added ZSV and SLA mod.
+- Added ZSV and SLA.
 
 
 ### 1.3.0
-- Added Auto Splits mod.
+- Added Auto Splits.
 
 
 ### 1.2.1
 - Added /updatelog command.
-- /info command fixed.
+- Fixed /info command.
 
 ### 1.2.0
-- Added NOTLAST
+- Added NOTLAST.
 
 
 ### 1.1.0
-- Removed ZHF
+- Removed ZHF.
 
 
 ### 1.0.0
 - Added ZHF, Cornering, Block Alarm, and DPS Counter.
-- Fixed Block Alarm
+- Fixed Block Alarm.

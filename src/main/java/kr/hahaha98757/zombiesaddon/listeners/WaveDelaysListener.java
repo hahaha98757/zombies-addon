@@ -678,7 +678,7 @@ public class WaveDelaysListener {
 
 	@SubscribeEvent
 	public void onChatReceived(ClientChatReceivedEvent event) {
-		if (!event.message.toString().contains("The Helicopter is on its way! Hold out for 120 more seconds!")) {
+		if (!event.message.getUnformattedText().contains("The Helicopter is on its way! Hold out for 120 more seconds!")) {
 			return;
 		}
 		escape = true;

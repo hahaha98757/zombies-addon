@@ -45,7 +45,7 @@ public class RoundListener {
 		}
 
 		if (raw.equals("Round1") || raw.equals("1\uB77C\uC6B4\uB4DC")) {
-			EventListener.gameOver();
+			EventListener.gameStart();
 
 			AutoSLAListener.autoSLA();
 		}

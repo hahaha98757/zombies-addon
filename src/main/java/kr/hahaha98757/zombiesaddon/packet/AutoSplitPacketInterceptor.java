@@ -4,6 +4,7 @@ package kr.hahaha98757.zombiesaddon.packet;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.listeners.EventListener;
+import kr.hahaha98757.zombiesaddon.listeners.LastWeaponsListener;
 import kr.hahaha98757.zombiesaddon.listeners.WaveDelaysListener;
 import kr.hahaha98757.zombiesaddon.splitter.LiveSplitSplitter;
 import kr.hahaha98757.zombiesaddon.splitter.internal.InternalSplitter;
@@ -48,6 +49,7 @@ public class AutoSplitPacketInterceptor implements PacketInterceptor {
 		if (soundEffect.getSoundName().equals("mob.wither.spawn")) {
 			WaveDelaysListener.stop = false;
 			WaveDelaysListener.escape = false;
+			LastWeaponsListener.gameOver = false;
 		}
 
 		if (soundEffect.getSoundName().equals("mob.wither.spawn")

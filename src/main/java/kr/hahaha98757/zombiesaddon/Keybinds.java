@@ -17,8 +17,6 @@ public class Keybinds {
 
 	public static KeyBinding toggleRLmode;
 
-	public static KeyBinding toggleSpeedrunMode;
-
 	public static void register() {
 		toggleCornering = new KeyBinding("Toggle Cornering", Keyboard.KEY_V, KEY_CATEGORY);
 		toggleBlockAlarm = new KeyBinding("Toggle Block Alarm", Keyboard.KEY_B, KEY_CATEGORY);
@@ -29,8 +27,6 @@ public class Keybinds {
 
 		toggleRLmode = new KeyBinding("Toggle RL-mode", Keyboard.KEY_L, KEY_CATEGORY);
 
-		toggleSpeedrunMode = new KeyBinding("Toggle Speedrun Mode", Keyboard.KEY_P, KEY_CATEGORY);
-
 		ClientRegistry.registerKeyBinding(toggleCornering);
 		ClientRegistry.registerKeyBinding(toggleBlockAlarm);
 		ClientRegistry.registerKeyBinding(toggleAutoRejoin);
@@ -39,7 +35,5 @@ public class Keybinds {
 		ClientRegistry.registerKeyBinding(scrollDown);
 
 		ClientRegistry.registerKeyBinding(toggleRLmode);
-
-		ClientRegistry.registerKeyBinding(toggleSpeedrunMode);
 	}
 }

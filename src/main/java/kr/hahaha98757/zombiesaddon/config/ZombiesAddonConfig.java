@@ -16,6 +16,8 @@ public class ZombiesAddonConfig {
 	public static LinkedHashMap<String, IConfigElement> waveDelays = new LinkedHashMap<>();
 	public static LinkedHashMap<String, IConfigElement> sla = new LinkedHashMap<>();
 	public static LinkedHashMap<String, IConfigElement> others = new LinkedHashMap<>();
+	public static LinkedHashMap<String, IConfigElement> patchers = new LinkedHashMap<>();
+	public static LinkedHashMap<String, IConfigElement> debugs = new LinkedHashMap<>();
 
 	public static boolean enableMod = true;
 	public static boolean showMods = true;
@@ -43,6 +45,12 @@ public class ZombiesAddonConfig {
 	public static boolean togglePowerupAlarm = true;
 	public static boolean hideAutoRejoin = true;
 	public static boolean overlayKorean = false;
+
+	public static boolean koreanPatch = true;
+	public static boolean sstPatch = true;
+	public static boolean lastWeapons = true;
+
+	public static boolean detectUnlegitMods = true;
 
 	public static void loadConfig() {
 		config.load();
@@ -176,6 +184,24 @@ public class ZombiesAddonConfig {
 				false, "You can use Zombies Overlay in Korean.");
 		overlayKorean = propertyOverlayKorean.getBoolean();
 		others.put(propertyOverlayKorean.getName(), new ConfigElement(propertyOverlayKorean));
+
+		//Patchers
+		Property propertyKoreanPatch = config.get(Configuration.CATEGORY_GENERAL, "Korean Patch", true, "Better Korean translation.");
+		koreanPatch = propertyKoreanPatch.getBoolean();
+		patchers.put(propertyKoreanPatch.getName(), new ConfigElement(propertyKoreanPatch));
+
+		Property propertySSTPatch = config.get(Configuration.CATEGORY_GENERAL, "SST Patch", true, "Translate the text in SST to Korean.");
+		sstPatch = propertySSTPatch.getBoolean();
+		patchers.put(propertySSTPatch.getName(), new ConfigElement(propertySSTPatch));
+
+		Property propertyLastWeapons = config.get(Configuration.CATEGORY_GENERAL, "Last Weapons", true, "Show your weapons at Game Over.");
+		lastWeapons = propertyLastWeapons.getBoolean();
+		patchers.put(propertyLastWeapons.getName(), new ConfigElement(propertyLastWeapons));
+
+		//Hidden
+		Property propertyDetectUnlegitMods = config.get(Configuration.CATEGORY_GENERAL, "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline");
+		detectUnlegitMods = propertyDetectUnlegitMods.getBoolean();
+		debugs.put(propertyDetectUnlegitMods.getName(), new ConfigElement(propertyDetectUnlegitMods));
 	}
 
 	public static Configuration getConfig() {

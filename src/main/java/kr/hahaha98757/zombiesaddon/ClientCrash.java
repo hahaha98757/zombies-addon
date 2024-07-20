@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon;
 
-import kr.hahaha98757.zombiesaddon.utils.UpdateRequired;
+import kr.hahaha98757.zombiesaddon.utils.GameEnd;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -9,11 +9,12 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 public class ClientCrash {
 
 	public static boolean update = false;
+	public static boolean unlegit = false;
 
 	private int delay = 0;
 
 	@SubscribeEvent
-	public void onClientTick(TickEvent.ClientTickEvent event) throws UpdateRequired {
+	public void onClientTick(TickEvent.ClientTickEvent event) throws GameEnd {
 		if (event.phase == TickEvent.Phase.START) {
 			delay++;
 
@@ -39,8 +40,14 @@ public class ClientCrash {
 
 			if (delay == 200) {
 				addChat("\u00A7c\u00A7lThe game ends...");
-				throw new UpdateRequired(
-						"Update Zombies Addon. URL: https://github.com/hahaha98757/ZombiesAddon/releases");
+
+				if (update) {
+					throw new GameEnd("Update Zombies Addon. URL: https://github.com/hahaha98757/zombies-addon/releases");
+				}
+				if (unlegit) {
+					throw new GameEnd("Detectd Unlegit Mods. Remove ZombiesSatellite, Zombies Explorer, or TeammatesOutline.");
+				}
+				throw new GameEnd("Unknown Error.");
 			}
 		}
 	}
@@ -49,7 +56,11 @@ public class ClientCrash {
 		Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText(str));
 	}
 
-	public static void update() {
+	public static void setUpdate() {
 		update = true;
+	}
+
+	public static void setUnlegit() {
+		unlegit = true;
 	}
 }
