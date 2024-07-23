@@ -29,13 +29,13 @@ public class SSTPatchListener {
             return;
         }
 
-        if (message.startsWith("You took ") && message.contains(" seconds to clean up after the last wave.")) {
+        if (message.contains(" seconds to clean up after the last wave.")) {
             event.setCanceled(true);
             String time = message.replaceAll("[^0-9.]", "");
             addChat("\u00A7e마지막 웨이브 이후 넘어가는데 \u00A7c" + time.substring(0, time.length() - 1) +"\u00A7e초가 걸렸습니다.");
         }
 
-        if (message.startsWith("You completed Round ")) {
+        if (message.contains("You completed Round ")) {
             event.setCanceled(true);
             addChat("                  \u00A7c라운드 " + message.split("in")[0].replaceAll("[^0-9]", "") + "\u00A7e을(를) \u00A7a" + message.split("in")[1].replaceAll("[^0-9:]", "") +"\u00A7e에 완료했습니다!");
         }

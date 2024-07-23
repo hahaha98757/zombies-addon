@@ -44,22 +44,22 @@ public class LastWeaponsListener {
             int screenHeight = scaledResolution.getScaledHeight();
 
             StringBuilder armorStrBuilder = new StringBuilder();
-            armorStrBuilder.append("\u00A7eLast Armors: ");
+            armorStrBuilder.append("\u00A7eLast Armors: \u00A7r");
             for (int i = 0; i < 4; i++) {
                 armorStrBuilder.append(armors[i]);
                 if (i != 3) {
-                    armorStrBuilder.append("/");
+                    armorStrBuilder.append("\u00A7e/\u00A7r");
                 }
             }
             String armorStr = armorStrBuilder.toString();
             fr.drawStringWithShadow(armorStr, (float) screenWidth / 2 - (float) fr.getStringWidth(armorStr) / 2, screenHeight / 1.6F, 0);
 
             StringBuilder weaponStrBuilder = new StringBuilder();
-            weaponStrBuilder.append("\u00A7eLast Weapons: ");
+            weaponStrBuilder.append("\u00A7eLast Weapons: \u00A7r");
             for (int i = 0; i < 9; i++) {
                 weaponStrBuilder.append(weapons[i]);
                 if (i != 8) {
-                    weaponStrBuilder.append("/");
+                    weaponStrBuilder.append("\u00A7e/\u00A7r");
                 }
             }
             String weaponStr = weaponStrBuilder.toString();
@@ -68,7 +68,7 @@ public class LastWeaponsListener {
 
         EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 
-        if (player.inventory.getStackInSlot(0) == null) {
+        if (player.inventory.getStackInSlot(1) == null) {
             return;
         }
 
