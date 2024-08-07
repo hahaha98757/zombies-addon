@@ -18,15 +18,12 @@ public class ZombiesAddonGuiConfig extends GuiConfig {
 	private static List<IConfigElement> getElements() {
 		List<IConfigElement> list = new ArrayList<>();
 
-		list.add(new DummyConfigElement.DummyCategoryElement("Zombies Addon", "",
-				new ArrayList<>(ZombiesAddonConfig.zombiesAddon.values())));
-		list.add(new DummyConfigElement.DummyCategoryElement("Wave Delays", "",
-				new ArrayList<>(ZombiesAddonConfig.waveDelays.values())));
-		list.add(new DummyConfigElement.DummyCategoryElement("SLA", "",
-				new ArrayList<>(ZombiesAddonConfig.sla.values())));
-		list.add(new DummyConfigElement.DummyCategoryElement("Others", "",
-				new ArrayList<>(ZombiesAddonConfig.others.values())));
+		list.add(new DummyConfigElement.DummyCategoryElement("Zombies Addon", "", new ArrayList<>(ZombiesAddonConfig.zombiesAddon.values())));
+		list.add(new DummyConfigElement.DummyCategoryElement("Wave Delays", "", new ArrayList<>(ZombiesAddonConfig.waveDelays.values())));
+		list.add(new DummyConfigElement.DummyCategoryElement("SLA", "", new ArrayList<>(ZombiesAddonConfig.sla.values())));
+		list.add(new DummyConfigElement.DummyCategoryElement("Others", "", new ArrayList<>(ZombiesAddonConfig.others.values())));
 		list.add(new DummyConfigElement.DummyCategoryElement("Patchers", "", new ArrayList<>(ZombiesAddonConfig.patchers.values())));
+		//list.add(new DummyConfigElement.DummyCategoryElement("Hidden", "", new ArrayList<>(ZombiesAddonConfig.hidden.values())));
 		return list;
 
 	}

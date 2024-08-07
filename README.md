@@ -1,33 +1,28 @@
 # Zombies Addon
-A mod that helps playing hypixel zombies.
+The mod for Hypixel Zombies
 
 [한국어 내용](https://blog.naver.com/hahaha98757/223012598464)
 
 ## Features
 ### Cornering
-Toggles the visibility of players nearby.
-Use /cornering <number> command to set the range of cornering.
-Used the config.
+Hides the players nearby.
+You can set range in config.
 
 ### Block Alarm
-If you survived alone, show "BLOCK" on display.
-It works only if set the language of Hypixel in English or Korean.
+Show "BLOCK" on display when you survived alone.
+It works only when language of Hypixel is English or Korean.
 
 ### Not Last
-Shows who is kill the last in every round.
-It works only if set the language of Hypixel in English or Korean.
+Shows the player who killed the last.
+It works only when language of Hypixel is English or Korean.
 
 ### Auto Splits
 Run timer at start of round.
 
 ### Wave Delays
-Displays the wave delays. It can be used without Auto Splits.
-You can set the style of the text to Zombies Addon (e.g. W1 0:10.0) or SST (e.g. W1 00:10).
-You can set the style of highlight to Zombies Addon or SST.
-If color of wave delay is yellow: Start wave soon.
-If it is green: Started wave.
-Displays the current wave with a purple arrow.
-Used the config.
+Displays the wave delays.
+You can set options in config.
+It works only when language of Hypixel is English or Korean.
 
 Displays the wave which the boss spawns.
 | Color | Boss name |
@@ -52,29 +47,38 @@ Use /ZSVLines <number> command to set lines of view.
 ### Spawn Limit Action
 Display number and name of windows where zombies can spawn.
 Use /SLA <de|bb|aa|pr|off> to sets the map or off SLA.
-Used the config.
+You can set options in config.
 
 ### Auto Rejoin
-Automatically rejoin the Zombies game.
-Used the config.
-It works only if set the language of Hypixel in English or Korean.
+Automatically rejoin Zombies.
+You can set to hide toggle text in config.
+It works only when language of Hypixel is English or Korean.
 
-### Powerup Alarm
+### Powerup Patterns
 Show power-up patterns.
 Use /powerupAlarm <insta|max|ss> [number|on|off] command to reset or set the pattern.
-It works only if set the language of Hypixel in English or Korean.
+It works only when language of Hypixel is English or Korean.
+
+### Text Macro
+Send the text on chat when press hotkey of Text Macro.
+You can set the text in config.
 
 ### Zombies Overlay in Korean
 [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) works even if language of Hypixel in Korean.
 
 ### Other
-Fixed a bug of forge that commands are runned without "/".
+Fixed a bug of forge that commands are executed without "/".
 You can turn off Wave Delay of SST in the ".minecraft\config\zombiesaddonSSTSetting.txt".
 You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZombiesUtilsSetting.txt".
 
 ****
 
 ## Update Log
+
+### 4.1.0-pre3
+- Added Text Macro.
+- Code optimization.
+- Fixed Last Weapons.
 
 ### 4.1.0-pre2
 - Fixed bugs.

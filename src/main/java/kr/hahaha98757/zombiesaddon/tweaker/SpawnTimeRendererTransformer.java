@@ -2,8 +2,6 @@ package kr.hahaha98757.zombiesaddon.tweaker;
 
 import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraftforge.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
@@ -17,77 +15,62 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class SpawnTimeRendererTransformer implements IClassTransformer {
-	private final Logger LOGGER = LogManager.getLogger("SSTRounds");
 
-	public SpawnTimeRendererTransformer() {
-	}
-
+	@Override
 	public byte[] transform(String name, String transformedName, byte[] bytes) {
-		if (bytes == null) {
-			return null;
-		} else if (!transformedName.equals("com.seosean.showspawntime.features.spawntimes.SpawnTimeRenderer")) {
-			return bytes;
-		} else {
-			ClassReader reader = new ClassReader(bytes);
-			ClassNode node = new ClassNode();
-			reader.accept(node, 8);
-			Iterator var6 = node.methods.iterator();
+		if (bytes == null) return null;
+        else if (!transformedName.equals("com.seosean.showspawntime.features.spawntimes.SpawnTimeRenderer"))
+            return bytes;
 
-			while (var6.hasNext()) {
-				MethodNode methodNode = (MethodNode) var6.next();
-				String methodName = FMLDeobfuscatingRemapper.INSTANCE.mapMethodName(node.name, methodNode.name,
-						methodNode.desc);
-				if (methodName.equals("onRender")) {
-					methodNode.instructions.insertBefore(methodNode.instructions.getFirst(), this.addCode());
-					break;
-				}
-			}
+		ClassReader reader = new ClassReader(bytes);
+		ClassNode node = new ClassNode();
+		reader.accept(node, 8);
 
-			ClassWriter writer = new ClassWriter(2);
+        for (MethodNode methodNode : node.methods) {
+            String methodName = FMLDeobfuscatingRemapper.INSTANCE.mapMethodName(node.name, methodNode.name, methodNode.desc);
 
-			try {
-				node.accept(writer);
-			} catch (Throwable var9) {
-				this.LOGGER.error("Exception when transforming {} : {}",
-                        transformedName, var9.getClass().getSimpleName());
-				var9.printStackTrace();
-			}
+			if (!methodName.equals("onRender")) continue;
+			methodNode.instructions.insertBefore(methodNode.instructions.getFirst(), this.addCode());
+			break;
+        }
 
-			return writer.toByteArray();
+		ClassWriter writer = new ClassWriter(2);
+
+		try {
+			node.accept(writer);
+		} catch (Throwable var9) {
+			var9.printStackTrace();
 		}
+
+		return writer.toByteArray();
 	}
 
 	private InsnList addCode() {
 		InsnList list = new InsnList();
 
-		if (isTransformer()) {
-			list.add(new InsnNode(Opcodes.RETURN));
-		}
+		if (isTransformer()) list.add(new InsnNode(Opcodes.RETURN));
 
 		return list;
 	}
 
 	public static boolean isTransformer() {
 		try {
-			return readFile(1).equals("true");
+			return readFile().equals("true");
 		} catch (Exception e) {
 			return true;
 		}
 	}
 
-	private static String readFile(int i) {
+	private static String readFile() {
 		try {
 			Path filePath = Paths.get("config/zombiesaddonSSTSetting.txt");
 
 			List<String> lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
 
-			String str = lines.get(i);
-
-			return str;
+            return lines.get(1);
 		} catch (Exception e) {
 			writeFile();
 			return null;

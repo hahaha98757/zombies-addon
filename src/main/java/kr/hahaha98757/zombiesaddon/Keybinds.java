@@ -7,7 +7,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import org.lwjgl.input.Keyboard;
 
 public class Keybinds {
-	public static final String KEY_CATEGORY = "Zombies Addon Mods";
+	public static final String KEY_CATEGORY = "Zombies Addon";
 	public static KeyBinding toggleCornering;
 	public static KeyBinding toggleBlockAlarm;
 	public static KeyBinding toggleAutoRejoin;
@@ -15,7 +15,9 @@ public class Keybinds {
 	public static KeyBinding scrollUp;
 	public static KeyBinding scrollDown;
 
-	public static KeyBinding toggleRLmode;
+	public static KeyBinding toggleRLMode;
+
+	public static KeyBinding textMacro;
 
 	public static void register() {
 		toggleCornering = new KeyBinding("Toggle Cornering", Keyboard.KEY_V, KEY_CATEGORY);
@@ -25,7 +27,9 @@ public class Keybinds {
 		scrollUp = new KeyBinding("ZSV Scroll Up", Keyboard.KEY_LBRACKET, KEY_CATEGORY);
 		scrollDown = new KeyBinding("ZSV Scroll Down", Keyboard.KEY_RBRACKET, KEY_CATEGORY);
 
-		toggleRLmode = new KeyBinding("Toggle RL-mode", Keyboard.KEY_L, KEY_CATEGORY);
+		toggleRLMode = new KeyBinding("Toggle RL Mode", Keyboard.KEY_L, KEY_CATEGORY);
+
+		textMacro = new KeyBinding("Text Macro", Keyboard.KEY_T, KEY_CATEGORY);
 
 		ClientRegistry.registerKeyBinding(toggleCornering);
 		ClientRegistry.registerKeyBinding(toggleBlockAlarm);
@@ -34,6 +38,8 @@ public class Keybinds {
 		ClientRegistry.registerKeyBinding(scrollUp);
 		ClientRegistry.registerKeyBinding(scrollDown);
 
-		ClientRegistry.registerKeyBinding(toggleRLmode);
+		ClientRegistry.registerKeyBinding(toggleRLMode);
+
+		ClientRegistry.registerKeyBinding(textMacro);
 	}
 }

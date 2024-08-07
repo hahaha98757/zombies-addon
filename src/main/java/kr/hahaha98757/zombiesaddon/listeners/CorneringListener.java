@@ -2,7 +2,6 @@
 
 package kr.hahaha98757.zombiesaddon.listeners;
 
-import kr.hahaha98757.zombiesaddon.commands.CommandCornering;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -14,18 +13,15 @@ public class CorneringListener {
 
 	@SubscribeEvent
 	public void onRender(RenderPlayerEvent.Pre event) {
-		if (!ZombiesAddonConfig.enableMod) {
-			return;
-		}
+		if (!ZombiesAddonConfig.enableMod) return;
 
 		EntityPlayer player = event.entityPlayer;
-		if (player != Minecraft.getMinecraft().thePlayer && !player.isPlayerSleeping() && withinDistance(player)) {
-			event.setCanceled(EventListener.cornering);
-		}
+		if (player != Minecraft.getMinecraft().thePlayer && !player.isPlayerSleeping() && withinDistance(player))
+            event.setCanceled(EventListener.cornering);
 	}
 
 	private static boolean withinDistance(EntityPlayer other) {
-		return getDistanceSquared(other) < Math.pow(CommandCornering.range, 2);
+		return getDistanceSquared(other) < Math.pow(ZombiesAddonConfig.corneringRange, 2);
 	}
 
 	private static double getDistanceSquared(EntityPlayer other) {
