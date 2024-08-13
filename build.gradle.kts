@@ -13,7 +13,7 @@ plugins {
 val baseGroup: String by project
 val mcVersion: String by project
 val version: String by project
-val mixinGroup = "$baseGroup.mixin"
+val mixinGroup = "$baseGroup.mixins"
 val modid: String by project
 
 // Toolchains:

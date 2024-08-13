@@ -1,5 +1,5 @@
 {
-  "package": "${basePackage}.mixin",
+  "package": "${basePackage}.mixins",
   "plugin": "${basePackage}.init.AutoDiscoveryMixinPlugin",
   "refmap": "mixins.${modid}.refmap.json",
   "minVersion": "0.7",
