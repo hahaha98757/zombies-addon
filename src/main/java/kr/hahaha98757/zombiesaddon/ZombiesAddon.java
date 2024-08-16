@@ -4,6 +4,7 @@ import kr.hahaha98757.zombiesaddon.commands.*;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.listeners.*;
 import kr.hahaha98757.zombiesaddon.listeners.autosplits.AutoSplitsListener;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -26,7 +27,7 @@ import java.util.List;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.1.0-pre4";
+	public static final String VERSION = "4.1.0-pre5";
 	public static final String CONFIG_VERSION = "15";
 
 	public static boolean isConfigReset;
@@ -104,7 +105,7 @@ public class ZombiesAddon {
 		MinecraftForge.EVENT_BUS.register(new WaveDelaysListener());
 		MinecraftForge.EVENT_BUS.register(new PowerupPatternsListener());
 		MinecraftForge.EVENT_BUS.register(new KoreanPatchListener());
-		MinecraftForge.EVENT_BUS.register(new SSTPatchListener());
+		MinecraftForge.EVENT_BUS.register(new SSTPatchListener(Minecraft.getMinecraft()));
 		MinecraftForge.EVENT_BUS.register(new LastWeaponsListener());
 		MinecraftForge.EVENT_BUS.register(new TextMacroListener());
 	}

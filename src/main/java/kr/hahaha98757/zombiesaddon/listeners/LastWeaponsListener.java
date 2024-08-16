@@ -4,15 +4,17 @@ import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class LastWeaponsListener {
-    public static String[] weapons = new String[] {"air", "air", "air", "air", "air", "air", "air", "air", "air"};
+    public static ItemStack[] weapons = new ItemStack[9];
 
-    public static String[] armors = new String[] {"air", "air", "air", "air"};
+    public static ItemStack[] armors = new ItemStack[4];
 
     public static boolean gameOver;
 
@@ -29,25 +31,25 @@ public class LastWeaponsListener {
 
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
 
-        if (gameOver) {
-            FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
-            StringBuilder armorStrBuilder = new StringBuilder();
-            armorStrBuilder.append("\u00A7eLast Armors: \u00A7r\u00A7f");
-            for (int i = 0; i < 4; i++) {
-                armorStrBuilder.append(armors[i]);
-                if (i != 3) armorStrBuilder.append("\u00A7e/\u00A7r\u00A7f");
-            }
-            String armorStr = armorStrBuilder.toString();
-            fr.drawStringWithShadow(armorStr, Utils.getX() / 2 - (float) fr.getStringWidth(armorStr) / 2, Utils.getY() / 1.6F, 0);
+        ItemStack test = new ItemStack(Items.wooden_hoe);
 
-            StringBuilder weaponStrBuilder = new StringBuilder();
-            weaponStrBuilder.append("\u00A7eLast Weapons: \u00A7r\u00A7f");
+        if (gameOver) {
+            RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+            FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
+            int x = (int) (Utils.getX() / 2 - 88);
+            int y = (int) (Utils.getY() - 19);
+
             for (int i = 0; i < 9; i++) {
-                weaponStrBuilder.append(weapons[i]);
-                if (i != 8) weaponStrBuilder.append("\u00A7e/\u00A7r\u00A7f");
+                renderItem.renderItemAndEffectIntoGUI(weapons[i], x + 20*i, y);
+                renderItem.renderItemOverlayIntoGUI(fr, weapons[i], x + 20*i, y, null);
             }
-            String weaponStr = weaponStrBuilder.toString();
-            fr.drawStringWithShadow(weaponStr, Utils.getX() / 2 - (float) fr.getStringWidth(weaponStr) / 2, Utils.getY() / 1.6F + fr.FONT_HEIGHT, 0);
+
+            x = (int) (Utils.getX() / 2 + 12);
+            y = (int) (Utils.getY() - 60);
+            for (int i = 0; i < 4; i++) {
+                renderItem.renderItemAndEffectIntoGUI(armors[3-i], x + 20*i, y);
+                renderItem.renderItemOverlayIntoGUI(fr, armors[3-i], x + 20*i, y, null);
+            }
         }
 
         EntityPlayer player = Minecraft.getMinecraft().thePlayer;
@@ -55,21 +57,9 @@ public class LastWeaponsListener {
         if (player.inventory.getStackInSlot(1) == null) return;
 
         for (int i = 0; i < 9; i++) {
-            ItemStack itemStack = player.inventory.getStackInSlot(i);
-            try {
-                weapons[i] = itemStack.getDisplayName();
-            } catch (Exception e) {
-                weapons[i] = "air";
-            }
+            weapons[i] = player.inventory.getStackInSlot(i);
         }
 
-        for (int i = 0; i < 4; i++) {
-            ItemStack armorItem = player.inventory.armorInventory[i];
-            try {
-                armors[i] = armorItem.getDisplayName();
-            } catch (Exception e) {
-                armors[i] = "air";
-            }
-        }
+        System.arraycopy(player.inventory.armorInventory, 0, armors, 0, 4);
     }
 }

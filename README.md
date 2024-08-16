@@ -59,6 +59,9 @@ Show power-up patterns.
 Use /powerupAlarm <insta|max|ss> [number|on|off] command to reset or set the pattern.
 It works only when language of Hypixel is English or Korean.
 
+### Last Weapons
+Show your weapons at Game Over.
+
 ### Text Macro
 Send the text on chat when press hotkey of Text Macro.
 You can set the text in config.
@@ -74,6 +77,10 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 ****
 
 ## Update Log
+
+### 4.1.0-pre5
+- Fixed Last Weapons.
+- Fixed bugs.
 
 ### 4.1.0-pre4
 - Fixed a bug.
