@@ -16,7 +16,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
 public class Utils {
-    public static final String LINE = "\u00A7e-----------------------------------------------------";
+    public static final String LINE = "§e-----------------------------------------------------";
     private static final Minecraft mc = Minecraft.getMinecraft();
     private static final FontRenderer fr = mc.fontRendererObj;
 
@@ -123,14 +123,14 @@ public class Utils {
                 str = EnumChatFormatting.getTextWithoutFormattingCodes(str);
 
                 try {
-                    str = str.split(":")[1].replaceAll("[^A-Za-z0-9\uAC00-\uD7A3]", "");
+                    str = str.split(":")[1].replaceAll("[^A-Za-z0-9가-힣]", "");
                 } catch (Exception e) {
                     continue;
                 }
 
-                if (str.equalsIgnoreCase("revive") || str.equalsIgnoreCase("\uBD80\uD65C")) rdq[0]++;
-                else if (str.equalsIgnoreCase("dead") || str.equalsIgnoreCase("\uC0AC\uB9DD")) rdq[1]++;
-                else if (str.equalsIgnoreCase("quit") || str.equalsIgnoreCase("\uB5A0\uB0A8")) rdq[2]++;
+                if (str.equalsIgnoreCase("revive") || str.equalsIgnoreCase("부활")) rdq[0]++;
+                else if (str.equalsIgnoreCase("dead") || str.equalsIgnoreCase("사망")) rdq[1]++;
+                else if (str.equalsIgnoreCase("quit") || str.equalsIgnoreCase("떠남")) rdq[2]++;
             }
         }
         return rdq;
@@ -160,7 +160,7 @@ public class Utils {
      * 3: Alien Arcadium
      * 4: Prison
      *
-     * @return Returns 0 if can't check the map.
+     * @return Returns 0 if it can't check the map.
      */
     public static byte getMap() {
         if (mc.theWorld == null) return 0;
@@ -185,7 +185,7 @@ public class Utils {
     /**
      * Get the area.
      *
-     * @return The name of the area. Returns empty if can't check the area.
+     * @return The name of the area. Returns empty if it can't check the area.
      */
     public static String getArea() {
         if (mc.thePlayer == null) return "";
@@ -215,7 +215,7 @@ public class Utils {
     /**
      * Get the round.
      *
-     * @return Returns 0 if can't check the round.
+     * @return Returns 0 if it can't check the round.
      */
     public static byte getRound() {
         if (mc.thePlayer == null) return 0;
@@ -251,7 +251,7 @@ public class Utils {
      *
      * @param map The code of the map.
      * @param round The round.
-     * @return If can't check the difficult, returns 1.
+     * @return If it can't check the difficult, returns 1.
      */
     public static byte getDifficult(byte map, byte round) {// Normal: 1, Hard: 2, RIP: 3
         if (mc.thePlayer == null) return 1;
@@ -266,7 +266,7 @@ public class Utils {
         for (Score score : scoreboard.getSortedScores(scoreObjective)) {
             String str = ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName());
             if (score.getScorePoints() == 12) {
-                str = str.replaceAll("\u00A7.", "");
+                str = str.replaceAll("§.", "");
                 try {
                     str = str.replaceAll("[^0-9]", "");
                 } catch (Exception var13) {
@@ -306,7 +306,7 @@ public class Utils {
      * 0: English
      * 1: Korean
      *
-     * @return If can't check the language, returns 0.
+     * @return If it can't check the language, returns 0.
      */
     public static byte getLang() {
         if (mc.thePlayer == null) return 0;
@@ -324,7 +324,7 @@ public class Utils {
                 str = EnumChatFormatting.getTextWithoutFormattingCodes(str);
 
                 if (str.contains("Round")) return 0;
-                else if (str.contains("\uB77C\uC6B4\uB4DC")) return 1;
+                else if (str.contains("라운드")) return 1;
             }
         }
         return 0;

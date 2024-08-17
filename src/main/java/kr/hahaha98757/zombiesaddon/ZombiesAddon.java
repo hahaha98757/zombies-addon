@@ -27,7 +27,7 @@ import java.util.List;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.1.0-pre5";
+	public static final String VERSION = "4.1.0-pre6";
 	public static final String CONFIG_VERSION = "15";
 
 	public static boolean isConfigReset;
@@ -93,7 +93,6 @@ public class ZombiesAddon {
 		ClientCommandHandler.instance.registerCommand(new CommandPowerupPatterns());
 
 		MinecraftForge.EVENT_BUS.register(new UpdateChecker());
-		MinecraftForge.EVENT_BUS.register(new TitleListener());
 		MinecraftForge.EVENT_BUS.register(new EventListener());
 		MinecraftForge.EVENT_BUS.register(new CorneringListener());
 		MinecraftForge.EVENT_BUS.register(new BlockAlarmListener());

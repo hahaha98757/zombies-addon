@@ -14,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class UpdateChecker {
-	private static final String urlText = "\u00A79\u00A7nClick here to download.";
+	private static final String urlText = "§9§nClick here to download.";
 	private static final String url = "https://github.com/hahaha98757/zombies-addon1.12.2/releases";
 	private static final String showURLText = "Open download URL.";
 
@@ -106,23 +106,23 @@ public class UpdateChecker {
 	private void displayText(int i, String latestVer) {
 		if (i == 0) return;
 		if (i == 1)
-			Utils.addChatLine("You are using pre-release.\n\u00A7cPre-release is not perfect. There may be bugs.");
+			Utils.addChatLine("You are using pre-release.\n§cPre-release is not perfect. There may be bugs.");
 		if (i == 2)
-			Utils.addChatWithURL(Utils.LINE + "\nA new release is available. ", urlText, url, showURLText, "\n\u00A7rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n" + Utils.LINE);
+			Utils.addChatWithURL(Utils.LINE + "\nA new release is available. ", urlText, url, showURLText, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n" + Utils.LINE);
 		if (i == 3) {
 			if (!ZombiesAddonConfig.checkPreRelease) return;
-			Utils.addChatWithURL(Utils.LINE + "\nA new pre-release is available. ", urlText, url, showURLText, "\n\u00A7rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n\u00A7cPre-release is not perfect. There may be bugs.\n\u00A7rNote: You can set hide this message in config.\n" + Utils.LINE);
+			Utils.addChatWithURL(Utils.LINE + "\nA new pre-release is available. ", urlText, url, showURLText, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n§cPre-release is not perfect. There may be bugs.\n§rNote: You can set hide this message in config.\n" + Utils.LINE);
 		}
 		if (i == 4) {
-			Utils.addChatWithURL(Utils.LINE + "\nA new release is available.\nYou are using pre-release.\nPlease update. ", urlText, url, showURLText, "\n\u00A7rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n" + Utils.LINE);
+			Utils.addChatWithURL(Utils.LINE + "\nA new release is available.\nYou are using pre-release.\nPlease update. ", urlText, url, showURLText, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n" + Utils.LINE);
 			MinecraftForge.EVENT_BUS.register(this);
 		}
 		if (i == 5) {
-			Utils.addChatWithURL(Utils.LINE + "\nA new pre-release is available. ", urlText, url, showURLText, "\n\u00A7rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n\u00A7cPre-release is not perfect. There may be bugs.\n\u00A7rNote: You can set hide this message in config.\n" + Utils.LINE);
+			Utils.addChatWithURL(Utils.LINE + "\nA new pre-release is available. ", urlText, url, showURLText, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n§cPre-release is not perfect. There may be bugs.\n§rNote: You can set hide this message in config.\n" + Utils.LINE);
 			MinecraftForge.EVENT_BUS.register(this);
 		}
 		if (i == 6) {
-			Utils.addChatWithURL(Utils.LINE + "\n\u00A7cRequired updates released. " , urlText, url, showURLText, "\n\u00A7r\u00A7cUPDATE NOW.\n\u00A7c\u00A7lThe game ends after 10 seconds.\n" + Utils.LINE);
+			Utils.addChatWithURL(Utils.LINE + "\n§cRequired updates released. " , urlText, url, showURLText, "\n§r§cUPDATE NOW.\n§c§lThe game ends after 10 seconds.\n" + Utils.LINE);
 			ClientCrash.setUpdate();
 			MinecraftForge.EVENT_BUS.register(new ClientCrash());
 		}

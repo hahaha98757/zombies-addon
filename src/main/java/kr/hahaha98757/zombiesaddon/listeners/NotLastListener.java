@@ -33,7 +33,7 @@ public class NotLastListener {
 
 		if (!ZombiesAddonConfig.toggleNotLast) return;
 
-		if (!(str.startsWith("Round ") && !str.equals("Round 1")) && !(str.matches(".*\\d+\uB77C\uC6B4\uB4DC") && !str.equals("1\uB77C\uC6B4\uB4DC")))
+		if (!(str.startsWith("Round ") && !str.equals("Round 1")) && !(str.matches(".*\\d+라운드") && !str.equals("1라운드")))
 			return;
 
 		if (Utils.getRevDeadQuit()[2] == 3) return;
@@ -67,7 +67,7 @@ public class NotLastListener {
 
 		if (tick >= 100) {
 			work = false;
-			Utils.addChat("\u00A7eNot Last: \u00A7cFailed to find the last.");
+			Utils.addChat("§eNot Last: §cFailed to find the last.");
 			tick = 0;
 		}
 
@@ -94,6 +94,6 @@ public class NotLastListener {
 		}
 
 		last.append(" was last");
-		Utils.addChat("\u00A7eNot Last: " + last);
+		Utils.addChat("§eNot Last: " + last);
 	}
 }

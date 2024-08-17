@@ -25,7 +25,7 @@ public class CommandSLA extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "\u00A7cUsage: /SLA <de|bb|aa|pr|off>";
+		return "§cUsage: /SLA <de|bb|aa|pr|off>";
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class CommandSLA extends CommandBase {
 			return;
 		}
 
-		Utils.addChat("\u00A7eSLA: Set SLA to " + (args[0].equals("off") ? "\u00A7c" : "\u00A7a") + args[0]);
+		Utils.addChat("§eSLA: Set SLA to " + (args[0].equals("off") ? "§c" : "§a") + args[0]);
 		SLAListener.setSLA(args[0]);
 	}
 

@@ -6,6 +6,7 @@ import kr.hahaha98757.zombiesaddon.ClientCrash;
 import kr.hahaha98757.zombiesaddon.Keybinds;
 import kr.hahaha98757.zombiesaddon.ZombiesAddon;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
+import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.events.TitleEvent;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -14,7 +15,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.client.event.sound.SoundEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -53,7 +53,7 @@ public class EventListener {
 	}
 
 	private void addToggleChat(boolean var, String name) {
-		Utils.addChat("\u00A7eToggled " + name + " to " + (var ? "\u00A7aon" : "\u00A7coff"));
+		Utils.addChat("§eToggled " + name + " to " + (var ? "§aon" : "§coff"));
 	}
 
 	@SubscribeEvent
@@ -81,14 +81,14 @@ public class EventListener {
 		String str = "Zombies Addon v" + ZombiesAddon.VERSION;
 		fr.drawStringWithShadow(str, Utils.getX(str), 1, 0xffff55);
 
-		str = "Cornering: " + (cornering ? "\u00A7aon" : "\u00A7coff");
+		str = "Cornering: " + (cornering ? "§aon" : "§coff");
 		fr.drawStringWithShadow(str, Utils.getX(str), 1 + y, 0xffff55);
 
-		str = "Block Alarm: " + (blockAlarm ? "\u00A7aon" : "\u00A7coff");
+		str = "Block Alarm: " + (blockAlarm ? "§aon" : "§coff");
 		fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*2, 0xffff55);
 
 		if (ZombiesAddonConfig.hideAutoRejoin) return;
-		str = "Auto Rejoin: " + (autoRejoin ? "\u00A7aon" : "\u00A7coff");
+		str = "Auto Rejoin: " + (autoRejoin ? "§aon" : "§coff");
 		fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*3, 0xffff55);
 	}
 
@@ -101,7 +101,7 @@ public class EventListener {
 	public void onTitle(TitleEvent event) {
 		String str = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
 
-		if (str.equals("Round 1") || str.equals("1\uB77C\uC6B4\uB4DC")) {
+		if (str.equals("Round 1") || str.equals("1라운드")) {
 			PowerupPatternsListener.spawnedEntities.clear();
 			PowerupPatternsListener.instaPattern = 0;
 			PowerupPatternsListener.maxPattern = 0;
@@ -110,15 +110,15 @@ public class EventListener {
 	}
 
 	@SubscribeEvent
-	public void onSound(SoundEvent.SoundSourceEvent event) {
-		if (event.name.equals("mob.wither.spawn")) {
+	public void onSound(SoundEvent event) {
+		if (event.getSoundEffect().getSoundName().equals("mob.wither.spawn")) {
 			WaveDelaysListener.stop = false;
 			WaveDelaysListener.escape = false;
 			PowerupPatternsListener.stop = false;
 			LastWeaponsListener.gameOver = false;
 		}
 
-		if (!event.name.equals("mob.enderdragon.end")) return;
+		if (!event.getSoundEffect().getSoundName().equals("mob.enderdragon.end")) return;
 
 		WaveDelaysListener.stop = true;
 		PowerupPatternsListener.stop = true;
@@ -135,27 +135,27 @@ public class EventListener {
 
 		if (message.contains(">")) return;
 
-		if (message.startsWith("\uC628\uB77C\uC778: ")) {// who
+		if (message.startsWith("온라인: ")) {// who
 			String playerList = message.split(":")[1].trim();
 
 			Utils.addChat("ONLINE: " + playerList);
 
 		}
 
-		if (message.contains("\uB2D8\uC774 \uCC38\uC5EC\uD588\uC2B5\uB2C8\uB2E4!")) {// join
+		if (message.contains("님이 참여했습니다!")) {// join
 			String playerName = message.split(" ")[0];
 			String number = message.split(" ")[3].split("/")[0].replaceAll("[^0-9]", "");
 
 			Utils.addChat(playerName + " has joined (" + number + "/4)!");
 		}
 
-		if (message.contains("\uB2D8\uC774 \uB098\uAC14\uC2B5\uB2C8\uB2E4!")) {// quit
+		if (message.contains("님이 나갔습니다!")) {// quit
 			String playerName = message.split(" ")[0];
 
 			Utils.addChat(playerName + " has quit!");
 		}
 
-		if (message.contains("\uC11C\uBC84\uB85C \uC774\uB3D9\uD569\uB2C8\uB2E4!")) {// join the zombies
+		if (message.contains("서버로 이동합니다!")) {// join the zombies
 			String text = message.split(" ")[0];
 
 			Utils.addChat("Sending you to " + text + "!");
@@ -176,7 +176,7 @@ public class EventListener {
 		}
 
 		if (ZombiesAddon.detectUnlegit) {
-			Utils.addChatLine("\u00A7cYou are using ZombiesSatellite, Zombies Explorer, or TeammatesOutline.\n\u00A7cThey are unlegit mods. Please remove them.\n\u00A7c\u00A7lThe game ends after 10 seconds.");
+			Utils.addChatLine("§cYou are using ZombiesSatellite, Zombies Explorer, or TeammatesOutline.\n§cThey are unlegit mods. Please remove them.\n§c§lThe game ends after 10 seconds.");
 			ClientCrash.setUnlegit();
 			MinecraftForge.EVENT_BUS.register(new ClientCrash());
 		}

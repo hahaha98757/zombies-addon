@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class WaveDelaysListener {
 	private static String[] waveColors = { "8", "8", "8", "8", "8", "8", "8", "8" };
-	private static final String WAVE = "\u00A75\u27A4 ";
+	private static final String WAVE = "§5➤ ";
 	private static boolean[] waves = { false, false, false, false, false, false, false, false };
 	private static boolean[] playSounds = { false, false, false, false, false, false, false, false };
 	private static boolean[] playCounts = { false, false, false };
@@ -332,27 +332,27 @@ public class WaveDelaysListener {
 						bossWaves[i] = "";
 						break;
 					case 1:
-						bossWaves[i] = "\u00A76";
+						bossWaves[i] = "§6";
 						break;
 					case 2:
 					case 4:
-						bossWaves[i] = "\u00A7c";
+						bossWaves[i] = "§c";
 						break;
 					case 3:
-						bossWaves[i] = "\u00A75";
+						bossWaves[i] = "§5";
 						break;
 					case 5:
-						bossWaves[i] = "\u00A7a";
+						bossWaves[i] = "§a";
 						break;
 					case 6:
 					case 8:
-						bossWaves[i] = "\u00A73";
+						bossWaves[i] = "§3";
 						break;
 					case 7:
-						bossWaves[i] = "\u00A74";
+						bossWaves[i] = "§4";
 						break;
 					case 9:
-						bossWaves[i] = "\u00A70";
+						bossWaves[i] = "§0";
 						break;
 				}
 
@@ -361,10 +361,10 @@ public class WaveDelaysListener {
 
 				if (ZombiesAddonConfig.textStyle.equals("Zombies Addon")) {
 					fr.drawStringWithShadow((waves[i] ? WAVE : ""), Utils.getX(WAVE + "W1 0:10.0"), y - fr.FONT_HEIGHT * (strArray[round].length - 1) + fr.FONT_HEIGHT * i, 0);
-					str = "\u00A7" + waveColors[i] + "W" + (i + 1) + " " + bossWaves[i] + min + ":" + (bossWave[round][i] == 4 ? "\u00A7b" : (bossWave[round][i] == 8 ? "\u00A74" : "")) + (sec.matches(pattern1IntDot1Int) ? "0" : "") + sec;
+					str = "§" + waveColors[i] + "W" + (i + 1) + " " + bossWaves[i] + min + ":" + (bossWave[round][i] == 4 ? "§b" : (bossWave[round][i] == 8 ? "§4" : "")) + (sec.matches(pattern1IntDot1Int) ? "0" : "") + sec;
 				} else {
 					fr.drawStringWithShadow((waves[i] ? WAVE : ""), Utils.getX(WAVE + "W1 00:10"), y - fr.FONT_HEIGHT * (strArray[round].length - 1) + fr.FONT_HEIGHT * i, 0);
-					str = "\u00A7" + waveColors[i] + "W" + (i + 1) + " " + bossWaves[i] + "0" + min + ":" + (bossWave[round][i] == 4 ? "\u00A7b" : (bossWave[round][i] == 8 ? "\u00A74" : "")) + (sec.matches(pattern1IntDot1Int) ? "0" : "") + sec.split("\\.")[0];
+					str = "§" + waveColors[i] + "W" + (i + 1) + " " + bossWaves[i] + "0" + min + ":" + (bossWave[round][i] == 4 ? "§b" : (bossWave[round][i] == 8 ? "§4" : "")) + (sec.matches(pattern1IntDot1Int) ? "0" : "") + sec.split("\\.")[0];
 				}
 				fr.drawStringWithShadow(str, Utils.getX(str), y - fr.FONT_HEIGHT * (strArray[round].length - 1) + fr.FONT_HEIGHT * i, 0);
 			}

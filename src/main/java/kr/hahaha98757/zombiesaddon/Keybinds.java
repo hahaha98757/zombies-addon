@@ -29,7 +29,7 @@ public class Keybinds {
 
 		toggleRLMode = new KeyBinding("Toggle RL Mode", Keyboard.KEY_L, KEY_CATEGORY);
 
-		textMacro = new KeyBinding("Text Macro", Keyboard.KEY_T, KEY_CATEGORY);
+		textMacro = new KeyBinding("Text Macro", Keyboard.KEY_Q, KEY_CATEGORY);
 
 		ClientRegistry.registerKeyBinding(toggleCornering);
 		ClientRegistry.registerKeyBinding(toggleBlockAlarm);

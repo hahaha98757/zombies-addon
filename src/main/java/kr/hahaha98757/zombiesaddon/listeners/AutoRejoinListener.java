@@ -22,9 +22,9 @@ public class AutoRejoinListener {
 
         String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
 
-        if (!(title.startsWith("Round ") || title.matches(".*\\d+\uB77C\uC6B4\uB4DC"))) return;
+        if (!(title.startsWith("Round ") || title.matches(".*\\d+라운드"))) return;
 
-        Utils.addChat("\u00A7eAuto Rejoin: Rejoining...");
+        Utils.addChat("§eAuto Rejoin: Rejoining...");
         Minecraft.getMinecraft().thePlayer.sendChatMessage("/l");
         tick = 0;
         rejoin = true;

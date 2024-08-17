@@ -78,6 +78,10 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 
 ## Update Log
 
+### 4.1.0-pre6
+- Fixed bugs.
+- Fixed Powerup Patterns.
+
 ### 4.1.0-pre5
 - Fixed Last Weapons.
 - Fixed bugs.

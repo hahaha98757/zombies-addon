@@ -24,7 +24,7 @@ public class CommandPowerupPatterns extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "\u00A7cUsage: /powerupPatterns <insta|max|ss> [number|on|off]";
+		return "§cUsage: /powerupPatterns <insta|max|ss> [number|on|off]";
 	}
 
 	@Override
@@ -43,76 +43,76 @@ public class CommandPowerupPatterns extends CommandBase {
 		switch (args[0]) {
 			case "insta":
 				if (args.length == 1) {
-					Utils.addChat("\u00A7ePowerup Patterns: Reset insta pattern");
+					Utils.addChat("§ePowerup Patterns: Reset insta pattern");
 					PowerupPatternsListener.instaPattern = 0;
 				} else {
 					switch (args[1]) {
 						case "2":
 						case "3":
-							Utils.addChat(String.format("\u00A7ePowerup Patterns: Set insta pattern to \u00A7a%s", args[1]));
+							Utils.addChat(String.format("§ePowerup Patterns: Set insta pattern to §a%s", args[1]));
 							PowerupPatternsListener.instaPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":
-							Utils.addChat("\u00A7ePowerup Patterns: Set insta pattern to \u00A7aon");
+							Utils.addChat("§ePowerup Patterns: Set insta pattern to §aon");
 							PowerupPatternsListener.useInstaPattern = true;
 							break;
 						case "off":
-							Utils.addChat("\u00A7ePowerup Patterns: Set insta pattern to \u00A7coff");
+							Utils.addChat("§ePowerup Patterns: Set insta pattern to §coff");
 							PowerupPatternsListener.useInstaPattern = false;
 							break;
 						default:
-							Utils.addChat("\u00A7cUsage: /powerupPatterns insta [2|3|on|off]");
+							Utils.addChat("§cUsage: /powerupPatterns insta [2|3|on|off]");
 							break;
 					}
 				}
 				break;
 			case "max":
 				if (args.length == 1) {
-					Utils.addChat("\u00A7ePowerup Patterns: Reset max pattern");
+					Utils.addChat("§ePowerup Patterns: Reset max pattern");
 					PowerupPatternsListener.maxPattern = 0;
 				} else {
 					switch (args[1]) {
 						case "2":
 						case "3":
-							Utils.addChat(String.format("\u00A7ePowerup Patterns: Set max pattern to \u00A7a%s", args[1]));
+							Utils.addChat(String.format("§ePowerup Patterns: Set max pattern to §a%s", args[1]));
 							PowerupPatternsListener.maxPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":
-							Utils.addChat("\u00A7ePowerup Patterns: Set max pattern to \u00A7aon");
+							Utils.addChat("§ePowerup Patterns: Set max pattern to §aon");
 							PowerupPatternsListener.useMaxPattern = true;
 							break;
 						case "off":
-							Utils.addChat("\u00A7ePowerup Patterns: Set max pattern to \u00A7coff");
+							Utils.addChat("§ePowerup Patterns: Set max pattern to §coff");
 							PowerupPatternsListener.useMaxPattern = false;
 							break;
 						default:
-							Utils.addChat("\u00A7cUsage: /powerupPatterns max [2|3|on|off]");
+							Utils.addChat("§cUsage: /powerupPatterns max [2|3|on|off]");
 							break;
 					}
 				}
 				break;
 			case "ss":
 				if (args.length == 1) {
-					Utils.addChat("\u00A7ePowerup Patterns: Reset ss pattern");
+					Utils.addChat("§ePowerup Patterns: Reset ss pattern");
 					PowerupPatternsListener.ssPattern = 0;
 				} else {
 					switch (args[1]) {
 						case "5":
 						case "6":
 						case "7":
-							Utils.addChat(String.format("\u00A7ePowerup Patterns: Set ss pattern to \u00A7a%s", args[1]));
+							Utils.addChat(String.format("§ePowerup Patterns: Set ss pattern to §a%s", args[1]));
 							PowerupPatternsListener.ssPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":
-							Utils.addChat("\u00A7ePowerup Patterns: Set ss pattern to \u00A7aon");
+							Utils.addChat("§ePowerup Patterns: Set ss pattern to §aon");
 							PowerupPatternsListener.useSSPattern = true;
 							break;
 						case "off":
-							Utils.addChat("\u00A7ePowerup Patterns: Set ss pattern to \u00A7coff");
+							Utils.addChat("§ePowerup Patterns: Set ss pattern to §coff");
 							PowerupPatternsListener.useSSPattern = false;
 							break;
 						default:
-							Utils.addChat("\u00A7cUsage: /powerupPatterns ss [5|6|7|on|off]");
+							Utils.addChat("§cUsage: /powerupPatterns ss [5|6|7|on|off]");
 							break;
 					}
 				}

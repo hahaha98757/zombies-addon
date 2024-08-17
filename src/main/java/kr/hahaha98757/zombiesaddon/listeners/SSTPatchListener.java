@@ -19,19 +19,18 @@ public class SSTPatchListener extends GuiNewChat {
     public void printChatMessage(IChatComponent chatComponent) {
         String message = chatComponent.getUnformattedText();
 
-        if (!isWork(message)) return;
+        if (isWork(message)) {
+            if (message.contains(" seconds to clean up after the last wave.")) {
+                String time = message.replaceAll("[^0-9.]", "");
+                Utils.addChat("§e마지막 웨이브 이후 넘어가는데 §c" + time.substring(0, time.length() - 1) +"§e초가 걸렸습니다.");
+                return;
+            }
 
-        if (message.contains(" seconds to clean up after the last wave.")) {
-            String time = message.replaceAll("[^0-9.]", "");
-            Utils.addChat("\u00A7e마지막 웨이브 이후 넘어가는데 \u00A7c" + time.substring(0, time.length() - 1) +"\u00A7e초가 걸렸습니다.");
-            return;
+            if (message.contains("You completed Round ")) {
+                Utils.addChat("                  §c라운드 " + message.split("in")[0].replaceAll("[^0-9]", "") + "§e을(를) §a" + message.split("in")[1].replaceAll("[^0-9:]", "") +"§e에 완료했습니다!");
+                return;
+            }
         }
-
-        if (message.contains("You completed Round ")) {
-            Utils.addChat("                  \u00A7c라운드 " + message.split("in")[0].replaceAll("[^0-9]", "") + "\u00A7e을(를) \u00A7a" + message.split("in")[1].replaceAll("[^0-9:]", "") +"\u00A7e에 완료했습니다!");
-            return;
-        }
-
 
         super.printChatMessage(chatComponent);
     }

@@ -3,11 +3,11 @@
 package kr.hahaha98757.zombiesaddon.listeners.autosplits;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
+import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.event.sound.SoundEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class AutoSplitsListener {
@@ -36,10 +36,10 @@ public class AutoSplitsListener {
     }
 
     @SubscribeEvent
-    public void onSound(SoundEvent.SoundSourceEvent event) {
+    public void onSound(SoundEvent event) {
         if (!ZombiesAddonConfig.enableMod) return;
 
-        String sound = event.name;
+        String sound = event.getSoundEffect().getSoundName();
 
         if (sound.equals("mob.wither.spawn") || sound.equals("mob.enderdragon.end")) AAr10 = false;
 

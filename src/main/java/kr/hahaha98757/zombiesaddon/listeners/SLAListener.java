@@ -36,7 +36,7 @@ public class SLAListener {
             case "off":
                 rooms = null;
                 break;
-            default: Utils.addChat("\u00A7eSLA: \u00A7cWrong map.");
+            default: Utils.addChat("§eSLA: §cWrong map.");
         }
     }
 
@@ -108,7 +108,7 @@ public class SLAListener {
 
         String str = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
 
-        if (!(str.equals("Round 1") || str.equals("1\uB77C\uC6B4\uB4DC"))) return;
+        if (!(str.equals("Round 1") || str.equals("1라운드"))) return;
 
         String map;
 
@@ -126,11 +126,11 @@ public class SLAListener {
                 map = "pr";
                 break;
             default:
-                Utils.addChat("\u00A7eAuto SLA: \u00A7cWrong map.");
+                Utils.addChat("§eAuto SLA: §cWrong map.");
                 return;
         }
 
-        Utils.addChat("\u00A7eAuto SLA: Set SLA to \u00A7a" + map);
+        Utils.addChat("§eAuto SLA: Set SLA to §a" + map);
         SLAListener.setSLA(map);
     }
 }

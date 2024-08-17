@@ -269,12 +269,12 @@ public class Room {
 	}
 
 	public String getSlaString() {
-		StringBuilder slaString = new StringBuilder(String.format("\u00A76%s\u00A7r\u00A7d %x\u00A7e:", getName(), activeWindowCount));
+		StringBuilder slaString = new StringBuilder(String.format("§6%s§r§d %x§e:", getName(), activeWindowCount));
 		for (Window window : windows)
 			if (window.isActive())
-				slaString.append("\u00A72 ").append(alias).append(window.getID());
+				slaString.append("§2 ").append(alias).append(window.getID());
 			else if (ZombiesAddonConfig.showInactiveWindows)
-				slaString.append("\u00A7c ").append(alias).append(window.getID());
+				slaString.append("§c ").append(alias).append(window.getID());
 		return slaString.toString();
 	}
 }

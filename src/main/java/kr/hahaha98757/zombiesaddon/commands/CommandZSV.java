@@ -31,7 +31,7 @@ public class CommandZSV extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "\u00A7cUsage: /ZSV <url|off>\n\u00A7cThe url must start with \"https://pastebin.com/raw/\"";
+		return "§cUsage: /ZSV <url|off>\n§cThe url must start with \"https://pastebin.com/raw/\"";
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class CommandZSV extends CommandBase {
 			ZSVListener.START_LINES.clear();
 			ZSVListener.START_LINES.add("");
 			ZSVListener.currentLine = 0;
-			Utils.addChat("\u00A7eZSV: Set ZSV to \u00A7coff");
+			Utils.addChat("§eZSV: Set ZSV to §coff");
 			ZSV = false;
 			return;
 		}
@@ -75,9 +75,9 @@ public class CommandZSV extends CommandBase {
 			ZSVListener.recalcActualLines();
 			br.close();
 			huc.getInputStream().close();
-			Utils.addChat("\u00A7eZSV: Set ZSV to \u00A7aon");
+			Utils.addChat("§eZSV: Set ZSV to §aon");
 		} catch (IOException e) {
-			Utils.addChat("\u00A7eZSV: \u00A7cWrong URL.");
+			Utils.addChat("§eZSV: §cWrong URL.");
 		}
 	}
 

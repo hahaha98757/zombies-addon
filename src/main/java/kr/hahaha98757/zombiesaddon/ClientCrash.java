@@ -19,22 +19,22 @@ public class ClientCrash {
 
 		switch (delay) {
 			case 100:
-				Utils.addChat("\u00A7cEnds after 5 seconds...");
+				Utils.addChat("§cEnds after 5 seconds...");
 				break;
 			case 120:
-				Utils.addChat("\u00A7cEnds after 4 seconds...");
+				Utils.addChat("§cEnds after 4 seconds...");
 				break;
 			case 140:
-				Utils.addChat("\u00A7c\u00A7lEnds after 3 seconds...");
+				Utils.addChat("§c§lEnds after 3 seconds...");
 				break;
 			case 160:
-				Utils.addChat("\u00A7c\u00A7lEnds after 2 seconds...");
+				Utils.addChat("§c§lEnds after 2 seconds...");
 				break;
 			case 180:
-				Utils.addChat("\u00A7c\u00A7lEnds after 1 second...");
+				Utils.addChat("§c§lEnds after 1 second...");
 				break;
 			case 200:
-				Utils.addChat("\u00A7c\u00A7lThe game ends...");
+				Utils.addChat("§c§lThe game ends...");
 
 				if (update)
 					throw new GameEnd("Update Zombies Addon. URL: https://github.com/hahaha98757/zombies-addon1.12.2/releases");

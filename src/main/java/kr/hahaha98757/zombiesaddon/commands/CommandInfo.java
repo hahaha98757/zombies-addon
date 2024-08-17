@@ -25,7 +25,7 @@ public class CommandInfo extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "\u00A7cUsage: /info [mod name]";
+		return "§cUsage: /info [mod name]";
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class CommandInfo extends CommandBase {
 		if (sender != Minecraft.getMinecraft().thePlayer) return;
 
 		if (args.length == 0) {
-			Utils.addChatWithURL(Utils.LINE + "\nMod name: " + ZombiesAddon.NAME + "\nVersion: " + ZombiesAddon.VERSION + "\nInfo: The mod for Hypixel Zombies.\nURL: ", "\u00A79\u00A7nhttps://github.com/hahaha98757/zombies-addon", "https://github.com/hahaha98757/zombies-addon", "Open URL.", "\n" + Utils.LINE);
+			Utils.addChatWithURL(Utils.LINE + "\nMod name: " + ZombiesAddon.NAME + "\nVersion: " + ZombiesAddon.VERSION + "\nInfo: The mod for Hypixel Zombies.\nURL: ", "§9§nhttps://github.com/hahaha98757/zombies-addon", "https://github.com/hahaha98757/zombies-addon", "Open URL.", "\n" + Utils.LINE);
 			return;
 		}
 

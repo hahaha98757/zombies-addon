@@ -22,7 +22,7 @@ public class CommandZSVLines extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "\u00A7cUsage: /ZSVLines <number>\n\u00A7cThe number must be greater than 0";
+		return "§cUsage: /ZSVLines <number>\n§cThe number must be greater than 0";
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class CommandZSVLines extends CommandBase {
 
 			ZSVListener.linesOfView = toBe;
 			ZSVListener.recalcActualLines();
-			Utils.addChat("\u00A7eZSV: Set Lines of View to \u00A7a" + ZSVListener.linesOfView);
+			Utils.addChat("§eZSV: Set Lines of View to §a" + ZSVListener.linesOfView);
 		} catch (Exception e) {
 			Utils.addChat(getCommandUsage(null));
 		}

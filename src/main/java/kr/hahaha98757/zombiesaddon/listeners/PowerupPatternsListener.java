@@ -1,6 +1,7 @@
 package kr.hahaha98757.zombiesaddon.listeners;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
+import kr.hahaha98757.zombiesaddon.events.TitleEvent;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -27,16 +28,25 @@ public class PowerupPatternsListener {
 	public static byte maxPattern;
 	public static byte ssPattern;
 
+	private static byte showingInstaPattern;
+	private static byte showingMaxPattern;
+	private static byte showingSSPattern;
+
+
 	public static boolean useInstaPattern = true;
 	public static boolean useMaxPattern = true;
 	public static boolean useSSPattern = true;
+
+	private static boolean showInsta = false;
+	private static boolean showMax = false;
+	private static boolean showSS = false;
 
 	public static boolean stop;
 
 	public static Set<EntityLivingBase> spawnedEntities = new HashSet<>();
 
 	@SubscribeEvent
-	public void onPowerupText(RenderGameOverlayEvent.Post event) {// insta:1 max:2, dg:3, carpenter:4, ss:5, bg:6
+	public void drawPowerupText(RenderGameOverlayEvent.Post event) {// insta:1 max:2, dg:3, carpenter:4, ss:5, bg:6
 		if (!ZombiesAddonConfig.enableMod) return;
 
 		if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
@@ -50,10 +60,10 @@ public class PowerupPatternsListener {
 		FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
 		byte round = Utils.getRound();
 
-		if (instaPattern != 0 && useInstaPattern) {
+		if (showingInstaPattern != 0 && useInstaPattern) {
 			byte patternRound = 0;
 
-			if (instaPattern == 2) {
+			if (showingInstaPattern == 2) {
 				for (int i : INSTA_PATTERN1)
 					if (round <= i) {
 						if (Utils.getMap() == 1 && i == 5) {
@@ -68,11 +78,11 @@ public class PowerupPatternsListener {
 						break;
 					}
 
-				if (patternRound != 0) {
-					String str = "\u00A7cInsta Kill: " + "\u00A7fRound " + patternRound;
+				if (patternRound != 0 && showInsta) {
+					String str = "§cInsta Kill: " + "§fRound " + patternRound;
 					fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 60, 0);
 				}
-			} else if (instaPattern == 3) {
+			} else if (showingInstaPattern == 3) {
 				for (int i : INSTA_PATTERN2)
 					if (round <= i) {
 						if (Utils.getMap() != 3 && i == 15) {
@@ -87,17 +97,17 @@ public class PowerupPatternsListener {
 						break;
 					}
 
-				if (patternRound != 0) {
-					String str = "\u00A7cInsta Kill: " + "\u00A7fRound " + patternRound;
+				if (patternRound != 0 && showInsta) {
+					String str = "§cInsta Kill: " + "§fRound " + patternRound;
 					fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 60, 0);
 				}
 			}
 		}
 
-		if (maxPattern != 0 && useMaxPattern) {
+		if (showingMaxPattern != 0 && useMaxPattern) {
 			byte patternRound = 0;
 
-			if (maxPattern == 2) {
+			if (showingMaxPattern == 2) {
 				for (int i : MAX_PATTERN1)
 					if (round <= i) {
 						if (Utils.getMap() == 1 && i == 5) {
@@ -112,11 +122,11 @@ public class PowerupPatternsListener {
 						break;
 					}
 
-				if (patternRound != 0) {
-					String str = "\u00A79Max Ammo: " + "\u00A7fRound " + patternRound;
+				if (patternRound != 0 && showMax) {
+					String str = "§9Max Ammo: " + "§fRound " + patternRound;
 					fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 68, 0);
 				}
-			} else if (maxPattern == 3) {
+			} else if (showingMaxPattern == 3) {
 				for (int i : MAX_PATTERN2)
 					if (round <= i) {
 						if (Utils.getMap() != 3 && i >= 32) {
@@ -127,47 +137,47 @@ public class PowerupPatternsListener {
 						break;
 					}
 
-				if (patternRound != 0) {
-					String str = "\u00A79Max Ammo: " + "\u00A7fRound " + patternRound;
+				if (patternRound != 0 && showMax) {
+					String str = "§9Max Ammo: " + "§fRound " + patternRound;
 					fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 68, 0);
 				}
 			}
 		}
 
-		if (ssPattern != 0 && Utils.getMap() == 3 && useSSPattern) {
+		if (showingSSPattern != 0 && Utils.getMap() == 3 && useSSPattern) {
 			byte patternRound = 0;
 
-			if (ssPattern == 5) {
+			if (showingSSPattern == 5) {
 				for (int i : SS_PATTERN1)
 					if (round <= i) {
 						patternRound = (byte) i;
 						break;
 					}
 
-				if (patternRound != 0) {
-					String str = "\u00A75Shopping Spree: " + "\u00A7fRound " + patternRound;
+				if (patternRound != 0 && showSS) {
+					String str = "§5Shopping Spree: " + "§fRound " + patternRound;
 					fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 76, 0);
 				}
-			} else if (ssPattern == 6) {
+			} else if (showingSSPattern == 6) {
 				for (int i : SS_PATTERN2)
 					if (round <= i) {
 						patternRound = (byte) i;
 						break;
 					}
 
-				if (patternRound != 0) {
-					String str = "\u00A75Shopping Spree: " + "\u00A7fRound " + patternRound;
+				if (patternRound != 0 && showSS) {
+					String str = "§5Shopping Spree: " + "§fRound " + patternRound;
 					fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 92, 0);
 				}
-			} else if (ssPattern == 7) {
+			} else if (showingSSPattern == 7) {
 				for (int i : SS_PATTERN3)
 					if (round <= i) {
 						patternRound = (byte) i;
 						break;
 					}
 
-				if (patternRound != 0) {
-					String str = "\u00A75Shopping Spree: " + "\u00A7fRound " + patternRound;
+				if (patternRound != 0 && showSS) {
+					String str = "§5Shopping Spree: " + "§fRound " + patternRound;
 					fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 92, 0);
 				}
 			}
@@ -186,11 +196,11 @@ public class PowerupPatternsListener {
 
 		if (!(entity instanceof EntityArmorStand)) return;
 
-		String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName()).replaceAll("[^A-Z\uAC00-\uD7A3]", "");
+		String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName());
 
 		if (spawnedEntities.contains(entity)) return;
 
-		if (name.equals("INSTAKILL") || name.equals("\uC989\uC2DC\ucc98\uCE58")) {
+		if (name.equals("INSTA KILL") || name.equals("즉시 처치")) {
 			spawnedEntities.add(entity);
 
 			for (int i : INSTA_PATTERN1)
@@ -205,7 +215,7 @@ public class PowerupPatternsListener {
 				}
 		}
 
-		if (name.equals("MAXAMMO") || name.equals("\uD0C4\uC57D\uCDA9\uC804")) {
+		if (name.equals("MAX AMMO") || name.equals("탄약 충전")) {
 			spawnedEntities.add(entity);
 
 			for (int i : MAX_PATTERN1)
@@ -220,7 +230,7 @@ public class PowerupPatternsListener {
 				}
 		}
 
-		if (name.equals("SHOPPINGSPREE") || name.equals("\uC9C0\uB984\uC2E0\uAC15\uB9BC")) {
+		if (name.equals("SHOPPING SPREE") || name.equals("지름신 강림")) {
 			spawnedEntities.add(entity);
 
 			for (int i : SS_PATTERN1)
@@ -239,5 +249,27 @@ public class PowerupPatternsListener {
 					break;
 				}
 		}
+	}
+
+	@SubscribeEvent
+	public void onTitle(TitleEvent event) {
+		String title = event.getTitle();
+
+		if (title.startsWith("Round ") || title.contains("라운드")) {
+			showInsta = instaPattern != 0;
+			showMax = maxPattern != 0;
+			showSS = ssPattern != 0;
+
+			showingInstaPattern = instaPattern;
+			showingMaxPattern = maxPattern;
+			showingSSPattern = ssPattern;
+		}
+	}
+
+	public static void printInsta(byte pattern) {
+		FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
+
+		String str = "§cInsta Kill: " + "§fRound " + pattern;
+		fr.drawStringWithShadow(str, Utils.getX(str), Utils.getYFont() - 60, 0);
 	}
 }
