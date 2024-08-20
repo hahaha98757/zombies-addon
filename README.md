@@ -5,30 +5,32 @@ The mod for Hypixel Zombies
 
 ## Features
 ### Cornering
-Hides the players nearby.
-You can set range in config.
+Hide nearby players from your view.
+Toggle with the V key.
+You can set the range in the config.
 
 ### Block Alarm
-Show "BLOCK" on display when you survived alone.
-It works only when language of Hypixel is English or Korean.
+Display "BLOCK" on the screen when you survived alone and there is a player you can revive.
+Toggle with the B key.
+It only works when the Hypixel language is set to English or Korean.
 
 ### Not Last
-Shows the player who killed the last.
-It works only when language of Hypixel is English or Korean.
+Display the player who killed the last one.
+It only works when the Hypixel language is set to English or Korean.
 
 ### Auto Splits
-Run timer at start of round.
+Run a timer at start of the round.
 
 ### Wave Delays
-Displays the wave delays.
-You can set options in config.
-It works only when language of Hypixel is English or Korean.
+Display the wave delays.
+You can set the options in the config.
+It only works when the Hypixel language is set to English or Korean.
 
 Displays the wave which the boss spawns.
 | Color | Boss name |
 |----|----|
-| Gold | Bombie |
-| Red | Inferno |
+| Gold | Bombie or Warden |
+| Red | Inferno, Angry Prisoner, or Corrupted Pigman |
 | Dark Purple | The Broodmother, Wither, or Herobrine |
 | Red and Apua | Lily and Ellie |
 | Green | King Slime or Mega Blob |
@@ -38,38 +40,36 @@ Displays the wave which the boss spawns.
 | Black | World Ender |
 
 ### Zombies Strat Viewer
-Displays the text in [https://pastebin.com/](https://pastebin.com/) on the in-game screen.
-Use /ZSV <URL|off> command to load or close text.
-URL: It must start with "https://pastebin.com/raw/".
-off: Close text.
+Display the text in [https://pastebin.com/](https://pastebin.com/) on the screen.
+Use /ZSV <URL|off> command to load or close the text. URL must start with "https://pastebin.com/raw/".
 Use /ZSVLines <number> command to set lines of view.
 
 ### Spawn Limit Action
-Display number and name of windows where zombies can spawn.
-Use /SLA <de|bb|aa|pr|off> to sets the map or off SLA.
-You can set options in config.
+Display the number and names of windows where zombies can spawn.
+Use /SLA <de|bb|aa|pr|off> command to set the map or off SLA.
+You can set the options in the config.
 
 ### Auto Rejoin
-Automatically rejoin Zombies.
-You can set to hide toggle text in config.
-It works only when language of Hypixel is English or Korean.
+Automatically rejoin Zombies when start of the round.
+You can set to hide toggle text in the config.
+It only works when the Hypixel language is set to English or Korean.
 
 ### Powerup Patterns
-Show power-up patterns.
-Use /powerupAlarm <insta|max|ss> [number|on|off] command to reset or set the pattern.
-It works only when language of Hypixel is English or Korean.
+Display the patterns of power-ups.
+Use /pow <insta|max|ss> [number|on|off] command to reset or set the pattern.
+The displayed power-up pattern will be updated in the next round.
+For example, if Insta Kill spawned in round 2, Insta Kill pattern will be displayed on the screen when round 3 starts.
+It only works when the Hypixel language is set to English or Korean.
 
 ### Last Weapons
-Show your weapons at Game Over.
+Display your weapons when You Win.
 
 ### Text Macro
-Send the text on chat when press hotkey of Text Macro.
-You can set the text in config.
-
-### Zombies Overlay in Korean
-[Zombies Overlay](https://github.com/TheExploration/zombies-overlay) works even if language of Hypixel in Korean.
+Send the text on chat when press the Q key.
+You can set the text in the config.
 
 ### Other
+In the config, you can set [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) to work even if Hypixel language is set to Korean.
 Fixed a bug of forge that commands are executed without "/".
 You can turn off Wave Delay of SST in the ".minecraft\config\zombiesaddonSSTSetting.txt".
 You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZombiesUtilsSetting.txt".
@@ -77,6 +77,9 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 ****
 
 ## Update Log
+
+### 4.1.0
+- Fixed Last Weapons.
 
 ### 4.1.0-pre6
 - Fixed bugs.

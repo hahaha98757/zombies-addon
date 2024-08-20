@@ -107,6 +107,10 @@ public class EventListener {
 			PowerupPatternsListener.maxPattern = 0;
 			PowerupPatternsListener.ssPattern = 0;
 		}
+
+		if (str.equals("You Win!") || str.equals("승리했습니다!")) {
+			LastWeaponsListener.gameOver = true;
+		}
 	}
 
 	@SubscribeEvent
@@ -122,7 +126,6 @@ public class EventListener {
 
 		WaveDelaysListener.stop = true;
 		PowerupPatternsListener.stop = true;
-		LastWeaponsListener.gameOver = true;
 	}
 
 	@SubscribeEvent
