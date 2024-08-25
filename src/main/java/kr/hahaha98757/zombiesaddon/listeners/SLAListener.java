@@ -152,5 +152,7 @@ public class SLAListener {
 
         Utils.addChat("§eAuto SLA: Set SLA to §a" + map);
         SLAListener.setSLA(map);
+        tick = 0;
+        auto = false;
     }
 }

@@ -81,6 +81,9 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 
 ## Update Log
 
+### 4.1.2
+- Fixed bugs.
+
 ### 4.1.1
 - Fixed bugs.
 - Fixed Auto Rejoin.
