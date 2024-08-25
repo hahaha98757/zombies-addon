@@ -20,14 +20,14 @@ public class Keybinds {
 	public static KeyBinding textMacro;
 
 	public static void register() {
-		toggleCornering = new KeyBinding("Toggle Cornering", Keyboard.KEY_V, KEY_CATEGORY);
+		toggleCornering = new KeyBinding("Toggle Cornering", Keyboard.KEY_Z, KEY_CATEGORY);
 		toggleBlockAlarm = new KeyBinding("Toggle Block Alarm", Keyboard.KEY_B, KEY_CATEGORY);
 		toggleAutoRejoin = new KeyBinding("Toggle Auto Rejoin", Keyboard.CHAR_NONE, KEY_CATEGORY);
 
 		scrollUp = new KeyBinding("ZSV Scroll Up", Keyboard.KEY_LBRACKET, KEY_CATEGORY);
 		scrollDown = new KeyBinding("ZSV Scroll Down", Keyboard.KEY_RBRACKET, KEY_CATEGORY);
 
-		toggleRLMode = new KeyBinding("Toggle RL Mode", Keyboard.KEY_L, KEY_CATEGORY);
+		toggleRLMode = new KeyBinding("Toggle RL Mode", Keyboard.KEY_UP, KEY_CATEGORY);
 
 		textMacro = new KeyBinding("Text Macro", Keyboard.KEY_Q, KEY_CATEGORY);
 

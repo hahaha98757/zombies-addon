@@ -5,6 +5,7 @@ import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.GuiNewChat;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -17,7 +18,7 @@ public class SSTPatchListener extends GuiNewChat {
 
     @Override
     public void printChatMessage(IChatComponent chatComponent) {
-        String message = chatComponent.getUnformattedText();
+        String message = EnumChatFormatting.getTextWithoutFormattingCodes(chatComponent.getUnformattedText());
 
         if (isWork(message)) {
             if (message.contains(" seconds to clean up after the last wave.")) {

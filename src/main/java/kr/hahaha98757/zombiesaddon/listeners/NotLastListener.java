@@ -3,13 +3,12 @@
 package kr.hahaha98757.zombiesaddon.listeners;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
-import kr.hahaha98757.zombiesaddon.events.TitleEvent;
+import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.scoreboard.Score;
 import net.minecraft.scoreboard.ScoreObjective;
 import net.minecraft.scoreboard.Scoreboard;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -26,20 +25,23 @@ public class NotLastListener {
 	private static boolean work = false;
 
 	@SubscribeEvent
-	public void onTitle(TitleEvent event) {
+	public void onSound(SoundEvent event) {
 		if (!ZombiesAddonConfig.enableMod) return;
 
-		String str = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
+		String soundName = event.getSoundEffect().getSoundName();
 
 		if (!ZombiesAddonConfig.toggleNotLast) return;
 
-		if (!(str.startsWith("Round ") && !str.equals("Round 1")) && !(str.matches(".*\\d+라운드") && !str.equals("1라운드")))
-			return;
+		if (!Utils.isZombies()) return;
+
+		if (!soundName.equals("mob.wither.spawn")) return;
+
+		if (Utils.getRound() == 1) return;
 
 		if (Utils.getRevDeadQuit()[2] == 3) return;
 
 		scoreboard = Minecraft.getMinecraft().theWorld.getScoreboard();
-		scoreObjective = scoreboard.getObjectiveInDisplaySlot(Scoreboard.getObjectiveDisplaySlotNumber("list"));
+		scoreObjective = scoreboard.getObjectiveInDisplaySlot(0);
 		for (Score score : scoreboard.getSortedScores(scoreObjective))
 			scoreMap.put(score.getPlayerName(), score.getScorePoints());
 

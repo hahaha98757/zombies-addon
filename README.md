@@ -16,7 +16,6 @@ It only works when the Hypixel language is set to English or Korean.
 
 ### Not Last
 Display the player who killed the last one.
-It only works when the Hypixel language is set to English or Korean.
 
 ### Auto Splits
 Run a timer at start of the round.
@@ -52,7 +51,6 @@ You can set the options in the config.
 ### Auto Rejoin
 Automatically rejoin Zombies when start of the round.
 You can set to hide toggle text in the config.
-It only works when the Hypixel language is set to English or Korean.
 
 ### Powerup Patterns
 Display the patterns of power-ups.
@@ -63,13 +61,18 @@ It only works when the Hypixel language is set to English or Korean.
 
 ### Last Weapons
 Display your weapons when You Win.
+It only works when the Hypixel language is set to English or Korean.
 
 ### Text Macro
 Send the text on chat when press the Q key.
 You can set the text in the config.
 
+### Korean Patchers
+일부 문구가 한국어로 번역됨.
+SST의 일부 문구가 한국어로 번역됨.
+[Zombies Overlay](https://github.com/TheExploration/zombies-overlay)를 하이픽셀 언어를 한국어로 설정해도 사용할 수 있음.
+
 ### Other
-In the config, you can set [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) to work even if Hypixel language is set to Korean.
 Fixed a bug of forge that commands are executed without "/".
 You can turn off Wave Delay of SST in the ".minecraft\config\zombiesaddonSSTSetting.txt".
 You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZombiesUtilsSetting.txt".
@@ -77,6 +80,10 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 ****
 
 ## Update Log
+
+### 4.1.1
+- Fixed bugs.
+- Fixed Auto Rejoin.
 
 ### 4.1.0
 - Fixed Last Weapons.

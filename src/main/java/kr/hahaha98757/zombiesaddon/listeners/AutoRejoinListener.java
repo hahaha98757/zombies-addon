@@ -3,10 +3,9 @@
 package kr.hahaha98757.zombiesaddon.listeners;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
-import kr.hahaha98757.zombiesaddon.events.TitleEvent;
+import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -15,14 +14,16 @@ public class AutoRejoinListener {
     private static byte tick;
 
     @SubscribeEvent
-    public void onTitle(TitleEvent event) {
+    public void onSound(SoundEvent event) {
         if (!ZombiesAddonConfig.enableMod) return;
 
         if (!EventListener.autoRejoin) return;
 
-        String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
+        if (!Utils.isZombies()) return;
 
-        if (!(title.startsWith("Round ") || title.matches(".*\\d+라운드"))) return;
+        String soundName = event.getSoundEffect().getSoundName();
+
+        if (!soundName.equals("mob.wither.spawn")) return;
 
         Utils.addChat("§eAuto Rejoin: Rejoining...");
         Minecraft.getMinecraft().thePlayer.sendChatMessage("/l");

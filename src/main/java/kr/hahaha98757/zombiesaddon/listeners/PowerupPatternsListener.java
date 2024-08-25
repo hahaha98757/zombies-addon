@@ -253,7 +253,7 @@ public class PowerupPatternsListener {
 
 	@SubscribeEvent
 	public void onTitle(TitleEvent event) {
-		String title = event.getTitle();
+		String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
 
 		if (title.startsWith("Round ") || title.contains("라운드")) {
 			showInsta = instaPattern != 0;

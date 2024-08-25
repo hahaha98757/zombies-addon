@@ -45,9 +45,10 @@ public class ZombiesAddonConfig {
 	public static boolean toggleLastWeapons = true;
 	public static double corneringRange = 2.5;
 	public static boolean hideAutoRejoin = true;
-	public static boolean overlayKorean = false;
 	public static String textMacro = "T";
 
+
+	public static boolean zombiesOverlayPatch = false;
 	public static boolean koreanPatch = true;
 	public static boolean sstPatch = true;
 
@@ -160,15 +161,15 @@ public class ZombiesAddonConfig {
 		hideAutoRejoin = propertyHideAutoRejoin.getBoolean();
 		others.put(propertyHideAutoRejoin.getName(), new ConfigElement(propertyHideAutoRejoin));
 
-		Property propertyOverlayKorean = config.get(Configuration.CATEGORY_GENERAL, "Use Zombeis Overlay in Korean", false, "You can use Zombies Overlay in Korean.");
-		overlayKorean = propertyOverlayKorean.getBoolean();
-		others.put(propertyOverlayKorean.getName(), new ConfigElement(propertyOverlayKorean));
-
 		Property propertyTextMacro = config.get(Configuration.CATEGORY_GENERAL, "Text Macro", "T", "Sets the text that text macro will send on chat.");
 		textMacro = propertyTextMacro.getString();
 		others.put(propertyTextMacro.getName(), new ConfigElement(propertyTextMacro));
 
 		//Patchers
+		Property propertyOverlayKorean = config.get(Configuration.CATEGORY_GENERAL, "Zombies Overlay Patch", false, "You can use Zombies Overlay in Korean.");
+		zombiesOverlayPatch = propertyOverlayKorean.getBoolean();
+		patchers.put(propertyOverlayKorean.getName(), new ConfigElement(propertyOverlayKorean));
+
 		Property propertyKoreanPatch = config.get(Configuration.CATEGORY_GENERAL, "Korean Patch", true, "Better Korean translation.");
 		koreanPatch = propertyKoreanPatch.getBoolean();
 		patchers.put(propertyKoreanPatch.getName(), new ConfigElement(propertyKoreanPatch));

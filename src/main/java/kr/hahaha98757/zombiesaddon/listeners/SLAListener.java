@@ -13,11 +13,14 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.Optional;
 
 public class SLAListener {
     private static Room[] rooms;
+    private static short tick;
+    private static boolean auto;
 
     public static void setSLA(String map) {
         switch (map) {
@@ -110,6 +113,24 @@ public class SLAListener {
 
         if (!(str.equals("Round 1") || str.equals("1라운드"))) return;
 
+        auto = true;
+    }
+
+    @SubscribeEvent
+    public void onTick(TickEvent.ClientTickEvent event) {
+        if (!auto) return;
+
+        if (event.phase != TickEvent.Phase.END) return;
+
+        tick++;
+
+        if (tick == 200) {
+            tick = 0;
+            auto = false;
+            Utils.addChat("§eAuto SLA: §cWrong map.");
+            return;
+        }
+
         String map;
 
         switch (Utils.getMap()) {
@@ -126,7 +147,6 @@ public class SLAListener {
                 map = "pr";
                 break;
             default:
-                Utils.addChat("§eAuto SLA: §cWrong map.");
                 return;
         }
 
