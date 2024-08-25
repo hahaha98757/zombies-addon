@@ -15,7 +15,7 @@ import java.net.URL;
 
 public class UpdateChecker {
 	private static final String urlText = "§9§nClick here to download.";
-	private static final String url = "https://github.com/hahaha98757/zombies-addon1.12.2/releases";
+	private static final String url = "https://github.com/hahaha98757/zombies-addon/releases";
 	private static final String showURLText = "Open download URL.";
 
 	@SubscribeEvent
@@ -50,7 +50,7 @@ public class UpdateChecker {
 
 			String str;
 			while ((str = br.readLine()) != null) {
-				if (str.contains("version1.12.2=")) {
+				if (str.contains("version=")) {
 					return str.split("=")[1];
 				}
 			}

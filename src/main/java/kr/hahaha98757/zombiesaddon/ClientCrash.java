@@ -37,7 +37,7 @@ public class ClientCrash {
 				Utils.addChat("§c§lThe game ends...");
 
 				if (update)
-					throw new GameEnd("Update Zombies Addon. URL: https://github.com/hahaha98757/zombies-addon1.12.2/releases");
+					throw new GameEnd("Update Zombies Addon. URL: https://github.com/hahaha98757/zombies-addon/releases");
 				if (unlegit)
                     throw new GameEnd("Detectd Unlegit Mods. Remove ZombiesSatellite, Zombies Explorer, or TeammatesOutline.");
 
