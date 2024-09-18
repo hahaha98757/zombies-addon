@@ -1,10 +1,6 @@
-[
-  {
-    "version": "4.1.4",
-    "log": "test1\ntest2"
-  },
-  {
-    "version": "4.2.0-pre1",
-    "log": "asdf\nfdsa"
-  }
-]
+{
+  "latestVer": "4.1.4",
+  "latestLog": "test1\ntest2",
+  "preVer": "4.2.0-pre1",
+  "preLog": "asdf\nfdsa"
+}
