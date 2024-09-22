@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class SSTPatcher extends GuiNewChat {
     public SSTPatcher(Minecraft minecraft) {
         super(minecraft);

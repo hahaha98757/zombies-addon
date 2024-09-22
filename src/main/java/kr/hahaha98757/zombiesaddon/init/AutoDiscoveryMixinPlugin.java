@@ -27,6 +27,7 @@ import java.util.zip.ZipInputStream;
  *
  * @author Linnea Gräf
  */
+@SuppressWarnings("ALL")
 public class AutoDiscoveryMixinPlugin implements IMixinConfigPlugin {
     private static final List<AutoDiscoveryMixinPlugin> mixinPlugins = new ArrayList<>();
 

@@ -25,7 +25,8 @@ public class LanguageSupport {
     public static final List<String> BONUS_GOLD_ENTITY = Arrays.asList("BONUS GOLD", "金钱加成", "額外金幣", "BONUSOVÉ ZLATO", "BONUS GULD", "BONUS GOUD", "LISÄKULTA", "OR BONUS", "BONUS GOLD", "ΕΠΙΠΛΈΟΝ ΧΡΥΣΌΣ", "BÓNUSZ ARANY", "ORO BONUS", "ボーナスゴールド", "보너스 골드", "BONUSGULL", "DODATKOWE ZŁOTO", "OURO BÓNUS", "OURO BÔNUS", "AUR BONUS", "БОНУСНОЕ ЗОЛОТО", "BONUS DE ORO", "BONUSGULD", "BONUS ALTIN", "ДОДАТКОВЕ ЗОЛОТО");
     public static final List<String> BONUS_GOLD_CHAT = Arrays.asList("Bonus Gold", "额外金钱", "額外金幣", "Bonusové zlato", "Bonus guld", "Bonus Gold", "Lisäkulta", "Bonus d'or", "Bonus-Gold", "Bonus Χρυσός", "Bónusz Arany", "Oro Bonus", "ボーナスゴールド", "보너스 골드", "Bonusgull", "Dodatkowe złoto", "Ouro bónus", "Ouro bônus", "Aur Bonus", "Бонусное золото", "Bonif. de Oro", "Bonusguld", "Bonus Altın", "Бонусне золото");
 
-    public static String getRoundText(String text) {
-        return text.replaceAll("[0-9]", "").trim();
+    public static boolean isRoundText(String str) {
+        for (String roundText : ROUND) if (str.contains(roundText)) return true;
+        return false;
     }
 }

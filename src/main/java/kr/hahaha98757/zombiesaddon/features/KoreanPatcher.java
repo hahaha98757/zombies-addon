@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class KoreanPatcher {
 
+    @SuppressWarnings("SpellCheckingInspection")
     @SubscribeEvent
     public void onChatReceived(ClientChatReceivedEvent event) {
         if (Utils.isModDisable()) return;

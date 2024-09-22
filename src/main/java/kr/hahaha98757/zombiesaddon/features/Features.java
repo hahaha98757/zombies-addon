@@ -57,7 +57,7 @@ public class Features {
         String str = "Zombies Addon v" + ZombiesAddon.VERSION;
         fr.drawStringWithShadow(str, Utils.getX(str), 1, 0xffff55);
 
-        str = "Cornering: " + (PlayerVisibility.playerVisibility ? "§aon" : "§coff");
+        str = "Player Visibility: " + (PlayerVisibility.playerVisibility ? "§aon" : "§coff");
         fr.drawStringWithShadow(str, Utils.getX(str), 1 + y, 0xffff55);
 
         str = "Block Alarm: " + (BlockAlarm.blockAlarm ? "§aon" : "§coff");
@@ -80,9 +80,6 @@ public class Features {
         if (event.entity != Minecraft.getMinecraft().thePlayer) return;
 
         if (join) return;
-
-        if (ZombiesAddon.isConfigReset)
-            Utils.addChatLine("The config of Zombies Addon has been reset.\nPlease check the config.");
 
         if (ZombiesAddon.haveOldSST) {
             Utils.addChatLine("You are using Show Spawn Time of old version.\nPlease update the mod.");

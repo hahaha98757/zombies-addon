@@ -8,6 +8,7 @@ import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.data.wavedelays.CustomPlaySound;
 import kr.hahaha98757.zombiesaddon.features.Features;
 import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
+import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
@@ -30,10 +31,9 @@ import java.util.List;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.2.0-pre1";
+	public static final String VERSION = "4.2.0-pre2";
 	private static File directory;
 
-	public static boolean isConfigReset;
 	public static boolean haveOldSST;
 	public static boolean haveUnlegitMods;
 
@@ -106,6 +106,7 @@ public class ZombiesAddon {
 		if (ZombiesAddonConfig.isDetectUnlegitMods() && (Loader.isModLoaded("zombiesatellite") || Loader.isModLoaded("zombiesexplorer") || Loader.isModLoaded("TeammatesOutline")))
             haveUnlegitMods = true;
 		HUDUtils.set();
+		Utils.set();
 	}
 
 	private static List<String> getPlayCustomSoundGuideContent() {

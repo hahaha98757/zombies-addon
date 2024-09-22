@@ -33,7 +33,8 @@ public class CommandPowerupPatterns extends CommandBase {
 		return Collections.singletonList("pow");
 	}
 
-	@Override
+	@SuppressWarnings("SpellCheckingInspection")
+    @Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (sender != Minecraft.getMinecraft().thePlayer) return;
 

@@ -52,31 +52,26 @@ public class CommandSLA extends CommandBase {
 				break;
             case "quick":
 				if (args.length == 1) {
-                    //noinspection SpellCheckingInspection
                     Utils.addChat("\u00A7cUsage: /SLA quick <mogi_a|ghxula|ghxula-garden>");
 					return;
 				}
                 switch (args[1]) {
-					//noinspection SpellCheckingInspection
 					case "mogi_a":
 						SpawnLimitAction.setMap(Map.BAD_BLOOD);
 						SpawnLimitAction.rotate(3);
 						SpawnLimitAction.setOffset(new int[]{-3, 35, -9});
 						break;
-					//noinspection SpellCheckingInspection
 					case "ghxula":
 						SpawnLimitAction.setMap(Map.DEAD_END);
 						SpawnLimitAction.rotate(1);
 						SpawnLimitAction.setOffset(new int[]{27, 35, 5});
 						break;
-					//noinspection SpellCheckingInspection
-					case "ghxula-garden":
+                    case "ghxula-garden":
 						SpawnLimitAction.setMap(Map.DEAD_END);
 						SpawnLimitAction.rotate(1);
 						SpawnLimitAction.setOffset(new int[]{13, 53, -8});
 						break;
 					default:
-						//noinspection SpellCheckingInspection
 						Utils.addChat("\u00A7cUsage: /SLA quick <mogi_a|ghxula|ghxula-garden>");
 				}
 				break;
@@ -88,7 +83,8 @@ public class CommandSLA extends CommandBase {
 				switch (args[1]) {
 					case "offset":
 						if (args.length == 2) {
-							Utils.addChat("§eSLA: §cReset §eoffset");
+                            //noinspection SpellCheckingInspection
+                            Utils.addChat("§eSLA: §cReset §eoffset");
                             SpawnLimitAction.resetOffset();
                         } else if (args.length != 5) Utils.addChat("\u00A7cUsage: /SLA set offset [x] [y] [z]");
                         else {
@@ -147,7 +143,6 @@ public class CommandSLA extends CommandBase {
 		if (args.length == 1) return getListOfStringsMatchingLastWord(args, "de", "bb", "aa", "off", "quick", "custom");
 		switch (args[0]) {
 			case "quick":
-                //noinspection SpellCheckingInspection
                 return getListOfStringsMatchingLastWord(args, "mogi_a", "ghxula", "ghxula-garden");
 			case "custom":
 				if (args.length == 2)

@@ -65,7 +65,7 @@ public class WaveDelays {
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
         String text = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
-        if (!(LanguageSupport.ROUND.contains(LanguageSupport.getRoundText(text)) && text.replaceAll("[^0-9]", "").equals("1"))) return;
+        if (!(LanguageSupport.isRoundText(text)) && text.replaceAll("[^0-9]", "").equals("1")) return;
         difficulty = Difficulty.NORMAL;
         gameEnd = false;
         escape = false;

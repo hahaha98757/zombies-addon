@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 import org.apache.commons.lang3.SystemUtils
 
 plugins {
@@ -64,7 +66,7 @@ repositories {
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
     // If you don't want to log in with your real minecraft account, remove this line
-//    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
 }
 
 val shadowImpl: Configuration by configurations.creating {
@@ -85,7 +87,7 @@ dependencies {
     annotationProcessor("com.google.code.gson:gson:2.8.9")
 
     // If you don't want to log in with your real minecraft account, remove this line
-//    runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
+    runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
 }
 
 // Tasks:

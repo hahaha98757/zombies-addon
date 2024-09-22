@@ -319,14 +319,14 @@ public class PowerupPatterns {
     public void onTitle(TitleEvent event) {
         String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
 
-        if (LanguageSupport.ROUND.contains(LanguageSupport.getRoundText(title)) && title.replaceAll("[^0-9]", "").equals("1")) {
+        if (LanguageSupport.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1")) {
             spawnedEntities.clear();
             instaPattern = 0;
             maxPattern = 0;
             ssPattern = 0;
         }
 
-        if (LanguageSupport.ROUND.contains(LanguageSupport.getRoundText(title))) {
+        if (LanguageSupport.isRoundText(title)) {
             showInsta = instaPattern != 0;
             showMax = maxPattern != 0;
             showSS = ssPattern != 0;
@@ -380,6 +380,7 @@ public class PowerupPatterns {
         }
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Hotkeys.instaTimer.isPressed()) {

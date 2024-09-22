@@ -139,7 +139,7 @@ public class SpawnLimitAction {
 
         String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
 
-        if (!(LanguageSupport.ROUND.contains(LanguageSupport.getRoundText(title)) && title.replaceAll("[^0-9]", "").equals("1"))) return;
+        if (!(LanguageSupport.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1"))) return;
 
         Map map = Utils.getMap();
 
