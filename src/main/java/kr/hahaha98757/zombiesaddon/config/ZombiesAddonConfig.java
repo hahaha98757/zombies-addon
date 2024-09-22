@@ -1,191 +1,338 @@
 package kr.hahaha98757.zombiesaddon.config;
 
-import net.minecraftforge.common.config.ConfigElement;
+import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import net.minecraftforge.fml.client.config.DummyConfigElement;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
-import java.util.LinkedHashMap;
+import java.util.Arrays;
+import java.util.List;
 
 public class ZombiesAddonConfig {
 	public static Configuration config;
 
-	public static LinkedHashMap<String, IConfigElement> zombiesAddon = new LinkedHashMap<>();
-	public static LinkedHashMap<String, IConfigElement> waveDelays = new LinkedHashMap<>();
-	public static LinkedHashMap<String, IConfigElement> sla = new LinkedHashMap<>();
-	public static LinkedHashMap<String, IConfigElement> others = new LinkedHashMap<>();
-	public static LinkedHashMap<String, IConfigElement> patchers = new LinkedHashMap<>();
-	public static LinkedHashMap<String, IConfigElement> hidden = new LinkedHashMap<>();
+	private static final String CATEGORY_ZOMBIES_ADDON = "Zombies Addon";
+	private static final String CATEGORY_WAVE_DELAYS = "Wave Delays";
+	private static final String CATEGORY_SLA = "SLA";
+	private static final String CATEGORY_PV = "PV";
+	private static final String CATEGORY_KOREAN_PATCHERS = "Korean Patchers";
+	private static final String CATEGORY_OTHERS = "Others";
+	private static final String CATEGORY_OTHER_MODS = "Other Mods";
+	private static final String CATEGORY_HUD = "HUD";
 
-	public static boolean enableMod = true;
-	public static boolean showMods = true;
-	public static boolean[] modDefaultValue = { false, false, false };
-	public static boolean checkPreRelease = false;
+	private static Property enableMod;
+	private static Property showMods;
+	private static Property modDefaultValue;
+	private static Property checkPreRelease;
 
-	public static boolean toggleWaveDelays = true;
-	public static boolean bossWaveAlarm = true;
-	public static String textStyle = "Zombies Addon";
-	public static String highlightStyle = "Zombies Addon";
-	public static int rlModeOffset = -28;
-	public static boolean playSound = true;
-	public static boolean playCount = true;
-	public static String soundName = "note.pling";
-	public static double soundPitch = 2.0;
-	public static String lastSoundName = "random.orb";
-	public static double lastSoundPitch = 0.5;
-	public static String countSoundName = "note.pling";
-	public static double countSoundPitch = 1.5;
+	private static Property toggleWaveDelays;
+	private static Property bossWaveColor;
+	private static Property wavePrefix;
+	private static Property textStyle;
+	private static Property highlightStyle;
+	private static Property rlModeOffset;
+	private static Property hidePassedWave;
+	private static Property playSounds;
+	private static Property customPlaySound;
 
-	public static boolean autoSLA = true;
-	public static boolean showInactiveWindows = false;
+	private static Property autoSLA;
+	private static Property showInactiveWindows;
 
-	public static boolean toggleNotLast = true;
-	public static boolean toggleAutoSplits = true;
-	public static boolean togglePowerupPatterns = true;
-	public static boolean toggleLastWeapons = true;
-	public static double corneringRange = 2.5;
-	public static boolean hideAutoRejoin = true;
-	public static String textMacro = "T";
+	private static Property pvRange;
+	private static Property playerTranslucent;
 
+	private static Property toggleNotLast;
+	private static Property toggleAutoSplits;
+	private static Property togglePowerupPatterns;
+	private static Property toggleLastWeapons;
+	private static Property hideAutoRejoin;
+	private static Property textMacro;
 
-	public static boolean zombiesOverlayPatch = false;
-	public static boolean koreanPatch = true;
-	public static boolean sstPatch = true;
+	private static Property sstSetting;
+	private static Property zombiesUtilsSetting;
 
-	public static boolean detectUnlegitMods = true;
+	private static Property zombiesOverlayPatcher;
+	private static Property koreanPatcher;
+	private static Property sstPatcher;
+
+	private static Property detectUnlegitMods;
 
 	public static void loadConfig() {
 		config.load();
 
 		//Zombies Addon
-		Property propertyEnableMod = config.get(Configuration.CATEGORY_GENERAL, "Enable Mod", true, "Uses Zombie Addon. If set to false, Zombie Addon is disabled.");
-		enableMod = propertyEnableMod.getBoolean();
-		zombiesAddon.put(propertyEnableMod.getName(), new ConfigElement(propertyEnableMod));
+		enableMod = config.get(CATEGORY_ZOMBIES_ADDON, "Enable Mod", true, "Enable Zombie Addon. If set to false, Zombie Addon is disabled.");
 
-		Property propertyShowMods = config.get(Configuration.CATEGORY_GENERAL, "Show Mods", true, "Display text of the mods on the in-game screen.");
-		showMods = propertyShowMods.getBoolean();
-		zombiesAddon.put(propertyShowMods.getName(), new ConfigElement(propertyShowMods));
+		showMods = config.get(CATEGORY_ZOMBIES_ADDON, "Show Mods", true, "Display text of the mods on the in-game screen.");
 
-		Property propertyModDefaultValue = config.get(Configuration.CATEGORY_GENERAL, "Mod Default Value", new boolean[] { false, false, false }, "Sets the default value of Cornering, Block Alarm, and Auto Rejoin.");
-		modDefaultValue = propertyModDefaultValue.getBooleanList();
-		zombiesAddon.put(propertyModDefaultValue.getName(), new ConfigElement(propertyModDefaultValue));
+		modDefaultValue = config.get(CATEGORY_ZOMBIES_ADDON, "Mod Default Value", new boolean[] { false, false, false }, "Sets the default value of Cornering, Block Alarm, and Auto Rejoin.");
 
-		Property propertyCheckPreRelease = config.get(Configuration.CATEGORY_GENERAL, "Check Pre-Release", false, "It checks the latest pre-releases.");
-		checkPreRelease = propertyCheckPreRelease.getBoolean();
-		zombiesAddon.put(propertyCheckPreRelease.getName(), new ConfigElement(propertyCheckPreRelease));
+		checkPreRelease = config.get(CATEGORY_ZOMBIES_ADDON, "Check Pre-Release", false, "It checks the latest pre-releases.");
 
 		//Wave Delays
-		Property propertyToggleWaveDelays = config.get(Configuration.CATEGORY_GENERAL, "Toggle Wave Delays", true, "Show wave delays(Same as Spawn Time).");
-		toggleWaveDelays = propertyToggleWaveDelays.getBoolean();
-		waveDelays.put(propertyToggleWaveDelays.getName(), new ConfigElement(propertyToggleWaveDelays));
+		toggleWaveDelays = config.get(CATEGORY_WAVE_DELAYS, "Toggle Wave Delays", true, "Show wave delays(Same as Spawn Time).");
 
-		Property propertyBossWaveAlarm = config.get(Configuration.CATEGORY_GENERAL, "Boss Wave Alarm", true, "You can see the wave which the boss will spawn.");
-		bossWaveAlarm = propertyBossWaveAlarm.getBoolean();
-		waveDelays.put(propertyBossWaveAlarm.getName(), new ConfigElement(propertyBossWaveAlarm));
+		bossWaveColor = config.get(CATEGORY_WAVE_DELAYS, "Boss Wave Color", true, "Colors the waves spawned by the boss.");
 
-		Property propertyTextStyle = config.get(Configuration.CATEGORY_GENERAL, "Text Style", "Zombies Addon", "Sets the style of the text.", new String[] { "Zombies Addon", "SST" });
-		textStyle = propertyTextStyle.getString();
-		waveDelays.put(propertyTextStyle.getName(), new ConfigElement(propertyTextStyle));
+		wavePrefix = config.get(CATEGORY_WAVE_DELAYS, "Wave Prefix", true, "Adds prefixes to waves spawned by specific mobs.");
 
-		Property propertyHighlightStyle = config.get(Configuration.CATEGORY_GENERAL, "Highlight Style", "Zombies Addon", "Sets the style of the highlight.", new String[] { "Zombies Addon", "SST" });
-		highlightStyle = propertyHighlightStyle.getString();
-		waveDelays.put(propertyHighlightStyle.getName(), new ConfigElement(propertyHighlightStyle));
+		textStyle = config.get(CATEGORY_WAVE_DELAYS, "Text Style", "W1: 0:10.0", "Sets the style of the text.", new String[] { "W1: 0:10.0", "W1 0:10.0", "W1: 00:10", "W1 00:10" });
 
-		Property propertyRLmodeOffset = config.get(Configuration.CATEGORY_GENERAL, "RL Mode Offset", -28, "Ticks to be added to the wave delays time.", -2000, 2000);
-		rlModeOffset = propertyRLmodeOffset.getInt();
-		waveDelays.put(propertyRLmodeOffset.getName(), new ConfigElement(propertyRLmodeOffset));
+		highlightStyle = config.get(CATEGORY_WAVE_DELAYS, "Highlight Style", "Zombies Addon", "Sets the style of the highlight.", new String[] { "Zombies Addon", "Zombies Utils" });
 
-		Property propertyPlaySound = config.get(Configuration.CATEGORY_GENERAL, "Play Sound", true, "Play sound when wave start.");
-		playSound = propertyPlaySound.getBoolean();
-		waveDelays.put(propertyPlaySound.getName(), new ConfigElement(propertyPlaySound));
+		rlModeOffset = config.get(CATEGORY_WAVE_DELAYS, "RL Mode Offset", -28, "Ticks to be added to the wave delays time.", -2000, 2000);
 
-		Property propertyPlayCount = config.get(Configuration.CATEGORY_GENERAL, "Play Count", true, "Play countdown before last wave start.");
-		playCount = propertyPlayCount.getBoolean();
-		waveDelays.put(propertyPlayCount.getName(), new ConfigElement(propertyPlayCount));
+		hidePassedWave = config.get(CATEGORY_WAVE_DELAYS, "Hide Passed Wave", false, "Hides passed waves.");
 
-		Property propertySoundName = config.get(Configuration.CATEGORY_GENERAL, "Sound Name", "note.pling", "Sets the sound name of the non-last wave.");
-		soundName = propertySoundName.getString();
-		waveDelays.put(propertySoundName.getName(), new ConfigElement(propertySoundName));
+		playSounds = config.get(CATEGORY_WAVE_DELAYS, "Play Sounds", new int[] {-60, -40, -20}, "Plays sounds.", -200, 200, false, 5);
 
-		Property propertySoundPitch = config.get(Configuration.CATEGORY_GENERAL, "Sound Pitch", 2.0, "Sets the sound pitch of the non-last wave.", 0.0, 2.0);
-		soundPitch = propertySoundPitch.getDouble();
-		waveDelays.put(propertySoundPitch.getName(), new ConfigElement(propertySoundPitch));
-
-		Property propertyLastSoundName = config.get(Configuration.CATEGORY_GENERAL, "Last Sound Name", "random.orb", "Sets the sound name of the last wave.");
-		lastSoundName = propertyLastSoundName.getString();
-		waveDelays.put(propertyLastSoundName.getName(), new ConfigElement(propertyLastSoundName));
-
-		Property propertyLastSoundPitch = config.get(Configuration.CATEGORY_GENERAL, "Last Sound Pitch", 0.5, "Sets the sound pitch of the last wave.", 0.0, 2.0);
-		lastSoundPitch = propertyLastSoundPitch.getDouble();
-		waveDelays.put(propertyLastSoundPitch.getName(), new ConfigElement(propertyLastSoundPitch));
-
-		Property propertyCountSoundName = config.get(Configuration.CATEGORY_GENERAL, "Count Sound Name", "note.pling", "Sets the countdown name.");
-		countSoundName = propertyCountSoundName.getString();
-		waveDelays.put(propertyCountSoundName.getName(), new ConfigElement(propertyCountSoundName));
-
-		Property propertyCountSoundPitch = config.get(Configuration.CATEGORY_GENERAL, "Count Sound Pitch", 1.5, "Sets the countdown pitch.", 0.0, 2.0);
-		countSoundPitch = propertyCountSoundPitch.getDouble();
-		waveDelays.put(propertyCountSoundPitch.getName(), new ConfigElement(propertyCountSoundPitch));
+		customPlaySound = config.get(CATEGORY_WAVE_DELAYS, "Custom Play Sound", false, "Play sounds with more detailed settings.");
 
 		//SLA
-		Property propertyAutoSLA = config.get(Configuration.CATEGORY_GENERAL, "Auto SLA", true, "Automatically turn on SLA.");
-		autoSLA = propertyAutoSLA.getBoolean();
-		sla.put(propertyAutoSLA.getName(), new ConfigElement(propertyAutoSLA));
+		autoSLA = config.get(CATEGORY_SLA, "Auto SLA", true, "Automatically turn on SLA.");
 
-		Property propertyShowInactiveWindows = config.get(Configuration.CATEGORY_GENERAL, "Show Inactive Windows", false, "Show inactive windows.");
-		showInactiveWindows = propertyShowInactiveWindows.getBoolean();
-		sla.put(propertyShowInactiveWindows.getName(), new ConfigElement(propertyShowInactiveWindows));
+		showInactiveWindows = config.get(CATEGORY_SLA, "Show Inactive Windows", false, "Show inactive windows.");
+
+		//PV
+		pvRange = config.get(CATEGORY_OTHERS, "Range", 2.5, "Set range of Cornering.", 0.0, 100.0);
+
+		playerTranslucent = config.get(CATEGORY_PV, "Player Translucent", true, "Makes out-of-range players semi-transparent.");
+
+		//Korean Patchers
+		zombiesOverlayPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "Zombies Overlay Patcher", false, "You can use Zombies Overlay in Korean.");
+
+		koreanPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "Korean Patcher", true, "Better Korean translation.");
+
+		sstPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "SST Patcher", true, "Translate the text in SST to Korean.");
 
 		//Others
-		Property propertyToggleNotLast = config.get(Configuration.CATEGORY_GENERAL, "Not Last: Toggle Not Last", true, "Shows the player who killed the last a zombie");
-		toggleNotLast = propertyToggleNotLast.getBoolean();
-		others.put(propertyToggleNotLast.getName(), new ConfigElement(propertyToggleNotLast));
+		toggleNotLast = config.get(CATEGORY_OTHERS, "Not Last: Toggle Not Last", true, "Shows the player who killed the last a zombie");
 
-		Property propertyToggleAutoSplits = config.get(Configuration.CATEGORY_GENERAL, "Auto Splits: Toggle Auto Splits", true, "Run timer at start of round.");
-		toggleAutoSplits = propertyToggleAutoSplits.getBoolean();
-		others.put(propertyToggleAutoSplits.getName(), new ConfigElement(propertyToggleAutoSplits));
+		toggleAutoSplits = config.get(CATEGORY_OTHERS, "Auto Splits: Toggle Auto Splits", true, "Run timer at start of round.");
 
-		Property propertyTogglePowerupAlarm = config.get(Configuration.CATEGORY_GENERAL, "Powerup Patterns: Toggle Powerup Patterns", true, "Show powerup patterns.");
-		togglePowerupPatterns = propertyTogglePowerupAlarm.getBoolean();
-		others.put(propertyTogglePowerupAlarm.getName(), new ConfigElement(propertyTogglePowerupAlarm));
+		togglePowerupPatterns = config.get(CATEGORY_OTHERS, "Powerup Patterns: Toggle Powerup Patterns", true, "Show powerup patterns.");
 
-		Property propertyLastWeapons = config.get(Configuration.CATEGORY_GENERAL, "Last Weapons: Toggle Last Weapons", true, "Show your weapons at Game Over.");
-		toggleLastWeapons = propertyLastWeapons.getBoolean();
-		others.put(propertyLastWeapons.getName(), new ConfigElement(propertyLastWeapons));
+		toggleLastWeapons = config.get(CATEGORY_OTHERS, "Last Weapons: Toggle Last Weapons", true, "Show your weapons at Game Over.");
 
-		Property propertyCorneringRange = config.get(Configuration.CATEGORY_GENERAL, "Cornering: Range", 2.5, "Set range of Cornering.", 0.0, 100.0);
-		corneringRange = propertyCorneringRange.getDouble();
-		others.put(propertyCorneringRange.getName(), new ConfigElement(propertyCorneringRange));
+		hideAutoRejoin = config.get(CATEGORY_OTHERS, "Auto Rejoin: Hide Auto Rejoin", true, "Hide the text of Auto Rejoin on the in-game screen.");
 
-		Property propertyHideAutoRejoin = config.get(Configuration.CATEGORY_GENERAL, "Auto Rejoin: Hide Auto Rejoin", true, "Hide the text of Auto Rejoin on the in-game screen.");
-		hideAutoRejoin = propertyHideAutoRejoin.getBoolean();
-		others.put(propertyHideAutoRejoin.getName(), new ConfigElement(propertyHideAutoRejoin));
+		textMacro = config.get(CATEGORY_OTHERS, "Text Macro", "T", "Sets the text that text macro will send on chat.");
 
-		Property propertyTextMacro = config.get(Configuration.CATEGORY_GENERAL, "Text Macro", "T", "Sets the text that text macro will send on chat.");
-		textMacro = propertyTextMacro.getString();
-		others.put(propertyTextMacro.getName(), new ConfigElement(propertyTextMacro));
+		//Other Mods
+		sstSetting = config.get(CATEGORY_OTHER_MODS, "Turn off spawn time of SST", true, "Turn off spawn time of SST.");
 
-		//Patchers
-		Property propertyOverlayKorean = config.get(Configuration.CATEGORY_GENERAL, "Zombies Overlay Patch", false, "You can use Zombies Overlay in Korean.");
-		zombiesOverlayPatch = propertyOverlayKorean.getBoolean();
-		patchers.put(propertyOverlayKorean.getName(), new ConfigElement(propertyOverlayKorean));
-
-		Property propertyKoreanPatch = config.get(Configuration.CATEGORY_GENERAL, "Korean Patch", true, "Better Korean translation.");
-		koreanPatch = propertyKoreanPatch.getBoolean();
-		patchers.put(propertyKoreanPatch.getName(), new ConfigElement(propertyKoreanPatch));
-
-		Property propertySSTPatch = config.get(Configuration.CATEGORY_GENERAL, "SST Patch", true, "Translate the text in SST to Korean.");
-		sstPatch = propertySSTPatch.getBoolean();
-		patchers.put(propertySSTPatch.getName(), new ConfigElement(propertySSTPatch));
+		zombiesUtilsSetting = config.get(CATEGORY_OTHER_MODS, "Turn off timer of Zombies Utils", true, "Turn off timer of Zombies Utils.");
 
 		//Hidden
-		Property propertyDetectUnlegitMods = config.get(Configuration.CATEGORY_GENERAL, "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline");
-		detectUnlegitMods = propertyDetectUnlegitMods.getBoolean();
-		hidden.put(propertyDetectUnlegitMods.getName(), new ConfigElement(propertyDetectUnlegitMods));
+		detectUnlegitMods = config.get("Hidden", "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline");
+
+		//HUD
+		HUDUtils.autoSplitsX = config.get(CATEGORY_HUD, "autoSplitsX", -1, "X").getDouble();
+		HUDUtils.autoSplitsY = config.get(CATEGORY_HUD, "autoSplitsY", -1, "Y").getDouble();
+		HUDUtils.waveDelaysX = config.get(CATEGORY_HUD, "waveDelaysX", -1, "X").getDouble();
+		HUDUtils.waveDelaysY = config.get(CATEGORY_HUD, "waveDelaysY", -1, "Y").getDouble();
+		HUDUtils.powerupPatternsX = config.get(CATEGORY_HUD, "powerupPatternsX", -1, "X").getDouble();
+		HUDUtils.powerupPatternsY = config.get(CATEGORY_HUD, "powerupPatternsY", -1, "Y").getDouble();
 	}
 
 	public static void reloadConfig() {
 		config.save();
 		loadConfig();
+	}
+
+	private static List<IConfigElement> getZombiesAddonElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Enable Mod", enableMod),
+				new CustomConfigElement("Show Mods", showMods),
+				new CustomConfigElement("Mod Default Value", modDefaultValue),
+				new CustomConfigElement("Check Pre-Release", checkPreRelease)
+		);
+	}
+
+	private static List<IConfigElement> getWaveDelaysElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Toggle Wave Delays", toggleWaveDelays),
+				new CustomConfigElement("Boss Wave Color", bossWaveColor),
+				new CustomConfigElement("Wave Prefix", wavePrefix),
+				new CustomConfigElement("Text Style", textStyle),
+				new CustomConfigElement("Highlight Style", highlightStyle),
+				new CustomConfigElement("RL Mode Offset", rlModeOffset),
+				new CustomConfigElement("Hide Passed Wave", hidePassedWave),
+				new CustomConfigElement("Play Sounds", playSounds),
+				new CustomConfigElement("Custom Play Sound", customPlaySound)
+		);
+	}
+
+	private static List<IConfigElement> getSLAElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Auto SLA", autoSLA),
+				new CustomConfigElement("Show Inactive Windows", showInactiveWindows)
+		);
+	}
+
+	private static List<IConfigElement> getPVElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Range", pvRange),
+				new CustomConfigElement("Player Translucent", playerTranslucent)
+		);
+	}
+
+	private static List<IConfigElement> getKoreanPatchersElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Zombies Overlay Patcher", zombiesOverlayPatcher),
+				new CustomConfigElement("Korean Patcher", koreanPatcher),
+				new CustomConfigElement("SST Patcher", sstPatcher)
+		);
+	}
+
+	private static List<IConfigElement> getOthersElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Not Last: Toggle Not Last", toggleNotLast),
+				new CustomConfigElement("Auto Splits: Toggle Auto Splits", toggleAutoSplits),
+				new CustomConfigElement("Powerup Patterns: Toggle Powerup Patterns", togglePowerupPatterns),
+				new CustomConfigElement("Last Weapons: Toggle Last Weapons", toggleLastWeapons),
+				new CustomConfigElement("Auto Rejoin: Hide Auto Rejoin", hideAutoRejoin),
+				new CustomConfigElement("Text Macro", textMacro)
+		);
+	}
+
+	private static List<IConfigElement> getOtherModsElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Turn off spawn time of SST", sstSetting),
+				new CustomConfigElement("Turn off timer of Zombies Utils", zombiesUtilsSetting)
+		);
+	}
+
+	public static List<IConfigElement> getRootElements() {
+		return Arrays.asList(
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_ZOMBIES_ADDON, "", getZombiesAddonElements()),
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_WAVE_DELAYS, "", getWaveDelaysElements()),
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_SLA, "", getSLAElements()),
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_PV, "", getPVElements()),
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_KOREAN_PATCHERS, "", getKoreanPatchersElements()),
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_OTHERS, "", getOthersElements()),
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_OTHER_MODS, "", getOtherModsElements())
+		);
+	}
+
+	public static boolean isEnableMod() {
+		return enableMod.getBoolean();
+	}
+
+	public static boolean isShowMods() {
+		return showMods.getBoolean();
+	}
+
+	public static boolean[] getModDefaultValues() {
+		return modDefaultValue.getBooleanList();
+	}
+
+	public static boolean isCheckPreRelease() {
+		return checkPreRelease.getBoolean();
+	}
+
+	public static boolean isNotToggleWaveDelays() {
+		return !toggleWaveDelays.getBoolean();
+	}
+
+	public static boolean isBossWaveColor() {
+		return bossWaveColor.getBoolean();
+	}
+
+	public static boolean isNotWavePrefix() {
+		return !wavePrefix.getBoolean();
+	}
+
+	public static String getTextStyle() {
+		String str = textStyle.getString();
+		if (!str.equals("W1 0:10.0") && !str.equals("W1: 00:10") && !str.equals("W1 00:10")) return "W1: 0:10.0";
+		return textStyle.getString();
+	}
+
+	public static String getHighlightStyle() {
+		String str = highlightStyle.getString();
+		if (!str.equals("Zombies Utils")) return "Zombies Addon";
+		return highlightStyle.getString();
+	}
+
+	public static int getRLModeOffset() {
+		return rlModeOffset.getInt();
+	}
+
+	public static boolean isHidePassedWave() {
+		return hidePassedWave.getBoolean();
+	}
+
+	public static int[] getPlaySounds() {
+		return playSounds.getIntList();
+	}
+
+	public static boolean isCustomPlaySound() {
+		return customPlaySound.getBoolean();
+	}
+
+	public static boolean isAutoSLA() {
+		return autoSLA.getBoolean();
+	}
+
+	public static boolean isShowInactiveWindows() {
+		return showInactiveWindows.getBoolean();
+	}
+
+	public static double getPVRange() {
+		return pvRange.getDouble();
+	}
+
+	public static boolean isPlayerTranslucent() {
+		return playerTranslucent.getBoolean();
+	}
+
+	public static boolean isZombiesOverlayPatcher() {
+		return zombiesOverlayPatcher.getBoolean();
+	}
+
+	public static boolean isKoreanPatcher() {
+		return koreanPatcher.getBoolean();
+	}
+
+	public static boolean isSSTPatch() {
+		return sstPatcher.getBoolean();
+	}
+
+	public static boolean isToggleNotLast() {
+		return toggleNotLast.getBoolean();
+	}
+
+	public static boolean isToggleAutoSplits() {
+		return toggleAutoSplits.getBoolean();
+	}
+
+	public static boolean isNotTogglePowerupPatterns() {
+		return !togglePowerupPatterns.getBoolean();
+	}
+
+	public static boolean isToggleLastWeapons() {
+		return toggleLastWeapons.getBoolean();
+	}
+
+	public static boolean isHideAutoRejoin() {
+		return hideAutoRejoin.getBoolean();
+	}
+
+	public static String getTextMacro() {
+		return textMacro.getString();
+	}
+	
+	public static boolean isSSTSetting() {
+		return sstSetting.getBoolean();
+	}
+
+	public static boolean isZombiesUtilsSetting() {
+		return zombiesUtilsSetting.getBoolean();
+	}
+
+	public static boolean isDetectUnlegitMods() {
+		return detectUnlegitMods.getBoolean();
 	}
 }

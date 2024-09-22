@@ -1,11 +1,13 @@
 package kr.hahaha98757.zombiesaddon;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import kr.hahaha98757.zombiesaddon.commands.*;
+import kr.hahaha98757.zombiesaddon.config.Hotkeys;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
-import kr.hahaha98757.zombiesaddon.listeners.*;
-import kr.hahaha98757.zombiesaddon.listeners.autosplits.AutoSplitsListener;
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.ClientCommandHandler;
+import kr.hahaha98757.zombiesaddon.data.wavedelays.CustomPlaySound;
+import kr.hahaha98757.zombiesaddon.features.Features;
+import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
@@ -15,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -27,96 +30,136 @@ import java.util.List;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.1.3";
-	public static final String CONFIG_VERSION = "15";
+	public static final String VERSION = "4.2.0-pre1";
+	private static File directory;
 
 	public static boolean isConfigReset;
-	public static boolean oldSST;
-	public static boolean detectUnlegit;
+	public static boolean haveOldSST;
+	public static boolean haveUnlegitMods;
 
-	private void writeCfgVersion() {
+	private void writeCustomPlaySoundGuide() {
+		File file = new File("config/zombiesaddon/CustomPlaySoundGuide.txt");
+
+        if (file.exists()) //noinspection ResultOfMethodCallIgnored
+            file.delete();
+
 		try {
-			Path filePath = Paths.get("config/zombiesaddonCfgVersion.txt");
+			Path filepath = Paths.get("config/zombiesaddon/CustomPlaySoundGuide.txt");
 
-			List<String> content = Arrays.asList("#DO NOT EDIT", CONFIG_VERSION);
+			List<String> content = getPlayCustomSoundGuideContent();
 
-			Files.write(filePath, content, StandardCharsets.UTF_8);
+			Files.write(filepath, content, StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void readCfgVersion() {
-		try {
-			Path filePath = Paths.get("config/zombiesaddonCfgVersion.txt");
+	private void writeCustomPlaySoundJson() {
+		File jsonFile = new File(directory, "CustomPlaySound.json");
 
-			List<String> lines = Files.readAllLines(filePath, StandardCharsets.UTF_8);
+		if (jsonFile.exists()) return;
 
-			String str = lines.get(1);
-			if (!str.equals(CONFIG_VERSION)) {
-				resetConfig();
-			}
+		CustomPlaySound[] customPlaySounds = new CustomPlaySound[] {
+				new CustomPlaySound("note.pling", 2.0F, 0, (byte) 1),
+				new CustomPlaySound("note.pling", 1.5F, -60, (byte) 2),
+				new CustomPlaySound("note.pling", 1.5F, -40, (byte) 2),
+				new CustomPlaySound("note.pling", 1.5F, -20, (byte) 2),
+				new CustomPlaySound("random.orb", 0.5F, 0, (byte) 2),
+		};
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String jsonContent = gson.toJson(customPlaySounds);
+
+		try (FileWriter writer = new FileWriter(jsonFile)) {
+			writer.write(jsonContent);
 		} catch (IOException e) {
-			resetConfig();
-		}
-	}
+            e.printStackTrace();
+        }
 
-	private void resetConfig() {
-		String cfgFilePath = "config/zombiesaddon.cfg";
-
-		File cfgFile = new File(cfgFilePath);
-
-		if (cfgFile.exists()) {
-			if (cfgFile.delete()) {
-				isConfigReset = true;
-			}
-		}
-	}
+    }
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		readCfgVersion();
-		writeCfgVersion();
+		directory = new File(event.getModConfigurationDirectory(), MODID);
 
-		ZombiesAddonConfig.config = new Configuration(event.getSuggestedConfigurationFile());
+		if (!directory.exists()) //noinspection ResultOfMethodCallIgnored
+            directory.mkdir();
+
+		writeCustomPlaySoundGuide();
+		writeCustomPlaySoundJson();
+
+		ZombiesAddonConfig.config = new Configuration(new File(directory, MODID + ".cfg"));
 		ZombiesAddonConfig.loadConfig();
-
-		Keybinds.register();
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		ClientCommandHandler.instance.registerCommand(new CommandInfo());
-		ClientCommandHandler.instance.registerCommand(new CommandSLA());
-		ClientCommandHandler.instance.registerCommand(new CommandZSV());
-		ClientCommandHandler.instance.registerCommand(new CommandZSVLines());
-		ClientCommandHandler.instance.registerCommand(new CommandPowerupPatterns());
-
 		MinecraftForge.EVENT_BUS.register(new UpdateChecker());
-		MinecraftForge.EVENT_BUS.register(new EventListener());
-		MinecraftForge.EVENT_BUS.register(new CorneringListener());
-		MinecraftForge.EVENT_BUS.register(new BlockAlarmListener());
-		MinecraftForge.EVENT_BUS.register(new NotLastListener());
-		MinecraftForge.EVENT_BUS.register(new AutoSplitsListener());
-		MinecraftForge.EVENT_BUS.register(new SLAListener());
-		MinecraftForge.EVENT_BUS.register(new ZSVListener());
-		MinecraftForge.EVENT_BUS.register(new AutoRejoinListener());
-		MinecraftForge.EVENT_BUS.register(new WaveDelaysListener());
-		MinecraftForge.EVENT_BUS.register(new PowerupPatternsListener());
-		MinecraftForge.EVENT_BUS.register(new ZombiesOverlayPatchListener());
-		MinecraftForge.EVENT_BUS.register(new KoreanPatchListener());
-		MinecraftForge.EVENT_BUS.register(new SSTPatchListener(Minecraft.getMinecraft()));
-		MinecraftForge.EVENT_BUS.register(new LastWeaponsListener());
-		MinecraftForge.EVENT_BUS.register(new TextMacroListener());
+		Hotkeys.registerAll();
+		Commands.registerAll();
+		Features.registerAll();
 	}
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		if (Loader.isModLoaded("ShowSpawnTime")) {
-			oldSST = true;
-		}
-		if (ZombiesAddonConfig.detectUnlegitMods && (Loader.isModLoaded("zombiesatellite") || Loader.isModLoaded("zombiesexplorer") || Loader.isModLoaded("TeammatesOutline"))) {
-			detectUnlegit = true;
-		}
+		if (Loader.isModLoaded("ShowSpawnTime")) haveOldSST = true;
+		if (ZombiesAddonConfig.isDetectUnlegitMods() && (Loader.isModLoaded("zombiesatellite") || Loader.isModLoaded("zombiesexplorer") || Loader.isModLoaded("TeammatesOutline")))
+            haveUnlegitMods = true;
+		HUDUtils.set();
+	}
+
+	private static List<String> getPlayCustomSoundGuideContent() {
+		return Arrays.asList(
+				"How to use Custom Play Sound.",
+				"",
+				"Find and Open \".minecraft\\config\\zombiesaddon\\CustomPlaySound.json\" file.",
+				"",
+				"Write it:", "[{sound1}, {sound2}, {sound3} ... ]",
+				"",
+				"The contents of each bracket are as follows:",
+				"{\"name\": sound_name, \"pitch\": sound_pitch, \"timing\": sound_timing, \"playWave\": sound_playWave}",
+				"",
+				"sound_name: A name of the sound. It must be wrapped in \"\". (e.g. \"note.pling\")",
+				"sound_pitch: A pitch of the sound. The range is 0.0 to 2.0.",
+				"",
+				"sound_timing: It is the timing when the sound will be played. (e.g. If sound_timing is -20, the sound will play 1 second before the wave starts.)",
+				"",
+				"sound_playWave: Sets which wave the sound will be played on. (0: Any waves. 1: Any waves without last wave. 2: Only last wave.)",
+				"",
+				"",
+				"e.g. Playing the sound of SST mod:",
+				"[",
+				"  {",
+				"    \"name\": \"note.pling\",",
+				"    \"pitch\": 2.0,",
+				"    \"timing\": 0,",
+				"    \"playWave\": 1",
+				"  },",
+				"  {",
+				"    \"name\": \"note.pling\",",
+				"    \"pitch\": 1.5,",
+				"    \"timing\": -60,",
+				"    \"playWave\": 2",
+				"  },",
+				"  {",
+				"    \"name\": \"note.pling\",",
+				"    \"pitch\": 1.5,",
+				"    \"timing\": -40,",
+				"    \"playWave\": 2",
+				"  },",
+				"  {",
+				"    \"name\": \"note.pling\",",
+				"    \"pitch\": 1.5,",
+				"    \"timing\": -20,",
+				"    \"playWave\": 2",
+				"  },",
+				"  {",
+				"    \"name\": \"random.orb\",",
+				"    \"pitch\": 0.5,",
+				"    \"timing\": 0,",
+				"    \"playWave\": 2",
+				"  },",
+				"]"
+		);
 	}
 }

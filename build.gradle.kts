@@ -58,6 +58,9 @@ sourceSets.main {
 // Dependencies:
 
 repositories {
+    flatDir {
+        dirs("libs")
+    }
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
     // If you don't want to log in with your real minecraft account, remove this line
@@ -72,12 +75,14 @@ dependencies {
     minecraft("com.mojang:minecraft:1.8.9")
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
+    implementation(files("libs/zombies-utils-1.3.6.jar", "libs/ShowSpawnTime-2.1.1.jar"))
 
     // If you don't want mixins, remove these lines
     shadowImpl("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
         isTransitive = false
     }
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
+    annotationProcessor("com.google.code.gson:gson:2.8.9")
 
     // If you don't want to log in with your real minecraft account, remove this line
 //    runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
@@ -94,7 +99,7 @@ tasks.withType(org.gradle.jvm.tasks.Jar::class) {
     manifest.attributes.run {
         this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
-        this["FMLCorePlugin"] = "kr.hahaha98757.zombiesaddon.tweaker.ClassTweaker"
+
         // If you don't want mixins, remove these lines
         this["TweakClass"] = "org.spongepowered.asm.launch.MixinTweaker"
         this["MixinConfigs"] = "mixins.$modid.json"

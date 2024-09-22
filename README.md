@@ -81,6 +81,19 @@ You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZo
 
 ## Update Log
 
+### 4.2.0-pre1
+- Code optimization.
+- Fixed bugs.
+- Renamed Cornering to PV.
+- Fixed PV.
+- Added ManualTimer for PowerupPatterns.
+- Fixed SLA.
+- Added /ZAHUD command.
+- Fixed Wave Delays.
+- Added SST Setting and Zombies Utils Setting.
+- Supported multiple languages.
+
+
 ### 4.1.3
 - Fixed bugs.
 

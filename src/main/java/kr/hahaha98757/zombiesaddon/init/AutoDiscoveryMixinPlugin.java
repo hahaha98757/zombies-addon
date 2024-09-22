@@ -109,19 +109,23 @@ public class AutoDiscoveryMixinPlugin implements IMixinConfigPlugin {
     @Override
     public List<String> getMixins() {
         if (mixins != null) return mixins;
+        System.out.println("Trying to discover mixins");
         mixins = new ArrayList<>();
         URL classUrl = getClass().getProtectionDomain().getCodeSource().getLocation();
+        System.out.println("Found classes at " + classUrl);
         Path file;
         try {
             file = Paths.get(getBaseUrlForClassUrl(classUrl).toURI());
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Base directory found at " + file);
         if (Files.isDirectory(file)) {
             walkDir(file);
         } else {
             walkJar(file);
         }
+        System.out.println("Found mixins: " + mixins);
 
         return mixins;
     }

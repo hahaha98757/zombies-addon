@@ -2,6 +2,10 @@
 
 package kr.hahaha98757.zombiesaddon.utils;
 
+import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
+import kr.hahaha98757.zombiesaddon.data.GameMode;
+import kr.hahaha98757.zombiesaddon.enums.Difficulty;
+import kr.hahaha98757.zombiesaddon.enums.Map;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -14,11 +18,19 @@ import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Utils {
     public static final String LINE = "§e-----------------------------------------------------";
     private static final Minecraft mc = Minecraft.getMinecraft();
     private static final FontRenderer fr = mc.fontRendererObj;
+
+    public static boolean isModDisable() {
+        return !ZombiesAddonConfig.isEnableMod();
+    }
 
     /**
      * Add the text on chat that only you can see.
@@ -36,6 +48,10 @@ public class Utils {
      */
     public static void addChatLine(String text) {
         mc.thePlayer.addChatComponentMessage(new ChatComponentText(LINE + "\n" + text + "\n" + LINE));
+    }
+
+    public static void sendChat(String text) {
+        mc.thePlayer.sendChatMessage(text);
     }
 
     /**
@@ -60,6 +76,16 @@ public class Utils {
         text.appendSibling(new ChatComponentText(text2));
 
         mc.thePlayer.addChatComponentMessage(text);
+    }
+
+    /**
+     * Play Sound
+     *
+     * @param name A name of the sound.
+     * @param pitch A pitch of the sound.
+     */
+    public static void playSound(String name, float pitch) {
+        mc.thePlayer.playSound(name, 1, pitch);
     }
 
     /**
@@ -97,6 +123,22 @@ public class Utils {
         return new ScaledResolution(mc).getScaledHeight() - fr.FONT_HEIGHT - 1.0F;
     }
 
+    private static List<String> getScoreboard() {
+        List<String> strings = new ArrayList<>();
+        if (mc.theWorld == null || mc.thePlayer == null) return null;
+
+        Scoreboard scoreboard = mc.theWorld.getScoreboard();
+        ScoreObjective sidebar = scoreboard.getObjectiveInDisplaySlot(1);
+
+        if (sidebar == null || !LanguageSupport.ZOMBIES_TITLE.contains(EnumChatFormatting.getTextWithoutFormattingCodes(sidebar.getDisplayName()))) return null;
+
+        for (Score score : scoreboard.getSortedScores(sidebar))
+            for (int i = 1; i <= 15; i++)
+                if (score.getScorePoints() == i)
+                    strings.add(EnumChatFormatting.getTextWithoutFormattingCodes(score.getPlayerName()));
+        return strings;
+    }
+
     /**
      * Get the status of players in Zombies.
      * <p>
@@ -108,16 +150,14 @@ public class Utils {
      */
     public static byte[] getRevDeadQuit() {
         byte[] rdq = new byte[] { 0, 0, 0 };
-        if (mc.thePlayer == null) return rdq;
+        if (mc.theWorld == null || mc.thePlayer == null) return rdq;
 
-        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
-        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(Scoreboard.getObjectiveDisplaySlotNumber("sidebar"));
+        Scoreboard scoreboard = mc.theWorld.getScoreboard();
+        ScoreObjective sidebar = scoreboard.getObjectiveInDisplaySlot(1);
 
-        if (scoreObjective == null) return rdq;
+        if (sidebar == null || !EnumChatFormatting.getTextWithoutFormattingCodes(sidebar.getDisplayName()).equalsIgnoreCase("ZOMBIES")) return rdq;
 
-        if (!EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equalsIgnoreCase("ZOMBIES")) return rdq;
-
-        for (Score score : scoreboard.getSortedScores(scoreObjective)) {
+        for (Score score : scoreboard.getSortedScores(sidebar)) {
             String str = ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName());
             if (score.getScorePoints() <= 10 && score.getScorePoints() >= 7) {
                 str = EnumChatFormatting.getTextWithoutFormattingCodes(str);
@@ -128,88 +168,106 @@ public class Utils {
                     continue;
                 }
 
-                if (str.equalsIgnoreCase("revive") || str.equalsIgnoreCase("부활")) rdq[0]++;
-                else if (str.equalsIgnoreCase("dead") || str.equalsIgnoreCase("사망")) rdq[1]++;
-                else if (str.equalsIgnoreCase("quit") || str.equalsIgnoreCase("떠남")) rdq[2]++;
+                if (LanguageSupport.REVIVE.contains(str)) rdq[0]++;
+                else if (LanguageSupport.DEAD.contains(str)) rdq[1]++;
+                else if (LanguageSupport.QUIT.contains(str)) rdq[2]++;
             }
         }
         return rdq;
     }
 
     /**
+     * Checks if there are you in Zombies.
+     *
+     * @return Returns false if there are you in Zombies.
+     */
+    public static boolean isNotZombies() {
+        return getScoreboard() == null;
+    }
+
+    /**
      * Checks if you play Zombies.
      *
-     * @return Returns true if you play Zombies.
+     * @return Returns false if you play Zombies.
      */
-    public static boolean isZombies() {
-        if (mc.thePlayer == null) return false;
-
-        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
-        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(Scoreboard.getObjectiveDisplaySlotNumber("sidebar"));
-
-        if (scoreObjective == null) return false;
-
-        return EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equalsIgnoreCase("ZOMBIES");
+    public static boolean isNotPlayZombies() {
+        if (getScoreboard() == null) return true;
+        for (String str : getScoreboard()) if (str.contains(mc.thePlayer.getName())) return false;
+        return true;
     }
 
     /**
      * Get the map.
-     * <p>
-     * 1: Dead End
-     * 2: Bad Blood
-     * 3: Alien Arcadium
-     * 4: Prison
      *
-     * @return Returns 0 if it can't check the map.
+     * @return Returns null if it can't check the map.
      */
-    public static byte getMap() {
-        if (mc.theWorld == null) return 0;
+    public static Map getMap() {
+        World world = mc.theWorld;
 
-        if (!isZombies()) return 0;
+        if (isNotZombies()) return null;
 
-        String blockName = mc.theWorld.getBlockState(new BlockPos(0, 72, 12)).getBlock().getUnlocalizedName();
+        BlockPos pos = new BlockPos(44, 71, 0);
 
-        switch (blockName) {
-            case "tile.cloth":// wool
-                return 1;
-            case "tile.stonebricksmooth":// stonebrick
-                return 2;
-            case "tile.woolCarpet":// carpet
-                return 3;
-            case "tile.clayHardenedStained":// stained_hardened_clay
-                return 4;
+        if (!world.isBlockLoaded(pos)) return null;
+
+        switch (world.getBlockState(pos).getBlock().getUnlocalizedName()) {
+            case "tile.air":
+                return Map.DEAD_END;
+            case "tile.cloth":
+                return Map.BAD_BLOOD;
+            case "tile.stoneSlab":
+                return Map.ALIEN_ARCADIUM;
+            case "tile.woodSlab":
+                return Map.PRISON;
+            default:
+                return null;
         }
-        return 0;
     }
 
     /**
-     * Get the area.
+     * Get the GameMode.
      *
-     * @return The name of the area. Returns empty if it can't check the area.
+     *
+     * @param difficulty difficulty
+     * @return GameMode.
      */
-    public static String getArea() {
-        if (mc.thePlayer == null) return "";
+    public static GameMode getGameMode(Difficulty difficulty) {
+        Map map = getMap();
 
-        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
-        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(Scoreboard.getObjectiveDisplaySlotNumber("sidebar"));
+        if (map == null) return null;
 
-        if (scoreObjective == null) return "";
-
-        if (!EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equalsIgnoreCase("ZOMBIES")) return "";
-
-        for (Score score : scoreboard.getSortedScores(scoreObjective)) {
-            String str = ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName());
-            if (score.getScorePoints() == 3) {
-                str = EnumChatFormatting.getTextWithoutFormattingCodes(str);
-
-                try {
-                    return str.split(":")[1].replaceAll("[^A-Za-z]", "");
-                } catch (Exception e) {
-                    return "";
+        switch (map) {
+            case DEAD_END:
+                switch (difficulty) {
+                    case NORMAL:
+                        return GameMode.DEAD_END;
+                    case HARD:
+                        return GameMode.DEAD_END_HARD;
+                    case RIP:
+                        return GameMode.DEAD_END_RIP;
                 }
-            }
+            case BAD_BLOOD:
+                switch (difficulty) {
+                    case NORMAL:
+                        return GameMode.BAD_BLOOD;
+                    case HARD:
+                        return GameMode.BAD_BLOOD_HARD;
+                    case RIP:
+                        return GameMode.BAD_BLOOD_RIP;
+                }
+            case ALIEN_ARCADIUM:
+                return GameMode.ALIEN_ARCADIUM;
+            case PRISON:
+                switch (difficulty) {
+                    case NORMAL:
+                        return GameMode.PRISON;
+                    case HARD:
+                        return GameMode.PRISON_HARD;
+                    case RIP:
+                        return GameMode.PRISON_RIP;
+                }
         }
-        return "";
+        return null;
     }
 
     /**
@@ -218,27 +276,13 @@ public class Utils {
      * @return Returns 0 if it can't check the round.
      */
     public static byte getRound() {
-        if (mc.thePlayer == null) return 0;
+        List<String> list = getScoreboard();
 
-        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
-        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(Scoreboard.getObjectiveDisplaySlotNumber("sidebar"));
+        if (list == null) return 0;
 
-        if (scoreObjective == null) return 0;
+        for (String str : list)
+            if (LanguageSupport.ROUND.contains(LanguageSupport.getRoundText(str))) return Byte.parseByte(str.replaceAll("[^0-9]", ""));
 
-        if (!EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equalsIgnoreCase("ZOMBIES")) return 0;
-
-        for (Score score : scoreboard.getSortedScores(scoreObjective)) {
-            String str = ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName());
-            if (score.getScorePoints() == 13) {
-                str = EnumChatFormatting.getTextWithoutFormattingCodes(str);
-
-                try {
-                    return Byte.parseByte(str.replaceAll("[^0-9]", ""));
-                } catch (Exception e) {
-                    return 0;
-                }
-            }
-        }
         return 0;
     }
 
@@ -254,48 +298,41 @@ public class Utils {
      * @return If it can't check the difficult, returns 1.
      */
     public static byte getDifficult(byte map, byte round) {// Normal: 1, Hard: 2, RIP: 3
-        if (mc.thePlayer == null) return 1;
+        List<String> list = getScoreboard();
 
-        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
-        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(Scoreboard.getObjectiveDisplaySlotNumber("sidebar"));
+        short zombiesLeft = 0;
 
-        if (scoreObjective == null) return 1;
+        if (list == null) return 1;
 
-        if (!EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equalsIgnoreCase("ZOMBIES")) return 1;
-
-        for (Score score : scoreboard.getSortedScores(scoreObjective)) {
-            String str = ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName());
-            if (score.getScorePoints() == 12) {
-                str = str.replaceAll("§.", "");
-                try {
-                    str = str.replaceAll("[^0-9]", "");
-                } catch (Exception var13) {
-                    return 1;
-                }
-
-                if (map == 1) {
-                    if (round == 4 && str.equals("26")) return 3;
-                    if (round == 9 && str.equals("34")) return 3;
-                    if (round == 14) {
-                        if (str.equals("41")) return 2;
-                        else if (str.equals("48")) return 3;
-                    }
-                    if (round == 19 && str.equals("68")) return 3;
-                    if (round == 24) {
-                        if (str.equals("70")) return 2;
-                        else if (str.equals("78")) return 3;
-                    }
-                    if (round == 29) {
-                        if (str.equals("101")) return 2;
-                        else if (str.equals("111")) return 3;
-                    }
-                } else if (map == 2) {
-                    if (round == 14 && str.equals("42")) return 3;
-                    if (round == 19 && str.equals("44")) return 3;
-                    if (round == 24 && str.equals("66")) return 3;
-                    if (round == 29 && str.equals("83")) return 3;
-                }
+        for (String str : list)
+            if (str.contains("Zombies Left: ") || str.contains("남은 좀비: ")) {
+                zombiesLeft = Short.parseShort(str.replaceAll("[^0-9]", ""));
+                break;
             }
+
+        if (zombiesLeft == 0) return 1;
+
+        if (map == 1) {
+            if (round == 4 && zombiesLeft == 26) return 3;
+            if (round == 9 && zombiesLeft == 34) return 3;
+            if (round == 14) {
+                if (zombiesLeft == 41) return 2;
+                else if (zombiesLeft == 48) return 3;
+            }
+            if (round == 19 && zombiesLeft == 68) return 3;
+            if (round == 24) {
+                if (zombiesLeft == 70) return 2;
+                else if (zombiesLeft == 78) return 3;
+            }
+            if (round == 29) {
+                if (zombiesLeft == 101) return 2;
+                else if (zombiesLeft == 111) return 3;
+            }
+        } else if (map == 2) {
+            if (round == 14 && zombiesLeft == 42) return 3;
+            if (round == 19 && zombiesLeft == 44) return 3;
+            if (round == 24 && zombiesLeft == 66) return 3;
+            if (round == 29 && zombiesLeft == 83) return 3;
         }
         return 1;
     }
@@ -309,24 +346,236 @@ public class Utils {
      * @return If it can't check the language, returns 0.
      */
     public static byte getLang() {
-        if (mc.thePlayer == null) return 0;
+        List<String> list = getScoreboard();
 
-        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
-        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(Scoreboard.getObjectiveDisplaySlotNumber("sidebar"));
+        if (list == null) return 0;
 
-        if (scoreObjective == null) return 0;
-
-        if (!EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equalsIgnoreCase("ZOMBIES")) return 0;
-
-        for (Score score : scoreboard.getSortedScores(scoreObjective)) {
-            String str = ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName());
-            if (score.getScorePoints() == 13) {
-                str = EnumChatFormatting.getTextWithoutFormattingCodes(str);
-
-                if (str.contains("Round")) return 0;
-                else if (str.contains("라운드")) return 1;
-            }
-        }
+        for (String str : list)
+            if (str.contains("Round ")) return 0;
+            else if (str.contains("라운드 ")) return 1;
         return 0;
+    }
+
+    /**
+     * Get a color of the boss wave.
+     *
+     *
+     * @param map A map.
+     * @param difficulty A difficulty.
+     * @param round A round.
+     * @param wave A wave.
+     * @return A color code with "§"
+     */
+    public static String getBossColor1(Map map, Difficulty difficulty, byte round, byte wave) {
+        switch (map) {
+            case DEAD_END:
+                switch (round) {
+                    case 5:
+                        if (difficulty == Difficulty.RIP && wave == 3) return "§6";
+                        break;
+                    case 10:
+                        if (wave == 3) return "§6";
+                        if (difficulty == Difficulty.RIP && wave == 4) return "§6";
+                        break;
+                    case 15:
+                        if (difficulty != Difficulty.NORMAL && wave == 2) return "§6";
+                        if (difficulty == Difficulty.RIP && wave == 3) return "§c";
+                        break;
+                    case 20:
+                        if (wave == 3) return "§c";
+                        if (difficulty == Difficulty.RIP && wave == 4) return "§c";
+                        break;
+                    case 25:
+                        if (difficulty == Difficulty.HARD && wave == 3) return "§6";
+                        if (difficulty == Difficulty.RIP && (wave == 1 || wave == 2)) return "§6";
+                        if (difficulty == Difficulty.RIP && wave == 3) return "§5";
+                        break;
+                    case 30:
+                        if (wave == 3) return "§5";
+                        if (difficulty != Difficulty.NORMAL && wave == 2) return "§5";
+                        if (difficulty == Difficulty.RIP) return "§5";
+                        break;
+                    default:
+                        return "";
+                }
+            case BAD_BLOOD:
+                switch (round) {
+                    case 10:
+                        if (wave == 3) return "§a";
+                        break;
+                    case 15:
+                        if (difficulty == Difficulty.RIP) return "§a";
+                        break;
+                    case 20:
+                    case 30:
+                        if (difficulty != Difficulty.RIP && wave == 2) return "§5";
+                        if (difficulty == Difficulty.RIP && (wave == 1 || wave == 3)) return "§5";
+                        break;
+                    case 25:
+                        if (difficulty == Difficulty.RIP && wave == 3) return "§a";
+                        break;
+                    default:
+                        return "";
+                }
+            case ALIEN_ARCADIUM:
+                switch (round) {
+                    case 15:
+                        if (wave == 6) return "§3";
+                        break;
+                    case 20:
+                        if (wave == 3 || wave == 5) return "§3";
+                        break;
+                    case 22:
+                    case 24:
+                        if (wave == 4 || wave == 6) return "§3";
+                        break;
+                    case 25:
+                        return "§a";
+                    case 30:
+                    case 42:
+                    case 44:
+                        return "§3";
+                    case 35:
+                    case 59:
+                    case 102:
+                    case 103:
+                    case 104:
+                    case 105:
+                        return "§4";
+                    case 36:
+                    case 37:
+                    case 38:
+                    case 39:
+                    case 41:
+                        if (wave == 2 || wave == 3) return "§3";
+                        break;
+                    case 40:
+                        if (wave == 2 || wave == 3) return "§3";
+                        if (wave == 5) return "§4";
+                        break;
+                    case 43:
+                        if (wave == 2 || wave == 4 || wave == 6) return "§3";
+                        break;
+                    case 45:
+                        if (wave == 2) return "§3";
+                        if (wave == 3 || wave == 4) return "§4";
+                        break;
+                    case 46:
+                    case 48:
+                        if (wave == 4) return "§4";
+                        break;
+                    case 47:
+                        if (wave == 3) return "§3";
+                        break;
+                    case 50:
+                    case 51:
+                    case 52:
+                    case 53:
+                        if (wave == 2 || wave == 4) return "§3";
+                        break;
+                    case 54:
+                    case 58:
+                        if (wave == 2 || wave == 4) return "§3";
+                        if (wave == 5) return "§4";
+                        break;
+                    case 55:
+                        if (wave == 1 || wave == 2 || wave == 3 || wave == 4 || wave == 5) return "§3";
+                        if (wave == 6) return "§4";
+                        break;
+                    case 56:
+                        if (wave == 1) return "§a";
+                        break;
+                    case 57:
+                        if (wave == 1) return "§4";
+                        break;
+                    case 60:
+                        if (wave == 3 || wave == 4) return "§4";
+                        break;
+                    case 64:
+                    case 68:
+                    case 78:
+                    case 88:
+                    case 98:
+                    case 69:
+                    case 79:
+                    case 89:
+                    case 99:
+                        if (wave == 5 || wave == 6) return "§4";
+                        break;
+                    case 74:
+                    case 84:
+                    case 94:
+                        if (wave == 4 || wave == 5 || wave == 6) return "§4";
+                        break;
+                    case 65:
+                    case 75:
+                    case 85:
+                    case 95:
+                        if (wave == 4 || wave == 5 || wave == 6) return "§3";
+                        break;
+                    case 67:
+                    case 77:
+                    case 87:
+                    case 97:
+                        if (wave == 6) return "§4";
+                        break;
+                    case 70:
+                    case 80:
+                    case 90:
+                    case 100:
+                        if (wave == 4 || wave == 5 || wave == 6) return "§3";
+                        if (wave == 2 || wave == 3) return "§4";
+                        break;
+                    case 101:
+                        return "§0";
+                    default:
+                        return "";
+                }
+            case PRISON:
+                switch (round) {
+                    case 10:
+                    case 20:
+                        if (wave == 3) return "§c";
+                        break;
+                    case 30:
+                        return "§6";
+                    case 31:
+                        if (wave == 5) return "§6";
+                        break;
+                    default:
+                        return "";
+                }
+            default:
+                return "";
+        }
+    }
+
+    /**
+     * Get a color of the boss wave in Alien Arcadium.
+     *
+     *
+     * @param round A round.
+     * @param wave A wave.
+     * @return A color code with "§"
+     */
+    public static String getBossColor2(byte round, byte wave) {
+        switch (round) {
+            case 54:
+            case 58:
+                if (wave == 2) return "§4";
+                break;
+            case 55:
+                if (wave == 5) return "§4";
+                break;
+            case 70:
+            case 80:
+            case 90:
+            case 100:
+                if (wave == 4 || wave == 5 || wave == 6) return "§4";
+                break;
+            default:
+                return "";
+        }
+        return "";
     }
 }

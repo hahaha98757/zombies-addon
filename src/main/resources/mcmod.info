@@ -2,15 +2,15 @@
   {
     "modid": "${modid}",
     "name": "Zombies Addon",
-    "description": "A mod that helps playing hypixel zombies. Use /info command to view mod's description.",
+    "description": "The mod for Hypixel Zombies.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "https://github.com/hahaha98757/zombies-addon",
-    "updateUrl": "https://github.com/hahaha98757/zombies-addon/releases",
+    "updateUrl": "https://github.com/hahaha98757/zombies-addon/update.json",
     "authorList": [
       "hahaha98757"
     ],
-    "credits": "Thanks by syeyoung, tahmid-23, and Stachelbeere1248 for the code used in this mod.",
+    "credits": "Thanks by syeyoung, tahmid-23, Stachelbeere1248, and Seosean for the code used in this mod.",
     "logoFile": "",
     "screenshots": [],
     "dependencies": []

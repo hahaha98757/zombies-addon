@@ -2,7 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.commands;
 
-import kr.hahaha98757.zombiesaddon.listeners.ZSVListener;
+import kr.hahaha98757.zombiesaddon.features.ZombiesStratViewer;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
@@ -22,7 +22,7 @@ public class CommandZSVLines extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "§cUsage: /ZSVLines <number>\n§cThe number must be greater than 0";
+		return "§cUsage: /ZSVLines <number>";
 	}
 
 	@Override
@@ -37,15 +37,15 @@ public class CommandZSVLines extends CommandBase {
 		try {
 			int toBe = Integer.parseInt(args[0]);
 			if (toBe < 1) {
-				Utils.addChat(getCommandUsage(null));
+				Utils.addChat("§cThe number must be higher than 0");
 				return;
 			}
 
-			ZSVListener.linesOfView = toBe;
-			ZSVListener.recalcActualLines();
-			Utils.addChat("§eZSV: Set Lines of View to §a" + ZSVListener.linesOfView);
+			ZombiesStratViewer.linesOfView = toBe;
+			ZombiesStratViewer.recalcActualLines();
+			Utils.addChat("§eZSV: Set lines of view to §a" + ZombiesStratViewer.linesOfView);
 		} catch (Exception e) {
-			Utils.addChat(getCommandUsage(null));
+			Utils.addChat("§cThe number must be higher than 0");
 		}
 	}
 }

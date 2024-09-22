@@ -2,7 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.commands;
 
-import kr.hahaha98757.zombiesaddon.listeners.ZSVListener;
+import kr.hahaha98757.zombiesaddon.features.ZombiesStratViewer;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
@@ -17,7 +17,6 @@ import java.net.URL;
 import java.util.List;
 
 public class CommandZSV extends CommandBase {
-	public static boolean ZSV = false;
 
 	@Override
 	public String getCommandName() {
@@ -31,7 +30,7 @@ public class CommandZSV extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "§cUsage: /ZSV <url|off>\n§cThe url must start with \"https://pastebin.com/raw/\"";
+		return "§cUsage: /ZSV <URL|off>\n§cThe URL must start with \"https://pastebin.com/raw/\"";
 	}
 
 	@Override
@@ -44,11 +43,11 @@ public class CommandZSV extends CommandBase {
 		}
 
 		if (args[0].equals("off")) {
-			ZSVListener.START_LINES.clear();
-			ZSVListener.START_LINES.add("");
-			ZSVListener.currentLine = 0;
+			ZombiesStratViewer.START_LINES.clear();
+			ZombiesStratViewer.START_LINES.add("");
+			ZombiesStratViewer.currentLine = 0;
 			Utils.addChat("§eZSV: Set ZSV to §coff");
-			ZSV = false;
+			ZombiesStratViewer.zombiesStratViewer = false;
 			return;
 		}
 
@@ -57,9 +56,9 @@ public class CommandZSV extends CommandBase {
 			return;
 		}
 
-		ZSVListener.START_LINES.clear();
-		ZSVListener.START_LINES.add("");
-		ZSVListener.currentLine = 0;
+		ZombiesStratViewer.START_LINES.clear();
+		ZombiesStratViewer.START_LINES.add("");
+		ZombiesStratViewer.currentLine = 0;
 		try {
 			URL url = new URL(args[0]);
 			HttpURLConnection huc = (HttpURLConnection) url.openConnection();
@@ -68,16 +67,14 @@ public class CommandZSV extends CommandBase {
 			BufferedReader br = new BufferedReader(new InputStreamReader(huc.getInputStream()));
 
 			String str;
-			while ((str = br.readLine()) != null) {
-				ZSVListener.START_LINES.add(str);
-			}
-			ZSV = true;
-			ZSVListener.recalcActualLines();
+			while ((str = br.readLine()) != null) ZombiesStratViewer.START_LINES.add(str);
+			ZombiesStratViewer.zombiesStratViewer = true;
+			ZombiesStratViewer.recalcActualLines();
 			br.close();
 			huc.getInputStream().close();
 			Utils.addChat("§eZSV: Set ZSV to §aon");
 		} catch (IOException e) {
-			Utils.addChat("§eZSV: §cWrong URL.");
+			Utils.addChat("§eZSV: §cWrong URL");
 		}
 	}
 
