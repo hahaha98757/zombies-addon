@@ -1,0 +1,10 @@
+{
+  "homepage": "https://github.com/hahaha98757/zombies-addon",
+  "promos": {
+    "1.8.9-latest"     : "4.2.0",
+    "1.8.9-recommended" : "1.2.0"
+  },
+  "1.8.9" : {
+    "1.2.0" : "asdf"
+  }
+}
