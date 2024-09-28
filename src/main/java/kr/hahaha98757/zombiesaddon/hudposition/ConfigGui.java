@@ -1,3 +1,5 @@
+//Code in Show Spawn Time by Seosean
+
 package kr.hahaha98757.zombiesaddon.hudposition;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
@@ -160,10 +162,5 @@ public class ConfigGui extends GuiScreen {
             default:
                 ZombiesAddonConfig.config.save();
         }
-    }
-
-    @Override
-    public void onGuiClosed() {
-        super.onGuiClosed();
     }
 }

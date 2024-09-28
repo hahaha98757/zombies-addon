@@ -77,9 +77,25 @@ Fixed a bug of forge that commands are executed without "/".
 You can turn off Wave Delay of SST in the ".minecraft\config\zombiesaddonSSTSetting.txt".
 You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZombiesUtilsSetting.txt".
 
+
+## Credits
+This mod includes code from the following mods:
+- [Zombies AutoSplits](https://github.com/tahmid-23/ZombiesAutoSplits) by tahmid-23 (MIT License)
+- [Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) by Stachelbeere1248 (MIT License)
+- [Show Spawn Time](https://github.com/Seosean/ShowSpawnTime/tree/1.15.0) by Seosean (MIT License)
+- [Zombies Cornering Mod](https://github.com/cyoung06/ZombiesCorneringMod) by syeyoung (MIT License)
+- [Zombies Strat Viewer](https://github.com/cyoung06/ZombiesStratViewer) by syeyoung (MIT License)
+
+Zombies Hologrambug Fixer, Zombies Cornering Mod, and Zombies Strat Viewer was originally licensed under the LGPL license, but the author, syeyoung, granted permission to license it under the MIT license.
+Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.15.0.jar.
+
 ****
 
 ## Update Log
+
+### 4.2.0-pre3
+- Fixed bugs.
+- Multiple languages are not supported.(Only English or Korean.)
 
 ### 4.2.0-pre2
 - Fixed bugs.

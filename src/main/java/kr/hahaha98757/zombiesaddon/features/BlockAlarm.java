@@ -1,3 +1,5 @@
+//Code in Zombies Cornering Mod by syeyoung
+
 package kr.hahaha98757.zombiesaddon.features;
 
 import kr.hahaha98757.zombiesaddon.config.Hotkeys;
@@ -29,7 +31,7 @@ public class BlockAlarm {
 
         byte[] rdq = Utils.getRevDeadQuit();
 
-        if (!((rdq[0] + rdq[1] + rdq[2] == 3) && (rdq[0] >= 1))) return;
+        if (!((rdq[0] + rdq[1] + rdq[2] == 3))) return;
 
         GL11.glPushMatrix();
         GL11.glScalef(7.0F, 7.0F, 7.0F);

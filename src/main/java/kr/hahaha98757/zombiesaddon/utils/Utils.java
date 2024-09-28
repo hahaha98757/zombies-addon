@@ -1,4 +1,4 @@
-//Code in Cornering by syeyoung
+//Code in Zombies Utils by Stachelbeere1248
 
 package kr.hahaha98757.zombiesaddon.utils;
 
@@ -20,12 +20,10 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Utils {
     public static final String LINE = "§e-----------------------------------------------------";
-    private static final String emojiRegex = "(?:[\uD83C\uDF00-\uD83D\uDDFF]|[\uD83E\uDD00-\uD83E\uDDFF]|[\uD83D\uDE00-\uD83D\uDE4F]|[\uD83D\uDE80-\uD83D\uDEFF]|[\u2600-\u26FF]\uFE0F?|[\u2700-\u27BF]\uFE0F?|\u24C2\uFE0F?|[\uD83C\uDDE6-\uD83C\uDDFF]{1,2}|[\uD83C\uDD70\uD83C\uDD71\uD83C\uDD7E\uD83C\uDD7F\uD83C\uDD8E\uD83C\uDD91-\uD83C\uDD9A]\uFE0F?|[\u0023\u002A\u0030-\u0039]\uFE0F?\u20E3|[\u2194-\u2199\u21A9-\u21AA]\uFE0F?|[\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55]\uFE0F?|[\u2934\u2935]\uFE0F?|[\u3030\u303D]\uFE0F?|[\u3297\u3299]\uFE0F?|[\uD83C\uDE01\uD83C\uDE02\uD83C\uDE1A\uD83C\uDE2F\uD83C\uDE32-\uD83C\uDE3A\uD83C\uDE50\uD83C\uDE51]\uFE0F?|[\u203C\u2049]\uFE0F?|[\u25AA\u25AB\u25B6\u25C0\u25FB-\u25FE]\uFE0F?|[\u00A9\u00AE]\uFE0F?|[\u2122\u2139]\uFE0F?|\uD83C\uDC04\uFE0F?|\uD83C\uDCCF\uFE0F?|[\u231A\u231B\u2328\u23CF\u23E9-\u23F3\u23F8-\u23FA]\uFE0F?)";
     private static Minecraft mc;
     private static FontRenderer fr;
 
@@ -129,21 +127,20 @@ public class Utils {
         return new ScaledResolution(mc).getScaledHeight() - fr.FONT_HEIGHT - 1.0F;
     }
 
-    private static List<String> getScoreboard() {
-        List<String> strings = new ArrayList<>();
+    private static HashMap<Integer, String> getScoreboard() {
+        HashMap<Integer, String> scoreboards = new HashMap<>();
         if (mc.theWorld == null || mc.thePlayer == null) return null;
 
         Scoreboard scoreboard = mc.theWorld.getScoreboard();
         ScoreObjective sidebar = scoreboard.getObjectiveInDisplaySlot(1);
 
-        if (sidebar == null || !LanguageSupport.ZOMBIES_TITLE.contains(EnumChatFormatting.getTextWithoutFormattingCodes(sidebar.getDisplayName()))) return null;
+        if (sidebar == null || !EnumChatFormatting.getTextWithoutFormattingCodes(sidebar.getDisplayName()).equals("ZOMBIES")) return null;
 
         for (Score score : scoreboard.getSortedScores(sidebar))
             for (int i = 1; i <= 15; i++)
-                if (score.getScorePoints() == i) {
-                    strings.add(EnumChatFormatting.getTextWithoutFormattingCodes(ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName()).replaceAll(emojiRegex, "")).trim());
-                }
-        return strings;
+                if (score.getScorePoints() == i)
+                    scoreboards.put(i, EnumChatFormatting.getTextWithoutFormattingCodes(ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName()).replaceAll("[^A-Za-z0-9가-힣:\\s]", "")).trim());
+        return scoreboards;
     }
 
     /**
@@ -156,31 +153,39 @@ public class Utils {
      * @return Byte array.
      */
     public static byte[] getRevDeadQuit() {
-        byte[] rdq = new byte[] { 0, 0, 0 };
-        if (mc.theWorld == null || mc.thePlayer == null) return rdq;
+        byte[] revDeadQuit = new byte[] { 0, 0, 0 };
 
-        Scoreboard scoreboard = mc.theWorld.getScoreboard();
-        ScoreObjective sidebar = scoreboard.getObjectiveInDisplaySlot(1);
+        HashMap<Integer, String> scoreboard = getScoreboard();
 
-        if (sidebar == null || !EnumChatFormatting.getTextWithoutFormattingCodes(sidebar.getDisplayName()).equalsIgnoreCase("ZOMBIES")) return rdq;
+        if (scoreboard == null) return revDeadQuit;
 
-        for (Score score : scoreboard.getSortedScores(sidebar)) {
-            String str = ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName());
-            if (score.getScorePoints() <= 10 && score.getScorePoints() >= 7) {
-                str = EnumChatFormatting.getTextWithoutFormattingCodes(str);
+        for (int i = 7; i <= 10; i++) {
+            String str = scoreboard.get(i);
 
-                try {
-                    str = str.split(":")[1].replaceAll("[^A-Za-z0-9가-힣]", "");
-                } catch (Exception e) {
-                    continue;
-                }
+            if (str == null) continue;
 
-                if (LanguageSupport.REVIVE.contains(str)) rdq[0]++;
-                else if (LanguageSupport.DEAD.contains(str)) rdq[1]++;
-                else if (LanguageSupport.QUIT.contains(str)) rdq[2]++;
+            try {
+                str = str.split(":")[1].trim();
+            } catch (Exception e) {
+                continue;
+            }
+
+            switch (str) {
+                case "revive":
+                case "부활":
+                    revDeadQuit[0]++;
+                    break;
+                case "dead":
+                case "사망":
+                    revDeadQuit[1]++;
+                    break;
+                case "quit":
+                case "떠남":
+                    revDeadQuit[2]++;
+                    break;
             }
         }
-        return rdq;
+        return revDeadQuit;
     }
 
     /**
@@ -198,8 +203,16 @@ public class Utils {
      * @return Returns false if you play Zombies.
      */
     public static boolean isNotPlayZombies() {
-        if (getScoreboard() == null) return true;
-        for (String str : getScoreboard()) if (str.contains(mc.thePlayer.getName())) return false;
+        java.util.Map<Integer, String> scoreboard = getScoreboard();
+
+        if (scoreboard == null) return true;
+
+        for (int i = 7; i <= 10; i++) {
+            String str = scoreboard.get(i);
+            if (str == null) return true;
+
+            if (str.contains(mc.thePlayer.getName())) return false;
+        }
         return true;
     }
 
@@ -283,13 +296,16 @@ public class Utils {
      * @return Returns 0 if it can't check the round.
      */
     public static byte getRound() {
-        List<String> list = getScoreboard();
+        HashMap<Integer, String> scoreboard = getScoreboard();
 
-        if (list == null) return 0;
+        if (scoreboard == null) return 0;
 
-        for (String str : list)
-            if (LanguageSupport.isRoundText(str)) return Byte.parseByte(str.replaceAll("[^0-9]", ""));
+        for (int i = 10; i <= 13; i++) {
+            String str = scoreboard.get(i);
+            if (str == null) continue;
 
+            if (!str.contains(":") && (str.contains("Round") || str.contains("라운드"))) return Byte.parseByte(str.replaceAll("[^0-9]", ""));
+        }
         return 0;
     }
 
@@ -304,20 +320,22 @@ public class Utils {
      * @param round The round.
      * @return If it can't check the difficult, returns 1.
      */
+    @Deprecated
     public static byte getDifficult(byte map, byte round) {// Normal: 1, Hard: 2, RIP: 3
-        List<String> list = getScoreboard();
-
         short zombiesLeft = 0;
+        HashMap<Integer, String> scoreboard = getScoreboard();
 
-        if (list == null) return 1;
+        if (scoreboard == null) return 1;
 
-        for (String str : list)
+        for (int i = 9; i <= 12; i++) {
+            String str = scoreboard.get(i);
+            if (str == null) continue;
+
             if (str.contains("Zombies Left: ") || str.contains("남은 좀비: ")) {
                 zombiesLeft = Short.parseShort(str.replaceAll("[^0-9]", ""));
                 break;
             }
-
-        if (zombiesLeft == 0) return 1;
+        }
 
         if (map == 1) {
             if (round == 4 && zombiesLeft == 26) return 3;
@@ -353,14 +371,22 @@ public class Utils {
      * @return If it can't check the language, returns 0.
      */
     public static byte getLang() {
-        List<String> list = getScoreboard();
+        HashMap<Integer, String> scoreboard = getScoreboard();
 
-        if (list == null) return 0;
+        if (scoreboard == null) return 0;
 
-        for (String str : list)
-            if (str.contains("Round ")) return 0;
-            else if (str.contains("라운드 ")) return 1;
+        for (int i = 10; i <= 13; i++) {
+            String str = scoreboard.get(i);
+            if (str == null) continue;
+            if (str.contains(":")) continue;
+
+            if (str.contains("라운드")) return 1;
+        }
         return 0;
+    }
+
+    public static boolean isRoundText(String text) {
+        return text.contains("Round") || text.contains("라운드");
     }
 
     /**

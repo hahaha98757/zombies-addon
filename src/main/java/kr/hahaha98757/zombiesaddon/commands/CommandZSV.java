@@ -1,4 +1,4 @@
-// Code in Zombies Strat Viewer by syeyoung
+//Code in Zombies Strat Viewer by syeyoung
 
 package kr.hahaha98757.zombiesaddon.commands;
 

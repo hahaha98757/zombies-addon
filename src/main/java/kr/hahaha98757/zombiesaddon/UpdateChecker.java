@@ -135,7 +135,7 @@ public class UpdateChecker {
 		switch (i) {
 			case 1:
 				Utils.addChatLine("You are using pre-release.\n§cPre-release is not perfect. There may be bugs.");
-				break;
+				return;
 			case 2:
 				Utils.addChatWithURL(Utils.LINE + "\nA new release is available. ", URL_TEXT, URL, SHOW_URL_TEXT, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n" + Utils.LINE);
 				break;

@@ -3,14 +3,12 @@ package kr.hahaha98757.zombiesaddon.features;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.events.TitleEvent;
-import kr.hahaha98757.zombiesaddon.utils.LanguageSupport;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -62,7 +60,7 @@ public class LastWeapons {
 
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
-        if (LanguageSupport.WIN.contains(EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle()).replace("!", "")))
+        if (event.getTitle().equals("You Win!") || event.getTitle().equals("승리했습니다!"))
             win = true;
     }
 

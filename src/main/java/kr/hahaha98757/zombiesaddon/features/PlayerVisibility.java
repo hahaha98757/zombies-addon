@@ -1,5 +1,5 @@
 //Code in Player Visibility by tahmid-23
-//Code in Show Spawn Time v1.15.0 by Seosean
+//Code in Show Spawn Time by Seosean
 
 package kr.hahaha98757.zombiesaddon.features;
 

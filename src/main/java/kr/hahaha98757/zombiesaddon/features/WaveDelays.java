@@ -1,3 +1,5 @@
+//Code in Zombies Utils by Stachelbeere1248
+
 package kr.hahaha98757.zombiesaddon.features;
 
 import kr.hahaha98757.zombiesaddon.config.Hotkeys;
@@ -9,7 +11,6 @@ import kr.hahaha98757.zombiesaddon.enums.Map;
 import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.events.TitleEvent;
 import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
-import kr.hahaha98757.zombiesaddon.utils.LanguageSupport;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -65,7 +66,7 @@ public class WaveDelays {
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
         String text = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
-        if (!(LanguageSupport.isRoundText(text)) && text.replaceAll("[^0-9]", "").equals("1")) return;
+        if (!(Utils.isRoundText(text)) && text.replaceAll("[^0-9]", "").equals("1")) return;
         difficulty = Difficulty.NORMAL;
         gameEnd = false;
         escape = false;

@@ -7,7 +7,6 @@ import kr.hahaha98757.zombiesaddon.data.spawnlimitaction.Room;
 import kr.hahaha98757.zombiesaddon.data.spawnlimitaction.Window;
 import kr.hahaha98757.zombiesaddon.enums.Map;
 import kr.hahaha98757.zombiesaddon.events.TitleEvent;
-import kr.hahaha98757.zombiesaddon.utils.LanguageSupport;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -15,6 +14,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.Arrays;
 
@@ -132,6 +132,9 @@ public class SpawnLimitAction {
         }
     }
 
+    private static boolean autoSLA;
+    private static byte tick;
+
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
         if (Utils.isModDisable()) return;
@@ -139,27 +142,50 @@ public class SpawnLimitAction {
 
         String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
 
-        if (!(LanguageSupport.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1"))) return;
+        if (!(Utils.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1"))) return;
+
+        tick = 0;
+        autoSLA = true;
+    }
+
+    @SubscribeEvent
+    public void onTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.START) return;
+
+        if (!autoSLA) return;
 
         Map map = Utils.getMap();
 
         if (map == null) {
-            Utils.addChat("\u00A7eSLA: \u00A7cWrong map");
+            tick++;
             return;
         }
 
         switch (map) {
             case DEAD_END:
                 SpawnLimitAction.setMap(Map.DEAD_END);
-                break;
+                autoSLA = false;
+                tick = 0;
+                return;
             case BAD_BLOOD:
                 SpawnLimitAction.setMap(Map.BAD_BLOOD);
-                break;
+                autoSLA = false;
+                tick = 0;
+                return;
             case ALIEN_ARCADIUM:
                 SpawnLimitAction.setMap(Map.ALIEN_ARCADIUM);
-                break;
-            default:
-                Utils.addChat("\u00A7eSLA: \u00A7cWrong map");
+                autoSLA = false;
+                tick = 0;
+                return;
         }
+
+        if (tick == 100) {
+            Utils.addChat("\u00A7eSLA: \u00A7cWrong map");
+            autoSLA = false;
+            tick = 0;
+            return;
+        }
+
+        tick++;
     }
 }

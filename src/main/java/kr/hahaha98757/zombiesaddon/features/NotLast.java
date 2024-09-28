@@ -1,3 +1,5 @@
+//Code in NOTLAST by tahmid-23
+
 package kr.hahaha98757.zombiesaddon.features;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;

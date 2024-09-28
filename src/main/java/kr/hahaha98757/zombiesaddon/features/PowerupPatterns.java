@@ -6,7 +6,6 @@ import kr.hahaha98757.zombiesaddon.enums.Map;
 import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.events.TitleEvent;
 import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
-import kr.hahaha98757.zombiesaddon.utils.LanguageSupport;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -264,7 +263,7 @@ public class PowerupPatterns {
 
         if (spawnedEntities.contains(entity)) return;
 
-        if (LanguageSupport.INSTA_KILL_ENTITY.contains(name)) {
+        if (name.equals("INSTA KILL") || name.equals("즉시 처치")) {
             spawnedEntities.add(entity);
 
             for (int i : INSTA_PATTERN1)
@@ -279,7 +278,7 @@ public class PowerupPatterns {
                 }
         }
 
-        if (LanguageSupport.MAX_AMMO_ENTITY.contains(name)) {
+        if (name.equals("MAX AMMO") || name.equals("탄약 충전")) {
             spawnedEntities.add(entity);
 
             for (int i : MAX_PATTERN1)
@@ -294,7 +293,7 @@ public class PowerupPatterns {
                 }
         }
 
-        if (LanguageSupport.SHOPPING_SPREE_ENTITY.contains(name)) {
+        if (name.equals("SHOPPING SPREE") || name.equals("지름신 강림")) {
             spawnedEntities.add(entity);
 
             for (int i : SS_PATTERN1)
@@ -317,16 +316,16 @@ public class PowerupPatterns {
 
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
-        String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
+        String title = event.getTitle();
 
-        if (LanguageSupport.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1")) {
+        if (Utils.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1")) {
             spawnedEntities.clear();
             instaPattern = 0;
             maxPattern = 0;
             ssPattern = 0;
         }
 
-        if (LanguageSupport.isRoundText(title)) {
+        if (Utils.isRoundText(title)) {
             showInsta = instaPattern != 0;
             showMax = maxPattern != 0;
             showSS = ssPattern != 0;
@@ -421,40 +420,11 @@ public class PowerupPatterns {
 
         if (message.contains(">")) return;
 
-        for (String str : LanguageSupport.INSTA_KILL_CHAT)
-            if (message.contains(str)) {
-                instaTimer = false;
-                break;
-            }
-
-        for (String str : LanguageSupport.MAX_AMMO_CHAT)
-            if (message.contains(str)) {
-                maxTimer = false;
-                break;
-            }
-
-        for (String str : LanguageSupport.SHOPPING_SPREE_CHAT)
-            if (message.contains(str)) {
-                ssTimer = false;
-                break;
-            }
-
-        for (String str : LanguageSupport.DOUBLE_GOLD_CHAT)
-            if (message.contains(str)) {
-                dgTimer = false;
-                break;
-            }
-
-        for (String str : LanguageSupport.CARPENTER_CHAT)
-            if (message.contains(str)) {
-                carpenterTimer = false;
-                break;
-            }
-
-        for (String str : LanguageSupport.BONUS_GOLD_CHAT)
-            if (message.contains(str)) {
-                bgTimer = false;
-                break;
-            }
+        if (message.contains("Insta Kill") || message.contains("즉시 처치")) instaTimer = false;
+        if (message.contains("Max Ammo") || message.contains("탄약 보급")) maxTimer = false;
+        if (message.contains("Shopping Spree") || message.contains("지름신 강림")) ssTimer = false;
+        if (message.contains("Double Gold") || message.contains("지름신 강림")) dgTimer = false;
+        if (message.contains("Carpenter") || message.contains("목수")) carpenterTimer = false;
+        if (message.contains("Bonus Gold") || message.contains("보너스 골드")) bgTimer = false;
     }
 }

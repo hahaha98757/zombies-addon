@@ -11,9 +11,10 @@ public class SoundEvent extends Event {
     }
 
     public String getSoundName() {
-        String soundName = this.sound.getSoundLocation().toString();
-
-        if (soundName.equals("minecraft:")) return "";
-        return soundName.split(":")[1];
+        try {
+            return this.sound.getSoundLocation().toString().split(":")[1];
+        } catch (Exception e) {
+            return "";
+        }
     }
 }
