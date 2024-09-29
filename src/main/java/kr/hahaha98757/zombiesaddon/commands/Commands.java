@@ -10,5 +10,7 @@ public class Commands {
         ClientCommandHandler.instance.registerCommand(new CommandZSVLines());
         ClientCommandHandler.instance.registerCommand(new CommandPowerupPatterns());
         ClientCommandHandler.instance.registerCommand(new CommandZAHUD());
+        ClientCommandHandler.instance.registerCommand(new CommandWaveDelays());
+        ClientCommandHandler.instance.registerCommand(new CommandAutoSplits());
     }
 }

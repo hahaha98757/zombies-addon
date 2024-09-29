@@ -85,6 +85,5 @@ public class CommandInfo extends CommandBase {
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos) {
 		if (args.length != 1) return null;
 		return getListOfStringsMatchingLastWord(args, "PV", "BlockAlarm", "NotLast", "AutoSplits", "WaveDelays", "ZSV", "SLA", "AutoRejoin", "PowerupPatterns", "TextMacro");
-
 	}
 }

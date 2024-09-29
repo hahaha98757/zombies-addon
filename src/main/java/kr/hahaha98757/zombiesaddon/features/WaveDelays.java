@@ -33,6 +33,10 @@ public class WaveDelays {
     private static boolean gameEnd;
     private static byte round;
 
+    public static void setDifficulty(Difficulty difficulty) {
+        WaveDelays.difficulty = difficulty;
+    }
+
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (!Hotkeys.toggleRLMode.isPressed()) return;
@@ -47,6 +51,8 @@ public class WaveDelays {
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         String message = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
+
+        if (message.contains(">")) return;
 
         if (message.contains("The Helicopter is on its way! Hold out for 120 more seconds!")) escape = true;
 
@@ -66,7 +72,7 @@ public class WaveDelays {
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
         String text = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
-        if (!(Utils.isRoundText(text)) && text.replaceAll("[^0-9]", "").equals("1")) return;
+        if (!(Utils.isRoundText(text) && text.replaceAll("[^0-9]", "").equals("1"))) return;
         difficulty = Difficulty.NORMAL;
         gameEnd = false;
         escape = false;

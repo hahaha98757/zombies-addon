@@ -21,6 +21,7 @@ public class ZombiesAddonConfig {
 	private static final String CATEGORY_KOREAN_PATCHERS = "Korean Patchers";
 	private static final String CATEGORY_OTHERS = "Others";
 	private static final String CATEGORY_OTHER_MODS = "Other Mods";
+	private static final String CATEGORY_HIDDEN = "Hidden";
 	private static final String CATEGORY_HUD = "HUD";
 
 	private static Property enableMod;
@@ -59,6 +60,7 @@ public class ZombiesAddonConfig {
 	private static Property sstPatcher;
 
 	private static Property detectUnlegitMods;
+	private static Property blockUnlegitSST;
 
 	public static void loadConfig() {
 		config.load();
@@ -127,7 +129,8 @@ public class ZombiesAddonConfig {
 		zombiesUtilsSetting = config.get(CATEGORY_OTHER_MODS, "Turn off timer of Zombies Utils", true, "Turn off timer of Zombies Utils.");
 
 		//Hidden
-		detectUnlegitMods = config.get("Hidden", "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline");
+		detectUnlegitMods = config.get(CATEGORY_HIDDEN, "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline");
+		blockUnlegitSST = config.get(CATEGORY_HIDDEN, "Block Unlegit SST", true, "Blocks the unlegit features of SST.");
 
 		//HUD
 		HUDUtils.autoSplitsX = config.get(CATEGORY_HUD, "autoSplitsX", -1, "X").getDouble();
@@ -336,5 +339,9 @@ public class ZombiesAddonConfig {
 
 	public static boolean isDetectUnlegitMods() {
 		return detectUnlegitMods.getBoolean();
+	}
+
+	public static boolean isBlockUnlegitSST() {
+		return blockUnlegitSST.getBoolean();
 	}
 }

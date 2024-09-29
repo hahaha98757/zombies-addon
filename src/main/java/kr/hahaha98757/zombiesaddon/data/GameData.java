@@ -55,7 +55,6 @@ public class GameData {
                     return null;
             }
         } catch (Exception e) {
-            System.out.println("asdf3");
             return null;
         }
     }
