@@ -1,4 +1,4 @@
 {
-  "version": "4.2.0-pre4",
-  "log": "Fixed bugs.\nAdded /waveDelays and /autoSplits commands.\nBlocks the unlegit feature of SST."
+  "version": "4.2.0-pre5",
+  "log": "Fixed bugs."
 }

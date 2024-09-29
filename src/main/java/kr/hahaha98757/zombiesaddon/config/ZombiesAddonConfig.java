@@ -342,6 +342,7 @@ public class ZombiesAddonConfig {
 	}
 
 	public static boolean isBlockUnlegitSST() {
+		if (blockUnlegitSST == null) return true;
 		return blockUnlegitSST.getBoolean();
 	}
 }

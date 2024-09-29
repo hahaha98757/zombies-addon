@@ -93,6 +93,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 ## Update Log
 
+### 4.2.0-pre5
+- Fixed bugs.
+
 ### 4.2.0-pre4
 - Fixed bugs.
 - Added /waveDelays and /autoSplits commands.

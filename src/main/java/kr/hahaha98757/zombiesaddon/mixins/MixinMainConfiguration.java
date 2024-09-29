@@ -19,7 +19,7 @@ public class MixinMainConfiguration {
 
     @Inject(method = "ConfigLoad", at = @At("HEAD"), cancellable = true, remap = false)
     private void ConfigLoad(CallbackInfo ci) {
-        if (ZombiesAddonConfig.isZombiesUtilsSetting()) {
+        if (ZombiesAddonConfig.isBlockUnlegitSST()) {
             zombies_addon$ConfigLoad();
             ci.cancel();
         }
