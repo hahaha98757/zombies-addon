@@ -123,7 +123,7 @@ public class SpawnLimitAction {
             FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
             int y = 0;
             for (Room room : rooms) {
-                if (ZombiesAddonConfig.isShowInactiveWindows() && room.getActiveWindowCount() == 0) continue;
+                if (!ZombiesAddonConfig.isShowInactiveWindows() && room.getActiveWindowCount() == 0) continue;
                 fr.drawStringWithShadow(room.getSLAString(), 1, 1 + y * fr.FONT_HEIGHT, 0xFFFFFF);
                 y++;
             }

@@ -4,7 +4,8 @@
       {
         "ticks": 200,
         "prefixes": [
-          "WINDOW"
+          "WINDOW",
+          "SLIME"
         ]
       },
       {

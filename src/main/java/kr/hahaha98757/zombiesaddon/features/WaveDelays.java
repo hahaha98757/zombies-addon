@@ -9,7 +9,6 @@ import kr.hahaha98757.zombiesaddon.data.wavedelays.*;
 import kr.hahaha98757.zombiesaddon.enums.Difficulty;
 import kr.hahaha98757.zombiesaddon.enums.Map;
 import kr.hahaha98757.zombiesaddon.events.SoundEvent;
-import kr.hahaha98757.zombiesaddon.events.TitleEvent;
 import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -71,26 +70,13 @@ public class WaveDelays {
 
         if (message.contains("The Helicopter is on its way! Hold out for 120 more seconds!")) escape = true;
 
-        if (message.contains("Hard Difficulty") || message.contains("어려움 난이도")) {
-            difficulty = Difficulty.HARD;
-        }
-        if (message.contains("RIP Difficulty") || message.contains("RIP 난이도")) {
-            difficulty = Difficulty.RIP;
-        }
+        if (message.contains("Hard Difficulty") || message.contains("어려움 난이도")) difficulty = Difficulty.HARD;
+        if (message.contains("RIP Difficulty") || message.contains("RIP 난이도")) difficulty = Difficulty.RIP;
     }
 
     @SubscribeEvent
     public void onSound(SoundEvent event) {
         if (event.getSoundName().equals("mob.enderdragon.end")) gameEnd = true;
-    }
-
-    @SubscribeEvent
-    public void onTitle(TitleEvent event) {
-        String text = event.getTitle();
-        if (!(Utils.isRoundText(text) && text.replaceAll("[^0-9]", "").equals("1"))) return;
-        difficulty = Difficulty.NORMAL;
-        gameEnd = false;
-        escape = false;
     }
 
     @SubscribeEvent
@@ -103,6 +89,12 @@ public class WaveDelays {
         if (Utils.isNotZombies()) {
             gameEnd = false;
             return;
+        }
+
+        if (Utils.isNotPlayZombies()) {
+            difficulty = Difficulty.NORMAL;
+            gameEnd = false;
+            escape = false;
         }
 
         if (!gameEnd) if (Utils.getMap() == Map.PRISON && escape) round = 31;
