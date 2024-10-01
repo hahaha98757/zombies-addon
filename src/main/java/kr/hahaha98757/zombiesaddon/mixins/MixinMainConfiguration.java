@@ -25,6 +25,7 @@ public class MixinMainConfiguration {
         }
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Unique
     private void zombies_addon$ConfigLoad() {
         config.load();

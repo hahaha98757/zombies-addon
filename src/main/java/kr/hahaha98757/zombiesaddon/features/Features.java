@@ -81,9 +81,10 @@ public class Features {
 
         if (join) return;
 
-        if (ZombiesAddon.haveOldSST) {
+        if (ZombiesAddon.hasOldSST)
             Utils.addChatLine("You are using Show Spawn Time of old version.\nPlease update the mod.");
-        }
+
+        if (ZombiesAddon.hasSST) Utils.addChatLine("Blocked the unlegit features of SST by Zombies Addon.");
 
         if (ZombiesAddon.haveUnlegitMods) {
             Utils.addChatLine("§cYou are using ZombiesSatellite, Zombies Explorer, or TeammatesOutline.\n§cThey are unlegit mods. Please remove them.\n§c§lThe game ends after 10 seconds.");

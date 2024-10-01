@@ -18,6 +18,7 @@ public class ZombiesAddonConfig {
 	private static final String CATEGORY_WAVE_DELAYS = "Wave Delays";
 	private static final String CATEGORY_SLA = "SLA";
 	private static final String CATEGORY_PV = "PV";
+	private static final String CATEGORY_LAST_WEAPONS = "Last Weapons";
 	private static final String CATEGORY_KOREAN_PATCHERS = "Korean Patchers";
 	private static final String CATEGORY_OTHERS = "Others";
 	private static final String CATEGORY_OTHER_MODS = "Other Mods";
@@ -45,19 +46,22 @@ public class ZombiesAddonConfig {
 	private static Property pvRange;
 	private static Property playerTranslucent;
 
+	private static Property toggleLastWeapons;
+	private static Property displayArmors;
+	private static Property displayWeaponsLevel;
+
+	private static Property zombiesOverlayPatcher;
+	private static Property koreanPatcher;
+	private static Property sstPatcher;
+
 	private static Property toggleNotLast;
 	private static Property toggleAutoSplits;
 	private static Property togglePowerupPatterns;
-	private static Property toggleLastWeapons;
 	private static Property hideAutoRejoin;
 	private static Property textMacro;
 
 	private static Property sstSetting;
 	private static Property zombiesUtilsSetting;
-
-	private static Property zombiesOverlayPatcher;
-	private static Property koreanPatcher;
-	private static Property sstPatcher;
 
 	private static Property detectUnlegitMods;
 	private static Property blockUnlegitSST;
@@ -103,6 +107,13 @@ public class ZombiesAddonConfig {
 
 		playerTranslucent = config.get(CATEGORY_PV, "Player Translucent", true, "Makes out-of-range players semi-transparent.");
 
+		//Last Weapons
+		toggleLastWeapons = config.get(CATEGORY_OTHERS, "Toggle Last Weapons", true, "Display your weapons at Game Over.");
+
+		displayArmors = config.get(CATEGORY_LAST_WEAPONS, "Display Armors", true, "Display your armors at Game Over.");
+
+		displayWeaponsLevel = config.get(CATEGORY_LAST_WEAPONS, "Display Weapons Level", true, "Display level of weapons and perks.");
+
 		//Korean Patchers
 		zombiesOverlayPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "Zombies Overlay Patcher", false, "You can use Zombies Overlay in Korean.");
 
@@ -116,8 +127,6 @@ public class ZombiesAddonConfig {
 		toggleAutoSplits = config.get(CATEGORY_OTHERS, "Auto Splits: Toggle Auto Splits", true, "Run timer at start of round.");
 
 		togglePowerupPatterns = config.get(CATEGORY_OTHERS, "Powerup Patterns: Toggle Powerup Patterns", true, "Show powerup patterns.");
-
-		toggleLastWeapons = config.get(CATEGORY_OTHERS, "Last Weapons: Toggle Last Weapons", true, "Show your weapons at Game Over.");
 
 		hideAutoRejoin = config.get(CATEGORY_OTHERS, "Auto Rejoin: Hide Auto Rejoin", true, "Hide the text of Auto Rejoin on the in-game screen.");
 
@@ -183,6 +192,14 @@ public class ZombiesAddonConfig {
 		);
 	}
 
+	private static List<IConfigElement> getLastWeaponsElements() {
+		return Arrays.asList(
+				new CustomConfigElement("Toggle Last Weapons", toggleLastWeapons),
+				new CustomConfigElement("Display Armors", displayArmors),
+				new CustomConfigElement("Display Weapons Level", displayWeaponsLevel)
+		);
+	}
+
 	private static List<IConfigElement> getKoreanPatchersElements() {
 		return Arrays.asList(
 				new CustomConfigElement("Zombies Overlay Patcher", zombiesOverlayPatcher),
@@ -215,6 +232,7 @@ public class ZombiesAddonConfig {
 				new DummyConfigElement.DummyCategoryElement(CATEGORY_WAVE_DELAYS, "", getWaveDelaysElements()),
 				new DummyConfigElement.DummyCategoryElement(CATEGORY_SLA, "", getSLAElements()),
 				new DummyConfigElement.DummyCategoryElement(CATEGORY_PV, "", getPVElements()),
+				new DummyConfigElement.DummyCategoryElement(CATEGORY_LAST_WEAPONS, "", getLastWeaponsElements()),
 				new DummyConfigElement.DummyCategoryElement(CATEGORY_KOREAN_PATCHERS, "", getKoreanPatchersElements()),
 				new DummyConfigElement.DummyCategoryElement(CATEGORY_OTHERS, "", getOthersElements()),
 				new DummyConfigElement.DummyCategoryElement(CATEGORY_OTHER_MODS, "", getOtherModsElements())
@@ -293,6 +311,18 @@ public class ZombiesAddonConfig {
 		return playerTranslucent.getBoolean();
 	}
 
+	public static boolean isToggleLastWeapons() {
+		return toggleLastWeapons.getBoolean();
+	}
+
+	public static boolean isDisplayArmors() {
+		return displayArmors.getBoolean();
+	}
+
+	public static boolean isDisplayWeaponsLevel() {
+		return displayWeaponsLevel.getBoolean();
+	}
+
 	public static boolean isZombiesOverlayPatcher() {
 		return zombiesOverlayPatcher.getBoolean();
 	}
@@ -317,10 +347,6 @@ public class ZombiesAddonConfig {
 		return !togglePowerupPatterns.getBoolean();
 	}
 
-	public static boolean isToggleLastWeapons() {
-		return toggleLastWeapons.getBoolean();
-	}
-
 	public static boolean isHideAutoRejoin() {
 		return hideAutoRejoin.getBoolean();
 	}
@@ -342,7 +368,7 @@ public class ZombiesAddonConfig {
 	}
 
 	public static boolean isBlockUnlegitSST() {
-		if (blockUnlegitSST == null) return true;
+		if (blockUnlegitSST == null) return false;
 		return blockUnlegitSST.getBoolean();
 	}
 }

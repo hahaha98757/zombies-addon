@@ -11,7 +11,6 @@ import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -140,7 +139,7 @@ public class SpawnLimitAction {
         if (Utils.isModDisable()) return;
         if (!ZombiesAddonConfig.isAutoSLA()) return;
 
-        String title = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
+        String title = event.getTitle();
 
         if (!(Utils.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1"))) return;
 

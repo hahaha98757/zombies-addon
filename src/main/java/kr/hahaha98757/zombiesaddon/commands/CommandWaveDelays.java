@@ -31,7 +31,7 @@ public class CommandWaveDelays extends CommandBase {
     public void processCommand(ICommandSender sender, String[] args) {
         if (sender != Minecraft.getMinecraft().thePlayer) return;
 
-        if (args.length > 2) {
+        if (args.length < 2) {
             Utils.addChat(getCommandUsage(null));
             return;
         }

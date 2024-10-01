@@ -16,6 +16,8 @@ public class AutoRejoin {
     private static boolean rejoin = false;
     private static byte tick;
 
+    private static boolean AAr10;
+
     public AutoRejoin() {
         autoRejoin = ZombiesAddonConfig.getModDefaultValues()[2];
     }
@@ -28,7 +30,11 @@ public class AutoRejoin {
 
         String soundName = event.getSoundName();
 
-        if (!soundName.equals("mob.wither.spawn")) return;
+        if (soundName.equals("mob.wither.spawn")) AAr10 = false;
+
+        if (!(soundName.equals("mob.wither.spawn") || soundName.equals("mob.guardian.curse") && !AAr10)) return;
+
+        if (soundName.equals("mob.guardian.curse")) AAr10 = true;
 
         Utils.addChat("§eAuto Rejoin: Rejoining...");
         Utils.sendChat("/l");

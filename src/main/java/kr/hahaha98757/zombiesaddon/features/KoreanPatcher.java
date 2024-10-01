@@ -89,6 +89,11 @@ public class KoreanPatcher {
             event.setCanceled(true);
             Utils.addChat("§c[언데드] §b엘리§f: 여기 살던 언데드 가족이 채팅창에 채팅하는 거에 이상하다고 생각하는 사람 없나?");
         }
+
+        if (message.equals("[언데드] Lily: 됐어...")) {
+            event.setCanceled(true);
+            Utils.addChat("§c[언데드] 릴리§f: 됐어...");
+        }
     }
 
 }

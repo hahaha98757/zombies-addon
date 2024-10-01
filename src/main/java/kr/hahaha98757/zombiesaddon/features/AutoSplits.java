@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class AutoSplits {
     public static String timer = "0:00.0";
 
-    private boolean AAr10;
+    private static boolean AAr10;
 
     @SubscribeEvent
     public void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {
@@ -38,15 +38,15 @@ public class AutoSplits {
     public void onSound(SoundEvent event) {
         if (Utils.isModDisable()) return;
 
-        String sound = event.getSoundName();
+        String soundName = event.getSoundName();
 
-        if (sound.equals("mob.wither.spawn") || sound.equals("mob.enderdragon.end")) AAr10 = false;
+        if (soundName.equals("mob.wither.spawn") || soundName.equals("mob.enderdragon.end")) AAr10 = false;
 
-        if (sound.equals("mob.wither.spawn") || sound.equals("mob.guardian.curse") && !AAr10) {
-            if (sound.equals("mob.guardian.curse")) AAr10 = true;
+        if (soundName.equals("mob.wither.spawn") || soundName.equals("mob.guardian.curse") && !AAr10) {
+            if (soundName.equals("mob.guardian.curse")) AAr10 = true;
 
             runTimer();
-        } else if (sound.equals("mob.enderdragon.end")) stopTimer();
+        } else if (soundName.equals("mob.enderdragon.end")) stopTimer();
     }
 
     @SubscribeEvent

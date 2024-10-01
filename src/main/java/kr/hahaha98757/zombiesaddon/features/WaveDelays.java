@@ -35,6 +35,21 @@ public class WaveDelays {
 
     public static void setDifficulty(Difficulty difficulty) {
         WaveDelays.difficulty = difficulty;
+        String str;
+        switch (difficulty) {
+            case NORMAL:
+                str = "§aNormal";
+                break;
+            case HARD:
+                str = "§cHard";
+                break;
+            case RIP:
+                str = "§4RIP";
+                break;
+            default:
+                return;
+        }
+        Utils.addChat("§eWave Delays: Set difficulty to " + str);
     }
 
     @SubscribeEvent
@@ -71,7 +86,7 @@ public class WaveDelays {
 
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
-        String text = EnumChatFormatting.getTextWithoutFormattingCodes(event.getTitle());
+        String text = event.getTitle();
         if (!(Utils.isRoundText(text) && text.replaceAll("[^0-9]", "").equals("1"))) return;
         difficulty = Difficulty.NORMAL;
         gameEnd = false;
@@ -84,6 +99,11 @@ public class WaveDelays {
         if (ZombiesAddonConfig.isNotToggleWaveDelays()) return;
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
         FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
+
+        if (Utils.isNotZombies()) {
+            gameEnd = false;
+            return;
+        }
 
         if (!gameEnd) if (Utils.getMap() == Map.PRISON && escape) round = 31;
         else round = Utils.getRound();

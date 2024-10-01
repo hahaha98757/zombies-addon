@@ -361,12 +361,16 @@ public class PowerupPatterns {
     }
 
 
+    private static boolean AAr10;
 
     @SubscribeEvent
     public void onSound(SoundEvent event) {
         String soundName = event.getSoundName();
 
-        if (soundName.equals("mob.wither.spawn")) {
+        if (soundName.equals("mob.wither.spawn") || soundName.equals("mob.enderdragon.end")) AAr10 = false;
+
+        if (soundName.equals("mob.wither.spawn") || soundName.equals("mob.guardian.curse") && !AAr10) {
+            if (soundName.equals("mob.guardian.curse")) AAr10 = true;
             gameEnd = false;
         } else if (soundName.equals("mob.enderdragon.end")) {
             instaTimer = false;

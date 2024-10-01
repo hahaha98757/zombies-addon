@@ -2,6 +2,7 @@ package kr.hahaha98757.zombiesaddon;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.seosean.showspawntime.ShowSpawnTime;
 import kr.hahaha98757.zombiesaddon.commands.*;
 import kr.hahaha98757.zombiesaddon.config.Hotkeys;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
@@ -31,11 +32,12 @@ import java.util.List;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.2.0-pre5";
+	public static final String VERSION = "4.2.0-pre6";
 	private static File directory;
 
-	public static boolean haveOldSST;
+	public static boolean hasOldSST;
 	public static boolean haveUnlegitMods;
+	public static boolean hasSST;
 
 	private void writeCustomPlaySoundGuide() {
 		File file = new File("config/zombiesaddon/CustomPlaySoundGuide.txt");
@@ -102,11 +104,19 @@ public class ZombiesAddon {
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		if (Loader.isModLoaded("ShowSpawnTime")) haveOldSST = true;
+		if (Loader.isModLoaded("ShowSpawnTime")) hasOldSST = true;
 		if (ZombiesAddonConfig.isDetectUnlegitMods() && (Loader.isModLoaded("zombiesatellite") || Loader.isModLoaded("zombiesexplorer") || Loader.isModLoaded("TeammatesOutline")))
             haveUnlegitMods = true;
 		HUDUtils.set();
 		Utils.set();
+		if (Loader.isModLoaded("showspawntime")) {
+			hasSST = ZombiesAddonConfig.isBlockUnlegitSST();
+			try {
+				ShowSpawnTime.getMainConfiguration().ConfigLoad();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private static List<String> getPlayCustomSoundGuideContent() {

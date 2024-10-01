@@ -28,6 +28,7 @@ public abstract class MixinModelBiped extends MixinModelBase {
     @Shadow
     public ModelRenderer bipedLeftLeg;
 
+    @Override
     @Shadow
     public abstract void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn);
 

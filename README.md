@@ -93,6 +93,10 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 ## Update Log
 
+### 4.2.0-pre6
+- Fixed bugs.
+- Fixed Last Weapons.
+
 ### 4.2.0-pre5
 - Fixed bugs.
 
@@ -113,7 +117,7 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 - Fixed bugs.
 - Renamed Cornering to PV.
 - Fixed PV.
-- Added ManualTimer for PowerupPatterns.
+- Added Manual Timer for Powerup Patterns.
 - Fixed SLA.
 - Added /ZAHUD command.
 - Fixed Wave Delays.

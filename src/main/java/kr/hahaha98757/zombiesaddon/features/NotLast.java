@@ -23,6 +23,7 @@ public class NotLast {
     private ScoreObjective scoreObjective;
     private static byte tick;
     private static boolean work = false;
+    private static boolean AAr10;
 
     @SubscribeEvent
     public void onSound(SoundEvent event) {
@@ -32,7 +33,9 @@ public class NotLast {
 
         if (!ZombiesAddonConfig.isToggleNotLast()) return;
         if (Utils.isNotZombies()) return;
-        if (!soundName.equals("mob.wither.spawn")) return;
+        if (soundName.equals("mob.wither.spawn")) AAr10 = false;
+        if (!(soundName.equals("mob.wither.spawn") || soundName.equals("mob.guardian.curse") && !AAr10)) return;
+        if (soundName.equals("mob.guardian.curse")) AAr10 = true;
         if (Utils.getRound() == 1) return;
         if (Utils.getRevDeadQuit()[2] == 3) return;
 
