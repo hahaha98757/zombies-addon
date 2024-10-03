@@ -51,10 +51,10 @@ public class CommandInfo extends CommandBase {
 				text = "Name: Not Last\nCode by: thamid\nInfo: Display the player who killed the last one.";
 				break;
 			case "AutoSplits":
-				text = "Name: Auto Splits\nCode by: thamid\nInfo: Run a timer at start of the round.";
+				text = "Name: Auto Splits\nCode by: thamid\nInfo: Run a timer at start of the round.\nCommand: /autoSplits";
 				break;
 			case "WaveDelays":
-				text = "Name: Wave Delays\nCode by: hahaha98757 and Stachelbeere1248\nInfo: Display the wave delays.\nConfig: Used";
+				text = "Name: Wave Delays\nCode by: hahaha98757 and Stachelbeere1248\nInfo: Display the wave delays.\nCommand: /waveDelays\nConfig: Used";
 				break;
 			case "ZSV":
 				text = "Name: Zombies Strat Viewer\nCode by: syeyoung\nInfo: Display the text in https://pastebin.com/ on the screen.\nCommands: /ZSV and /ZSVLines\nHotkeys: " + Keyboard.getKeyName(Hotkeys.zsvScrollUp.getKeyCode()) + " and " + Keyboard.getKeyName(Hotkeys.zsvScrollDown.getKeyCode());

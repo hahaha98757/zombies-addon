@@ -20,14 +20,14 @@ public class MixinMainConfiguration {
     @Inject(method = "ConfigLoad", at = @At("HEAD"), cancellable = true, remap = false)
     private void ConfigLoad(CallbackInfo ci) {
         if (ZombiesAddonConfig.isBlockUnlegitSST()) {
-            zombies_addon$ConfigLoad();
+            ConfigLoad_zombiesaddon();
             ci.cancel();
         }
     }
 
     @SuppressWarnings("SpellCheckingInspection")
     @Unique
-    private void zombies_addon$ConfigLoad() {
+    private void ConfigLoad_zombiesaddon() {
         config.load();
         logger.info("Started loading config. ");
 
@@ -153,8 +153,8 @@ public class MixinMainConfiguration {
 
         //Powerup Related Elements
 
-        commentPowerupAlert = "Remind you when this is a powerup-round. Start counting down when a powerup spawns\n§cBlocked by Zombies Addon.";
-        Property propertyPowerupAlertToggle = config.get(Configuration.CATEGORY_GENERAL, "§cPowerup Alert (blocked)", false, commentPowerupAlert);
+        commentPowerupAlert = "Remind you when this is a powerup-round. Start counting down when a powerup spawns";
+        Property propertyPowerupAlertToggle = config.get(Configuration.CATEGORY_GENERAL, "Powerup Alert", true, commentPowerupAlert);
         propertyPowerupAlertToggle.set(false);
         PowerupAlertToggle = propertyPowerupAlertToggle.getBoolean();
         powerupRelated.put(propertyPowerupAlertToggle.getName(), new ConfigElement(propertyPowerupAlertToggle));
@@ -164,8 +164,8 @@ public class MixinMainConfiguration {
         PowerupPredictToggle = propertyPowerupPredictToggle.getBoolean();
         powerupRelated.put(propertyPowerupPredictToggle.getName(), new ConfigElement(propertyPowerupPredictToggle));
 
-        commentPowerupCountDown = "Show the remaining time of powerups on expiration.\n§cBlocked by Zombies Addon.";
-        Property propertyPowerupCountDown = config.get(Configuration.CATEGORY_GENERAL, "§cPowerup Count Down (blocked)", false, commentPowerupCountDown);
+        commentPowerupCountDown = "Show the remaining time of powerups on expiration.";
+        Property propertyPowerupCountDown = config.get(Configuration.CATEGORY_GENERAL, "Powerup Count Down", true, commentPowerupCountDown);
         propertyPowerupCountDown.set(false);
         PowerupCountDown = propertyPowerupCountDown.getBoolean();
         powerupRelated.put(propertyPowerupCountDown.getName(), new ConfigElement(propertyPowerupCountDown));
@@ -186,14 +186,14 @@ public class MixinMainConfiguration {
         Wave3LeftNotice = propertyWave3LeftNotice.getBoolean();
         qolRelated.put(propertyWave3LeftNotice.getName(), new ConfigElement(propertyWave3LeftNotice));
 
-        commentPlayerHealthNotice = "Enhance the Sidebar which shows the health of players.\n§cBlocked by Zombies Addon.";
-        Property propertyPlayerHealthNotice = config.get(Configuration.CATEGORY_GENERAL, "§cPlayer Health Notice (blocked)", false, commentPlayerHealthNotice);
+        commentPlayerHealthNotice = "Enhance the Sidebar which shows the health of players.";
+        Property propertyPlayerHealthNotice = config.get(Configuration.CATEGORY_GENERAL, "Player Health Notice", true, commentPlayerHealthNotice);
         propertyPlayerHealthNotice.set(false);
         PlayerHealthNotice = propertyPlayerHealthNotice.getBoolean();
         qolRelated.put(propertyPlayerHealthNotice.getName(), new ConfigElement(propertyPlayerHealthNotice));
 
-        commentFastReviveCoolDown = "Enhance the Sidebar which shows the cool down of fast revive for each player.\n§cBlocked by Zombies Addon.";
-        Property propertyFastReviveCoolDown = config.get(Configuration.CATEGORY_GENERAL, "§cFast Revive Cool Down (blocked)", "OFF", commentFastReviveCoolDown, FastReviveCoolDownRenderType);
+        commentFastReviveCoolDown = "Enhance the Sidebar which shows the cool down of fast revive for each player.";
+        Property propertyFastReviveCoolDown = config.get(Configuration.CATEGORY_GENERAL, "Fast Revive Cool Down", "BEHIND", commentFastReviveCoolDown, FastReviveCoolDownRenderType);
         propertyFastReviveCoolDown.set("OFF");
         FastReviveCoolDown = com.seosean.showspawntime.features.frcooldown.FastReviveCoolDown.RenderType.valueOf(propertyFastReviveCoolDown.getString());
         qolRelated.put(propertyFastReviveCoolDown.getName(), new ConfigElement(propertyFastReviveCoolDown));

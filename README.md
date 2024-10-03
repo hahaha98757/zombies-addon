@@ -4,8 +4,9 @@ The mod for Hypixel Zombies
 [한국어 내용](https://blog.naver.com/hahaha98757/223012598464)
 
 ## Features
-### Cornering
+### Player Visibility
 Hide nearby players from your view.
+Makes out of range players appear semi-transparent from your view.
 Toggle with the V key.
 You can set the range in the config.
 
@@ -19,10 +20,14 @@ Display the player who killed the last one.
 
 ### Auto Splits
 Run a timer at start of the round.
+You can set the position of timer with /ZAHUD command.
 
 ### Wave Delays
 Display the wave delays.
-You can set the options in the config.
+You can set the many options in the config.
+You can set the position of wave delays with /ZAHUD command.
+You can set the difficult with /waveDelays command.
+You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.
 It only works when the Hypixel language is set to English or Korean.
 
 Displays the wave which the boss spawns.
@@ -45,8 +50,9 @@ Use /ZSVLines <number> command to set lines of view.
 
 ### Spawn Limit Action
 Display the number and names of windows where zombies can spawn.
-Use /SLA <de|bb|aa|pr|off> command to set the map or off SLA.
-You can set the options in the config.
+Use /SLA <de|bb|aa|off> command to set the map or off SLA.
+You can set the SLA for custom map(e.g. Housing) with /SLA custom <offset|rotate|mirror> command.
+You can set the many options in the config.
 
 ### Auto Rejoin
 Automatically rejoin Zombies when start of the round.
@@ -54,13 +60,16 @@ You can set to hide toggle text in the config.
 
 ### Powerup Patterns
 Display the patterns of power-ups.
-Use /pow <insta|max|ss> [number|on|off] command to reset or set the pattern.
+Use /pow <insta|max|ss> [reset|number|on|off] command to reset or set the pattern.
 The displayed power-up pattern will be updated in the next round.
 For example, if Insta Kill spawned in round 2, Insta Kill pattern will be displayed on the screen when round 3 starts.
+Use hotkeys or /pow <insta|max|ss|dg|carpenter|bg> command to run Manual Timer.
 It only works when the Hypixel language is set to English or Korean.
 
 ### Last Weapons
 Display your weapons when You Win.
+Display level of your weapons when You Win.
+You can set the many options in the config.
 It only works when the Hypixel language is set to English or Korean.
 
 ### Text Macro
@@ -68,14 +77,18 @@ Send the text on chat when press the Q key.
 You can set the text in the config.
 
 ### Korean Patchers
-일부 문구가 한국어로 번역됨.
-SST의 일부 문구가 한국어로 번역됨.
-[Zombies Overlay](https://github.com/TheExploration/zombies-overlay)를 하이픽셀 언어를 한국어로 설정해도 사용할 수 있음.
+Translated some phrases in Zombies.
+Translated some phrases in SST.
+You can use [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) even if the Hypixel language is set to Korean.
+
+### Other Mods
+You can turn off spawn time of SST in the config.
+You can turn off timer of Zombies Utils in the config.
 
 ### Other
 Fixed a bug of forge that commands are executed without "/".
-You can turn off Wave Delay of SST in the ".minecraft\config\zombiesaddonSSTSetting.txt".
-You can turn off timer of Zombies Utils in the ".minecraft\config\zombiesaddonZombiesUtilsSetting.txt".
+The game ends when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)
+Blocks the unlegit features of SST.
 
 
 ## Credits
@@ -92,6 +105,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 ## Update Log
+
+### 4.2.0
+- Fixed bugs.
 
 ### 4.2.0-pre6
 - Fixed bugs.

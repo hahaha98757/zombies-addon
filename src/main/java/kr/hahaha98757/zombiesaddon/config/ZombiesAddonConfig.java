@@ -138,7 +138,7 @@ public class ZombiesAddonConfig {
 		zombiesUtilsSetting = config.get(CATEGORY_OTHER_MODS, "Turn off timer of Zombies Utils", true, "Turn off timer of Zombies Utils.");
 
 		//Hidden
-		detectUnlegitMods = config.get(CATEGORY_HIDDEN, "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline");
+		detectUnlegitMods = config.get(CATEGORY_HIDDEN, "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper");
 		blockUnlegitSST = config.get(CATEGORY_HIDDEN, "Block Unlegit SST", true, "Blocks the unlegit features of SST.");
 
 		//HUD

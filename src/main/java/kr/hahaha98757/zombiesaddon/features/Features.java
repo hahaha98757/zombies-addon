@@ -87,7 +87,7 @@ public class Features {
         if (ZombiesAddon.hasSST) Utils.addChatLine("Blocked the unlegit features of SST by Zombies Addon.");
 
         if (ZombiesAddon.haveUnlegitMods) {
-            Utils.addChatLine("§cYou are using ZombiesSatellite, Zombies Explorer, or TeammatesOutline.\n§cThey are unlegit mods. Please remove them.\n§c§lThe game ends after 10 seconds.");
+            Utils.addChatLine("§cYou are using ZombiesSatellite, Zombies Explorer, TeammatesOutline, or ZombiesHelper.\n§cThey are unlegit mods. Please remove them.\n§c§lThe game ends after 10 seconds.");
             ClientCrash.setUnlegit();
             MinecraftForge.EVENT_BUS.register(new ClientCrash());
         }

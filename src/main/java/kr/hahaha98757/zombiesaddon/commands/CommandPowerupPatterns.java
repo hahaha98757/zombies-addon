@@ -56,7 +56,7 @@ public class CommandPowerupPatterns extends CommandBase {
 							break;
 						case "2":
 						case "3":
-							Utils.addChat(String.format("§ePowerup Patterns: Set insta pattern to §a%s", args[1]));
+							Utils.addChat(String.format("§ePowerup Patterns: Set §cInsta Kill §epattern to §a%s", args[1]));
 							PowerupPatterns.instaPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":

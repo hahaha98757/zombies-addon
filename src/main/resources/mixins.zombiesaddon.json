@@ -4,5 +4,13 @@
   "refmap": "mixins.${modid}.refmap.json",
   "minVersion": "0.7",
   "compatibilityLevel": "JAVA_8",
-  "__comment": "You do not need to manually register mixins in this template. Check the auto discovery mixin plugin for more info."
+  "__comment": "You do not need to manually register mixins in this template. Check the auto discovery mixin plugin for more info.",
+  "priority": 50,
+  "mixins": [
+    "MixinLayerCape",
+    "MixinModelBase",
+    "MixinModelBiped",
+    "MixinModelPlayer",
+    "MixinRender"
+  ]
 }

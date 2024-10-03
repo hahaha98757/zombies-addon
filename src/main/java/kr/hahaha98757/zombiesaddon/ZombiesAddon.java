@@ -32,7 +32,7 @@ import java.util.List;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.2.0-pre6";
+	public static final String VERSION = "4.2.0";
 	private static File directory;
 
 	public static boolean hasOldSST;
@@ -105,7 +105,7 @@ public class ZombiesAddon {
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		if (Loader.isModLoaded("ShowSpawnTime")) hasOldSST = true;
-		if (ZombiesAddonConfig.isDetectUnlegitMods() && (Loader.isModLoaded("zombiesatellite") || Loader.isModLoaded("zombiesexplorer") || Loader.isModLoaded("TeammatesOutline")))
+		if (ZombiesAddonConfig.isDetectUnlegitMods() && (Loader.isModLoaded("zombiesatellite") || Loader.isModLoaded("zombiesexplorer") || Loader.isModLoaded("TeammatesOutline") || Loader.isModLoaded("zombieshelper")))
             haveUnlegitMods = true;
 		HUDUtils.set();
 		Utils.set();
