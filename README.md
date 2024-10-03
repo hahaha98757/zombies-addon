@@ -7,7 +7,7 @@ The mod for Hypixel Zombies
 ### Player Visibility
 Hide nearby players from your view.
 Makes out of range players appear semi-transparent from your view.
-Toggle with the V key.
+Toggle with the Z key.
 You can set the range in the config.
 
 ### Block Alarm
