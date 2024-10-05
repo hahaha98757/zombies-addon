@@ -95,5 +95,4 @@ public class KoreanPatcher {
             Utils.addChat("§c[언데드] 릴리§f: 됐어...");
         }
     }
-
 }

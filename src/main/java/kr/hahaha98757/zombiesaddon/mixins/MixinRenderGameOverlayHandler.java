@@ -12,6 +12,6 @@ public class MixinRenderGameOverlayHandler {
 
     @Inject(method = "renderTime", at = @At("HEAD"), cancellable = true, remap = false)
     private void renderTime(short timerTicks, CallbackInfo ci) {
-        if (ZombiesAddonConfig.isZombiesUtilsSetting()) ci.cancel();
+        if (ZombiesAddonConfig.isEnableMod() && ZombiesAddonConfig.isZombiesUtilsSetting()) ci.cancel();
     }
 }

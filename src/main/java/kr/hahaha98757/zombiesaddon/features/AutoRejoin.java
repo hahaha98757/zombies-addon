@@ -60,6 +60,7 @@ public class AutoRejoin {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+        if (Utils.isModDisable()) return;
         if (!Hotkeys.toggleAutoRejoin.isPressed()) return;
         autoRejoin = !autoRejoin;
         Utils.addChat("§eToggled Auto Rejoin to " + (autoRejoin ? "§aon" : "§coff"));

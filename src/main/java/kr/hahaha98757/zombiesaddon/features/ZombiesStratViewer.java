@@ -30,6 +30,7 @@ public class ZombiesStratViewer {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+        if (Utils.isModDisable()) return;
         if (Hotkeys.zsvScrollDown.isPressed()) {
             if (currentLine + 1 < START_LINES.size()) ++currentLine;
             recalcActualLines();
@@ -73,9 +74,7 @@ public class ZombiesStratViewer {
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
         if (Utils.isModDisable()) return;
-
         if (!zombiesStratViewer) return;
-
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
 
 

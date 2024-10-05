@@ -115,6 +115,7 @@ public class SpawnLimitAction {
 
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
+        if (Utils.isModDisable()) return;
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
 
         try {

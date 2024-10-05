@@ -53,6 +53,7 @@ public class WaveDelays {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+        if (Utils.isModDisable()) return;
         if (!Hotkeys.toggleRLMode.isPressed()) return;
 
         useRL = !useRL;
@@ -64,6 +65,7 @@ public class WaveDelays {
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
+        if (Utils.isModDisable()) return;
         String message = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
 
         if (message.contains(">")) return;
@@ -76,6 +78,7 @@ public class WaveDelays {
 
     @SubscribeEvent
     public void onSound(SoundEvent event) {
+        if (Utils.isModDisable()) return;
         if (event.getSoundName().equals("mob.enderdragon.end")) gameEnd = true;
     }
 
@@ -202,6 +205,7 @@ public class WaveDelays {
 
     @SubscribeEvent
     public void onTick(TickEvent.ClientTickEvent event) {
+        if (Utils.isModDisable()) return;
         if (event.phase != TickEvent.Phase.START) return;
         if (Utils.isNotZombies()) return;
         if (ZombiesAddonConfig.isNotToggleWaveDelays()) return;

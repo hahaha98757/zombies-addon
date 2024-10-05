@@ -41,6 +41,7 @@ public class BlockAlarm {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+        if (Utils.isModDisable()) return;
         if (!Hotkeys.toggleBlockAlarm.isPressed()) return;
         blockAlarm = !blockAlarm;
         Utils.addChat("§eToggled Block Alarm to " + (blockAlarm ? "§aon" : "§coff"));

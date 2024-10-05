@@ -13,6 +13,6 @@ public class MixinSpawnTimeRenderer {
 
     @Inject(method = "onRender", at = @At("HEAD"), cancellable = true, remap = false)
     private void onRender(RenderGameOverlayEvent.Post event, CallbackInfo ci) {
-        if (ZombiesAddonConfig.isSSTSetting()) ci.cancel();
+        if (ZombiesAddonConfig.isEnableMod() && ZombiesAddonConfig.isSSTSetting()) ci.cancel();
     }
 }

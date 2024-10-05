@@ -105,9 +105,4 @@ public class ManualTimer {
             powerupTimer6 = 1200;
         }
     }
-
-
-
-
-
 }

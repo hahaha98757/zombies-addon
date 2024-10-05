@@ -35,6 +35,7 @@ public class PlayerVisibility {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+        if (Utils.isModDisable()) return;
         if (!Hotkeys.togglePV.isPressed()) return;
         playerVisibility = !playerVisibility;
         Utils.addChat("§eToggled PV to " + (playerVisibility ? "§aon" : "§coff"));

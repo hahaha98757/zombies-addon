@@ -84,11 +84,13 @@ public class LastWeapons {
 
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
+        if (Utils.isModDisable()) return;
         if (event.getTitle().equals("You Win!") || event.getTitle().equals("승리했습니다!")) win = true;
     }
 
     @SubscribeEvent
     public void onSound(SoundEvent event) {
+        if (Utils.isModDisable()) return;
         if (event.getSoundName().equals("mob.wither.spawn")) win = false;
     }
 }

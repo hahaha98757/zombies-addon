@@ -2,6 +2,7 @@ package kr.hahaha98757.zombiesaddon.mixins;
 
 import com.seosean.showspawntime.config.MainConfiguration;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
+import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
@@ -211,5 +212,9 @@ public class MixinMainConfiguration {
         config.save();
         logger.info("Finished loading config. ");
         logger.info("The unlegit features have been blocked by Zombies Addon.");
+        try {
+            Utils.addChatLine("The unlegit features have been blocked by Zombies Addon.");
+        } catch (NullPointerException ignored) {
+        }
     }
 }

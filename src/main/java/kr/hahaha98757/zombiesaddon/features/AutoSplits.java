@@ -51,6 +51,7 @@ public class AutoSplits {
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
+        if (Utils.isModDisable()) return;
         if (event.message.getUnformattedText().contains("The Helicopter is on its way! Hold out for 120 more seconds!"))
             runTimer();
     }

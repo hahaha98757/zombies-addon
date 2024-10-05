@@ -70,7 +70,7 @@ public class ZombiesAddonConfig {
 		config.load();
 
 		//Zombies Addon
-		enableMod = config.get(CATEGORY_ZOMBIES_ADDON, "Enable Mod", true, "Enable Zombie Addon. If set to false, Zombie Addon is disabled.");
+		enableMod = config.get(CATEGORY_ZOMBIES_ADDON, "Enable Mod", true, "Enable Zombie Addon. If set to false, Zombie Addon is disabled.\nHowever, some features will still work.(Fixes a command bug, Block SST Unlegit, etc.)");
 
 		showMods = config.get(CATEGORY_ZOMBIES_ADDON, "Show Mods", true, "Display text of the mods on the in-game screen.");
 

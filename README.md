@@ -9,6 +9,7 @@ Hide nearby players from your view.
 Makes out of range players appear semi-transparent from your view.
 Toggle with the Z key.
 You can set the range in the config.
+Player Invisible of SST isn't worked if you are using this mod.
 
 ### Block Alarm
 Display "BLOCK" on the screen when you survived alone and there is a player you can revive.
@@ -105,6 +106,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 ## Update Log
+
+### 4.2.1
+- Fixed bugs.
 
 ### 4.2.0
 - Fixed bugs.

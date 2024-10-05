@@ -59,7 +59,7 @@ public class PowerupPatterns {
 
     @SubscribeEvent
     public void drawTimerText(RenderGameOverlayEvent.Post event) {
-        if (Utils.isNotZombies()) return;
+        if (Utils.isModDisable()) return;
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
         if (ZombiesAddonConfig.isNotTogglePowerupPatterns()) return;
         if (Utils.isNotZombies()) return;
@@ -316,6 +316,7 @@ public class PowerupPatterns {
 
     @SubscribeEvent
     public void onTitle(TitleEvent event) {
+        if (Utils.isModDisable()) return;
         String title = event.getTitle();
 
         if (Utils.isRoundText(title) && title.replaceAll("[^0-9]", "").equals("1")) {
@@ -365,6 +366,7 @@ public class PowerupPatterns {
 
     @SubscribeEvent
     public void onSound(SoundEvent event) {
+        if (Utils.isModDisable()) return;
         String soundName = event.getSoundName();
 
         if (soundName.equals("mob.wither.spawn") || soundName.equals("mob.enderdragon.end")) AAr10 = false;
@@ -386,6 +388,7 @@ public class PowerupPatterns {
     @SuppressWarnings("SpellCheckingInspection")
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+        if (Utils.isModDisable()) return;
         if (Hotkeys.instaTimer.isPressed()) {
             instaTimer = true;
             ManualTimer.resetTimer((byte) 1);
@@ -420,6 +423,7 @@ public class PowerupPatterns {
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
+        if (Utils.isModDisable()) return;
         String message = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
 
         if (message.contains(">")) return;

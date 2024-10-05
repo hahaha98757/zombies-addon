@@ -389,25 +389,27 @@ public class Utils {
         return text.contains("Round") || text.contains("라운드");
     }
 
-    @SuppressWarnings("SpellCheckingInspection")
     public static int getLevel(String itemName) {
-        if (itemName.contains("Ultimate II") || itemName.contains("Extra Health II") || itemName.contains("II레벨 강화된") || itemName.contains("추가 체력 II") || itemName.contains("Ultimate 2") || itemName.contains("Extra Health 2"))
+        if (itemName.contains("Ultimate")) itemName = itemName.split("Ultimate")[1].trim();
+        if (itemName.contains("레벨")) itemName = itemName.split("레벨")[0].trim();
+
+        if (itemName.equals("II") || itemName.equals("Extra Health II") || itemName.equals("추가 체력 II") || itemName.contains("2") || itemName.equals("Extra Health 2"))
             return 2;
-        else if (itemName.contains("Ultimate III") || itemName.contains("Extra Health III") || itemName.contains("III레벨 강화된") || itemName.contains("추가 체력 III") || itemName.contains("Ultimate 3") || itemName.contains("Extra Health 3"))
+        else if (itemName.equals("III") || itemName.equals("Extra Health III") || itemName.equals("추가 체력 III") || itemName.contains("3") || itemName.equals("Extra Health 3"))
             return 3;
-        else if (itemName.contains("Ultimate IV") || itemName.contains("Extra Health IV") || itemName.contains("IV레벨 강화된") || itemName.contains("추가 체력 IV") || itemName.contains("Ultimate 4") || itemName.contains("Extra Health 4"))
+        else if (itemName.equals("IV") || itemName.equals("Extra Health IV") || itemName.equals("추가 체력 IV") || itemName.contains("4") || itemName.equals("Extra Health 4"))
             return 4;
-        else if (itemName.contains("Ultimate V") || itemName.contains("Extra Health V") || itemName.contains("V레벨 강화된") || itemName.contains("추가 체력 V") || itemName.contains("Ultimate 5") || itemName.contains("Extra Health 5"))
+        else if (itemName.equals("V") || itemName.equals("Extra Health V") || itemName.equals("추가 체력 V") || itemName.contains("5") || itemName.equals("Extra Health 5"))
             return 5;
-        else if (itemName.contains("Extra Health VI") || itemName.contains("추가 체력 VI") || itemName.contains("Extra Health 6"))
+        else if (itemName.equals("Extra Health VI") || itemName.equals("추가 체력 VI") || itemName.equals("Extra Health 6"))
             return 6;
-        else if (itemName.contains("Extra Health VII") || itemName.contains("추가 체력 VII") || itemName.contains("Extra Health 7"))
+        else if (itemName.equals("Extra Health VII") || itemName.equals("추가 체력 VII") || itemName.equals("Extra Health 7"))
             return 7;
-        else if (itemName.contains("Extra Health VIII") || itemName.contains("추가 체력 VIII") || itemName.contains("Extra Health 8"))
+        else if (itemName.equals("Extra Health VIII") || itemName.equals("추가 체력 VIII") || itemName.equals("Extra Health 8"))
             return 8;
-        else if (itemName.contains("Extra Health IX") || itemName.contains("추가 체력 IX") || itemName.contains("Extra Health 9"))
+        else if (itemName.equals("Extra Health IX") || itemName.equals("추가 체력 IX") || itemName.equals("Extra Health 9"))
             return 9;
-        else if (itemName.contains("Extra Health X") || itemName.contains("추가 체력 X") || itemName.contains("Extra Health 10"))
+        else if (itemName.equals("Extra Health X") || itemName.equals("추가 체력 X") || itemName.equals("Extra Health 10"))
             return 10;
         else return 0;
     }
