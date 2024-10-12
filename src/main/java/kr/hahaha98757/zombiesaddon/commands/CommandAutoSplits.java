@@ -13,7 +13,7 @@ public class CommandAutoSplits extends CommandBase {
 
     @Override
     public String getCommandName() {
-        return "autoSplits";
+        return "autosplits";
     }
 
     @Override
@@ -23,7 +23,7 @@ public class CommandAutoSplits extends CommandBase {
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "§c/autoSplits <stop|run>";
+        return String.format("§eUsage: /%s <stop|run>", getCommandName());
     }
 
     @Override

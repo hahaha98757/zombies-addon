@@ -20,7 +20,7 @@ public class CommandZSV extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "ZSV";
+		return "zsv";
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class CommandZSV extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "§cUsage: /ZSV <URL|off>\n§cThe URL must start with \"https://pastebin.com/raw/\"";
+		return String.format("§cUsage: /%s <URL|off>\n§cThe URL must start with \"https://pastebin.com/raw/\"", getCommandName());
 	}
 
 	@Override

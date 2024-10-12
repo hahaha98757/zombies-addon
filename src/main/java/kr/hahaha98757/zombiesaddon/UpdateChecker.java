@@ -54,13 +54,13 @@ public class UpdateChecker {
 		MinecraftForge.EVENT_BUS.unregister(this);
 
 		try {
-			setLatestVer();
+			checkUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void setLatestVer() {
+	public static void checkUpdate() {
 		new Thread(() -> {
 			try {
 				URL url = new URL(VERSION_URL);
@@ -92,7 +92,7 @@ public class UpdateChecker {
 
 	// 0: Using latest ver, 1: Using latest pre-ver, 2: New ver with latest ver, 3: New pre-ver with latest ver, 4: New ver with pre-ver, 5: new pre-ver with pre-ver, 6: New required release
 	@SuppressWarnings("SameParameterValue")
-    private int compareVersions(String modVer, String latestVer) {
+    private static int compareVersions(String modVer, String latestVer) {
 		boolean update = false;
 		boolean modPre = false;
 		boolean latestPre = false;
@@ -131,7 +131,7 @@ public class UpdateChecker {
 		return latestPre ? 5 : 4;
 	}
 
-	private void displayText(int i) {
+	private static void displayText(int i) {
 		switch (i) {
 			case 1:
 				Utils.addChatLine("You are using pre-release.\n§cPre-release is not perfect. There may be bugs.");
@@ -145,11 +145,11 @@ public class UpdateChecker {
 				break;
 			case 4:
 				Utils.addChatWithURL(Utils.LINE + "\nA new release is available.\nYou are using pre-release.\nPlease update. ", URL_TEXT, URL, SHOW_URL_TEXT, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n" + Utils.LINE);
-				MinecraftForge.EVENT_BUS.register(this);
+				MinecraftForge.EVENT_BUS.register(new UpdateChecker());
 				break;
 			case 5:
 				Utils.addChatWithURL(Utils.LINE + "\nA new pre-release is available. ", URL_TEXT, URL, SHOW_URL_TEXT, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n§cPre-release is not perfect. There may be bugs.\n" + Utils.LINE);
-				MinecraftForge.EVENT_BUS.register(this);
+				MinecraftForge.EVENT_BUS.register(new UpdateChecker());
 				break;
 			case 6:
 				Utils.addChatWithURL(Utils.LINE + "\n§cRequired updates released. " , URL_TEXT, URL, SHOW_URL_TEXT, "\n§r§cUPDATE NOW.\n§c§lThe game ends after 10 seconds.\n" + Utils.LINE);

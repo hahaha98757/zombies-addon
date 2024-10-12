@@ -31,7 +31,7 @@ public class BlockAlarm {
 
         byte[] rdq = Utils.getRevDeadQuit();
 
-        if (!((rdq[0] + rdq[1] + rdq[2] == 3))) return;
+        if (!((rdq[0] + rdq[1] + rdq[2] == 3) && rdq[0] >= 1)) return;
 
         GL11.glPushMatrix();
         GL11.glScalef(7.0F, 7.0F, 7.0F);

@@ -15,7 +15,7 @@ public class CommandPowerupPatterns extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "powerupPatterns";
+		return "poweruppatterns";
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class CommandPowerupPatterns extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "§cUsage: /powerupPatterns <insta|max|ss|dg|carpenter|bg> [reset|number|on|off]";
+		return String.format("§cUsage: /%s <insta|max|ss|dg|carpenter|bg> [reset|number|on|off]", getCommandName());
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class CommandPowerupPatterns extends CommandBase {
 							PowerupPatterns.useInstaPattern = false;
 							break;
 						default:
-							Utils.addChat("§cUsage: /powerupPatterns insta [reset|2|3|on|off]");
+							Utils.addChat(String.format("§cUsage: /%s insta [reset|2|3|on|off]", getCommandName()));
 							break;
 					}
 				}
@@ -98,7 +98,7 @@ public class CommandPowerupPatterns extends CommandBase {
 							PowerupPatterns.useMaxPattern = false;
 							break;
 						default:
-							Utils.addChat("§cUsage: /powerupPatterns max [reset|2|3|on|off]");
+							Utils.addChat(String.format("§cUsage: /%s max [reset|2|3|on|off]", getCommandName()));
 							break;
 					}
 				}
@@ -129,7 +129,7 @@ public class CommandPowerupPatterns extends CommandBase {
 							PowerupPatterns.useSSPattern = false;
 							break;
 						default:
-							Utils.addChat("§cUsage: /powerupPatterns ss [reset|5|6|7|on|off]");
+							Utils.addChat(String.format("§cUsage: /%s ss [reset|5|6|7|on|off]", getCommandName()));
 							break;
 					}
 				}

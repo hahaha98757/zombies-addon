@@ -15,7 +15,7 @@ public class CommandSLA extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "SLA";
+		return "sla";
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class CommandSLA extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "§cUsage: /SLA <de|bb|aa|off|quick|custom>";
+		return String.format("§cUsage: /%s <de|bb|aa|off|quick|custom>", getCommandName());
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class CommandSLA extends CommandBase {
 				break;
             case "quick":
 				if (args.length == 1) {
-                    Utils.addChat("\u00A7cUsage: /SLA quick <mogi_a|ghxula|ghxula-garden>");
+                    Utils.addChat(String.format("§cUsage: /%s quick <mogi_a|ghxula|ghxula-garden>", getCommandName()));
 					return;
 				}
                 switch (args[1]) {
@@ -72,12 +72,12 @@ public class CommandSLA extends CommandBase {
 						SpawnLimitAction.setOffset(new int[]{13, 53, -8});
 						break;
 					default:
-						Utils.addChat("\u00A7cUsage: /SLA quick <mogi_a|ghxula|ghxula-garden>");
+						Utils.addChat(String.format("§cUsage: /%s quick <mogi_a|ghxula|ghxula-garden>", getCommandName()));
 				}
 				break;
 			case "custom":
 				if (args.length == 1) {
-					Utils.addChat("\u00A7cUsage: /SLA custom <offset|rotate|mirror>");
+					Utils.addChat(String.format("§cUsage: /%s custom <offset|rotate|mirror>", getCommandName()));
 					return;
 				}
 				switch (args[1]) {
@@ -86,7 +86,7 @@ public class CommandSLA extends CommandBase {
                             //noinspection SpellCheckingInspection
                             Utils.addChat("§eSLA: §cReset §eoffset");
                             SpawnLimitAction.resetOffset();
-                        } else if (args.length != 5) Utils.addChat("\u00A7cUsage: /SLA set offset [x] [y] [z]");
+                        } else if (args.length != 5) Utils.addChat(String.format("§cUsage: /%s set offset [x] [y] [z]", getCommandName()));
                         else {
 							try {
 								int x = Integer.parseInt(args[2]);
@@ -94,7 +94,7 @@ public class CommandSLA extends CommandBase {
 								int z = Integer.parseInt(args[4]);
 								SpawnLimitAction.setOffset(new int[] {x, y, z});
 							} catch (NumberFormatException ignored) {
-								Utils.addChat("\u00A7eSLA: \u00A7cWrong number");
+								Utils.addChat("§eSLA: §cWrong number");
 								return;
 							}
 						}
@@ -106,7 +106,7 @@ public class CommandSLA extends CommandBase {
 							try {
 								rotations = Integer.parseInt(args[2]);
 							} catch (NumberFormatException ignored) {
-								Utils.addChat("\u00A7eSLA: \u00A7cWrong number");
+								Utils.addChat("§eSLA: §cWrong number");
 								return;
 							}
 							SpawnLimitAction.rotate(rotations);
@@ -114,7 +114,7 @@ public class CommandSLA extends CommandBase {
 						break;
 					case "mirror":
 						if (args.length == 2) {
-							Utils.addChat("§cUsage: /SLA custom mirror <x|z>");
+							Utils.addChat(String.format("§cUsage: /%s custom mirror <x|z>", getCommandName()));
 							break;
 						}
 						switch (args[2]) {
@@ -125,11 +125,11 @@ public class CommandSLA extends CommandBase {
 								SpawnLimitAction.mirrorZ();
 								break;
 							default:
-								Utils.addChat("\u00A7cUsage: /SLA custom mirror <x|z>");
+								Utils.addChat(String.format("§cUsage: /%s custom mirror <x|z>", getCommandName()));
 						}
 						break;
 					default:
-						Utils.addChat("\u00A7cUsage: /SLA custom <offset|rotate|mirror>");
+						Utils.addChat(String.format("§cUsage: /%s custom <offset|rotate|mirror>", getCommandName()));
 				}
 				break;
             default:

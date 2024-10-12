@@ -21,13 +21,13 @@ Display the player who killed the last one.
 
 ### Auto Splits
 Run a timer at start of the round.
-You can set the position of timer with /ZAHUD command.
+You can set the position of timer with /zombiesaddon hud command.
 
 ### Wave Delays
 Display the wave delays.
 You can set the many options in the config.
-You can set the position of wave delays with /ZAHUD command.
-You can set the difficult with /waveDelays command.
+You can set the position of wave delays with /zombiesaddon hud command.
+You can set the difficult with /wavedelays command.
 You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.
 It only works when the Hypixel language is set to English or Korean.
 
@@ -46,13 +46,13 @@ Displays the wave which the boss spawns.
 
 ### Zombies Strat Viewer
 Display the text in [https://pastebin.com/](https://pastebin.com/) on the screen.
-Use /ZSV <URL|off> command to load or close the text. URL must start with "https://pastebin.com/raw/".
-Use /ZSVLines <number> command to set lines of view.
+Use /zsv <URL|off> command to load or close the text. URL must start with "https://pastebin.com/raw/".
+Use /zsvlines <number> command to set lines of view.
 
 ### Spawn Limit Action
 Display the number and names of windows where zombies can spawn.
-Use /SLA <de|bb|aa|off> command to set the map or off SLA.
-You can set the SLA for custom map(e.g. Housing) with /SLA custom <offset|rotate|mirror> command.
+Use /sla <de|bb|aa|off> command to set the map or off SLA.
+You can set the SLA for custom map(e.g. Housing) with /sla custom <offset|rotate|mirror> command.
 You can set the many options in the config.
 
 ### Auto Rejoin
@@ -90,6 +90,7 @@ You can turn off timer of Zombies Utils in the config.
 Fixed a bug of forge that commands are executed without "/".
 The game ends when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)
 Blocks the unlegit features of SST.
+Changed /sla command of Zombies Utils to /sla_zombiesutils
 
 
 ## Credits
@@ -106,6 +107,11 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 ## Update Log
+
+### 4.2.2
+- Fixed bugs.
+- Added /zombiesaddon command.
+- Removed /info command.
 
 ### 4.2.1
 - Fixed bugs.

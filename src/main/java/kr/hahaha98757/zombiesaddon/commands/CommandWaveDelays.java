@@ -14,7 +14,7 @@ public class CommandWaveDelays extends CommandBase {
 
     @Override
     public String getCommandName() {
-        return "waveDelays";
+        return "wavedelays";
     }
 
     @Override
@@ -24,7 +24,7 @@ public class CommandWaveDelays extends CommandBase {
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "§cUsage: /waveDelays difficult <normal|hard|rip>";
+        return String.format("§cUsage: /%s difficult <normal|hard|rip>", getCommandName());
     }
 
     @Override

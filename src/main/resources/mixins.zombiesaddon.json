@@ -13,6 +13,7 @@
     "MixinModelPlayer",
     "MixinRender",
     "MixinRenderGameOverlayHandler",
+    "MixinSlaCommand",
     "MixinSpawnTimeRenderer"
   ],
   "client": [

@@ -12,7 +12,7 @@ public class CommandZSVLines extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "ZSVLines";
+		return "zsvlines";
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class CommandZSVLines extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "§cUsage: /ZSVLines <number>";
+		return String.format("§cUsage: /%s <number>", getCommandName());
 	}
 
 	@Override

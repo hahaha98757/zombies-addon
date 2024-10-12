@@ -171,15 +171,15 @@ public class Utils {
             }
 
             switch (str) {
-                case "revive":
+                case "REVIVE":
                 case "부활":
                     revDeadQuit[0]++;
                     break;
-                case "dead":
+                case "DEAD":
                 case "사망":
                     revDeadQuit[1]++;
                     break;
-                case "quit":
+                case "QUIT":
                 case "떠남":
                     revDeadQuit[2]++;
                     break;
@@ -390,7 +390,11 @@ public class Utils {
     }
 
     public static int getLevel(String itemName) {
-        if (itemName.contains("Ultimate")) itemName = itemName.split("Ultimate")[1].trim();
+        if (itemName.contains("Ultimate")) try {
+            itemName = itemName.split("Ultimate")[1].trim();
+        } catch (Exception e) {
+            return 0;
+        }
         if (itemName.contains("레벨")) itemName = itemName.split("레벨")[0].trim();
 
         if (itemName.equals("II") || itemName.equals("Extra Health II") || itemName.equals("추가 체력 II") || itemName.contains("2") || itemName.equals("Extra Health 2"))

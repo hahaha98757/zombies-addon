@@ -47,7 +47,7 @@ public class SpawnLimitAction {
     }
 
     public static void rotate(int rotations) {
-        Utils.addChat("§eSLA: Rotates all windows around the axis \u00A7a(0,y,0)");
+        Utils.addChat("§eSLA: Rotates all windows around the axis §a(0,y,0)");
         for (Room room : rooms) {
             for (Window window : room.getWindows()) {
                 window.rotate(rotations);
@@ -56,7 +56,7 @@ public class SpawnLimitAction {
     }
 
     public static void mirrorX() {
-        Utils.addChat("§eSLA: Mirrors all windows along the plane \u00A7a(0,y,z)");
+        Utils.addChat("§eSLA: Mirrors all windows along the plane §a(0,y,z)");
         for (Room room : rooms) {
             for (Window window : room.getWindows()) {
                 window.mirrorX();
@@ -65,7 +65,7 @@ public class SpawnLimitAction {
     }
 
     public static void mirrorZ() {
-        Utils.addChat("§eSLA: Mirrors all windows along the plane \u00A7a(x,y,0)");
+        Utils.addChat("§eSLA: Mirrors all windows along the plane §a(x,y,0)");
         for (Room room : rooms) {
             for (Window window : room.getWindows()) {
                 window.mirrorZ();
@@ -180,7 +180,7 @@ public class SpawnLimitAction {
         }
 
         if (tick == 100) {
-            Utils.addChat("\u00A7eSLA: \u00A7cWrong map");
+            Utils.addChat("§eSLA: §cWrong map");
             autoSLA = false;
             tick = 0;
             return;

@@ -4,13 +4,12 @@ import net.minecraftforge.client.ClientCommandHandler;
 
 public class Commands {
     public static void registerAll() {
-        ClientCommandHandler.instance.registerCommand(new CommandInfo());
         ClientCommandHandler.instance.registerCommand(new CommandSLA());
         ClientCommandHandler.instance.registerCommand(new CommandZSV());
         ClientCommandHandler.instance.registerCommand(new CommandZSVLines());
         ClientCommandHandler.instance.registerCommand(new CommandPowerupPatterns());
-        ClientCommandHandler.instance.registerCommand(new CommandZAHUD());
         ClientCommandHandler.instance.registerCommand(new CommandWaveDelays());
         ClientCommandHandler.instance.registerCommand(new CommandAutoSplits());
+        ClientCommandHandler.instance.registerCommand(new CommandZombiesAddon());
     }
 }
