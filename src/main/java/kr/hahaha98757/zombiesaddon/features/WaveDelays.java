@@ -13,7 +13,6 @@ import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -66,7 +65,7 @@ public class WaveDelays {
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         if (Utils.isModDisable()) return;
-        String message = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
+        String message = Utils.getTextWithoutColors(event.message.getUnformattedText());
 
         if (message.contains(">")) return;
 

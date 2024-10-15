@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -46,7 +45,7 @@ public class LastWeapons {
                 ItemStack weapon = weapons[i];
 
                 if (weapon != null) {
-                    int level = Utils.getLevel(EnumChatFormatting.getTextWithoutFormattingCodes(weapon.getDisplayName()));
+                    int level = Utils.getLevel(Utils.getTextWithoutColors(weapon.getDisplayName()));
 
                     renderItem.renderItemAndEffectIntoGUI(weapon, x + 20*i, y);
 

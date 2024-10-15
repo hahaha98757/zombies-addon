@@ -1,4 +1,4 @@
 {
-  "version": "4.2.2",
-  "log": "Fixed bugs.\nAdded /zombiesaddon command.\nRemove /info command."
+  "version": "4.2.3",
+  "log": "Fixed bugs."
 }

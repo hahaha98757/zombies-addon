@@ -29,7 +29,7 @@ You can set the many options in the config.
 You can set the position of wave delays with /zombiesaddon hud command.
 You can set the difficult with /wavedelays command.
 You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.
-It only works when the Hypixel language is set to English or Korean.
+It only works when the Hypixel language is set to English or Korean. (In other language, you should change the difficulty with a command.)
 
 Displays the wave which the boss spawns.
 | Color | Boss name |
@@ -107,6 +107,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 ## Update Log
+
+### 4.2.3
+- Fixed bugs.
 
 ### 4.2.2
 - Fixed bugs.

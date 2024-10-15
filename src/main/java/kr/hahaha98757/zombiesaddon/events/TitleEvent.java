@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.events;
 
-import net.minecraft.util.EnumChatFormatting;
+import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class TitleEvent extends Event {
@@ -11,6 +11,6 @@ public class TitleEvent extends Event {
 	}
 
 	public String getTitle() {
-		return EnumChatFormatting.getTextWithoutFormattingCodes(this.title);
+		return Utils.getTextWithoutColors(this.title);
 	}
 }

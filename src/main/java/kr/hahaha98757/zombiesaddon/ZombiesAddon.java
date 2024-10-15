@@ -32,7 +32,7 @@ import java.util.List;
 public class ZombiesAddon {
 	public static final String MODID = "zombiesaddon";
 	public static final String NAME = "Zombies Addon";
-	public static final String VERSION = "4.2.2";
+	public static final String VERSION = "4.2.3";
 	private static File directory;
 
 	public static boolean hasOldSST;

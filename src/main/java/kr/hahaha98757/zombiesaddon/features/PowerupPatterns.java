@@ -11,7 +11,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -259,7 +258,7 @@ public class PowerupPatterns {
 
         if (!(entity instanceof EntityArmorStand)) return;
 
-        String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName());
+        String name = Utils.getTextWithoutColors(entity.getName());
 
         if (spawnedEntities.contains(entity)) return;
 
@@ -424,7 +423,7 @@ public class PowerupPatterns {
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         if (Utils.isModDisable()) return;
-        String message = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
+        String message = Utils.getTextWithoutColors(event.message.getUnformattedText());
 
         if (message.contains(">")) return;
 

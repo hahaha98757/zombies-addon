@@ -17,13 +17,14 @@ import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 public class Utils {
     public static final String LINE = "§e-----------------------------------------------------";
+    private static final Pattern formattingCodePattern = Pattern.compile("(?i)" + "§" + "[0-9A-FK-OR]");
     private static Minecraft mc;
     private static FontRenderer fr;
 
@@ -127,6 +128,10 @@ public class Utils {
         return new ScaledResolution(mc).getScaledHeight() - fr.FONT_HEIGHT - 1.0F;
     }
 
+    public static String getTextWithoutColors(String text) {
+        return text == null ? null : formattingCodePattern.matcher(text).replaceAll("");
+    }
+
     private static HashMap<Integer, String> getScoreboard() {
         HashMap<Integer, String> scoreboards = new HashMap<>();
         if (mc.theWorld == null || mc.thePlayer == null) return null;
@@ -134,13 +139,18 @@ public class Utils {
         Scoreboard scoreboard = mc.theWorld.getScoreboard();
         ScoreObjective sidebar = scoreboard.getObjectiveInDisplaySlot(1);
 
-        if (sidebar == null || !EnumChatFormatting.getTextWithoutFormattingCodes(sidebar.getDisplayName()).equals("ZOMBIES")) return null;
+        if (sidebar == null || !getTextWithoutColors(sidebar.getDisplayName()).equals("ZOMBIES")) return null;
 
         for (Score score : scoreboard.getSortedScores(sidebar))
             for (int i = 1; i <= 15; i++)
                 if (score.getScorePoints() == i)
-                    scoreboards.put(i, EnumChatFormatting.getTextWithoutFormattingCodes(ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName()).replaceAll("[^A-Za-z0-9가-힣:\\s]", "")).trim());
+                    scoreboards.put(i, getTextWithoutColors(ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName())).replaceAll("[^A-Za-z0-9가-힣:\\s]", "").trim());
         return scoreboards;
+    }
+
+    private static boolean isHypixel() {
+        String serverIP = getScoreboard().get(1);
+        return serverIP != null && serverIP.equals("www.hypixel.net");
     }
 
     /**
@@ -169,7 +179,6 @@ public class Utils {
             } catch (Exception e) {
                 continue;
             }
-
             switch (str) {
                 case "REVIVE":
                 case "부활":
@@ -206,6 +215,11 @@ public class Utils {
         java.util.Map<Integer, String> scoreboard = getScoreboard();
 
         if (scoreboard == null) return true;
+
+        if (isHypixel()) {
+            String str = scoreboard.get(10);
+            return str == null || !str.contains(mc.thePlayer.getName());
+        }
 
         for (int i = 7; i <= 10; i++) {
             String str = scoreboard.get(i);
@@ -300,6 +314,11 @@ public class Utils {
 
         if (scoreboard == null) return 0;
 
+        if (isHypixel()) {
+            String str = scoreboard.get(13);
+            return str == null ? 0 : Byte.parseByte(str.replaceAll("[^0-9]", ""));
+        }
+
         for (int i = 10; i <= 13; i++) {
             String str = scoreboard.get(i);
             if (str == null) continue;
@@ -374,6 +393,14 @@ public class Utils {
         HashMap<Integer, String> scoreboard = getScoreboard();
 
         if (scoreboard == null) return 0;
+
+        if (isHypixel()) {
+            String str = scoreboard.get(13);
+            if (str == null) return 0;
+
+            if (str.contains("라운드")) return 1;
+            else return 0;
+        }
 
         for (int i = 10; i <= 13; i++) {
             String str = scoreboard.get(i);
