@@ -1,34 +1,35 @@
+![Zombies Addon Logo](src/main/resources/logo.png)
 # Zombies Addon
-The mod for Hypixel Zombies
+The mod for Hypixel Zombies.
 
-[한국어 내용](https://blog.naver.com/hahaha98757/223012598464)
+Supported language: [English (US)](README.md), [한국어 (대한민국)](README-ko_KR.md)
 
 ## Features
 ### Player Visibility
-Hide nearby players from your view.
-Makes out of range players appear semi-transparent from your view.
-Toggle with the Z key.
-You can set the range in the config.
+Hides nearby players from your view.<br>
+Makes out of range players appear semi-transparent from your view.<br>
+Toggle with the Z key.<br>
+You can set the range in the config.<br>
 Player Invisible of SST isn't worked if you are using this mod.
 
 ### Block Alarm
-Display "BLOCK" on the screen when you survived alone and there is a player you can revive.
-Toggle with the B key.
+Displays "BLOCK" on the screen when you survived alone and there is a player you can revive.<br>
+Toggle with the B key.<br>
 It only works when the Hypixel language is set to English or Korean.
 
 ### Not Last
-Display the player who killed the last one.
+Displays the player who killed the last one.
 
 ### Auto Splits
-Run a timer at start of the round.
+Runs a timer at start of the round.<br>
 You can set the position of timer with /zombiesaddon hud command.
 
 ### Wave Delays
-Display the wave delays.
-You can set the many options in the config.
-You can set the position of wave delays with /zombiesaddon hud command.
-You can set the difficult with /wavedelays command.
-You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.
+Displays the wave delays.<br>
+You can set the many options in the config.<br>
+You can set the position of wave delays with /zombiesaddon hud command.<br>
+You can set the difficult with /wavedelays command.<br>
+You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.<br>
 It only works when the Hypixel language is set to English or Korean. (In other language, you should change the difficulty with a command.)
 
 Displays the wave which the boss spawns.
@@ -37,76 +38,88 @@ Displays the wave which the boss spawns.
 | Gold | Bombie or Warden |
 | Red | Inferno, Angry Prisoner, or Corrupted Pigman |
 | Dark Purple | The Broodmother, Wither, or Herobrine |
-| Red and Apua | Lily and Ellie |
+| Red and Aqua | Lily and Ellie |
 | Green | King Slime or Mega Blob |
-| Dark Apua | (Rainbow) Giant |
+| Dark Aqua | (Rainbow) Giant |
 | Dark Red | The Old One or Mega Magma |
-| Dark Apua and Dark Red | (Rainbow) Giant and The Old One |
+| Dark Aqua and Dark Red | (Rainbow) Giant and The Old One |
 | Black | World Ender |
 
 ### Zombies Strat Viewer
-Display the text in [https://pastebin.com/](https://pastebin.com/) on the screen.
-Use /zsv <URL|off> command to load or close the text. URL must start with "https://pastebin.com/raw/".
+Displays the text in https://pastebin.com/ on the screen.<br>
+Use /zsv <URL|off> command to load or close the text. URL must start with "https://pastebin.com/raw/".<br>
 Use /zsvlines <number> command to set lines of view.
 
 ### Spawn Limit Action
-Display the number and names of windows where zombies can spawn.
-Use /sla <de|bb|aa|off> command to set the map or off SLA.
-You can set the SLA for custom map(e.g. Housing) with /sla custom <offset|rotate|mirror> command.
+Displays the number and names of windows where zombies can spawn.<br>
+Use /sla <de|bb|aa|off> command to set the map or off SLA.<br>
+You can set the SLA for custom map(e.g. Housing) with /sla custom <offset|rotate|mirror> command.<br>
 You can set the many options in the config.
 
 ### Auto Rejoin
-Automatically rejoin Zombies when start of the round.
+Automatically rejoin Zombies when start of the round.<br>
 You can set to hide toggle text in the config.
 
 ### Powerup Patterns
-Display the patterns of power-ups.
-Use /pow <insta|max|ss> [reset|number|on|off] command to reset or set the pattern.
-The displayed power-up pattern will be updated in the next round.
-For example, if Insta Kill spawned in round 2, Insta Kill pattern will be displayed on the screen when round 3 starts.
-Use hotkeys or /pow <insta|max|ss|dg|carpenter|bg> command to run Manual Timer.
+Displays the patterns of power-ups.<br>
+Use /pow <insta|max|ss> [reset|number|on|off] command to reset or set the pattern.<br>
+The displayed power-up pattern will be updated in the next round.<br>
+For example, if Insta Kill spawned in round 2, Insta Kill pattern will be displayed on the screen when round 3 starts.<br>
+Use hotkeys or /pow <insta|max|ss|dg|carpenter|bg> command to run Manual Timer.<br>
 It only works when the Hypixel language is set to English or Korean.
 
 ### Last Weapons
-Display your weapons when You Win.
-Display level of your weapons when You Win.
-You can set the many options in the config.
+Displays your weapons when You Win.<br>
+Displays level of your weapons when You Win.<br>
+You can set the many options in the config.<br>
 It only works when the Hypixel language is set to English or Korean.
 
 ### Text Macro
-Send the text on chat when press the Q key.
+Sends the text on chat when press the Q key.<br>
 You can set the text in the config.
 
 ### Korean Patchers
-Translated some phrases in Zombies.
-Translated some phrases in SST.
+Translated some phrases in Zombies.<br>
+Translated some phrases in SST.<br>
 You can use [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) even if the Hypixel language is set to Korean.
 
 ### Other Mods
-You can turn off spawn time of SST in the config.
+You can turn off spawn time of SST in the config.<br>
 You can turn off timer of Zombies Utils in the config.
 
 ### Other
-Fixed a bug of forge that commands are executed without "/".
-The game ends when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)
-Blocks the unlegit features of SST.
+The game ends when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)<br>
+Blocks the unlegit features of SST.<br>
 Changed /sla command of Zombies Utils to /sla_zombiesutils
 
 
-## Credits
-This mod includes code from the following mods:
-- [Zombies AutoSplits](https://github.com/tahmid-23/ZombiesAutoSplits) by tahmid-23 (MIT License)
-- [Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) by Stachelbeere1248 (MIT License)
-- [Show Spawn Time](https://github.com/Seosean/ShowSpawnTime/tree/1.15.0) by Seosean (MIT License)
-- [Zombies Cornering Mod](https://github.com/cyoung06/ZombiesCorneringMod) by syeyoung (MIT License)
-- [Zombies Strat Viewer](https://github.com/cyoung06/ZombiesStratViewer) by syeyoung (MIT License)
+## License
+This project is licensed under the MIT License as specified in the [LICENSE](LICENSE) file.<br>
+It allows for personal use, modification, distribution, and commercial use under the license and copyright notice, and it comes with no warranty or liability.
 
-Zombies Hologrambug Fixer, Zombies Cornering Mod, and Zombies Strat Viewer was originally licensed under the LGPL license, but the author, syeyoung, granted permission to license it under the MIT license.
+## Credits
+- [Architectury Pack200](https://github.com/architectury/architectury-pack200) by architectury ([GNU General Public License v2.0 with Classpath Exception](https://github.com/architectury/architectury-pack200/blob/master/LICENSE))
+- [DevAuth](https://github.com/DJtheRedstoner/DevAuth) by DJtheRedstoner ([MIT License](https://github.com/DJtheRedstoner/DevAuth/blob/master/LICENSE))
+- [Essential Loom](https://github.com/EssentialGG/architectury-loom) by EssentialGG ([MIT License](https://github.com/EssentialGG/architectury-loom/blob/dev/1.6/LICENSE))
+- [Gson](https://github.com/google/gson) by google ([Apache License 2.0](https://github.com/google/gson/blob/main/LICENSE))
+- [Mixin](https://github.com/SpongePowered/Mixin) by SpongePowered ([MIT License](https://github.com/SpongePowered/Mixin/blob/master/LICENSE.txt))
+- [Show Spawn Time](https://github.com/Seosean/ShowSpawnTime/tree/1.15.0) by Seosean ([MIT License](licenses/Show%20Spawn%20Time-LICENSE))
+- [Zombies AutoSplits](https://github.com/tahmid-23/ZombiesAutoSplits) by tahmid-23 ([MIT License](https://github.com/tahmid-23/ZombiesAutoSplits/blob/main/LICENSE))
+- [Zombies Cornering Mod](https://github.com/cyoung06/ZombiesCorneringMod) by syeyoung ([MIT License](licenses/Zombies%20Cornering%20Mod-LICENSE))
+- [Zombies Strat Viewer](https://github.com/cyoung06/ZombiesStratViewer) by syeyoung ([MIT License](licenses/Zombies%20Strat%20Viewer-LICENSE))
+- [Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) by Stachelbeere1248 ([MIT License](https://github.com/Stachelbeere1248/zombies-utils/blob/master/LICENSE))
+
+Zombies Hologrambug Fixer, Zombies Cornering Mod, and Zombies Strat Viewer was originally licensed under the GNU Lesser General Public License v2.1, but the author, syeyoung, granted permission to license it under the MIT license.<br>
 Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.15.0.jar.
 
 ****
 
 ## Update Log
+
+### 4.3.0-pre1
+- Fixed bugs.
+- Added commands.
+- Added Language option in config.
 
 ### 4.2.3
 - Fixed bugs.
@@ -534,6 +547,7 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 ### 1.2.0
 - Added NOTLAST.
+- Fixed /info command.
 
 
 ### 1.1.0

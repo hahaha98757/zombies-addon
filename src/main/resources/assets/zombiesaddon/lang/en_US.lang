@@ -1,0 +1,89 @@
+zombiesaddon.key.togglePlayerVisibility=Toggle Player Visibility
+zombiesaddon.key.toggleBlockAlarm=Toggle Block Alarm
+zombiesaddon.key.toggleAutoRejoin=Toggle Auto Rejoin
+
+zombiesaddon.key.zsvScrollUp=ZSV Scroll Up
+zombiesaddon.key.zsvScrollDown=ZSV Scroll Down
+
+zombiesaddon.key.toggleRLMode=Toggle RL Mode
+
+zombiesaddon.key.textMacro=Text Macro
+
+zombiesaddon.key.instaTimer=Insta Kill Timer
+zombiesaddon.key.maxTimer=Max Ammo Timer
+zombiesaddon.key.ssTimer=Shopping Spree Timer
+zombiesaddon.key.dgTimer=Double Gold Timer
+zombiesaddon.key.carpenterTimer=Carpenter Timer
+zombiesaddon.key.bgTimer=Bonus Gold Timer
+
+
+zombiesaddon.commands.autosplits.success.stop=§eAuto Splits: Stopping timer
+zombiesaddon.commands.autosplits.success.run=§eAuto Splits: Running timer
+
+zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <insta|max|ss|dg|carpenter|bg> [reset|number|on|off]
+zombiesaddon.commands.poweruppatterns.success.timer=§ePowerup Patterns: You have run Manual Timer of %s§e with a command
+zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: §cReset %s§e pattern
+zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e pattern to %s
+
+zombiesaddon.commands.sla.setMap=§eSLA: Set SLA to %s
+zombiesaddon.commands.sla.setOffset=§eSLA: Set offset to %s
+zombiesaddon.commands.sla.resetRotations=§eSLA: §cReset§e rotations
+zombiesaddon.commands.sla.rotates=§eSLA: Rotates all windows %s§e clockwise around axis§a 0 y 0
+zombiesaddon.commands.sla.resetMirroring=§eSLA: §cReset§e mirroring
+zombiesaddon.commands.sla.mirror=§eSLA: Mirrors all windows along the plane %s
+
+zombiesaddon.commands.wavedelays.success=§eWave Delays: Set difficulty to %s
+
+zombiesaddon.commands.zombiesaddon.info1=Mod name: %s
+zombiesaddon.commands.zombiesaddon.info2=Version: %s
+zombiesaddon.commands.zombiesaddon.info.zombiesaddon=Info: The mod for Hypixel Zombies.
+zombiesaddon.commands.zombiesaddon.info.general1=Name: %s
+zombiesaddon.commands.zombiesaddon.info.general2=Code by: %s
+zombiesaddon.commands.zombiesaddon.info.hotkeys=Hotkeys: %s
+zombiesaddon.commands.zombiesaddon.info.commands=Commands: %s
+zombiesaddon.commands.zombiesaddon.info.config=Config: Used
+zombiesaddon.commands.zombiesaddon.info.pv=Info: Hides nearby players from your view.
+zombiesaddon.commands.zombiesaddon.info.blockAlarm=Info: Displays BLOCK on the screen when you survived alone and there is a player you can revive.
+zombiesaddon.commands.zombiesaddon.info.notLast=Info: Displays the player who killed the last one.
+zombiesaddon.commands.zombiesaddon.info.autoSplits=Info: Runs a timer at start of the round.
+zombiesaddon.commands.zombiesaddon.info.waveDelays=Info: Displays the wave delays.
+zombiesaddon.commands.zombiesaddon.info.zsv=Info: Displays the text in https://pastebin.com/ on the screen.
+zombiesaddon.commands.zombiesaddon.info.sla=Info: Displays the number and names of windows where zombies can spawn.
+zombiesaddon.commands.zombiesaddon.info.autoRejoin=Info: Automatically rejoin Zombies when start of the round.
+zombiesaddon.commands.zombiesaddon.info.powerupPatterns=Info: Displays patterns of power-ups.
+zombiesaddon.commands.zombiesaddon.info.lastWeapons=Info: Displays your weapons when You Win.
+zombiesaddon.commands.zombiesaddon.info.textMacro=Info: Sends the text on chat when press the hotkey.
+zombiesaddon.commands.zombiesaddon.checkingUpdate=§eZombies Addon: Checking update...
+zombiesaddon.commands.zombiesaddon.checkedUpdate=§eZombies Addon: Checked update
+
+zombiesaddon.commands.zsv.success=§eZSV: Set ZSV to %s
+zombiesaddon.commands.zsv.wrongURL=The URL must start with "https://pastebin.com/raw/"
+zombiesaddon.commands.zsv.failed=§eZSV: §cFailed to set ZSV
+
+zombiesaddon.commands.zsvlines.usage=/zsvlines <number>
+zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to %d
+
+
+zombiesaddon.features.general.toggled=§eToggled %s§e to %s
+
+zombiesaddon.features.notLast.failed=§eNot Last: §cFailed to find the last
+zombiesaddon.features.notLast.printLast=§eNot Last: %s§e was last
+
+zombiesaddon.features.sla.auto.wrongMap=§eAuto SLA: §cWrong map
+zombiesaddon.features.sla.auto.setMap=§eAuto SLA: Set SLA to %s
+
+zombiesaddon.features.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
+
+zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: You have run Manual Timer of %s§e with a hotkey
+
+zombiesaddon.hud.done=Done
+zombiesaddon.hud.reset=Reset
+zombiesaddon.hud.comment=Click "Done" to save your current HUD position settings.
+
+zombiesaddon.game.round=§fRound %d
+zombiesaddon.game.insta=§cInsta Kill
+zombiesaddon.game.max=§9Max Ammo
+zombiesaddon.game.ss=§5Shopping Spree
+zombiesaddon.game.dg=§6Double Gold
+zombiesaddon.game.carpenter=§9Carpenter
+zombiesaddon.game.bg=§6Bonus Gold

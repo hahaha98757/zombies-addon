@@ -30,7 +30,7 @@ public class HUDUtils {
     }
 
     public static double getAutoSplitsY(){
-        return autoSplitsY < 0 ? 1.0 - (fr.FONT_HEIGHT + 1) / Utils.getY() : autoSplitsY;
+        return autoSplitsY < 0 ? 1.0 - (double) (fr.FONT_HEIGHT + 1) / Utils.getY() : autoSplitsY;
     }
 
     public static double getWaveDelaysX() {
@@ -38,15 +38,15 @@ public class HUDUtils {
     }
 
     public static double getWaveDelaysY(){
-        return waveDelaysY < 0 ? 1.0 - (fr.FONT_HEIGHT * 9 + 1) / Utils.getY() : waveDelaysY;
+        return waveDelaysY < 0 ? 1.0 - (double) (fr.FONT_HEIGHT * 9 + 1) / Utils.getY() : waveDelaysY;
     }
 
     public static double getPowerupPatternsX() {
-        return powerupPatternsX < 0 ? 1.0 - (fr.getStringWidth("Shopping Spree: Round 105") + 1) / Utils.getX() : powerupPatternsX;
+        return powerupPatternsX < 0 ? 1.0 - (double) (fr.getStringWidth("Shopping Spree: Round 105") + 1) / Utils.getX() : powerupPatternsX;
     }
 
     public static double getPowerupPatternsY() {
-        return powerupPatternsY < 0 ? 1.0 - (fr.FONT_HEIGHT * 15 + 1) / Utils.getY() : powerupPatternsY;
+        return powerupPatternsY < 0 ? 1.0 - (double) (fr.FONT_HEIGHT * 15 + 1) / Utils.getY() : powerupPatternsY;
     }
     
     public static float getAutoSplitsStrX(String str) {

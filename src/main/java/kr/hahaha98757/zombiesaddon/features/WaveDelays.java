@@ -13,6 +13,7 @@ import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -33,21 +34,6 @@ public class WaveDelays {
 
     public static void setDifficulty(Difficulty difficulty) {
         WaveDelays.difficulty = difficulty;
-        String str;
-        switch (difficulty) {
-            case NORMAL:
-                str = "§aNormal";
-                break;
-            case HARD:
-                str = "§cHard";
-                break;
-            case RIP:
-                str = "§4RIP";
-                break;
-            default:
-                return;
-        }
-        Utils.addChat("§eWave Delays: Set difficulty to " + str);
     }
 
     @SubscribeEvent
@@ -58,20 +44,20 @@ public class WaveDelays {
         useRL = !useRL;
         if (useRL) rlOffset = ZombiesAddonConfig.getRLModeOffset();
         else rlOffset = 0;
-        Utils.addChat("§eToggled RL Mode to " + (useRL ? "§aon" : "§coff"));
+        Utils.addTranslationChat("zombiesaddon.features.general.toggled", "§eRL Mode", (useRL ? "§aon" : "§coff"));
 
     }
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         if (Utils.isModDisable()) return;
-        String message = Utils.getTextWithoutColors(event.message.getUnformattedText());
+        String message = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
 
         if (message.contains(">")) return;
 
         if (message.contains("The Helicopter is on its way! Hold out for 120 more seconds!")) escape = true;
 
-        if (message.contains("Hard Difficulty") || message.contains("어려움 난이도")) difficulty = Difficulty.HARD;
+        if (message.contains("Hard Difficulty") || message.contains("Hard 난이도")) difficulty = Difficulty.HARD;
         if (message.contains("RIP Difficulty") || message.contains("RIP 난이도")) difficulty = Difficulty.RIP;
     }
 
@@ -94,7 +80,8 @@ public class WaveDelays {
         }
 
         if (Utils.isNotPlayZombies()) {
-            difficulty = Difficulty.NORMAL;
+            if (Utils.getMap() == null)
+                difficulty = Difficulty.NORMAL;
             gameEnd = false;
             escape = false;
         }
@@ -102,7 +89,7 @@ public class WaveDelays {
         if (!gameEnd) if (Utils.getMap() == Map.PRISON && escape) round = 31;
         else round = Utils.getRound();
 
-        Round round = GameData.INSTANCE.getRound(Utils.getGameMode(difficulty), WaveDelays.round);
+        Round round = GameData.getRound(Utils.getGameMode(difficulty), WaveDelays.round);
         if (round == null) return;
 
         Wave[] waves = round.getWaves();
@@ -211,7 +198,7 @@ public class WaveDelays {
         if (gameEnd) return;
         if (round == 0) return;
 
-        Round round = GameData.INSTANCE.getRound(Utils.getGameMode(difficulty), WaveDelays.round);
+        Round round = GameData.getRound(Utils.getGameMode(difficulty), WaveDelays.round);
         if (round == null) return;
 
         Wave[] waves = round.getWaves();
@@ -234,20 +221,20 @@ public class WaveDelays {
 
                     switch (customPlaySound.getPlayWave()) {
                         case 1:
-                            if (length != index + 1) Utils.playSound(name, pitch);
+                            if (length != index + 1) Minecraft.getMinecraft().thePlayer.playSound(name, 1, pitch);
                             break;
                         case 2:
-                            if (length == index + 1) Utils.playSound(name, pitch);
+                            if (length == index + 1) Minecraft.getMinecraft().thePlayer.playSound(name, 1, pitch);
                             break;
                         default:
-                            Utils.playSound(name, pitch);
+                            Minecraft.getMinecraft().thePlayer.playSound(name, 1, pitch);
                             break;
                     }
                 }
             } else {
                 int[] timings = ZombiesAddonConfig.getPlaySounds();
                 @SuppressWarnings("WrapperTypeMayBePrimitive") Integer pre = roundTime - waveTime;
-                if (Arrays.stream(timings).anyMatch(pre::equals)) Utils.playSound("note.pling", 2.0F);
+                if (Arrays.stream(timings).anyMatch(pre::equals)) Minecraft.getMinecraft().thePlayer.playSound("note.pling", 1, 2.0F);
             }
             index++;
         }

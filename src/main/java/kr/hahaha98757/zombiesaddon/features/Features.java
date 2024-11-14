@@ -1,5 +1,6 @@
 package kr.hahaha98757.zombiesaddon.features;
 
+import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.utils.ClientCrash;
 import kr.hahaha98757.zombiesaddon.ZombiesAddon;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
@@ -31,6 +32,8 @@ public class Features {
         MinecraftForge.EVENT_BUS.register(new KoreanPatcher());
         MinecraftForge.EVENT_BUS.register(new SSTPatcher(Minecraft.getMinecraft()));
     }
+    
+    private static boolean gameEnd;
 
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
@@ -50,22 +53,37 @@ public class Features {
         }
 
         if (Utils.isModDisable()) return;
-        if (!ZombiesAddonConfig.isShowMods()) return;
-
         byte y = (byte) fr.FONT_HEIGHT;
+        String str;
 
-        String str = "Zombies Addon v" + ZombiesAddon.VERSION;
-        fr.drawStringWithShadow(str, Utils.getX(str), 1, 0xffff55);
+        if (ZombiesAddonConfig.isShowMods()) {
+            str = "Zombies Addon v" + ZombiesAddon.VERSION;
+            fr.drawStringWithShadow(str, Utils.getX(str), 1, 0xffff55);
 
-        str = "Player Visibility: " + (PlayerVisibility.playerVisibility ? "§aon" : "§coff");
-        fr.drawStringWithShadow(str, Utils.getX(str), 1 + y, 0xffff55);
+            str = "Player Visibility: " + (PlayerVisibility.playerVisibility ? "§aon" : "§coff");
+            fr.drawStringWithShadow(str, Utils.getX(str), 1 + y, 0xffff55);
 
-        str = "Block Alarm: " + (BlockAlarm.blockAlarm ? "§aon" : "§coff");
-        fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*2, 0xffff55);
+            str = "Block Alarm: " + (BlockAlarm.blockAlarm ? "§aon" : "§coff");
+            fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*2, 0xffff55);
 
-        if (ZombiesAddonConfig.isHideAutoRejoin()) return;
-        str = "Auto Rejoin: " + (AutoRejoin.autoRejoin ? "§aon" : "§coff");
-        fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*3, 0xffff55);
+            if (!ZombiesAddonConfig.isHideAutoRejoin()) {
+                str = "Auto Rejoin: " + (AutoRejoin.autoRejoin ? "§aon" : "§coff");
+                fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*3, 0xffff55);
+            }
+        }
+
+        if (!gameEnd) return;
+
+        if (!ZombiesAddonConfig.isDetectUnlegitMods()) {
+            str = "Detect Unlegit Mods is disabled.";
+            fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*4, 0xff5555);
+        }
+
+        if (!ZombiesAddonConfig.isBlockUnlegitSST()) {
+            str = "Block Unlegit SST is disabled.";
+            fr.drawStringWithShadow(str, Utils.getX(str), 1 + y*5, 0xff5555);
+        }
+        
     }
 
     @SubscribeEvent
@@ -82,16 +100,33 @@ public class Features {
         if (join) return;
 
         if (ZombiesAddon.hasOldSST)
-            Utils.addChatLine("You are using Show Spawn Time of old version.\nPlease update the mod.");
+            Utils.addChatWithLine("You are using Show Spawn Time of old version.\nPlease update the mod.");
 
-        if (ZombiesAddon.hasSST) Utils.addChatLine("Blocked the unlegit features of SST by Zombies Addon.");
+        if (ZombiesAddon.hasSST) Utils.addChatWithLine("Blocked the unlegit features of SST by Zombies Addon.");
 
         if (ZombiesAddon.haveUnlegitMods) {
-            Utils.addChatLine("§cYou are using ZombiesSatellite, Zombies Explorer, TeammatesOutline, or ZombiesHelper.\n§cThey are unlegit mods. Please remove them.\n§c§lThe game ends after 10 seconds.");
+            Utils.addChatWithLine("§cYou are using ZombiesSatellite, Zombies Explorer, TeammatesOutline, or ZombiesHelper.\n§cThey are unlegit mods. Please remove them.\n§c§lThe game ends after 10 seconds.");
             ClientCrash.setUnlegit();
             MinecraftForge.EVENT_BUS.register(new ClientCrash());
         }
 
         join = true;
+    }
+
+    @SubscribeEvent
+    public void onSound(SoundEvent event) {
+        if (Utils.isNotPlayZombies()) {
+            gameEnd = false;
+            return;
+        }
+        if (!event.getSoundName().equals("mob.enderdragon.end")) return;
+        gameEnd = true;
+
+        System.out.println(Utils.LINE);
+        System.out.println(ZombiesAddon.NAME + " v" + ZombiesAddon.VERSION + " is being used.");
+        if (!ZombiesAddonConfig.isDetectUnlegitMods()) System.out.println("Detect Unlegit Mods is disabled.");
+        if (!ZombiesAddonConfig.isBlockUnlegitSST()) System.out.println("Block Unlegit SST is disabled.");
+        System.out.println(Utils.LINE);
+
     }
 }

@@ -11,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -69,8 +70,8 @@ public class PowerupPatterns {
             byte second = (byte) (timer / 20);
             String timerText = String.format("%02d", second);
 
-            String str = "§cInsta Kill: " + "§f" + timerText + "s";
-            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(1), 0);
+            String str = Utils.getTranslatedString("zombiesaddon.game.insta", true) + ": " + "§f" + timerText + "s";
+            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(1), 0xffffff);
             if (timer == 1) instaTimer = false;
         }
         if (maxTimer) {
@@ -78,8 +79,8 @@ public class PowerupPatterns {
             byte second = (byte) (timer / 20);
             String timerText = String.format("%02d", second);
 
-            String str = "§9Max Ammo: " + "§f" + timerText + "s";
-            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(2), 0);
+            String str = Utils.getTranslatedString("zombiesaddon.game.max", true) + ": " + "§f" + timerText + "s";
+            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(2), 0xffffff);
             if (timer == 1) maxTimer = false;
         }
         if (ssTimer) {
@@ -87,8 +88,8 @@ public class PowerupPatterns {
             byte second = (byte) (timer / 20);
             String timerText = String.format("%02d", second);
 
-            String str = "§5Shopping Spree: " + "§f" + timerText + "s";
-            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(3), 0);
+            String str = Utils.getTranslatedString("zombiesaddon.game.ss", true) + ": " + "§f" + timerText + "s";
+            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(3), 0xffffff);
             if (timer == 1) ssTimer = false;
         }
         if (dgTimer) {
@@ -96,8 +97,8 @@ public class PowerupPatterns {
             byte second = (byte) (timer / 20);
             String timerText = String.format("%02d", second);
 
-            String str = "§6Double Gold: " + "§f" + timerText + "s";
-            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(4), 0);
+            String str = Utils.getTranslatedString("zombiesaddon.game.dg", true) + ": " + "§f" + timerText + "s";
+            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(4), 0xffffff);
             if (timer == 1) dgTimer = false;
         }
         if (carpenterTimer) {
@@ -105,8 +106,8 @@ public class PowerupPatterns {
             byte second = (byte) (timer / 20);
             String timerText = String.format("%02d", second);
 
-            String str = "§9Carpenter: " + "§f" + timerText + "s";
-            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(5), 0);
+            String str = Utils.getTranslatedString("zombiesaddon.game.carpenter", true) + ": " + "§f" + timerText + "s";
+            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(5), 0xffffff);
             if (timer == 1) carpenterTimer = false;
         }
         if (bgTimer) {
@@ -114,8 +115,8 @@ public class PowerupPatterns {
             byte second = (byte) (timer / 20);
             String timerText = String.format("%02d", second);
 
-            String str = "§6Bonus Gold: " + "§f" + timerText + "s";
-            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(6), 0);
+            String str = Utils.getTranslatedString("zombiesaddon.game.bg", true) + ": " + "§f" + timerText + "s";
+            fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(6), 0xffffff);
             if (timer == 1) bgTimer = false;
         }
 
@@ -149,9 +150,7 @@ public class PowerupPatterns {
                         break;
                     }
 
-                if (patternRound != 0 && showInsta) {
-                    printInsta(patternRound);
-                }
+                if (patternRound != 0 && showInsta) printInsta(patternRound);
             } else if (showingInstaPattern == 3) {
                 for (int i : INSTA_PATTERN2)
                     if (round <= i) {
@@ -167,9 +166,7 @@ public class PowerupPatterns {
                         break;
                     }
 
-                if (patternRound != 0 && showInsta) {
-                    printInsta(patternRound);
-                }
+                if (patternRound != 0 && showInsta) printInsta(patternRound);
             }
         }
 
@@ -191,9 +188,7 @@ public class PowerupPatterns {
                         break;
                     }
 
-                if (patternRound != 0 && showMax) {
-                    printMax(patternRound);
-                }
+                if (patternRound != 0 && showMax) printMax(patternRound);
             } else if (showingMaxPattern == 3) {
                 for (int i : MAX_PATTERN2)
                     if (round <= i) {
@@ -205,9 +200,7 @@ public class PowerupPatterns {
                         break;
                     }
 
-                if (patternRound != 0 && showMax) {
-                    printMax(patternRound);
-                }
+                if (patternRound != 0 && showMax) printMax(patternRound);
             }
         }
 
@@ -221,9 +214,7 @@ public class PowerupPatterns {
                         break;
                     }
 
-                if (patternRound != 0 && showSS) {
-                    printSS(patternRound);
-                }
+                if (patternRound != 0 && showSS) printSS(patternRound);
             } else if (showingSSPattern == 6) {
                 for (int i : SS_PATTERN2)
                     if (round <= i) {
@@ -231,9 +222,7 @@ public class PowerupPatterns {
                         break;
                     }
 
-                if (patternRound != 0 && showSS) {
-                    printSS(patternRound);
-                }
+                if (patternRound != 0 && showSS) printSS(patternRound);
             } else if (showingSSPattern == 7) {
                 for (int i : SS_PATTERN3)
                     if (round <= i) {
@@ -241,9 +230,7 @@ public class PowerupPatterns {
                         break;
                     }
 
-                if (patternRound != 0 && showSS) {
-                    printSS(patternRound);
-                }
+                if (patternRound != 0 && showSS) printSS(patternRound);
             }
         }
     }
@@ -258,7 +245,7 @@ public class PowerupPatterns {
 
         if (!(entity instanceof EntityArmorStand)) return;
 
-        String name = Utils.getTextWithoutColors(entity.getName());
+        String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName());
 
         if (spawnedEntities.contains(entity)) return;
 
@@ -340,24 +327,24 @@ public class PowerupPatterns {
         if (instaTimer) return;
         FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
 
-        String str = "§cInsta Kill: " + "§fRound " + pattern;
-        fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(1), 0);
+        String str = Utils.getTranslatedString("zombiesaddon.game.insta", true) + ": " + Utils.getTranslatedString("zombiesaddon.game.round", true, pattern);
+        fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(1), 0xffffff);
     }
 
     private static void printMax(byte pattern) {
         if (maxTimer) return;
         FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
 
-        String str = "§9Max Ammo: " + "§fRound " + pattern;
-        fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(2), 0);
+        String str = Utils.getTranslatedString("zombiesaddon.game.max", true) + ": " + Utils.getTranslatedString("zombiesaddon.game.round", true, pattern);
+        fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(2), 0xffffff);
     }
 
     private static void printSS(byte pattern) {
         if (ssTimer) return;
         FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
 
-        String str = "§5Shopping Spree: " + "§fRound " + pattern;
-        fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(3), 0);
+        String str = Utils.getTranslatedString("zombiesaddon.game.ss", true) + ": " + Utils.getTranslatedString("zombiesaddon.game.round", true, pattern);
+        fr.drawStringWithShadow(str, HUDUtils.getPowerupPatternsStrX(str), HUDUtils.getPowerupPatternsStrY(3), 0xffffff);
     }
 
 
@@ -384,46 +371,45 @@ public class PowerupPatterns {
         }
     }
 
-    @SuppressWarnings("SpellCheckingInspection")
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Utils.isModDisable()) return;
         if (Hotkeys.instaTimer.isPressed()) {
             instaTimer = true;
             ManualTimer.resetTimer((byte) 1);
-            Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §cInsta Kill §ewith a hotkey");
+            Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§cInsta Kill");
         }
         if (Hotkeys.maxTimer.isPressed()) {
             maxTimer = true;
             ManualTimer.resetTimer((byte) 2);
-            Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §9Max Ammo §ewith a hotkey");
+            Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Max Ammo");
         }
         if (Hotkeys.ssTimer.isPressed()) {
             ssTimer = true;
             ManualTimer.resetTimer((byte) 3);
-            Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §5Shopping Spree §ewith a hotkey");
+            Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§5Shopping Spree");
         }
         if (Hotkeys.dgTimer.isPressed()) {
             dgTimer = true;
             ManualTimer.resetTimer((byte) 4);
-            Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §6Double Gold §ewith a hotkey");
+            Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Double Gold");
         }
         if (Hotkeys.carpenterTimer.isPressed()) {
             carpenterTimer = true;
             ManualTimer.resetTimer((byte) 5);
-            Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §9Carpenter §ewith a hotkey");
+            Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Carpenter");
         }
         if (Hotkeys.bgTimer.isPressed()) {
             bgTimer = true;
             ManualTimer.resetTimer((byte) 6);
-            Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §6Bonus Gold §ewith a hotkey");
+            Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Bonus Gold");
         }
     }
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         if (Utils.isModDisable()) return;
-        String message = Utils.getTextWithoutColors(event.message.getUnformattedText());
+        String message = EnumChatFormatting.getTextWithoutFormattingCodes(event.message.getUnformattedText());
 
         if (message.contains(">")) return;
 

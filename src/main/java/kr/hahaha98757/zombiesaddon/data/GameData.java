@@ -4,14 +4,14 @@ package kr.hahaha98757.zombiesaddon.data;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import kr.hahaha98757.zombiesaddon.enums.GameMode;
 import kr.hahaha98757.zombiesaddon.utils.ResourceLoader;
 import kr.hahaha98757.zombiesaddon.data.wavedelays.Round;
 
 public class GameData {
-    public static final GameData INSTANCE = new GameData();
-    private final Round[][] roundData;
+    private static final Round[][] roundData;
 
-    public GameData() {
+    static {
         roundData = new Round[10][];
         roundData[0] = readFromFile("data/rounds/DEN_WAVES.json");
         roundData[1] = readFromFile("data/rounds/DEH_WAVES.json");
@@ -25,19 +25,19 @@ public class GameData {
         roundData[9] = readFromFile("data/rounds/PRR_WAVES.json");
     }
 
-    public Round getRound(GameMode gameMode, int round) {
+    public static Round getRound(GameMode gameMode, int round) {
         if (gameMode == null) return null;
         if (round == 0) return null;
 
         try {
             switch (gameMode) {
-                case DEAD_END:
+                case DEAD_END_NORMAL:
                     return roundData[0][round-1];
                 case DEAD_END_HARD:
                     return roundData[1][round-1];
                 case DEAD_END_RIP:
                     return roundData[2][round-1];
-                case BAD_BLOOD:
+                case BAD_BLOOD_NORMAL:
                     return roundData[3][round-1];
                 case BAD_BLOOD_HARD:
                     return roundData[4][round-1];
@@ -45,7 +45,7 @@ public class GameData {
                     return roundData[5][round-1];
                 case ALIEN_ARCADIUM:
                     return roundData[6][round-1];
-                case PRISON:
+                case PRISON_NORMAL:
                     return roundData[7][round-1];
                 case PRISON_HARD:
                     return roundData[8][round-1];
@@ -59,7 +59,7 @@ public class GameData {
         }
     }
 
-    private Round[] readFromFile(String resourcePath) {
+    private static Round[] readFromFile(String resourcePath) {
         final JsonElement roundsJsonElement = ResourceLoader.readJsonResource(resourcePath).orElseThrow(RuntimeException::new);
         return new Gson().fromJson(roundsJsonElement, Round[].class);
     }

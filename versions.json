@@ -1,4 +1,4 @@
 {
-  "version": "4.2.3",
-  "log": "Fixed bugs."
+  "version": "4.3.0-pre1",
+  "log": "Fixed bugs.\nFixed commands.\nAdded Language option in config."
 }

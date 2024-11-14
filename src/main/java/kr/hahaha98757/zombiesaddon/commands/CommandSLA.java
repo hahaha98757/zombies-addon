@@ -25,115 +25,133 @@ public class CommandSLA extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return String.format("§cUsage: /%s <de|bb|aa|off|quick|custom>", getCommandName());
+		return "/sla <de|bb|aa|off|quick|custom>";
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
 		if (sender != Minecraft.getMinecraft().thePlayer) return;
 
-		if (args.length == 0) {
-			Utils.addChat(getCommandUsage(null));
-			return;
-		}
+		if (args.length == 0) throw new WrongUsageException(getCommandUsage(null));
 
 		switch (args[0]) {
 			case "off":
 				SpawnLimitAction.offMap();
+				Utils.addTranslationChat("zombiesaddon.commands.sla.setMap", "§coff");
 				break;
 			case "de":
 				SpawnLimitAction.setMap(Map.DEAD_END);
+				Utils.addTranslationChat("zombiesaddon.commands.sla.setMap", "§aDead End");
 				break;
 			case "bb":
 				SpawnLimitAction.setMap(Map.BAD_BLOOD);
+				Utils.addTranslationChat("zombiesaddon.commands.sla.setMap", "§aBad Blood");
 				break;
 			case "aa":
 				SpawnLimitAction.setMap(Map.ALIEN_ARCADIUM);
+				Utils.addTranslationChat("zombiesaddon.commands.sla.setMap", "§aAlien Arcadium");
 				break;
             case "quick":
-				if (args.length == 1) {
-                    Utils.addChat(String.format("§cUsage: /%s quick <mogi_a|ghxula|ghxula-garden>", getCommandName()));
-					return;
-				}
+				if (args.length == 1) throw new WrongUsageException("/sla quick <mogi_a|ghxula|ghxula-garden>");
                 switch (args[1]) {
 					case "mogi_a":
 						SpawnLimitAction.setMap(Map.BAD_BLOOD);
 						SpawnLimitAction.rotate(3);
 						SpawnLimitAction.setOffset(new int[]{-3, 35, -9});
+						Utils.addTranslationChat("zombiesaddon.commands.sla.setMap", "§aBad Blood");
+						Utils.addTranslationChat("zombiesaddon.commands.sla.rotates", "§a90°");
+						Utils.addTranslationChat("zombiesaddon.commands.sla.setOffset", "§a-3 35 -9");
 						break;
 					case "ghxula":
 						SpawnLimitAction.setMap(Map.DEAD_END);
 						SpawnLimitAction.rotate(1);
 						SpawnLimitAction.setOffset(new int[]{27, 35, 5});
+						Utils.addTranslationChat("zombiesaddon.commands.sla.setMap", "§aDead End");
+						Utils.addTranslationChat("zombiesaddon.commands.sla.rotates", "§a270°");
+						Utils.addTranslationChat("zombiesaddon.commands.sla.setOffset", "§a27 35 5");
 						break;
                     case "ghxula-garden":
 						SpawnLimitAction.setMap(Map.DEAD_END);
 						SpawnLimitAction.rotate(1);
 						SpawnLimitAction.setOffset(new int[]{13, 53, -8});
+						Utils.addTranslationChat("zombiesaddon.commands.sla.setMap", "§aDead End");
+						Utils.addTranslationChat("zombiesaddon.commands.sla.rotates", "§a270°");
+						Utils.addTranslationChat("zombiesaddon.commands.sla.setOffset", "§a13 53 -8");
 						break;
 					default:
-						Utils.addChat(String.format("§cUsage: /%s quick <mogi_a|ghxula|ghxula-garden>", getCommandName()));
+						throw new WrongUsageException("/sla quick <mogi_a|ghxula|ghxula-garden>");
 				}
 				break;
 			case "custom":
-				if (args.length == 1) {
-					Utils.addChat(String.format("§cUsage: /%s custom <offset|rotate|mirror>", getCommandName()));
-					return;
-				}
+				if (args.length == 1) throw new WrongUsageException("/sla custom <offset|rotate|mirror>");
 				switch (args[1]) {
 					case "offset":
 						if (args.length == 2) {
-                            //noinspection SpellCheckingInspection
-                            Utils.addChat("§eSLA: §cReset §eoffset");
                             SpawnLimitAction.resetOffset();
-                        } else if (args.length != 5) Utils.addChat(String.format("§cUsage: /%s set offset [x] [y] [z]", getCommandName()));
+							Utils.addTranslationChat("zombiesaddon.commands.sla.setOffset", "§coff");
+							return;
+                        } else if (args.length != 5) throw new WrongUsageException("/sla custom offset <x> <y> <z>");
                         else {
-							try {
-								int x = Integer.parseInt(args[2]);
-								int y = Integer.parseInt(args[3]);
-								int z = Integer.parseInt(args[4]);
-								SpawnLimitAction.setOffset(new int[] {x, y, z});
-							} catch (NumberFormatException ignored) {
-								Utils.addChat("§eSLA: §cWrong number");
-								return;
-							}
+							BlockPos blockPos = parseBlockPos(sender, args, 2, false);
+							SpawnLimitAction.setOffset(new int[] {blockPos.getX(), blockPos.getY(), blockPos.getZ()});
+							Utils.addTranslationChat("zombiesaddon.commands.sla.setOffset", String.format("§a%d %d %d", blockPos.getX(), blockPos.getY(), blockPos.getZ()));
 						}
 						break;
 					case "rotate":
-						if (args.length == 2) SpawnLimitAction.rotate(1);
-						else {
-							int rotations;
+						if (args.length == 2) {
+                            SpawnLimitAction.resetRotate();
+							Utils.addTranslationChat("zombiesaddon.commands.sla.resetRotations", new Object());
+							return;
+                        } else {
 							try {
-								rotations = Integer.parseInt(args[2]);
-							} catch (NumberFormatException ignored) {
-								Utils.addChat("§eSLA: §cWrong number");
-								return;
+								int rotations = Integer.parseInt(args[2]);
+								rotations %= 4;
+								if (rotations < 0) rotations += 4;
+								SpawnLimitAction.rotate(rotations);
+								switch (rotations) {
+									case 0:
+										Utils.addTranslationChat("zombiesaddon.commands.sla.rotates", "§a0°");
+										break;
+									case 1:
+										Utils.addTranslationChat("zombiesaddon.commands.sla.rotates", "§a270°");
+										break;
+									case 2:
+										Utils.addTranslationChat("zombiesaddon.commands.sla.rotates", "§a180°");
+										break;
+									case 3:
+										Utils.addTranslationChat("zombiesaddon.commands.sla.rotates", "§a90°");
+										break;
+								}
+							} catch (NumberFormatException e) {
+								throw new NumberInvalidException("commands.generic.num.invalid", args[2]);
 							}
-							SpawnLimitAction.rotate(rotations);
 						}
 						break;
 					case "mirror":
 						if (args.length == 2) {
-							Utils.addChat(String.format("§cUsage: /%s custom mirror <x|z>", getCommandName()));
-							break;
-						}
+                            SpawnLimitAction.resetMirroring();
+							Utils.addTranslationChat("zombiesaddon.commands.sla.resetMirroring", new Object());
+							return;
+                        }
 						switch (args[2]) {
 							case "x":
 								SpawnLimitAction.mirrorX();
+								Utils.addTranslationChat("zombiesaddon.commands.sla.mirror", "§a0 y z");
 								break;
 							case "z":
 								SpawnLimitAction.mirrorZ();
+								Utils.addTranslationChat("zombiesaddon.commands.sla.mirror", "§ax y 0");
 								break;
 							default:
-								Utils.addChat(String.format("§cUsage: /%s custom mirror <x|z>", getCommandName()));
+								throw new WrongUsageException("/sla custom mirror <x|z>");
 						}
 						break;
 					default:
-						Utils.addChat(String.format("§cUsage: /%s custom <offset|rotate|mirror>", getCommandName()));
+						throw new WrongUsageException("/sla custom <offset|rotate|mirror>");
 				}
 				break;
             default:
-				Utils.addChat(getCommandUsage(null));
+				throw new WrongUsageException(getCommandUsage(null));
 		}
 	}
 

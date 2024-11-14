@@ -17,6 +17,6 @@ public class MixinSlaCommand {
 
     @Inject(method = "func_71518_a", at = @At("HEAD"), cancellable = true, remap = false)
     private void func_71518_a(ICommandSender sender, CallbackInfoReturnable<String> cir) {
-        cir.setReturnValue("/sla_zombiesutils off\n/sla offset [x] [x] [x]\n/sla rotate\n/sla mirror\n/sla map <de|bb|aa|p>\n/sla quick");
+        cir.setReturnValue("/sla_zombiesutils off\n/sla_zombiesutils offset [x] [x] [x]\n/sla_zombiesutils rotate\n/sla_zombiesutils mirror\n/sla_zombiesutils map <de|bb|aa|p>\n/sla_zombiesutils quick");
     }
 }

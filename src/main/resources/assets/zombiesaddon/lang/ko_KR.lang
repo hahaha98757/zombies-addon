@@ -1,0 +1,89 @@
+zombiesaddon.key.togglePlayerVisibility=토글 Player Visibility
+zombiesaddon.key.toggleBlockAlarm=토글 Block Alarm
+zombiesaddon.key.toggleAutoRejoin=토글 Auto Rejoin
+
+zombiesaddon.key.zsvScrollUp=ZSV 스크롤 업
+zombiesaddon.key.zsvScrollDown=ZSV 스크롤 다운
+
+zombiesaddon.key.toggleRLMode=토글 RL Mode
+
+zombiesaddon.key.textMacro=Text Macro
+
+zombiesaddon.key.instaTimer=즉시 처치 타이머
+zombiesaddon.key.maxTimer=탄약 충전 타이머
+zombiesaddon.key.ssTimer=지름신 강림 타이머
+zombiesaddon.key.dgTimer=더블 골드 타이머
+zombiesaddon.key.carpenterTimer=카펜터 타이머
+zombiesaddon.key.bgTimer=보너스 골드 타이머
+
+
+zombiesaddon.commands.autosplits.success.stop=§eAuto Splits: 타이머를 중지했습니다
+zombiesaddon.commands.autosplits.success.run=§eAuto Splits: 타이머를 실행했습니다
+
+zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <insta|max|ss|dg|carpenter|bg> [reset|숫자|on|off]
+zombiesaddon.commands.poweruppatterns.success.timer=§ePowerup Patterns: 명령어로 %s§e의 수동 타이머를 실행했습니다
+zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: %s§e의 패턴을§c 재설정했습니다
+zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: %s§e의 패턴을 %s§e(으)로 설정했습니다
+
+zombiesaddon.commands.sla.setMap=§eSLA: SLA를 %s§e(으)로 설정했습니다
+zombiesaddon.commands.sla.setOffset=§eSLA: 오프셋을 %s§e(으)로 설정했습니다
+zombiesaddon.commands.sla.resetRotations=§eSLA: 회전을 §c재설정했습니다
+zombiesaddon.commands.sla.rotates=§eSLA: 모든 창문을 축 0 y 0을 따라 시계 방향으로 %s§e 만큼 회전했습니다
+zombiesaddon.commands.sla.resetMirroring=§eSLA: 미러링을 §c재설정했습니다
+zombiesaddon.commands.sla.mirror=§eSLA: 모든 창문을 평면 %s§e(을)를 따라 미러링했습니다
+
+zombiesaddon.commands.wavedelays.success=§eWave Delays: 난이도를 %s§e(으)로 설정했습니다
+
+zombiesaddon.commands.zombiesaddon.info1=모드 이름: %s
+zombiesaddon.commands.zombiesaddon.info2=버전: %s
+zombiesaddon.commands.zombiesaddon.info.zombiesaddon=정보: 하이픽셀의 좀비즈를 위한 모드입니다.
+zombiesaddon.commands.zombiesaddon.info.general1=이름: %s
+zombiesaddon.commands.zombiesaddon.info.general2=제작자: %s
+zombiesaddon.commands.zombiesaddon.info.hotkeys=단축키: %s
+zombiesaddon.commands.zombiesaddon.info.commands=명령어: %s
+zombiesaddon.commands.zombiesaddon.info.config=컨피그: 사용됨
+zombiesaddon.commands.zombiesaddon.info.pv=정보: 주변 플레이어를 시야에서 숨깁니다.
+zombiesaddon.commands.zombiesaddon.info.blockAlarm=정보: 혼자 살아남았고 살릴 수 있는 플레이어가 있다면, 화면에 BLOCK이 표시됩니다.
+zombiesaddon.commands.zombiesaddon.info.notLast=정보: 마지막 적을 죽인 플레이어를 보여줍니다.
+zombiesaddon.commands.zombiesaddon.info.autoSplits=정보: 라운드 시작 시 타이머를 실행합니다.
+zombiesaddon.commands.zombiesaddon.info.waveDelays=정보: 웨이브 딜레이를 표시합니다.
+zombiesaddon.commands.zombiesaddon.info.zsv=정보: https://pastebin.com/에 있는 글을 화면에 표시합니다.
+zombiesaddon.commands.zombiesaddon.info.sla=정보: 좀비가 스폰할 수 있는 창문의 수와 이름을 표시합니다.
+zombiesaddon.commands.zombiesaddon.info.autoRejoin=정보: 라운드가 시작할 때 자동으로 재접속해줍니다.
+zombiesaddon.commands.zombiesaddon.info.powerupPatterns=정보: 파워업이 스폰하는 라운드를 알려줍니다.
+zombiesaddon.commands.zombiesaddon.info.lastWeapons=정보: 게임에서 승리했을 때 가지고 있던 무기를 보여줍니다.
+zombiesaddon.commands.zombiesaddon.info.textMacro=정보: 단축키를 눌러 채팅에 텍스트를 보냅니다.
+zombiesaddon.commands.zombiesaddon.checkingUpdate=§eZombies Addon: 업데이트 확인 중...
+zombiesaddon.commands.zombiesaddon.checkedUpdate=§eZombies Addon: 업데이트 확인됨
+
+zombiesaddon.commands.zsv.success=§eZSV: ZSV를 %s§e(으)로 설정했습니다
+zombiesaddon.commands.zsv.wrongURL=URL은 "https://pastebin.com/raw/"로 시작해야 합니다
+zombiesaddon.commands.zsv.failed=§eZSV: §cZSV를 설정하는데 실패했습니다
+
+zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
+zombiesaddon.commands.zsvlines.success=§eZSV: %d§e줄까지 볼 수 있도록 설정했습니다
+
+
+zombiesaddon.features.general.toggled=%s§e(을)를 %s§e(으)로 토글했습니다
+
+zombiesaddon.features.notLast.failed=§eNot Last: §c마지막을 찾는데 실패했습니다
+zombiesaddon.features.notLast.printLast=§eNot Last: %s§e(이)가 마지막입니다
+
+zombiesaddon.features.sla.auto.wrongMap=§eAuto SLA: §c잘못된 맵
+zombiesaddon.features.sla.auto.setMap=§eAuto SLA: SLA를 %s§e(으)로 설정했습니다
+
+zombiesaddon.features.autoRejoin.rejoining=§eAuto Rejoin: 재접속 중...
+
+zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: 단축키로 %s§e의 수동 타이머를 실행했습니다
+
+zombiesaddon.hud.done=완료
+zombiesaddon.hud.reset=재설정
+zombiesaddon.hud.comment=현재 HUD 위치 설정을 저장하려면 "완료"를 클릭하세요
+
+zombiesaddon.game.round=§f라운드 %d
+zombiesaddon.game.insta=§c즉시 처치
+zombiesaddon.game.max=§9탄약 충전
+zombiesaddon.game.ss=§5지름신 강림
+zombiesaddon.game.dg=§6더블 골드
+zombiesaddon.game.carpenter=§9카펜터
+zombiesaddon.game.bg=§6보너스 골드

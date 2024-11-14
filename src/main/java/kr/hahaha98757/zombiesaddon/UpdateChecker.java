@@ -34,7 +34,8 @@ public class UpdateChecker {
 		try {
 			KeyStore myKeyStore = KeyStore.getInstance("JKS");
 
-			myKeyStore.load(UpdateChecker.class.getResourceAsStream("/mykeystore.jks"), "changeit".toCharArray());
+            //noinspection SpellCheckingInspection
+            myKeyStore.load(UpdateChecker.class.getResourceAsStream("/mykeystore.jks"), "changeit".toCharArray());
 			KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
 			TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 			kmf.init(myKeyStore, null);
@@ -134,7 +135,7 @@ public class UpdateChecker {
 	private static void displayText(int i) {
 		switch (i) {
 			case 1:
-				Utils.addChatLine("You are using pre-release.\n§cPre-release is not perfect. There may be bugs.");
+				Utils.addChatWithLine("You are using pre-release.\n§cPre-release is not perfect. There may be bugs.");
 				return;
 			case 2:
 				Utils.addChatWithURL(Utils.LINE + "\nA new release is available. ", URL_TEXT, URL, SHOW_URL_TEXT, "\n§rCurrent version: " + ZombiesAddon.VERSION + "\nLatest version: " + latestVer + "\n" + Utils.LINE);
@@ -162,6 +163,6 @@ public class UpdateChecker {
 		String[] strArray = log.split("\n");
 		StringBuilder newLog = new StringBuilder();
 		for (String str : strArray) newLog.append("\n- ").append(str);
-		Utils.addChatLine("Update log" + newLog);
+		Utils.addChatWithLine("Update log" + newLog);
 	}
 }

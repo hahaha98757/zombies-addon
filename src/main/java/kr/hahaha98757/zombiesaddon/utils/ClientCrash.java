@@ -10,7 +10,7 @@ public class ClientCrash {
 	private short delay = 0;
 
 	@SubscribeEvent
-	public void onClientTick(TickEvent.ClientTickEvent event) throws GameEnd {
+	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if (event.phase != TickEvent.Phase.END) return;
 
 		delay++;
@@ -37,9 +37,9 @@ public class ClientCrash {
 				if (update)
 					throw new GameEnd("Update Zombies Addon. URL: https://github.com/hahaha98757/zombies-addon/releases");
 				if (unlegit)
-                    throw new GameEnd("Detected Unlegit Mods. Remove ZombiesSatellite, Zombies Explorer, or TeammatesOutline.");
+                    throw new GameEnd("Detected Unlegit Mods. Remove ZombiesSatellite, Zombies Explorer, TeammatesOutline, or ZombiesHelper.");
 
-				throw new GameEnd("Unknown Error.");
+				throw new GameEnd();
 			default:
 				break;
 		}

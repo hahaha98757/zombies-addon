@@ -22,9 +22,8 @@ public class BlockAlarm {
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
         if (Utils.isModDisable()) return;
-
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
-
+        if (Utils.isNotZombies()) return;
         if (!blockAlarm) return;
 
         FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
@@ -44,6 +43,6 @@ public class BlockAlarm {
         if (Utils.isModDisable()) return;
         if (!Hotkeys.toggleBlockAlarm.isPressed()) return;
         blockAlarm = !blockAlarm;
-        Utils.addChat("§eToggled Block Alarm to " + (blockAlarm ? "§aon" : "§coff"));
+        Utils.addTranslationChat("zombiesaddon.features.general.toggled", "§eBlock Alarm", (blockAlarm ? "§aon" : "§coff"));
     }
 }

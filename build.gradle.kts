@@ -17,6 +17,8 @@ val mcVersion: String by project
 val version: String by project
 val mixinGroup = "$baseGroup.mixins"
 val modid: String by project
+val transformerFile = file("src/main/resources/accesstransformer.cfg")
+val archiveName = "ZombiesAddon1.8.9"
 
 // Toolchains:
 java {
@@ -46,6 +48,10 @@ loom {
         pack200Provider.set(dev.architectury.pack200.java.Pack200Adapter())
         // If you don't want mixins, remove this lines
         mixinConfig("mixins.$modid.json")
+        if (transformerFile.exists()) {
+            println("Installing access transformer")
+            accessTransformer(transformerFile)
+        }
     }
     // If you don't want mixins, remove these lines
     mixin {
@@ -84,7 +90,7 @@ dependencies {
         isTransitive = false
     }
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
-    annotationProcessor("com.google.code.gson:gson:2.8.9")
+    annotationProcessor("com.google.code.gson:gson:2.11.0")
 
     // If you don't want to log in with your real minecraft account, remove this line
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
@@ -97,7 +103,7 @@ tasks.withType(JavaCompile::class) {
 }
 
 tasks.withType(org.gradle.jvm.tasks.Jar::class) {
-    archiveBaseName.set("ZombiesAddon1.8.9")
+    archiveBaseName.set(archiveName)
     manifest.attributes.run {
         this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
@@ -105,6 +111,8 @@ tasks.withType(org.gradle.jvm.tasks.Jar::class) {
         // If you don't want mixins, remove these lines
         this["TweakClass"] = "org.spongepowered.asm.launch.MixinTweaker"
         this["MixinConfigs"] = "mixins.$modid.json"
+        if (transformerFile.exists())
+            this["FMLAT"] = "${modid}_at.cfg"
     }
 }
 
@@ -119,6 +127,9 @@ tasks.processResources {
     }
 
     rename("(.+_at.cfg)", "META-INF/$1")
+    from("LICENSE") {
+        rename { "LICENSE.txt" }
+    }
 }
 
 

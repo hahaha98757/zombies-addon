@@ -6,6 +6,7 @@ import kr.hahaha98757.zombiesaddon.config.Hotkeys;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -36,8 +37,8 @@ public class AutoRejoin {
 
         if (soundName.equals("mob.guardian.curse")) AAr10 = true;
 
-        Utils.addChat("§eAuto Rejoin: Rejoining...");
-        Utils.sendChat("/l");
+        Utils.addTranslationChat("zombiesaddon.features.autoRejoin.rejoining", new Object());
+        Minecraft.getMinecraft().thePlayer.sendChatMessage("/l");
         tick = 0;
         rejoin = true;
     }
@@ -53,7 +54,7 @@ public class AutoRejoin {
             return;
         }
 
-        Utils.sendChat("/rejoin");
+        Minecraft.getMinecraft().thePlayer.sendChatMessage("/rejoin");
         tick = 0;
         rejoin = false;
     }
@@ -63,6 +64,6 @@ public class AutoRejoin {
         if (Utils.isModDisable()) return;
         if (!Hotkeys.toggleAutoRejoin.isPressed()) return;
         autoRejoin = !autoRejoin;
-        Utils.addChat("§eToggled Auto Rejoin to " + (autoRejoin ? "§aon" : "§coff"));
+        Utils.addTranslationChat("zombiesaddon.features.general.toggled", "§eAuto Rejoin", (autoRejoin ? "§aon" : "§coff"));
     }
 }

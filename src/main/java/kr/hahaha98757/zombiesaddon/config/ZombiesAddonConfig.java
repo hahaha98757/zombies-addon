@@ -26,6 +26,7 @@ public class ZombiesAddonConfig {
 	private static final String CATEGORY_HUD = "HUD";
 
 	private static Property enableMod;
+	private static Property language;
 	private static Property showMods;
 	private static Property modDefaultValue;
 	private static Property checkPreRelease;
@@ -70,16 +71,18 @@ public class ZombiesAddonConfig {
 		config.load();
 
 		//Zombies Addon
-		enableMod = config.get(CATEGORY_ZOMBIES_ADDON, "Enable Mod", true, "Enable Zombie Addon. If set to false, Zombie Addon is disabled.\nHowever, some features will still work.(Fixes a command bug, Block SST Unlegit, etc.)");
+		enableMod = config.get(CATEGORY_ZOMBIES_ADDON, "Enable Mod", true, "Enables Zombie Addon. If set to false, Zombie Addon is disabled.\nHowever, some features will still work.(Fixes a command bug, Block SST Unlegit, etc.)");
 
-		showMods = config.get(CATEGORY_ZOMBIES_ADDON, "Show Mods", true, "Display text of the mods on the in-game screen.");
+		language = config.get(CATEGORY_ZOMBIES_ADDON, "Language", "Auto", "Sets the language displayed. \"Auto\" follows \"Minecraft Settings\".\nSome are fixed to \"Auto\".", new String[] {"Auto", "English (US)", "한국어 (한국)"});
+
+		showMods = config.get(CATEGORY_ZOMBIES_ADDON, "Show Mods", true, "Displays text of the mods on the in-game screen.\n§cHowever, it doesn't work at game over or win.");
 
 		modDefaultValue = config.get(CATEGORY_ZOMBIES_ADDON, "Mod Default Value", new boolean[] { false, false, false }, "Sets the default value of Cornering, Block Alarm, and Auto Rejoin.");
 
-		checkPreRelease = config.get(CATEGORY_ZOMBIES_ADDON, "Check Pre-Release", false, "It checks the latest pre-releases.");
+		checkPreRelease = config.get(CATEGORY_ZOMBIES_ADDON, "Check Pre-Release", false, "Checks the latest pre-releases.");
 
 		//Wave Delays
-		toggleWaveDelays = config.get(CATEGORY_WAVE_DELAYS, "Toggle Wave Delays", true, "Show wave delays(Same as Spawn Time).");
+		toggleWaveDelays = config.get(CATEGORY_WAVE_DELAYS, "Toggle Wave Delays", true, "Displays wave delays(Same as Spawn Time).");
 
 		bossWaveColor = config.get(CATEGORY_WAVE_DELAYS, "Boss Wave Color", true, "Colors the waves spawned by the boss.");
 
@@ -95,40 +98,40 @@ public class ZombiesAddonConfig {
 
 		playSounds = config.get(CATEGORY_WAVE_DELAYS, "Play Sounds", new int[] {-60, -40, -20}, "Plays sounds.", -200, 200, false, 5);
 
-		customPlaySound = config.get(CATEGORY_WAVE_DELAYS, "Custom Play Sound", false, "Play sounds with more detailed settings.");
+		customPlaySound = config.get(CATEGORY_WAVE_DELAYS, "Custom Play Sound", false, "Plays sounds with more detailed settings.");
 
 		//SLA
 		autoSLA = config.get(CATEGORY_SLA, "Auto SLA", true, "Automatically turn on SLA.");
 
-		showInactiveWindows = config.get(CATEGORY_SLA, "Show Inactive Windows", false, "Show inactive windows.");
+		showInactiveWindows = config.get(CATEGORY_SLA, "Show Inactive Windows", false, "Displays inactive windows.");
 
 		//PV
-		pvRange = config.get(CATEGORY_OTHERS, "Range", 2.5, "Set range of Cornering.", 0.0, 100.0);
+		pvRange = config.get(CATEGORY_OTHERS, "Range", 2.5, "Sets range of Cornering.", 0.0, 100.0);
 
 		playerTranslucent = config.get(CATEGORY_PV, "Player Translucent", true, "Makes out-of-range players semi-transparent.");
 
 		//Last Weapons
-		toggleLastWeapons = config.get(CATEGORY_OTHERS, "Toggle Last Weapons", true, "Display your weapons at Game Over.");
+		toggleLastWeapons = config.get(CATEGORY_OTHERS, "Toggle Last Weapons", true, "Displays your weapons at Game Over.");
 
-		displayArmors = config.get(CATEGORY_LAST_WEAPONS, "Display Armors", true, "Display your armors at Game Over.");
+		displayArmors = config.get(CATEGORY_LAST_WEAPONS, "Display Armors", true, "Displays your armors at Game Over.");
 
-		displayWeaponsLevel = config.get(CATEGORY_LAST_WEAPONS, "Display Weapons Level", true, "Display level of weapons and perks.");
+		displayWeaponsLevel = config.get(CATEGORY_LAST_WEAPONS, "Display Weapons Level", true, "Displays level of weapons and perks.");
 
 		//Korean Patchers
 		zombiesOverlayPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "Zombies Overlay Patcher", false, "You can use Zombies Overlay in Korean.");
 
 		koreanPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "Korean Patcher", true, "Better Korean translation.");
 
-		sstPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "SST Patcher", true, "Translate the text in SST to Korean.");
+		sstPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "SST Patcher", true, "Translates the text in SST to Korean.");
 
 		//Others
-		toggleNotLast = config.get(CATEGORY_OTHERS, "Not Last: Toggle Not Last", true, "Shows the player who killed the last a zombie");
+		toggleNotLast = config.get(CATEGORY_OTHERS, "Not Last: Toggle Not Last", true, "Displays the player who killed the last a zombie");
 
-		toggleAutoSplits = config.get(CATEGORY_OTHERS, "Auto Splits: Toggle Auto Splits", true, "Run timer at start of round.");
+		toggleAutoSplits = config.get(CATEGORY_OTHERS, "Auto Splits: Toggle Auto Splits", true, "Runs timer at start of round.");
 
-		togglePowerupPatterns = config.get(CATEGORY_OTHERS, "Powerup Patterns: Toggle Powerup Patterns", true, "Show powerup patterns.");
+		togglePowerupPatterns = config.get(CATEGORY_OTHERS, "Powerup Patterns: Toggle Powerup Patterns", true, "Displays powerup patterns.");
 
-		hideAutoRejoin = config.get(CATEGORY_OTHERS, "Auto Rejoin: Hide Auto Rejoin", true, "Hide the text of Auto Rejoin on the in-game screen.");
+		hideAutoRejoin = config.get(CATEGORY_OTHERS, "Auto Rejoin: Hide Auto Rejoin", true, "Hides the text of Auto Rejoin on the in-game screen.");
 
 		textMacro = config.get(CATEGORY_OTHERS, "Text Macro", "T", "Sets the text that text macro will send on chat.");
 
@@ -138,8 +141,8 @@ public class ZombiesAddonConfig {
 		zombiesUtilsSetting = config.get(CATEGORY_OTHER_MODS, "Turn off timer of Zombies Utils", true, "Turn off timer of Zombies Utils.");
 
 		//Hidden
-		detectUnlegitMods = config.get(CATEGORY_HIDDEN, "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper");
-		blockUnlegitSST = config.get(CATEGORY_HIDDEN, "Block Unlegit SST", true, "Blocks the unlegit features of SST.");
+		detectUnlegitMods = config.get(CATEGORY_HIDDEN, "Detect Unlegit Mods", true, "If unlegit mod is detected, the game will end. Unlegit mods: ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper. If disabled, displays a notification on the screen at game over or win.");
+		blockUnlegitSST = config.get(CATEGORY_HIDDEN, "Block Unlegit SST", true, "Blocks the unlegit features of SST. If disabled, displays a notification on the screen at game over or win.");
 
 		//HUD
 		HUDUtils.autoSplitsX = config.get(CATEGORY_HUD, "autoSplitsX", -1, "X").getDouble();
@@ -153,11 +156,14 @@ public class ZombiesAddonConfig {
 	public static void reloadConfig() {
 		config.save();
 		loadConfig();
+		if (!isDetectUnlegitMods()) System.out.println("Zombies Addon: Detect Unlegit Mods has been disabled.");
+		if (!isBlockUnlegitSST()) System.out.println("Zombies Addon: Block Unlegit SST has been disabled.");
 	}
 
 	private static List<IConfigElement> getZombiesAddonElements() {
 		return Arrays.asList(
 				new CustomConfigElement("Enable Mod", enableMod),
+				new CustomConfigElement("Language Mode", language),
 				new CustomConfigElement("Show Mods", showMods),
 				new CustomConfigElement("Mod Default Value", modDefaultValue),
 				new CustomConfigElement("Check Pre-Release", checkPreRelease)
@@ -243,6 +249,12 @@ public class ZombiesAddonConfig {
 		return enableMod.getBoolean();
 	}
 
+	public static String getLanguage() {
+		String str = language.getString();
+		if (!str.equals("English (US)") && !str.equals("한국어 (한국)")) return "Auto";
+		return str;
+	}
+
 	public static boolean isShowMods() {
 		return showMods.getBoolean();
 	}
@@ -270,13 +282,13 @@ public class ZombiesAddonConfig {
 	public static String getTextStyle() {
 		String str = textStyle.getString();
 		if (!str.equals("W1 0:10.0") && !str.equals("W1: 00:10") && !str.equals("W1 00:10")) return "W1: 0:10.0";
-		return textStyle.getString();
+		return str;
 	}
 
 	public static String getHighlightStyle() {
 		String str = highlightStyle.getString();
 		if (!str.equals("Zombies Utils")) return "Zombies Addon";
-		return highlightStyle.getString();
+		return str;
 	}
 
 	public static int getRLModeOffset() {

@@ -4,6 +4,7 @@ package kr.hahaha98757.zombiesaddon.hudposition;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
+import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
@@ -44,8 +45,8 @@ public class ConfigGui extends GuiScreen {
         int widthWaveDelays = fontRendererObj.getStringWidth("➤ " + ZombiesAddonConfig.getTextStyle());
         int widthPowerupPatterns = fontRendererObj.getStringWidth("Shopping Spree: Round 105");
         ScaledResolution sr = new ScaledResolution(mc);
-        buttonList.add(new GuiButton(1, sr.getScaledWidth() / 2 - 82, sr.getScaledHeight() - 25, 80, 20, "Done"));
-        buttonList.add(new GuiButton(2, sr.getScaledWidth() / 2 - 82 + 85, sr.getScaledHeight() - 25, 80, 20, "Reset"));
+        buttonList.add(new GuiButton(1, sr.getScaledWidth() / 2 - 82, sr.getScaledHeight() - 25, 80, 20, Utils.getTranslatedString("zombiesaddon.hud.done", false)));
+        buttonList.add(new GuiButton(2, sr.getScaledWidth() / 2 - 82 + 85, sr.getScaledHeight() - 25, 80, 20, Utils.getTranslatedString("zombiesaddon.hud.reset", false)));
         boxes.clear();
         HudCoordinate boxAutoSplits = new HudCoordinate(2, HUDUtils.getAutoSplitsX(), HUDUtils.getAutoSplitsY(), widthAutoSplits, fontRendererObj.FONT_HEIGHT, width, height);
         boxes.add(boxAutoSplits);
@@ -79,7 +80,7 @@ public class ConfigGui extends GuiScreen {
         for (HudCoordinate box : boxes) box.draw(this);
 
         fontRendererObj.drawStringWithShadow("Zombies Addon", (float)sr.getScaledWidth() / 2.0F - (float)fontRendererObj.getStringWidth("Zombies Addon") / 2.0F, 10.0F, Color.WHITE.getRGB());
-        fontRendererObj.drawStringWithShadow("Click \"Done\" to save your current HUD position settings.", (float)sr.getScaledWidth() / 2.0F - (float)fontRendererObj.getStringWidth("Click \"Done\" to save your current HUD position settings.") / 2.0F, (float)(height / 2), Color.WHITE.getRGB());
+        fontRendererObj.drawStringWithShadow(Utils.getTranslatedString("zombiesaddon.hud.comment", false), (float)sr.getScaledWidth() / 2.0F - (float)fontRendererObj.getStringWidth(Utils.getTranslatedString("zombiesaddon.hud.comment", false)) / 2.0F, (float)(height / 2), Color.WHITE.getRGB());
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 

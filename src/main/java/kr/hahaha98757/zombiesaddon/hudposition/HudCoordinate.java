@@ -71,7 +71,6 @@ public class HudCoordinate {
             Gui.drawRect(absoluteX, absoluteY, absoluteX + width, absoluteY + height, color);
             fr.drawStringWithShadow("0:00.0", (float) absoluteX, (float) absoluteY, 0xFFFFFF);
         }
-
     }
 
     public boolean isMouseOver(int mouseX, int mouseY) {
@@ -84,7 +83,6 @@ public class HudCoordinate {
             dragOffsetX = absoluteX - mouseX;
             dragOffsetY = absoluteY - mouseY;
         }
-
     }
 
     public void onMouseReleased() {
@@ -115,6 +113,5 @@ public class HudCoordinate {
                 y = (double) absoluteY / (double) screenHeight;
             }
         }
-
     }
 }

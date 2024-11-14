@@ -213,7 +213,7 @@ public class MixinMainConfiguration {
         logger.info("Finished loading config. ");
         logger.info("The unlegit features have been blocked by Zombies Addon.");
         try {
-            Utils.addChatLine("The unlegit features have been blocked by Zombies Addon.");
+            Utils.addChatWithLine("The unlegit features have been blocked by Zombies Addon.");
         } catch (NullPointerException ignored) {
         }
     }

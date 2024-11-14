@@ -6,7 +6,9 @@ import kr.hahaha98757.zombiesaddon.features.ZombiesStratViewer;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.util.BlockPos;
 
 import java.io.BufferedReader;
@@ -30,31 +32,26 @@ public class CommandZSV extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return String.format("§cUsage: /%s <URL|off>\n§cThe URL must start with \"https://pastebin.com/raw/\"", getCommandName());
+		return "/zsv <off|URL>";
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) {
+	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
 		if (sender != Minecraft.getMinecraft().thePlayer) return;
 
-		if (args.length == 0) {
-			Utils.addChat(getCommandUsage(null));
-			return;
-		}
+		if (args.length == 0) throw new WrongUsageException(getCommandUsage(null));
 
 		if (args[0].equals("off")) {
 			ZombiesStratViewer.START_LINES.clear();
 			ZombiesStratViewer.START_LINES.add("");
 			ZombiesStratViewer.currentLine = 0;
-			Utils.addChat("§eZSV: Set ZSV to §coff");
+			Utils.addTranslationChat("zombiesaddon.commands.zsv.success", "§coff");
 			ZombiesStratViewer.zombiesStratViewer = false;
 			return;
 		}
 
-		if (!args[0].startsWith("https://pastebin.com/raw/")) {
-			Utils.addChat(getCommandUsage(null));
-			return;
-		}
+		if (!args[0].startsWith("https://pastebin.com/raw/"))
+            throw new CommandException("zombiesaddon.commands.zsv.wrongURL");
 
 		ZombiesStratViewer.START_LINES.clear();
 		ZombiesStratViewer.START_LINES.add("");
@@ -72,9 +69,9 @@ public class CommandZSV extends CommandBase {
 			ZombiesStratViewer.recalcActualLines();
 			br.close();
 			huc.getInputStream().close();
-			Utils.addChat("§eZSV: Set ZSV to §aon");
+			Utils.addTranslationChat("zombiesaddon.commands.zsv.success", "§aon");
 		} catch (IOException e) {
-			Utils.addChat("§eZSV: §cWrong URL");
+			Utils.addTranslationChat("zombiesaddon.commands.zsv.failed", new Object());
 		}
 	}
 

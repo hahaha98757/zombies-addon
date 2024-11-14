@@ -5,7 +5,9 @@ import kr.hahaha98757.zombiesaddon.features.PowerupPatterns;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.util.BlockPos;
 
 import java.util.Collections;
@@ -25,7 +27,7 @@ public class CommandPowerupPatterns extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return String.format("§cUsage: /%s <insta|max|ss|dg|carpenter|bg> [reset|number|on|off]", getCommandName());
+		return "zombiesaddon.commands.poweruppatterns.usage";
 	}
 
 	@Override
@@ -33,124 +35,117 @@ public class CommandPowerupPatterns extends CommandBase {
 		return Collections.singletonList("pow");
 	}
 
-	@SuppressWarnings("SpellCheckingInspection")
     @Override
-	public void processCommand(ICommandSender sender, String[] args) {
+	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
 		if (sender != Minecraft.getMinecraft().thePlayer) return;
 
-		if (args.length == 0) {
-			Utils.addChat(getCommandUsage(null));
-			return;
-		}
+		if (args.length == 0) throw new WrongUsageException(getCommandUsage(null));
 		switch (args[0]) {
 			case "insta":
 				if (args.length == 1) {
-					Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §cInsta Kill §ewith a command");
+					Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§cInsta Kill");
 					PowerupPatterns.instaTimer = true;
 					ManualTimer.resetTimer((byte) 1);
 				} else {
 					switch (args[1]) {
 						case "reset":
-							Utils.addChat("§ePowerup Patterns: Reset §cInsta Kill §epattern");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§cInsta Kill");
 							PowerupPatterns.instaPattern = 0;
 							break;
 						case "2":
 						case "3":
-							Utils.addChat(String.format("§ePowerup Patterns: Set §cInsta Kill §epattern to §a%s", args[1]));
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§a" + args[1]);
 							PowerupPatterns.instaPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":
-							Utils.addChat("§ePowerup Patterns: Set §cInsta Kill §epattern to §aon");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§a" + args[1]);
 							PowerupPatterns.useInstaPattern = true;
 							break;
 						case "off":
-							Utils.addChat("§ePowerup Patterns: Set §cInsta Kill §epattern to §coff");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§c" + args[1]);
 							PowerupPatterns.useInstaPattern = false;
 							break;
 						default:
-							Utils.addChat(String.format("§cUsage: /%s insta [reset|2|3|on|off]", getCommandName()));
-							break;
+							throw new WrongUsageException("/poweruppatterns insta [reset|2|3|on|off]");
 					}
 				}
 				break;
 			case "max":
 				if (args.length == 1) {
-					Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §9Max Ammo §ewith a command");
+					Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§9Max Ammo");
 					PowerupPatterns.maxTimer = true;
 					ManualTimer.resetTimer((byte) 2);
 				} else {
 					switch (args[1]) {
 						case "reset":
-							Utils.addChat("§ePowerup Patterns: Reset §9Max Ammo §epattern");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§9Max Ammo");
 							PowerupPatterns.maxPattern = 0;
 							break;
 						case "2":
 						case "3":
-							Utils.addChat(String.format("§ePowerup Patterns: Set §9Max Ammo §epattern to §a%s", args[1]));
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§9Max Ammo", "§a" + args[1]);
 							PowerupPatterns.maxPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":
-							Utils.addChat("§ePowerup Patterns: Set §9Max Ammo §epattern to §aon");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§9Max Ammo", "§a" + args[1]);
 							PowerupPatterns.useMaxPattern = true;
 							break;
 						case "off":
-							Utils.addChat("§ePowerup Patterns: Set §9Max Ammo §epattern to §coff");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§9Max Ammo", "§c" + args[1]);
 							PowerupPatterns.useMaxPattern = false;
 							break;
 						default:
-							Utils.addChat(String.format("§cUsage: /%s max [reset|2|3|on|off]", getCommandName()));
-							break;
+							throw new WrongUsageException("/poweruppatterns max [reset|2|3|on|off]");
 					}
 				}
 				break;
 			case "ss":
 				if (args.length == 1) {
-					Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §5Shopping Spree §ewith a command");
+					Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§5Shopping Spree");
 					PowerupPatterns.ssTimer = true;
 					ManualTimer.resetTimer((byte) 3);
 				} else {
 					switch (args[1]) {
 						case "reset":
-							Utils.addChat("§ePowerup Patterns: Reset §5Shopping Spree §epattern");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§5Shopping Spree");
 							PowerupPatterns.ssPattern = 0;
 							break;
 						case "5":
 						case "6":
 						case "7":
-							Utils.addChat(String.format("§ePowerup Patterns: Set §5Shopping Spree §epattern to §a%s", args[1]));
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§5Shopping Spree", "§a" + args[1]);
 							PowerupPatterns.ssPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":
-							Utils.addChat("§ePowerup Patterns: Set §5Shopping Spree §epattern to §aon");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§5Shopping Spree", "§a" + args[1]);
 							PowerupPatterns.useSSPattern = true;
 							break;
 						case "off":
-							Utils.addChat("§ePowerup Patterns: Set §5Shopping Spree §epattern to §coff");
+							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§5Shopping Spree", "§c" + args[1]);
 							PowerupPatterns.useSSPattern = false;
 							break;
 						default:
-							Utils.addChat(String.format("§cUsage: /%s ss [reset|5|6|7|on|off]", getCommandName()));
-							break;
+							throw new WrongUsageException("/poweruppatterns ss [reset|5|6|7|on|off]");
 					}
 				}
 				break;
 			case "dg":
-				Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §6Double Gold §ewith a command");
+				Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§6Double Gold");
 				PowerupPatterns.dgTimer = true;
 				ManualTimer.resetTimer((byte) 4);
 				break;
 			case "carpenter":
-				Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §9Carpenter §ewith a command");
+				Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§9Carpenter");
 				PowerupPatterns.carpenterTimer = true;
 				ManualTimer.resetTimer((byte) 5);
 				break;
 			case "bg":
-				Utils.addChat("§ePowerup Patterns: You have run Manual Timer of §6Bonus Gold §ewith a command");
+				Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§6Bonus Gold");
 				PowerupPatterns.bgTimer = true;
 				ManualTimer.resetTimer((byte) 6);
 				break;
 			default:
-				Utils.addChat(getCommandUsage(null));
+				throw new WrongUsageException(getCommandUsage(null));
 		}
 	}
 
@@ -164,5 +159,4 @@ public class CommandPowerupPatterns extends CommandBase {
 			return getListOfStringsMatchingLastWord(args, "reset", "5", "6", "7", "on", "off");
 		return null;
 	}
-
 }

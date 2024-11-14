@@ -68,7 +68,7 @@ public class NotLast {
 
         if (tick >= 100) {
             work = false;
-            Utils.addChat("§eNot Last: §cFailed to find the last.");
+            Utils.addTranslationChat("zombiesaddon.features.notLast.failed", new Object());
             tick = 0;
         }
 
@@ -85,7 +85,7 @@ public class NotLast {
 
     private void printLast(List<String> players) {
         work = false;
-        StringBuilder last = new StringBuilder();
+        StringBuilder last = new StringBuilder("§e");
         last.append(players.get(0));
 
         for (int i = 1; i < players.size(); ++i) {
@@ -94,7 +94,6 @@ public class NotLast {
             last.append(player);
         }
 
-        last.append(" was last");
-        Utils.addChat("§eNot Last: " + last);
+        Utils.addTranslationChat("zombiesaddon.features.notLast.printLast", last);
     }
 }

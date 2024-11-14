@@ -3,8 +3,8 @@
 package kr.hahaha98757.zombiesaddon.utils;
 
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
-import kr.hahaha98757.zombiesaddon.data.GameMode;
 import kr.hahaha98757.zombiesaddon.enums.Difficulty;
+import kr.hahaha98757.zombiesaddon.enums.GameMode;
 import kr.hahaha98757.zombiesaddon.enums.Map;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -15,16 +15,13 @@ import net.minecraft.scoreboard.Score;
 import net.minecraft.scoreboard.ScoreObjective;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.Scoreboard;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
-import java.util.regex.Pattern;
 
 public class Utils {
     public static final String LINE = "§e-----------------------------------------------------";
-    private static final Pattern formattingCodePattern = Pattern.compile("(?i)" + "§" + "[0-9A-FK-OR]");
     private static Minecraft mc;
     private static FontRenderer fr;
 
@@ -37,114 +34,65 @@ public class Utils {
         return !ZombiesAddonConfig.isEnableMod();
     }
 
-    /**
-     * Add the text on chat that only you can see.
-     *
-     * @param text The text that will add on chat.
-     */
     public static void addChat(String text) {
         mc.thePlayer.addChatComponentMessage(new ChatComponentText(text));
     }
 
-    /**
-     * Add the text with Lines on chat that only you can see.
-     *
-     * @param text The text that will add on chat.
-     */
-    public static void addChatLine(String text) {
+    public static void addChatWithLine(String text) {
         mc.thePlayer.addChatComponentMessage(new ChatComponentText(LINE + "\n" + text + "\n" + LINE));
     }
 
-    public static void sendChat(String text) {
-        mc.thePlayer.sendChatMessage(text);
+    public static void addTranslationChat(String key, Object... objects) {
+        mc.thePlayer.addChatComponentMessage(new ChatComponentTranslation(LanguageUtils.getTranslateKey(key), objects));
     }
 
-    /**
-     * Add the text contained URL on chat that only you can see.
-     *
-     * @param text1 The text before URL.
-     * @param urlText The text contained URL.
-     * @param url URL.
-     * @param showURLText The text that will be displayed when the mouse hovers on URL.
-     * @param text2 The text after URL.
-     */
-    public static void addChatWithURL(String text1, String urlText, String url, String showURLText, String text2) {
-        ChatComponentText url1 = new ChatComponentText(urlText);
+    public static void addChatWithURL(String beforeText, String urlText, String url, String urlHoverText, String afterText) {
+        ChatComponentText urlText_ = new ChatComponentText(urlText);
 
-        url1.getChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url));
-        url1.getChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText(showURLText)));
+        urlText_.getChatStyle().setChatClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, url));
+        urlText_.getChatStyle().setChatHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ChatComponentText(urlHoverText)));
 
         ChatComponentText text = new ChatComponentText("");
 
-        text.appendSibling(new ChatComponentText(text1));
-        text.appendSibling(url1);
-        text.appendSibling(new ChatComponentText(text2));
+        text.appendText(beforeText);
+        text.appendSibling(urlText_);
+        text.appendText(afterText);
 
         mc.thePlayer.addChatComponentMessage(text);
     }
 
-    /**
-     * Play Sound
-     *
-     * @param name A name of the sound.
-     * @param pitch A pitch of the sound.
-     */
-    public static void playSound(String name, float pitch) {
-        mc.thePlayer.playSound(name, 1, pitch);
+    public static String getTranslatedString(String key, boolean isFormatted, Object... objects) {
+        ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation(LanguageUtils.getTranslateKey(key), objects);
+        return isFormatted ? chatComponentTranslation.getFormattedText() : chatComponentTranslation.getUnformattedText();
     }
 
-    /**
-     * Get the width of the screen.
-     *
-     * @return The width of the screen.
-     */
     public static float getX() {
         return new ScaledResolution(mc).getScaledWidth();
     }
 
-    /**
-     * Get the width of the text minus the width of the screen.
-     *
-     * @return The width of the screen - the width of the text - 1.0F.
-     */
-    public static float getX(String str) {
-        return new ScaledResolution(mc).getScaledWidth() - fr.getStringWidth(str) - 1.0F;
+    public static float getX(String text) {
+        return getX() - fr.getStringWidth(text) - 1.0F;
     }
 
-    /**
-     * Get the height of the screen.
-     * @return The height of the screen.
-     */
     public static float getY() {
         return new ScaledResolution(mc).getScaledHeight();
     }
 
-    /**
-     * Get the height of the text minus the height of the screen.
-     *
-     * @return The height of the screen - the height of the text - 1.0F.
-     */
     public static float getYFont() {
-        return new ScaledResolution(mc).getScaledHeight() - fr.FONT_HEIGHT - 1.0F;
-    }
-
-    public static String getTextWithoutColors(String text) {
-        return text == null ? null : formattingCodePattern.matcher(text).replaceAll("");
+        return getY() - fr.FONT_HEIGHT - 1.0F;
     }
 
     private static HashMap<Integer, String> getScoreboard() {
         HashMap<Integer, String> scoreboards = new HashMap<>();
         if (mc.theWorld == null || mc.thePlayer == null) return null;
 
-        Scoreboard scoreboard = mc.theWorld.getScoreboard();
-        ScoreObjective sidebar = scoreboard.getObjectiveInDisplaySlot(1);
+        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
+        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(1);
 
-        if (sidebar == null || !getTextWithoutColors(sidebar.getDisplayName()).equals("ZOMBIES")) return null;
+        if (scoreObjective == null || !EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equals("ZOMBIES")) return null;
 
-        for (Score score : scoreboard.getSortedScores(sidebar))
-            for (int i = 1; i <= 15; i++)
-                if (score.getScorePoints() == i)
-                    scoreboards.put(i, getTextWithoutColors(ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName())).replaceAll("[^A-Za-z0-9가-힣:\\s]", "").trim());
+        for (Score score : scoreboard.getSortedScores(scoreObjective))
+            scoreboards.put(score.getScorePoints(), EnumChatFormatting.getTextWithoutFormattingCodes(ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName())).replaceAll("[^A-Za-z0-9가-힣:_.,/\\s]", "").trim());
         return scoreboards;
     }
 
@@ -153,66 +101,12 @@ public class Utils {
         return serverIP != null && serverIP.equals("www.hypixel.net");
     }
 
-    /**
-     * Get the status of players in Zombies.
-     * <p>
-     * The first is the number of revive players.
-     * The second is the number of dead players.
-     * The third is the number of quit players.
-     *
-     * @return Byte array.
-     */
-    public static byte[] getRevDeadQuit() {
-        byte[] revDeadQuit = new byte[] { 0, 0, 0 };
-
-        HashMap<Integer, String> scoreboard = getScoreboard();
-
-        if (scoreboard == null) return revDeadQuit;
-
-        for (int i = 7; i <= 10; i++) {
-            String str = scoreboard.get(i);
-
-            if (str == null) continue;
-
-            try {
-                str = str.split(":")[1].trim();
-            } catch (Exception e) {
-                continue;
-            }
-            switch (str) {
-                case "REVIVE":
-                case "부활":
-                    revDeadQuit[0]++;
-                    break;
-                case "DEAD":
-                case "사망":
-                    revDeadQuit[1]++;
-                    break;
-                case "QUIT":
-                case "떠남":
-                    revDeadQuit[2]++;
-                    break;
-            }
-        }
-        return revDeadQuit;
-    }
-
-    /**
-     * Checks if there are you in Zombies.
-     *
-     * @return Returns false if there are you in Zombies.
-     */
     public static boolean isNotZombies() {
         return getScoreboard() == null;
     }
 
-    /**
-     * Checks if you play Zombies.
-     *
-     * @return Returns false if you play Zombies.
-     */
     public static boolean isNotPlayZombies() {
-        java.util.Map<Integer, String> scoreboard = getScoreboard();
+        HashMap<Integer, String> scoreboard = getScoreboard();
 
         if (scoreboard == null) return true;
 
@@ -230,11 +124,29 @@ public class Utils {
         return true;
     }
 
-    /**
-     * Get the map.
-     *
-     * @return Returns null if it can't check the map.
-     */
+    public static byte getRound() {
+        HashMap<Integer, String> scoreboard = getScoreboard();
+
+        if (scoreboard == null) return 0;
+
+        if (isHypixel()) {
+            String str = scoreboard.get(13);
+            try {
+                return Byte.parseByte(str.replaceAll("[^0-9]", ""));
+            } catch (Exception e) {
+                return 0;
+            }
+        }
+
+        for (int i = 10; i <= 13; i++) {
+            String str = scoreboard.get(i);
+            if (str == null) continue;
+
+            if (!str.contains(":") && (str.contains("Round") || str.contains("라운드"))) return Byte.parseByte(str.replaceAll("[^0-9]", ""));
+        }
+        return 0;
+    }
+
     public static Map getMap() {
         World world = mc.theWorld;
 
@@ -258,13 +170,6 @@ public class Utils {
         }
     }
 
-    /**
-     * Get the GameMode.
-     *
-     *
-     * @param difficulty difficulty
-     * @return GameMode.
-     */
     public static GameMode getGameMode(Difficulty difficulty) {
         Map map = getMap();
 
@@ -274,7 +179,7 @@ public class Utils {
             case DEAD_END:
                 switch (difficulty) {
                     case NORMAL:
-                        return GameMode.DEAD_END;
+                        return GameMode.DEAD_END_NORMAL;
                     case HARD:
                         return GameMode.DEAD_END_HARD;
                     case RIP:
@@ -283,7 +188,7 @@ public class Utils {
             case BAD_BLOOD:
                 switch (difficulty) {
                     case NORMAL:
-                        return GameMode.BAD_BLOOD;
+                        return GameMode.BAD_BLOOD_NORMAL;
                     case HARD:
                         return GameMode.BAD_BLOOD_HARD;
                     case RIP:
@@ -294,7 +199,7 @@ public class Utils {
             case PRISON:
                 switch (difficulty) {
                     case NORMAL:
-                        return GameMode.PRISON;
+                        return GameMode.PRISON_NORMAL;
                     case HARD:
                         return GameMode.PRISON_HARD;
                     case RIP:
@@ -302,83 +207,6 @@ public class Utils {
                 }
         }
         return null;
-    }
-
-    /**
-     * Get the round.
-     *
-     * @return Returns 0 if it can't check the round.
-     */
-    public static byte getRound() {
-        HashMap<Integer, String> scoreboard = getScoreboard();
-
-        if (scoreboard == null) return 0;
-
-        if (isHypixel()) {
-            String str = scoreboard.get(13);
-            return str == null ? 0 : Byte.parseByte(str.replaceAll("[^0-9]", ""));
-        }
-
-        for (int i = 10; i <= 13; i++) {
-            String str = scoreboard.get(i);
-            if (str == null) continue;
-
-            if (!str.contains(":") && (str.contains("Round") || str.contains("라운드"))) return Byte.parseByte(str.replaceAll("[^0-9]", ""));
-        }
-        return 0;
-    }
-
-    /**
-     * Get the difficult.
-     * <p>
-     * 1: Normal
-     * 2: Hard
-     * 3: RIP
-     *
-     * @param map The code of the map.
-     * @param round The round.
-     * @return If it can't check the difficult, returns 1.
-     */
-    @Deprecated
-    public static byte getDifficult(byte map, byte round) {// Normal: 1, Hard: 2, RIP: 3
-        short zombiesLeft = 0;
-        HashMap<Integer, String> scoreboard = getScoreboard();
-
-        if (scoreboard == null) return 1;
-
-        for (int i = 9; i <= 12; i++) {
-            String str = scoreboard.get(i);
-            if (str == null) continue;
-
-            if (str.contains("Zombies Left: ") || str.contains("남은 좀비: ")) {
-                zombiesLeft = Short.parseShort(str.replaceAll("[^0-9]", ""));
-                break;
-            }
-        }
-
-        if (map == 1) {
-            if (round == 4 && zombiesLeft == 26) return 3;
-            if (round == 9 && zombiesLeft == 34) return 3;
-            if (round == 14) {
-                if (zombiesLeft == 41) return 2;
-                else if (zombiesLeft == 48) return 3;
-            }
-            if (round == 19 && zombiesLeft == 68) return 3;
-            if (round == 24) {
-                if (zombiesLeft == 70) return 2;
-                else if (zombiesLeft == 78) return 3;
-            }
-            if (round == 29) {
-                if (zombiesLeft == 101) return 2;
-                else if (zombiesLeft == 111) return 3;
-            }
-        } else if (map == 2) {
-            if (round == 14 && zombiesLeft == 42) return 3;
-            if (round == 19 && zombiesLeft == 44) return 3;
-            if (round == 24 && zombiesLeft == 66) return 3;
-            if (round == 29 && zombiesLeft == 83) return 3;
-        }
-        return 1;
     }
 
     /**
@@ -414,6 +242,41 @@ public class Utils {
 
     public static boolean isRoundText(String text) {
         return text.contains("Round") || text.contains("라운드");
+    }
+
+    public static byte[] getRevDeadQuit() {
+        byte[] revDeadQuit = new byte[] {0, 0, 0};
+
+        HashMap<Integer, String> scoreboard = getScoreboard();
+
+        if (scoreboard == null) return revDeadQuit;
+
+        for (int i = 7; i <= 10; i++) {
+            String str = scoreboard.get(i);
+
+            if (str == null) continue;
+
+            try {
+                str = str.split(":")[1].trim();
+            } catch (IndexOutOfBoundsException e) {
+                continue;
+            }
+            switch (str) {
+                case "REVIVE":
+                case "부활":
+                    revDeadQuit[0]++;
+                    break;
+                case "DEAD":
+                case "사망":
+                    revDeadQuit[1]++;
+                    break;
+                case "QUIT":
+                case "떠남":
+                    revDeadQuit[2]++;
+                    break;
+            }
+        }
+        return revDeadQuit;
     }
 
     public static int getLevel(String itemName) {

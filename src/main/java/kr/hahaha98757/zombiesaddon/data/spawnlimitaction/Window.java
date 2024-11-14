@@ -50,15 +50,12 @@ public class Window {
 	public void rotate(int rotations) {
 		rotations %= 4;
 		switch (rotations) {
-			case -3:
 			case 1:
 				rotateCounterClockwise();
 				break;
-			case -2:
 			case 2:
 				mirrorBoth();
 				break;
-			case -1:
 			case 3:
 				rotateClockwise();
 				break;

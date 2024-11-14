@@ -38,7 +38,7 @@ public class PlayerVisibility {
         if (Utils.isModDisable()) return;
         if (!Hotkeys.togglePV.isPressed()) return;
         playerVisibility = !playerVisibility;
-        Utils.addChat("§eToggled PV to " + (playerVisibility ? "§aon" : "§coff"));
+        Utils.addTranslationChat("zombiesaddon.features.general.toggled", "§ePV", (playerVisibility ? "§aon" : "§coff"));
     }
 
     public static boolean isPlayerInvisible(Entity entity) {

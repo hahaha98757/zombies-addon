@@ -20,57 +20,51 @@ import java.util.Arrays;
 public class SpawnLimitAction {
     private static final int[] offset = new int[3];
     private static Room[] rooms;
+    private static int rotations;
+    private static boolean isMirroringX;
+    private static boolean isMirroringZ;
 
     public static void setMap(Map map) {
         switch (map) {
             case DEAD_END:
-                Utils.addChat("§eSLA: Set SLA to §aDead End");
                 rooms = Room.getDE();
                 break;
             case BAD_BLOOD:
-                Utils.addChat("§eSLA: Set SLA to §aBad Blood");
                 rooms = Room.getBB();
                 break;
             case ALIEN_ARCADIUM:
-                Utils.addChat("§eSLA: Set SLA to §aAlien Arcadium");
                 rooms = Room.getAA();
                 break;
-            default:
-                Utils.addChat("§eSLA: §cFailed to set map");
         }
     }
 
     public static void offMap() {
-        Utils.addChat("§eSLA: Set SLA to §coff");
         rooms = null;
         resetOffset();
     }
 
+    public static void resetRotate() {
+        rotate(4 - rotations);
+    }
+
     public static void rotate(int rotations) {
-        Utils.addChat("§eSLA: Rotates all windows around the axis §a(0,y,0)");
-        for (Room room : rooms) {
-            for (Window window : room.getWindows()) {
-                window.rotate(rotations);
-            }
-        }
+        SpawnLimitAction.rotations = (SpawnLimitAction.rotations + rotations) % 4;
+        for (Room room : rooms) for (Window window : room.getWindows()) window.rotate(rotations);
+    }
+
+    public static void resetMirroring() {
+        if (isMirroringX) mirrorX();
+        if (isMirroringZ) mirrorZ();
     }
 
     public static void mirrorX() {
-        Utils.addChat("§eSLA: Mirrors all windows along the plane §a(0,y,z)");
-        for (Room room : rooms) {
-            for (Window window : room.getWindows()) {
-                window.mirrorX();
-            }
-        }
+        isMirroringX = !isMirroringX;
+        for (Room room : rooms) for (Window window : room.getWindows()) window.mirrorX();
     }
 
     public static void mirrorZ() {
-        Utils.addChat("§eSLA: Mirrors all windows along the plane §a(x,y,0)");
-        for (Room room : rooms) {
-            for (Window window : room.getWindows()) {
-                window.mirrorZ();
-            }
-        }
+        isMirroringZ = !isMirroringZ;
+        for (Room room : rooms) for (Window window : room.getWindows()) window.mirrorZ();
     }
 
     private static void refreshActives() {
@@ -82,12 +76,10 @@ public class SpawnLimitAction {
         };
         for (Room room : rooms) {
             room.resetActiveWindowCount();
-            for (Window window : room.getWindows()
-            ) {
+            for (Window window : room.getWindows()) {
                 double distanceDoubledThenSquared = 0;
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 3; i++)
                     distanceDoubledThenSquared += ((playerCoords[i] * 2 - window.getXYZ()[i]) * (playerCoords[i] * 2 - window.getXYZ()[i]));
-                }
 
                 // (2x)²+(2y)²+(2z)² = 4(x²+y²+z²) = 4d²
                 final int slaRange = 50;
@@ -108,9 +100,8 @@ public class SpawnLimitAction {
         Arrays.fill(offset, 0);
     }
 
-    public static void setOffset(int[] offset_) {
-        Utils.addChat("§eSLA: Set offset to §a" + offset_[0] + " " + offset_[1] + " " + offset_[2]);
-        System.arraycopy(offset_, 0, offset, 0, 3);
+    public static void setOffset(int[] offset) {
+        System.arraycopy(offset, 0, SpawnLimitAction.offset, 0, 3);
     }
 
     @SubscribeEvent
@@ -161,31 +152,33 @@ public class SpawnLimitAction {
             return;
         }
 
-        switch (map) {
-            case DEAD_END:
-                SpawnLimitAction.setMap(Map.DEAD_END);
-                autoSLA = false;
-                tick = 0;
-                return;
-            case BAD_BLOOD:
-                SpawnLimitAction.setMap(Map.BAD_BLOOD);
-                autoSLA = false;
-                tick = 0;
-                return;
-            case ALIEN_ARCADIUM:
-                SpawnLimitAction.setMap(Map.ALIEN_ARCADIUM);
-                autoSLA = false;
-                tick = 0;
-                return;
-        }
-
         if (tick == 100) {
-            Utils.addChat("§eSLA: §cWrong map");
+            Utils.addTranslationChat("zombiesaddon.features.sla.auto.wrongMap", new Object());
             autoSLA = false;
             tick = 0;
             return;
         }
 
+        switch (map) {
+            case DEAD_END:
+                SpawnLimitAction.setMap(Map.DEAD_END);
+                Utils.addTranslationChat("zombiesaddon.features.sla.auto.setMap", "§aDead End");
+                autoSLA = false;
+                tick = 0;
+                return;
+            case BAD_BLOOD:
+                SpawnLimitAction.setMap(Map.BAD_BLOOD);
+                Utils.addTranslationChat("zombiesaddon.features.sla.auto.setMap", "§aBad Blood");
+                autoSLA = false;
+                tick = 0;
+                return;
+            case ALIEN_ARCADIUM:
+                SpawnLimitAction.setMap(Map.ALIEN_ARCADIUM);
+                Utils.addTranslationChat("zombiesaddon.features.sla.auto.setMap", "§aAlien Arcadium");
+                autoSLA = false;
+                tick = 0;
+                return;
+        }
         tick++;
     }
 }
