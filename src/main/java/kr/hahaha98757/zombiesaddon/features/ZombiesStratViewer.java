@@ -2,7 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.features;
 
-import kr.hahaha98757.zombiesaddon.config.Hotkeys;
+import kr.hahaha98757.zombiesaddon.KeyBindings;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -31,10 +31,10 @@ public class ZombiesStratViewer {
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Utils.isModDisable()) return;
-        if (Hotkeys.zsvScrollDown.isPressed()) {
+        if (KeyBindings.zsvScrollDown.isPressed()) {
             if (currentLine + 1 < START_LINES.size()) ++currentLine;
             recalcActualLines();
-        } else if (Hotkeys.zsvScrollUp.isPressed()) {
+        } else if (KeyBindings.zsvScrollUp.isPressed()) {
             if (currentLine > 0) --currentLine;
             recalcActualLines();
         }

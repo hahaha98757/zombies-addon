@@ -2,7 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.features;
 
-import kr.hahaha98757.zombiesaddon.config.Hotkeys;
+import kr.hahaha98757.zombiesaddon.KeyBindings;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
@@ -62,7 +62,7 @@ public class AutoRejoin {
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Utils.isModDisable()) return;
-        if (!Hotkeys.toggleAutoRejoin.isPressed()) return;
+        if (!KeyBindings.toggleAutoRejoin.isPressed()) return;
         autoRejoin = !autoRejoin;
         Utils.addTranslationChat("zombiesaddon.features.general.toggled", "§eAuto Rejoin", (autoRejoin ? "§aon" : "§coff"));
     }

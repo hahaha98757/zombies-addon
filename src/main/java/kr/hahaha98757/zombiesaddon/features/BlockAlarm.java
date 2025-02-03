@@ -2,7 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.features;
 
-import kr.hahaha98757.zombiesaddon.config.Hotkeys;
+import kr.hahaha98757.zombiesaddon.KeyBindings;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -41,7 +41,7 @@ public class BlockAlarm {
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Utils.isModDisable()) return;
-        if (!Hotkeys.toggleBlockAlarm.isPressed()) return;
+        if (!KeyBindings.toggleBlockAlarm.isPressed()) return;
         blockAlarm = !blockAlarm;
         Utils.addTranslationChat("zombiesaddon.features.general.toggled", "§eBlock Alarm", (blockAlarm ? "§aon" : "§coff"));
     }

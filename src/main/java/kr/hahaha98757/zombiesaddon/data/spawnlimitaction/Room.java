@@ -143,6 +143,7 @@ public class Room {
 		};
 	}
 
+	@Deprecated
 	public static Room[] getPR() {
 		return new Room[]{
 				new Room("Cell Blocks", "cb", new Window[]{

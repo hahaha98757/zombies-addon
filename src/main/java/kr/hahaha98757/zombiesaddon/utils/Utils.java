@@ -97,7 +97,9 @@ public class Utils {
     }
 
     private static boolean isHypixel() {
-        String serverIP = getScoreboard().get(1);
+        HashMap<Integer, String> scoreboard = getScoreboard();
+        if (scoreboard == null) return false;
+        String serverIP = scoreboard.get(1);
         return serverIP != null && serverIP.equals("www.hypixel.net");
     }
 
@@ -319,6 +321,8 @@ public class Utils {
      * @return A color code with "§"
      */
     public static String getBossColor1(Map map, Difficulty difficulty, byte round, byte wave) {
+        if (map == null) return "";
+
         switch (map) {
             case DEAD_END:
                 switch (round) {

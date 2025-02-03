@@ -13,8 +13,6 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class AutoSplits {
-    public static String timer = "0:00.0";
-
     private static boolean AAr10;
 
     @SubscribeEvent
@@ -22,16 +20,15 @@ public class AutoSplits {
         if (Utils.isModDisable()) return;
         if (Utils.isNotZombies()) return;
         if (event.type != RenderGameOverlayEvent.ElementType.TEXT) return;
+        if (!ZombiesAddonConfig.isToggleAutoSplits()) return;
 
-        long millis = RoundTimer.instance.getMillis();
+        long millis = RoundTimer.getMillis();
         long minutesPart = millis / 60000;
         long secondsPart = (millis % 60000) / 1000;
         long tenthSecondsPart = (millis % 1000) / 100;
         String time = String.format("%d:%02d.%d", minutesPart, secondsPart, tenthSecondsPart);
-        timer = time;
         FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
-        if (ZombiesAddonConfig.isToggleAutoSplits())
-            fr.drawStringWithShadow(time, HUDUtils.getAutoSplitsStrX(time), HUDUtils.getAutoSplitsStrY(), 0xffffff);
+        fr.drawStringWithShadow(time, HUDUtils.getAutoSplitsStrX(time), HUDUtils.getAutoSplitsStrY(), 0xffffff);
     }
 
     @SubscribeEvent
@@ -44,23 +41,14 @@ public class AutoSplits {
 
         if (soundName.equals("mob.wither.spawn") || soundName.equals("mob.guardian.curse") && !AAr10) {
             if (soundName.equals("mob.guardian.curse")) AAr10 = true;
-
-            runTimer();
-        } else if (soundName.equals("mob.enderdragon.end")) stopTimer();
+            RoundTimer.run();
+        } else if (soundName.equals("mob.enderdragon.end")) RoundTimer.run();
     }
 
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         if (Utils.isModDisable()) return;
         if (event.message.getUnformattedText().contains("The Helicopter is on its way! Hold out for 120 more seconds!"))
-            runTimer();
-    }
-
-    public static void runTimer() {
-        RoundTimer.instance.run();
-    }
-
-    public static void stopTimer() {
-        RoundTimer.instance.stop();
+            RoundTimer.run();
     }
 }

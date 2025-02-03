@@ -9,56 +9,51 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class RoundTimer {
-    public static final RoundTimer instance = new RoundTimer();
+    private static final ReentrantLock LOCK = new ReentrantLock();
 
-    private final ReentrantLock lock = new ReentrantLock();
+    private static final ScheduledExecutorService EXECUTOR = Executors.newSingleThreadScheduledExecutor();
 
-    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+    private static Future<?> future;
 
-    private Future<?> future = null;
-
-    private static long millis = 0L;
+    private static long millis;
 
     private static boolean stopTimer;
 
-    public void run() {
-        lock.lock();
+    public static void run() {
+        LOCK.lock();
         try {
-            if (future == null) {
-                future = executor.scheduleAtFixedRate(() -> {
-                    if (stopTimer) {
-                        return;
-                    }
-                    lock.lock();
-                    try {
-                        millis += 10L;
-                    } finally {
-                        lock.unlock();
-                    }
-                }, 0L, 10L, TimeUnit.MILLISECONDS);
-            } else {
+            if (future == null) future = EXECUTOR.scheduleAtFixedRate(() -> {
+                if (stopTimer) return;
+                LOCK.lock();
+                try {
+                    millis += 10L;
+                } finally {
+                    LOCK.unlock();
+                }
+            }, 0L, 10L, TimeUnit.MILLISECONDS);
+            else {
                 stopTimer = false;
                 millis = 0L;
             }
         } finally {
-            lock.unlock();
+            LOCK.unlock();
         }
     }
 
-    public void stop() {
-        lock.lock();
+    public static void stop() {
+        LOCK.lock();
         try {
             stopTimer = true;
         } finally {
-            lock.unlock();
+            LOCK.unlock();
         }
     }
 
-    public long getMillis() {
+    public static long getMillis() {
         return millis;
     }
 
-    public int getTicks() {
+    public static int getTicks() {
         return (int) (millis / 50);
     }
 }

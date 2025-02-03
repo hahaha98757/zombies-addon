@@ -30,7 +30,6 @@ public class Features {
         MinecraftForge.EVENT_BUS.register(new TextMacro());
         MinecraftForge.EVENT_BUS.register(new ZombiesOverlayPatcher());
         MinecraftForge.EVENT_BUS.register(new KoreanPatcher());
-        MinecraftForge.EVENT_BUS.register(new SSTPatcher(Minecraft.getMinecraft()));
     }
     
     private static boolean gameEnd;

@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.features;
 
-import kr.hahaha98757.zombiesaddon.config.Hotkeys;
+import kr.hahaha98757.zombiesaddon.KeyBindings;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -13,7 +13,7 @@ public class TextMacro {
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Utils.isModDisable()) return;
 
-        if (!Hotkeys.textMacro.isPressed()) return;
+        if (!KeyBindings.textMacro.isPressed()) return;
 
         Minecraft.getMinecraft().thePlayer.sendChatMessage(ZombiesAddonConfig.getTextMacro());
     }

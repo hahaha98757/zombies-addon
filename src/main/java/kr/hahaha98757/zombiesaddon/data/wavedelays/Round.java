@@ -12,12 +12,4 @@ public class Round {
     public Wave[] getWaves() {
         return waves;
     }
-
-    public short[] getWaveTimes() {
-        short[] ret = new short[waves.length];
-        for (int i = 0; i < waves.length; i++) {
-            ret[i] = waves[i].getTime();
-        }
-        return ret;
-    }
 }

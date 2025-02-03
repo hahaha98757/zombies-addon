@@ -1,4 +1,4 @@
 {
-  "version": "4.3.0-pre1",
-  "log": "Fixed bugs.\nFixed commands.\nAdded Language option in config."
+  "version": "4.3.0-pre2",
+  "log": "Fixed bugs.\nFixed Wave Delays.\nFixed Last Weapons.\nFixed Powerup Patterns."
 }

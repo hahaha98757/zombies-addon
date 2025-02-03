@@ -3,7 +3,7 @@
 
 package kr.hahaha98757.zombiesaddon.features;
 
-import kr.hahaha98757.zombiesaddon.config.Hotkeys;
+import kr.hahaha98757.zombiesaddon.KeyBindings;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
@@ -36,7 +36,7 @@ public class PlayerVisibility {
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Utils.isModDisable()) return;
-        if (!Hotkeys.togglePV.isPressed()) return;
+        if (!KeyBindings.togglePV.isPressed()) return;
         playerVisibility = !playerVisibility;
         Utils.addTranslationChat("zombiesaddon.features.general.toggled", "§ePV", (playerVisibility ? "§aon" : "§coff"));
     }

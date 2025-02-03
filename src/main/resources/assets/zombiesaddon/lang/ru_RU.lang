@@ -9,19 +9,18 @@ zombiesaddon.key.toggleRLMode=Toggle RL Mode
 
 zombiesaddon.key.textMacro=Text Macro
 
-zombiesaddon.key.instaTimer=Insta Kill Timer
+zombiesaddon.key.insTimer=Insta Kill Timer
 zombiesaddon.key.maxTimer=Max Ammo Timer
 zombiesaddon.key.ssTimer=Shopping Spree Timer
 zombiesaddon.key.dgTimer=Double Gold Timer
-zombiesaddon.key.carpenterTimer=Carpenter Timer
+zombiesaddon.key.carTimer=Carpenter Timer
 zombiesaddon.key.bgTimer=Bonus Gold Timer
 
 
-zombiesaddon.commands.autosplits.success.stop=§eAuto Splits: Stopping timer
-zombiesaddon.commands.autosplits.success.run=§eAuto Splits: Running timer
+zombiesaddon.commands.autosplits.success.stop=§eAuto Splits: Stopped the timer
+zombiesaddon.commands.autosplits.success.run=§eAuto Splits: Ran the timer
 
-zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <insta|max|ss|dg|carpenter|bg> [reset|number|on|off]
-zombiesaddon.commands.poweruppatterns.success.timer=§ePowerup Patterns: You have run Manual Timer of %s§e with a command
+zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|number|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: §cReset %s§e pattern
 zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e pattern to %s
 
@@ -34,25 +33,6 @@ zombiesaddon.commands.sla.mirror=§eSLA: Mirrors all windows along the plane %s
 
 zombiesaddon.commands.wavedelays.success=§eWave Delays: Set difficulty to %s
 
-zombiesaddon.commands.zombiesaddon.info1=Mod name: %s
-zombiesaddon.commands.zombiesaddon.info2=Version: %s
-zombiesaddon.commands.zombiesaddon.info.zombiesaddon=Info: The mod for Hypixel Zombies.
-zombiesaddon.commands.zombiesaddon.info.general1=Name: %s
-zombiesaddon.commands.zombiesaddon.info.general2=Code by: %s
-zombiesaddon.commands.zombiesaddon.info.hotkeys=Hotkeys: %s
-zombiesaddon.commands.zombiesaddon.info.commands=Commands: %s
-zombiesaddon.commands.zombiesaddon.info.config=Config: Used
-zombiesaddon.commands.zombiesaddon.info.pv=Info: Hide nearby players from your view.
-zombiesaddon.commands.zombiesaddon.info.blockAlarm=Info: Display BLOCK on the screen when you survived alone and there is a player you can revive.
-zombiesaddon.commands.zombiesaddon.info.notLast=Info: Display the player who killed the last one.
-zombiesaddon.commands.zombiesaddon.info.autoSplits=Info: Run a timer at start of the round.
-zombiesaddon.commands.zombiesaddon.info.waveDelays=Info: Display the wave delays.
-zombiesaddon.commands.zombiesaddon.info.zsv=Info: Display the text in https://pastebin.com/ on the screen.
-zombiesaddon.commands.zombiesaddon.info.sla=Info: Display the number and names of windows where zombies can spawn.
-zombiesaddon.commands.zombiesaddon.info.autoRejoin=Info: Automatically rejoin Zombies when start of the round.
-zombiesaddon.commands.zombiesaddon.info.powerupPatterns=Info: Display patterns of power-ups.
-zombiesaddon.commands.zombiesaddon.info.lastWeapons=Info: Display your weapons when You Win.
-zombiesaddon.commands.zombiesaddon.info.textMacro=Info: Send the text on chat when press the hotkey.
 zombiesaddon.commands.zombiesaddon.checkingUpdate=§eZombies Addon: Checking update...
 zombiesaddon.commands.zombiesaddon.checkedUpdate=§eZombies Addon: Checked update
 
@@ -74,16 +54,16 @@ zombiesaddon.features.sla.auto.setMap=§eAuto SLA: Set SLA to %s
 
 zombiesaddon.features.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
 
-zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: You have run Manual Timer of %s§e with a hotkey
+zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer of %s
 
 zombiesaddon.hud.done=Done
 zombiesaddon.hud.reset=Reset
 zombiesaddon.hud.comment=Click "Done" to save your current HUD position settings.
 
 zombiesaddon.game.round=§fRound %d
-zombiesaddon.game.insta=§cInsta Kill
+zombiesaddon.game.ins=§cInsta Kill
 zombiesaddon.game.max=§9Max Ammo
 zombiesaddon.game.ss=§5Shopping Spree
 zombiesaddon.game.dg=§6Double Gold
-zombiesaddon.game.carpenter=§9Carpenter
+zombiesaddon.game.car=§9Carpenter
 zombiesaddon.game.bg=§6Bonus Gold

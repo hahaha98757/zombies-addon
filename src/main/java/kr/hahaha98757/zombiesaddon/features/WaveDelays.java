@@ -2,7 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.features;
 
-import kr.hahaha98757.zombiesaddon.config.Hotkeys;
+import kr.hahaha98757.zombiesaddon.KeyBindings;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.data.GameData;
 import kr.hahaha98757.zombiesaddon.data.wavedelays.*;
@@ -39,7 +39,7 @@ public class WaveDelays {
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Utils.isModDisable()) return;
-        if (!Hotkeys.toggleRLMode.isPressed()) return;
+        if (!KeyBindings.toggleRLMode.isPressed()) return;
 
         useRL = !useRL;
         if (useRL) rlOffset = ZombiesAddonConfig.getRLModeOffset();
@@ -93,7 +93,7 @@ public class WaveDelays {
         if (round == null) return;
 
         Wave[] waves = round.getWaves();
-        int roundTime = RoundTimer.instance.getTicks();
+        int roundTime = RoundTimer.getTicks();
         int length = waves.length;
         int index = 0;
         boolean faded;
@@ -140,9 +140,9 @@ public class WaveDelays {
 
             switch (ZombiesAddonConfig.getHighlightStyle()) {
                 case "Zombies Addon":
-                    if (roundTime >= waveTime + DESPAWN_TICK) {
+                    if (roundTime >= waveTime + DESPAWN_TICK)
                         fr.drawStringWithShadow("§c" + str, HUDUtils.getWaveDelaysStrX(str), HUDUtils.getWaveDelaysStrY(length, index), 0);
-                    } else if (roundTime >= waveTime)
+                    else if (roundTime >= waveTime)
                         if (roundTime != waveTime && ZombiesAddonConfig.isHidePassedWave()) {
                             index++;
                             continue;
@@ -164,23 +164,22 @@ public class WaveDelays {
                     break;
                 case "Zombies Utils":
                     if (roundTime > waveTime) {
-                        if (!ZombiesAddonConfig.isHidePassedWave()) {
-                            faded = true;
-                        } else {
+                        if (!ZombiesAddonConfig.isHidePassedWave()) faded = true;
+                        else {
                             index++;
                             continue;
                         }
-                    } else {
-                        faded = false;
-                    }
+                    } else faded = false;
                     fr.drawStringWithShadow((faded ? "§8" : color) + str, HUDUtils.getWaveDelaysStrX(str), HUDUtils.getWaveDelaysStrY(length, index), 0);
                     if (!faded && color.equals("§e"))
                         fr.drawStringWithShadow("§5➤ ", HUDUtils.getWaveDelaysStrX("➤ " + str), HUDUtils.getWaveDelaysStrY(length, index), 0);
+                    float width1 = HUDUtils.getWaveDelaysStrX("➤ " + str);
                     for (Prefix prefix : wave.getPrefixes()) {
                         if (ZombiesAddonConfig.isNotWavePrefix()) continue;
                         if (ZombiesAddonConfig.isBossWaveColor() && prefix == Prefix.BOSS) continue;
                         String prefixString = prefix.getPrefix() + " ";
-                        fr.drawStringWithShadow(prefixString, HUDUtils.getWaveDelaysStrX(prefixString + "➤ " + str), HUDUtils.getWaveDelaysStrY(length, index), prefix.getColor());
+                        width1 -= fr.getStringWidth(prefixString);
+                        fr.drawStringWithShadow(prefixString, width1, HUDUtils.getWaveDelaysStrY(length, index), faded ? prefix.getFadedColor() : prefix.getColor());
                     }
                     if (!faded) color = "§7";
                     break;
@@ -202,7 +201,7 @@ public class WaveDelays {
         if (round == null) return;
 
         Wave[] waves = round.getWaves();
-        int roundTime = RoundTimer.instance.getTicks();
+        int roundTime = RoundTimer.getTicks();
         int length = waves.length;
         int index = 0;
 

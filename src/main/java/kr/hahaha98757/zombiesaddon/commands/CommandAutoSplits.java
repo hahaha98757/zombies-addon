@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.commands;
 
-import kr.hahaha98757.zombiesaddon.features.AutoSplits;
+import kr.hahaha98757.zombiesaddon.features.RoundTimer;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
@@ -36,11 +36,11 @@ public class CommandAutoSplits extends CommandBase {
 
         switch (args[0]) {
             case "stop":
-                AutoSplits.stopTimer();
+                RoundTimer.stop();
                 Utils.addTranslationChat("zombiesaddon.commands.autosplits.success.stop", new Object());
                 break;
             case "run":
-                AutoSplits.runTimer();
+                RoundTimer.run();
                 Utils.addTranslationChat("zombiesaddon.commands.autosplits.success.run", new Object());
                 break;
             default:

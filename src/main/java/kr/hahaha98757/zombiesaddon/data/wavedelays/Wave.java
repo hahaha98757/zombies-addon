@@ -2,6 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.data.wavedelays;
 
+@SuppressWarnings("unused")
 public class Wave {
     private final short ticks;
     private final Prefix[] prefixes;
@@ -10,9 +11,9 @@ public class Wave {
         this.ticks = ticks;
         this.prefixes = prefixes;
     }
+
     public Wave(short ticks) {
-        this.ticks = ticks;
-        this.prefixes = new Prefix[]{Prefix.WINDOW};
+        this(ticks, new Prefix[]{ Prefix.WINDOW });
     }
 
     public short getTime() {

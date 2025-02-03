@@ -22,7 +22,7 @@ public class KoreanPatcher {
 
         if (message.equals("This weapon is out of ammo! You can refill ammo at the place that you purchased the weapon or through collecting the Max Ammo Power Up.")) {
             event.setCanceled(true);
-            Utils.addChat("§c§l무기는 탄약이 없습니다! 무기를 구입한 곳에서 탄약을 채우거나 §r§9§l탄약 충전 §c§l파워업을 획득하세요.");
+            Utils.addChat("§c§l무기는 탄약이 없습니다! 무기를 구입한 곳에서 탄약을 채우거나§r§9§l 탄약 충전§c§l 파워업을 획득하세요.");
         }
 
         if (message.equals("Clarence의 벼락에 맞았습니다!")) {

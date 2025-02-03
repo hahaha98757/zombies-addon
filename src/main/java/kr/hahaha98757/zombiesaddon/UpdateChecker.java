@@ -69,7 +69,8 @@ public class UpdateChecker {
 				if (connection != null && ctx != null) {
 					connection.setSSLSocketFactory(ctx.getSocketFactory());
 				}
-				connection.setRequestMethod("GET");
+                //noinspection DataFlowIssue
+                connection.setRequestMethod("GET");
 				connection.setConnectTimeout(60000);
 				connection.setReadTimeout(60000);
 

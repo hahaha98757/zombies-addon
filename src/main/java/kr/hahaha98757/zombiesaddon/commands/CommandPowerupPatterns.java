@@ -41,40 +41,40 @@ public class CommandPowerupPatterns extends CommandBase {
 
 		if (args.length == 0) throw new WrongUsageException(getCommandUsage(null));
 		switch (args[0]) {
-			case "insta":
+			case "ins":
 				if (args.length == 1) {
-					Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§cInsta Kill");
-					PowerupPatterns.instaTimer = true;
-					ManualTimer.resetTimer((byte) 1);
+					Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§cInsta Kill");
+					PowerupPatterns.insTimer = true;
+					ManualTimer.INS.runTimer();
 				} else {
 					switch (args[1]) {
 						case "reset":
 							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§cInsta Kill");
-							PowerupPatterns.instaPattern = 0;
+							PowerupPatterns.insPattern = 0;
 							break;
 						case "2":
 						case "3":
 							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§a" + args[1]);
-							PowerupPatterns.instaPattern = Byte.parseByte(args[1]);
+							PowerupPatterns.insPattern = Byte.parseByte(args[1]);
 							break;
 						case "on":
 							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§a" + args[1]);
-							PowerupPatterns.useInstaPattern = true;
+							PowerupPatterns.useInsPattern = true;
 							break;
 						case "off":
 							Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§c" + args[1]);
-							PowerupPatterns.useInstaPattern = false;
+							PowerupPatterns.useInsPattern = false;
 							break;
 						default:
-							throw new WrongUsageException("/poweruppatterns insta [reset|2|3|on|off]");
+							throw new WrongUsageException("/poweruppatterns ins [reset|2|3|on|off]");
 					}
 				}
 				break;
 			case "max":
 				if (args.length == 1) {
-					Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§9Max Ammo");
+					Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Max Ammo");
 					PowerupPatterns.maxTimer = true;
-					ManualTimer.resetTimer((byte) 2);
+					ManualTimer.MAX.runTimer();
 				} else {
 					switch (args[1]) {
 						case "reset":
@@ -101,9 +101,9 @@ public class CommandPowerupPatterns extends CommandBase {
 				break;
 			case "ss":
 				if (args.length == 1) {
-					Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§5Shopping Spree");
+					Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§5Shopping Spree");
 					PowerupPatterns.ssTimer = true;
-					ManualTimer.resetTimer((byte) 3);
+					ManualTimer.SS.runTimer();
 				} else {
 					switch (args[1]) {
 						case "reset":
@@ -130,19 +130,19 @@ public class CommandPowerupPatterns extends CommandBase {
 				}
 				break;
 			case "dg":
-				Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§6Double Gold");
+				Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Double Gold");
 				PowerupPatterns.dgTimer = true;
-				ManualTimer.resetTimer((byte) 4);
+				ManualTimer.DG.runTimer();
 				break;
-			case "carpenter":
-				Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§9Carpenter");
-				PowerupPatterns.carpenterTimer = true;
-				ManualTimer.resetTimer((byte) 5);
+			case "car":
+				Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Carpenter");
+				PowerupPatterns.carTimer = true;
+				ManualTimer.CAR.runTimer();
 				break;
 			case "bg":
-				Utils.addTranslationChat("zombiesaddon.commands.poweruppatterns.success.timer", "§6Bonus Gold");
+				Utils.addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Bonus Gold");
 				PowerupPatterns.bgTimer = true;
-				ManualTimer.resetTimer((byte) 6);
+				ManualTimer.BG.runTimer();
 				break;
 			default:
 				throw new WrongUsageException(getCommandUsage(null));
@@ -152,8 +152,8 @@ public class CommandPowerupPatterns extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos) {
 		if (args.length == 1)
-			return getListOfStringsMatchingLastWord(args, "insta", "max", "ss", "dg", "carpenter", "bg");
-        else if (args[0].equals("insta") || args[0].equals("max"))
+			return getListOfStringsMatchingLastWord(args, "ins", "max", "ss", "dg", "car", "bg");
+        else if (args[0].equals("ins") || args[0].equals("max"))
             return getListOfStringsMatchingLastWord(args, "reset", "2", "3", "on", "off");
         else if (args[0].equals("ss"))
 			return getListOfStringsMatchingLastWord(args, "reset", "5", "6", "7", "on", "off");

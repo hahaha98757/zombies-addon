@@ -1,5 +1,6 @@
 package kr.hahaha98757.zombiesaddon.features;
 
+import kr.hahaha98757.zombiesaddon.ZombiesAddon;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.events.SoundEvent;
 import kr.hahaha98757.zombiesaddon.events.TitleEvent;
@@ -10,6 +11,7 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
@@ -46,16 +48,25 @@ public class LastWeapons {
                 ItemStack weapon = weapons[i];
 
                 if (weapon != null) {
+                    if (i == 4) {
+                        if (weapon.getItem() == Item.getItemById(351) && weapon.getItemDamage() == 8) {
+                            String name = weapon.getDisplayName();
+                            if (name.contains("Heal Skill") || name.contains("회복 기술"))
+                                displayTexture("textures/items/heal_cool.png", x + 20*i, y);
+                            else if (name.contains("Lightning Rod Skill") || name.contains("번개 막대 기술"))
+                                displayTexture("textures/items/lrod_cool.png", x + 20*i, y);
+                            else if (name.contains("Deployable Turret Skill"))
+                                displayTexture("textures/items/deployable_turret_cool.png", x + 20*i, y);
+                            continue;
+                        }
+                    }
+
                     int level = Utils.getLevel(EnumChatFormatting.getTextWithoutFormattingCodes(weapon.getDisplayName()));
 
                     renderItem.renderItemAndEffectIntoGUI(weapon, x + 20*i, y);
 
-                    if (ZombiesAddonConfig.isDisplayWeaponsLevel() && level != 0) {
-                        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("zombiesaddon", "textures/items/level" + level + ".png"));
-                        GlStateManager.disableDepth();
-                        Gui.drawModalRectWithCustomSizedTexture(x + 20*i, y, 0, 0, 16, 16, 16, 16);
-                        GlStateManager.enableDepth();
-                    }
+                    if (ZombiesAddonConfig.isDisplayWeaponsLevel() && level != 0)
+                        displayTexture("textures/items/level" + level + ".png", x + 20 * i, y);
                     renderItem.renderItemOverlayIntoGUI(fr, weapon, x + 20*i, y, null);
                 }
             }
@@ -92,5 +103,12 @@ public class LastWeapons {
     public void onSound(SoundEvent event) {
         if (Utils.isModDisable()) return;
         if (event.getSoundName().equals("mob.wither.spawn")) win = false;
+    }
+
+    private static void displayTexture(String path, int x, int y) {
+        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(ZombiesAddon.MODID, path));
+        GlStateManager.disableDepth();
+        Gui.drawModalRectWithCustomSizedTexture(x, y, 0, 0, 16, 16, 16, 16);
+        GlStateManager.enableDepth();
     }
 }
