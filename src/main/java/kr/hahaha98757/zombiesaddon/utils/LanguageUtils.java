@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 public class LanguageUtils {//en_US, ko_KR, pt_BR, zh_CN, zh_TW, cs_CZ, da_DK, nl_NL, fi_FI, fr_FR, de_DE, el_GR, hu_HU, it_IT, ja_JP, no_NO, en_PT, pl_PL, pt_PT, ro_RO, ru_RU, es_ES, uk_UA
@@ -26,11 +27,10 @@ public class LanguageUtils {//en_US, ko_KR, pt_BR, zh_CN, zh_TW, cs_CZ, da_DK, n
         }
         Properties langFile = new Properties();
         ResourceLocation resourceLocation = new ResourceLocation("zombiesaddon", "lang/" + langCode + ".lang");
-        try {
-            Reader reader = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(resourceLocation).getInputStream());
+        try (Reader reader = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(resourceLocation).getInputStream(), StandardCharsets.UTF_8)) {
             langFile.load(reader);
         } catch (IOException e) {
-            return "";
+            return key;
         }
         return langFile.getProperty(key, key);
     }

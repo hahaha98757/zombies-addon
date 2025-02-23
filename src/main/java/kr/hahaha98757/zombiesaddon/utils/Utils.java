@@ -61,6 +61,10 @@ public class Utils {
         mc.thePlayer.addChatComponentMessage(text);
     }
 
+    public static void sendChat(String text) {
+        mc.thePlayer.sendChatMessage(text);
+    }
+
     public static String getTranslatedString(String key, boolean isFormatted, Object... objects) {
         ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation(LanguageUtils.getTranslateKey(key), objects);
         return isFormatted ? chatComponentTranslation.getFormattedText() : chatComponentTranslation.getUnformattedText();

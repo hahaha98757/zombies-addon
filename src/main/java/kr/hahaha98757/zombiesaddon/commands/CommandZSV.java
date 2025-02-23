@@ -56,23 +56,26 @@ public class CommandZSV extends CommandBase {
 		ZombiesStratViewer.START_LINES.clear();
 		ZombiesStratViewer.START_LINES.add("");
 		ZombiesStratViewer.currentLine = 0;
+
 		try {
 			URL url = new URL(args[0]);
 			HttpURLConnection huc = (HttpURLConnection) url.openConnection();
 			huc.setDoInput(true);
 			huc.connect();
-			BufferedReader br = new BufferedReader(new InputStreamReader(huc.getInputStream()));
-
-			String str;
-			while ((str = br.readLine()) != null) ZombiesStratViewer.START_LINES.add(str);
-			ZombiesStratViewer.zombiesStratViewer = true;
-			ZombiesStratViewer.recalcActualLines();
-			br.close();
-			huc.getInputStream().close();
-			Utils.addTranslationChat("zombiesaddon.commands.zsv.success", "§aon");
-		} catch (IOException e) {
-			Utils.addTranslationChat("zombiesaddon.commands.zsv.failed", new Object());
+			try (BufferedReader br = new BufferedReader(new InputStreamReader(huc.getInputStream()))) {
+				String str;
+				while ((str = br.readLine()) != null) ZombiesStratViewer.START_LINES.add(str);
+				ZombiesStratViewer.zombiesStratViewer = true;
+				ZombiesStratViewer.recalcActualLines();
+				br.close();
+				huc.getInputStream().close();
+				Utils.addTranslationChat("zombiesaddon.commands.zsv.success", "§aon");
+				return;
+			} catch (IOException ignored) {
+			}
+		} catch (IOException ignored) {
 		}
+		Utils.addTranslationChat("zombiesaddon.commands.zsv.failed", new Object());
 	}
 
 	@Override

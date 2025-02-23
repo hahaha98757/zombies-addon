@@ -116,6 +116,11 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 ## Update Log
 
+### 4.3.0-pre3
+- Fixed bugs.
+- Added /de, /bb, /aa, and /pr commands.
+- Fixed Last Weapons.
+
 ### 4.3.0-pre2
 - Fixed bugs.
 - Fixed Wave Delays.

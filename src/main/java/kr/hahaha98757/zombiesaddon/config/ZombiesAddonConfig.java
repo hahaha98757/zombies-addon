@@ -50,6 +50,7 @@ public class ZombiesAddonConfig {
 	private static Property toggleLastWeapons;
 	private static Property displayArmors;
 	private static Property displayWeaponsLevel;
+	private static Property displayCooledDownSkill;
 
 	private static Property zombiesOverlayPatcher;
 	private static Property koreanPatcher;
@@ -116,6 +117,8 @@ public class ZombiesAddonConfig {
 		displayArmors = config.get(CATEGORY_LAST_WEAPONS, "Display Armors", true, "Displays your armors at Game Over.");
 
 		displayWeaponsLevel = config.get(CATEGORY_LAST_WEAPONS, "Display Weapons Level", true, "Displays level of weapons and perks.");
+
+		displayCooledDownSkill = config.get(CATEGORY_LAST_WEAPONS, "Display Cooled Down Skill", true, "Displays a black and white texture when a your skill is on cooldown.");
 
 		//Korean Patchers
 		zombiesOverlayPatcher = config.get(CATEGORY_KOREAN_PATCHERS, "Zombies Overlay Patcher", false, "You can use Zombies Overlay in Korean.");
@@ -202,7 +205,8 @@ public class ZombiesAddonConfig {
 		return Arrays.asList(
 				new CustomConfigElement("Toggle Last Weapons", toggleLastWeapons),
 				new CustomConfigElement("Display Armors", displayArmors),
-				new CustomConfigElement("Display Weapons Level", displayWeaponsLevel)
+				new CustomConfigElement("Display Weapons Level", displayWeaponsLevel),
+				new CustomConfigElement("Display Cooled Down Skill", displayCooledDownSkill)
 		);
 	}
 
@@ -333,6 +337,10 @@ public class ZombiesAddonConfig {
 
 	public static boolean isDisplayWeaponsLevel() {
 		return displayWeaponsLevel.getBoolean();
+	}
+
+	public static boolean isDisplayCooledDownSkill() {
+		return displayCooledDownSkill.getBoolean();
 	}
 
 	public static boolean isZombiesOverlayPatcher() {

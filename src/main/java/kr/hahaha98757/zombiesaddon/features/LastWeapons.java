@@ -11,7 +11,7 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
@@ -48,8 +48,8 @@ public class LastWeapons {
                 ItemStack weapon = weapons[i];
 
                 if (weapon != null) {
-                    if (i == 4) {
-                        if (weapon.getItem() == Item.getItemById(351) && weapon.getItemDamage() == 8) {
+                    if (i == 4 && ZombiesAddonConfig.isDisplayCooledDownSkill()) {
+                        if (weapon.getItem() == Items.dye && weapon.getItemDamage() == 8) {
                             String name = weapon.getDisplayName();
                             if (name.contains("Heal Skill") || name.contains("회복 기술"))
                                 displayTexture("textures/items/heal_cool.png", x + 20*i, y);

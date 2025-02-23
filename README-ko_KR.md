@@ -125,6 +125,11 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 ## 업데이트 로그
 
+### 4.3.-pre3
+- 버그 수정.
+- /de, /bb, /aa, /pr 명령어 추가.
+- Last Weapons 수정.
+
 ### 4.3.0-pre2
 - 버그 수정.
 - Wave Delays 수정.

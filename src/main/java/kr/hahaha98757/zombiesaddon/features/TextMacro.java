@@ -3,7 +3,6 @@ package kr.hahaha98757.zombiesaddon.features;
 import kr.hahaha98757.zombiesaddon.KeyBindings;
 import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 
@@ -15,6 +14,6 @@ public class TextMacro {
 
         if (!KeyBindings.textMacro.isPressed()) return;
 
-        Minecraft.getMinecraft().thePlayer.sendChatMessage(ZombiesAddonConfig.getTextMacro());
+        Utils.sendChat(ZombiesAddonConfig.getTextMacro());
     }
 }

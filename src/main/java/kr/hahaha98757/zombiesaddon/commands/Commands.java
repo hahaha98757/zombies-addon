@@ -11,5 +11,9 @@ public class Commands {
         ClientCommandHandler.instance.registerCommand(new CommandWaveDelays());
         ClientCommandHandler.instance.registerCommand(new CommandAutoSplits());
         ClientCommandHandler.instance.registerCommand(new CommandZombiesAddon());
+        ClientCommandHandler.instance.registerCommand(new CommandDE());
+        ClientCommandHandler.instance.registerCommand(new CommandBB());
+        ClientCommandHandler.instance.registerCommand(new CommandAA());
+        ClientCommandHandler.instance.registerCommand(new CommandPR());
     }
 }

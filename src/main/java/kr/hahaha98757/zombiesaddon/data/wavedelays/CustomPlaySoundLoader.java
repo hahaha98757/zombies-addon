@@ -13,15 +13,12 @@ public class CustomPlaySoundLoader {
     public static CustomPlaySound[] readFromFile(String filePath) {
         File file = new File(filePath);
 
-        if (!file.exists()) {
-            return null;
-        }
+        if (!file.exists()) return null;
 
         try (Reader reader = new FileReader(file)) {
             JsonElement JsonElement = new JsonParser().parse(reader);
             return new Gson().fromJson(JsonElement, CustomPlaySound[].class);
         } catch (Exception e) {
-            e.printStackTrace();
             return null;
         }
     }
