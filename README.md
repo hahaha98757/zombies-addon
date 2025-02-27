@@ -5,32 +5,32 @@ The mod for Hypixel Zombies.
 Supported language: [English (US)](README.md), [한국어 (대한민국)](README-ko_KR.md)
 
 ## Features
-### Player Visibility
-Hides nearby players from your view.<br>
-Makes out of range players appear semi-transparent from your view.<br>
-Toggle with the Z key.<br>
-You can set the range in the config.<br>
-Player Invisible of SST isn't worked if you are using this mod.
+\* means that Hypixel language must be set to English or Korean for working.
 
-### Block Alarm
-Displays "BLOCK" on the screen when you survived alone and there is a player you can revive.<br>
-Toggle with the B key.<br>
-It only works when the Hypixel language is set to English or Korean.
+### Player Visibility
+Hides nearby players from your view.
+<br>Makes out of range players appear semi-transparent from your view.
+<br>Toggle with the Z key.
+<br>You can set the range in the config.
+<br>Player Invisible of SST isn't worked if you are using this mod.
+
+### Block Alarm*
+Displays "BLOCK" on the screen when you survived alone and there is a player you can revive.
+<br>Toggle with the B key.
 
 ### Not Last
 Displays the player who killed the last one.
 
 ### Auto Splits
-Runs a timer at start of the round.<br>
-You can set the position of timer with /zombiesaddon hud command.
+Runs a timer at start of the round.
+<br>You can set the position of timer with /zombiesaddon hud command.
 
-### Wave Delays
-Displays the wave delays.<br>
-You can set the many options in the config.<br>
-You can set the position of wave delays with /zombiesaddon hud command.<br>
-You can set the difficult with /wavedelays command.<br>
-You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.<br>
-It only works when the Hypixel language is set to English or Korean. (In other language, you should change the difficulty with a command.)
+### Wave Delays*
+Displays the wave delays.
+<br>You can set the many options in the config.
+<br>You can set the position of wave delays with /zombiesaddon hud command.
+<br>You can set the difficult with /wavedelays command.
+<br>You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.
 
 Displays the wave which the boss spawns.
 | Color | Boss name |
@@ -46,51 +46,50 @@ Displays the wave which the boss spawns.
 | Black | World Ender |
 
 ### Zombies Strat Viewer
-Displays the text in https://pastebin.com/ on the screen.<br>
-Use /zsv <URL|off> command to load or close the text. URL must start with "https://pastebin.com/raw/".<br>
-Use /zsvlines <number> command to set lines of view.
+Displays the text in https://pastebin.com/ on the screen.
+<br>Use /zsv <URL|off> command to load or close the text. URL must start with "https://pastebin.com/raw/".
+<br>Use /zsvlines <number> command to set lines of view.
 
 ### Spawn Limit Action
-Displays the number and names of windows where zombies can spawn.<br>
-Use /sla <de|bb|aa|off> command to set the map or off SLA.<br>
-You can set the SLA for custom map(e.g. Housing) with /sla custom <offset|rotate|mirror> command.<br>
-You can set the many options in the config.
+Displays the number and names of windows where zombies can spawn.
+<br>Use /sla <de|bb|aa|off> command to set the map or off SLA.
+<br>You can set the SLA for custom map(e.g. Housing) with /sla custom <offset|rotate|mirror> command.
+<br>You can set the many options in the config.
 
 ### Auto Rejoin
-Automatically rejoin Zombies when start of the round.<br>
-You can set to hide toggle text in the config.
+Automatically rejoin Zombies when start of the round.
+<br>You can set to hide toggle text in the config.
 
-### Powerup Patterns
-Displays the patterns of power-ups.<br>
-Use /pow <insta|max|ss> [reset|number|on|off] command to reset or set the pattern.<br>
-The displayed power-up pattern will be updated in the next round.<br>
-For example, if Insta Kill spawned in round 2, Insta Kill pattern will be displayed on the screen when round 3 starts.<br>
-Use hotkeys or /pow <insta|max|ss|dg|carpenter|bg> command to run Manual Timer.<br>
-It only works when the Hypixel language is set to English or Korean.
+### Powerup Patterns*
+Displays the patterns of power-ups.
+<br>Use /pow <insta|max|ss> [reset|number|on|off] command to reset or set the pattern.
+<br>The displayed power-up pattern will be updated in the next round.
+<br>For example, if Insta Kill spawned in round 2, Insta Kill pattern will be displayed on the screen when round 3 starts.
+<br>Use hotkeys or /pow <insta|max|ss|dg|carpenter|bg> command to run Manual Timer.
 
 ### Last Weapons
-Displays your weapons when You Win.<br>
-Displays level of your weapons when You Win.<br>
-You can set the many options in the config.<br>
-It only works when the Hypixel language is set to English or Korean.
+Displays your weapons when You Win.
+<br>Displays level of your weapons when You Win.
+<br>You can set the many options in the config.
 
 ### Text Macro
-Sends the text on chat when press the Q key.<br>
-You can set the text in the config.
+Sends the text on chat when press the Q key.
+<br>You can set the text in the config.
 
-### Korean Patchers
-Translated some phrases in Zombies.<br>
-Translated some phrases in SST.<br>
-You can use [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) even if the Hypixel language is set to Korean.
+### Korean Patchers*
+Translated some phrases in Zombies.
+<br>Translated some phrases in SST.
+<br>You can use [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) even if the Hypixel language is set to Korean.
 
 ### Other Mods
-You can turn off spawn time of SST in the config.<br>
-You can turn off timer of Zombies Utils in the config.
+You can turn off spawn time of SST in the config.
+<br>You can turn off timer of Zombies Utils in the config.
 
 ### Other
-The game ends when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)<br>
-Blocks the unlegit features of SST.<br>
-Changed /sla command of Zombies Utils to /sla_zombiesutils
+The game ends when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)
+<br>Blocks the unlegit features of SST.
+<br>Changed /sla command of Zombies Utils to /sla_zombiesutils
+<br>Use /de, /bb, /aa, or /pr commands to join each map.
 
 
 ## License
@@ -115,6 +114,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 ## Update Log
+
+### 4.3.0
+- No changes.
 
 ### 4.3.0-pre3
 - Fixed bugs.
