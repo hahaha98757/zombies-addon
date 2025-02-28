@@ -1,10 +1,11 @@
 {
   "homepage": "https://github.com/hahaha98757/zombies-addon/releases",
   "promos": {
-    "1.8.9-latest": "4.3.0",
-    "1.8.9-recommended": "4.3.0"
+    "1.8.9-latest": "4.3.1",
+    "1.8.9-recommended": "4.3.1"
   },
   "1.8.9": {
+    "4.3.1": "test",
     "4.3.0": "No changes."
   }
 }
