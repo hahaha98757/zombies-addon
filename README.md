@@ -115,6 +115,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 ## Update Log
 
+### 4.3.1
+- Fixed bugs.
+
 ### 4.3.0
 - No changes.
 

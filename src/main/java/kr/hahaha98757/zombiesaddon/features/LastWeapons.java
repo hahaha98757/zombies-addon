@@ -56,7 +56,7 @@ public class LastWeapons {
                             else if (name.contains("Lightning Rod Skill") || name.contains("번개 막대 기술"))
                                 displayTexture("textures/items/lrod_cool.png", x + 20*i, y);
                             else if (name.contains("Deployable Turret Skill"))
-                                displayTexture("textures/items/deployable_turret_cool.png", x + 20*i, y);
+                                displayTexture("textures/items/turret_cool.png", x + 20*i, y);
                             continue;
                         }
                     }
