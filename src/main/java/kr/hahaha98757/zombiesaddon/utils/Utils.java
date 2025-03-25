@@ -108,7 +108,12 @@ public class Utils {
     }
 
     public static boolean isNotZombies() {
-        return getScoreboard() == null;
+        if (mc.theWorld == null || mc.thePlayer == null) return true;
+
+        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
+        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(1);
+
+        return scoreObjective == null || !EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equals("ZOMBIES");
     }
 
     public static boolean isNotPlayZombies() {
