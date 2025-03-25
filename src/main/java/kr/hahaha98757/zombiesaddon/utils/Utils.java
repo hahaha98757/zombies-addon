@@ -87,7 +87,6 @@ public class Utils {
     }
 
     private static HashMap<Integer, String> getScoreboard() {
-        HashMap<Integer, String> scoreboards = new HashMap<>();
         if (mc.theWorld == null || mc.thePlayer == null) return null;
 
         Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
@@ -95,6 +94,7 @@ public class Utils {
 
         if (scoreObjective == null || !EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equals("ZOMBIES")) return null;
 
+        HashMap<Integer, String> scoreboards = new HashMap<>();
         for (Score score : scoreboard.getSortedScores(scoreObjective))
             scoreboards.put(score.getScorePoints(), EnumChatFormatting.getTextWithoutFormattingCodes(ScorePlayerTeam.formatPlayerName(scoreboard.getPlayersTeam(score.getPlayerName()), score.getPlayerName())).replaceAll("[^A-Za-z0-9가-힣:_.,/\\s]", "").trim());
         return scoreboards;
@@ -108,7 +108,12 @@ public class Utils {
     }
 
     public static boolean isNotZombies() {
-        return getScoreboard() == null;
+        if (mc.theWorld == null || mc.thePlayer == null) return true;
+
+        Scoreboard scoreboard = mc.thePlayer.getWorldScoreboard();
+        ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(1);
+
+        return scoreObjective == null || !EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName()).equals("ZOMBIES");
     }
 
     public static boolean isNotPlayZombies() {
