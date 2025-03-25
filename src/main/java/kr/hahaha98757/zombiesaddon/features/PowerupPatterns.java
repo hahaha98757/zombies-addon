@@ -9,14 +9,14 @@ import kr.hahaha98757.zombiesaddon.utils.HUDUtils;
 import kr.hahaha98757.zombiesaddon.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -55,7 +55,7 @@ public class PowerupPatterns {
 
     public static boolean gameEnd;
 
-    public static final Set<EntityLivingBase> spawnedEntities = new HashSet<>();
+    public static final Set<Entity> spawnedEntities = new HashSet<>();
 
     @SubscribeEvent
     public void drawTimerText(RenderGameOverlayEvent.Post event) {
@@ -223,67 +223,67 @@ public class PowerupPatterns {
     }
 
     @SubscribeEvent
-    public void onLivingUpdateEvent(LivingEvent.LivingUpdateEvent event) {
+    public void onTick(TickEvent.ClientTickEvent event) {
         if (Utils.isModDisable()) return;
         if (Utils.isNotZombies() || ZombiesAddonConfig.isNotTogglePowerupPatterns()) return;
         if (gameEnd) return;
 
-        EntityLivingBase entity = event.entityLiving;
+        for (Entity entity : Minecraft.getMinecraft().theWorld.getLoadedEntityList()) {
+            if (!(entity instanceof EntityArmorStand)) continue;
 
-        if (!(entity instanceof EntityArmorStand)) return;
+            String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName());
 
-        String name = EnumChatFormatting.getTextWithoutFormattingCodes(entity.getName());
+            if (spawnedEntities.contains(entity)) return;
 
-        if (spawnedEntities.contains(entity)) return;
+            if (name.equals("INSTA KILL") || name.equals("즉시 처치")) {
+                spawnedEntities.add(entity);
 
-        if (name.equals("INSTA KILL") || name.equals("즉시 처치")) {
-            spawnedEntities.add(entity);
+                for (int i : INSTA_PATTERN1)
+                    if (i == Utils.getRound()) {
+                        insPattern = 2;
+                        break;
+                    }
+                for (int i : INSTA_PATTERN2)
+                    if (i == Utils.getRound()) {
+                        insPattern = 3;
+                        break;
+                    }
+            }
 
-            for (int i : INSTA_PATTERN1)
-                if (i == Utils.getRound()) {
-                    insPattern = 2;
-                    break;
-                }
-            for (int i : INSTA_PATTERN2)
-                if (i == Utils.getRound()) {
-                    insPattern = 3;
-                    break;
-                }
-        }
+            if (name.equals("MAX AMMO") || name.equals("탄약 충전")) {
+                spawnedEntities.add(entity);
 
-        if (name.equals("MAX AMMO") || name.equals("탄약 충전")) {
-            spawnedEntities.add(entity);
+                for (int i : MAX_PATTERN1)
+                    if (i == Utils.getRound()) {
+                        maxPattern = 2;
+                        break;
+                    }
+                for (int i : MAX_PATTERN2)
+                    if (i == Utils.getRound()) {
+                        maxPattern = 3;
+                        break;
+                    }
+            }
 
-            for (int i : MAX_PATTERN1)
-                if (i == Utils.getRound()) {
-                    maxPattern = 2;
-                    break;
-                }
-            for (int i : MAX_PATTERN2)
-                if (i == Utils.getRound()) {
-                    maxPattern = 3;
-                    break;
-                }
-        }
+            if (name.equals("SHOPPING SPREE") || name.equals("지름신 강림")) {
+                spawnedEntities.add(entity);
 
-        if (name.equals("SHOPPING SPREE") || name.equals("지름신 강림")) {
-            spawnedEntities.add(entity);
-
-            for (int i : SS_PATTERN1)
-                if (i == Utils.getRound()) {
-                    ssPattern = 5;
-                    break;
-                }
-            for (int i : SS_PATTERN2)
-                if (i == Utils.getRound()) {
-                    ssPattern = 6;
-                    break;
-                }
-            for (int i : SS_PATTERN3)
-                if (i == Utils.getRound()) {
-                    ssPattern = 7;
-                    break;
-                }
+                for (int i : SS_PATTERN1)
+                    if (i == Utils.getRound()) {
+                        ssPattern = 5;
+                        break;
+                    }
+                for (int i : SS_PATTERN2)
+                    if (i == Utils.getRound()) {
+                        ssPattern = 6;
+                        break;
+                    }
+                for (int i : SS_PATTERN3)
+                    if (i == Utils.getRound()) {
+                        ssPattern = 7;
+                        break;
+                    }
+            }
         }
     }
 

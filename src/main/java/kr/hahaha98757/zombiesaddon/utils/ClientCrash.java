@@ -35,11 +35,11 @@ public class ClientCrash {
 				Utils.addChat("§c§lThe game ends...");
 
 				if (update)
-					throw new GameEnd("Update Zombies Addon. URL: https://github.com/hahaha98757/zombies-addon/releases");
+					throw new RuntimeException("Update Zombies Addon. URL: https://github.com/hahaha98757/zombies-addon/releases");
 				if (unlegit)
-                    throw new GameEnd("Detected Unlegit Mods. Remove ZombiesSatellite, Zombies Explorer, TeammatesOutline, or ZombiesHelper.");
+                    throw new RuntimeException("Detected Unlegit Mods. Remove ZombiesSatellite, Zombies Explorer, TeammatesOutline, or ZombiesHelper.");
 
-				throw new GameEnd();
+				throw new RuntimeException("Unknown Error.");
 			default:
 				break;
 		}
