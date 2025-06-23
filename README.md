@@ -130,7 +130,7 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 - Code reorganization.
 - Fixed config: Translated option names and descriptions.
 - Fixed Detect Unlegit Mods: Apprise it with GUI., Added a feature that automatic deletion the mods.(Windows only)
-- 업데이트 채크 수정: Apprise recommended version and required updates with GUI, Added auto update.(Windows only)
+- Fixed Update Checker: Apprise recommended version and required updates with GUI, Added auto update.(Windows only)
 - Changed version system.
 - Fixed Player Visibility: Can be set semi-transparent range, It works only ingame.
 - Fixed Block Alarm: Does not work when not alive, Change the default key to P.
