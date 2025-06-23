@@ -17,9 +17,6 @@ zombiesaddon.key.carTimer=Carpenter Timer
 zombiesaddon.key.bgTimer=Bonus Gold Timer
 
 
-zombiesaddon.commands.autosplits.success.stop=§eAuto Splits: Stopped the timer
-zombiesaddon.commands.autosplits.success.run=§eAuto Splits: Ran the timer
-
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|number|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: §cReset %s§e pattern
 zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e pattern to %s
@@ -27,11 +24,12 @@ zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e
 zombiesaddon.commands.sla.setMap=§eSLA: Set SLA to %s
 zombiesaddon.commands.sla.setOffset=§eSLA: Set offset to %s
 zombiesaddon.commands.sla.resetRotations=§eSLA: §cReset§e rotations
-zombiesaddon.commands.sla.rotates=§eSLA: Rotates all windows %s§e clockwise around axis§a 0 y 0
+zombiesaddon.commands.sla.rotates=§eSLA: Rotates all windows %s§e counterclockwise around axis§a 0 y 0
 zombiesaddon.commands.sla.resetMirroring=§eSLA: §cReset§e mirroring
 zombiesaddon.commands.sla.mirror=§eSLA: Mirrors all windows along the plane %s
 
-zombiesaddon.commands.wavedelays.success=§eWave Delays: Set difficulty to %s
+zombiesaddon.commands.wavedelays.difficulty=§eWave Delays: Set difficulty to %s
+zombiesaddon.commands.wavedelays.offset=§eWave Delays: Set offset to %s
 
 zombiesaddon.commands.zombiesaddon.checkingUpdate=§eZombies Addon: Checking update...
 zombiesaddon.commands.zombiesaddon.checkedUpdate=§eZombies Addon: Checked update
@@ -45,9 +43,13 @@ zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to %d
 
 
 zombiesaddon.features.general.toggled=§eToggled %s§e to %s
+zombiesaddon.features.general.disabled=§e%s:§c It is disabled
 
 zombiesaddon.features.notLast.failed=§eNot Last: §cFailed to find the last
+zombiesaddon.features.notLast.or=§eor
 zombiesaddon.features.notLast.printLast=§eNot Last: %s§e was last
+
+zombiesaddon.features.autoSplits.failed=§eAuto Splits: §cFailed to send %s§c signal
 
 zombiesaddon.features.sla.auto.wrongMap=§eAuto SLA: §cWrong map
 zombiesaddon.features.sla.auto.setMap=§eAuto SLA: Set SLA to %s
@@ -56,9 +58,26 @@ zombiesaddon.features.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
 
 zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer of %s
 
-zombiesaddon.hud.done=Done
-zombiesaddon.hud.reset=Reset
-zombiesaddon.hud.comment=Click "Done" to save your current HUD position settings.
+zombiesaddon.gui.reset=Reset
+zombiesaddon.gui.comment=Click "Done" to save your current HUD position settings.
+zombiesaddon.gui.windowsOnly=This feature is only available on Windows.
+
+zombiesaddon.gui.detectedUnlegitMods.title=Detected Unlegit Mods
+zombiesaddon.gui.detectedUnlegitMods.list=Unlegit Mods:
+zombiesaddon.gui.detectedUnlegitMods.button.remove=Remove Unlegit Mods(Windows only)
+zombiesaddon.gui.detectedUnlegitMods.button.quit=Quit the game
+
+zombiesaddon.gui.downloadWaiting.title=Downloading...
+zombiesaddon.gui.downloadWaiting.failed=Failed download the update.
+
+zombiesaddon.gui.GuiUpdateScreen.title.normal=The new recommended version has been released.
+zombiesaddon.gui.GuiUpdateScreen.title.mandatory=§cThe mandatory update has been released.
+zombiesaddon.gui.GuiUpdateScreen.message.mandatory=You should update this mod or can't play the game.
+zombiesaddon.gui.GuiUpdateScreen.button.autoupdate=Auto update(Windows only)
+zombiesaddon.gui.GuiUpdateScreen.button.url=Open download URL
+zombiesaddon.gui.GuiUpdateScreen.button.continue=Continue
+zombiesaddon.gui.GuiUpdateScreen.button.quit=Quit the game
+
 
 zombiesaddon.game.round=§fRound %d
 zombiesaddon.game.ins=§cInsta Kill
@@ -67,3 +86,127 @@ zombiesaddon.game.ss=§5Shopping Spree
 zombiesaddon.game.dg=§6Double Gold
 zombiesaddon.game.car=§9Carpenter
 zombiesaddon.game.bg=§6Bonus Gold
+
+
+zombiesaddon.update.downloadText= §9Click here to download.
+zombiesaddon.update.downloadHover=Open download URL.
+zombiesaddon.update.latestWarning=§cThe latest version is not perfect. There may be bugs.
+zombiesaddon.update.usingLatest=You are using the latest version.
+zombiesaddon.update.newLatest=The new latest version has been released.
+zombiesaddon.update.currentVer=Current version: %s
+zombiesaddon.update.latestVer=Latest version: %s
+
+
+zombiesaddon.config.category.general=General
+zombiesaddon.config.category.general.tooltip=General options
+zombiesaddon.config.category.modules=Modules
+zombiesaddon.config.category.modules.tooltip=Other modules options
+zombiesaddon.config.category.pv=Player Visibility
+zombiesaddon.config.category.pv.tooltip=PV options.
+zombiesaddon.config.category.blockAlarm=Block Alarm
+zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm options
+zombiesaddon.config.category.autoSplits=Auto Splits
+zombiesaddon.config.category.autoSplits.tooltip=Auto Splits options
+zombiesaddon.config.category.waveDelays=Wave Delays
+zombiesaddon.config.category.waveDelays.tooltip=Wave Delays options
+zombiesaddon.config.category.autoRejoin=Auto Rejoin
+zombiesaddon.config.category.autoRejoin.tooltip=Auto Rejoin options
+zombiesaddon.config.category.sla=SLA
+zombiesaddon.config.category.sla.tooltip=SLA options
+zombiesaddon.config.category.lw=Last Weapons
+zombiesaddon.config.category.lw.tooltip=Last Weapons options
+zombiesaddon.config.category.koreanPatchers=Korean Patchers
+zombiesaddon.config.category.koreanPatchers.tooltip=Korean Patchers options
+zombiesaddon.config.category.otherMods=Other Mods
+zombiesaddon.config.category.otherMods.tooltip=Zombies Utils and SST options
+
+zombiesaddon.config.enableMod=Enable Mod
+zombiesaddon.config.enableMod.description=Enable or disable Zombies Addon mod.
+zombiesaddon.config.language=Language
+zombiesaddon.config.language.description=The language for the mod.
+
+zombiesaddon.config.toggleNotLast=Toggle Not Last
+zombiesaddon.config.toggleNotLast.description=Enable or disable Not Last.
+zombiesaddon.config.toggleInternalTimer=Toggle Internal Timer
+zombiesaddon.config.toggleInternalTimer.description=Enable or disable Internal Timer.
+zombiesaddon.config.togglePowerupPatterns=Toggle Powerup Patterns
+zombiesaddon.config.togglePowerupPatterns.description=Enable or disable Powerup Patterns.
+zombiesaddon.config.textMacro=Text Macro
+zombiesaddon.config.textMacro.description=The text for the Text Macro.
+
+zombiesaddon.config.pvDefault=Default Toggle State
+zombiesaddon.config.pvDefault.description=Toggle state when the game starts.
+zombiesaddon.config.pvText=Displays Text
+zombiesaddon.config.pvText.description=Displays texts with state of Player Visibility.
+zombiesaddon.config.pvRange=Range
+zombiesaddon.config.pvRange.description=The range for Player Visibility in blocks.
+zombiesaddon.config.pvToggleSemiPV=Toggle Semi PV
+zombiesaddon.config.pvToggleSemiPV.description=Enable or disable Semi Player Visibility.
+zombiesaddon.config.pvSemiPVRange=Semi PV Range
+zombiesaddon.config.pvSemiPVRange.description=The range for Semi Player Visibility in blocks.
+
+zombiesaddon.config.defaultBlockAlarm=Default Toggle State
+zombiesaddon.config.defaultBlockAlarm.description=Toggle state when the game starts.
+zombiesaddon.config.blockAlarmText=Displays Text
+zombiesaddon.config.blockAlarmText.description=Displays texts with state of Block Alarm.
+
+zombiesaddon.config.autoSplitsToggle=Toggle Auto Splits
+zombiesaddon.config.autoSplitsToggle.description=Enable or disable Auto Splits.
+zombiesaddon.config.autoSplitsHost=Host
+zombiesaddon.config.autoSplitsHost.description=The host of LiveSplit server.
+zombiesaddon.config.autoSplitsPort=Port
+zombiesaddon.config.autoSplitsPort.description=The port of LiveSplit server.
+
+zombiesaddon.config.waveDelaysToggle=Toggle Wave Delays
+zombiesaddon.config.waveDelaysToggle.description=Enable or disable Wave Delays.
+zombiesaddon.config.waveDelaysPlaySounds=Play Sounds
+zombiesaddon.config.waveDelaysPlaySounds.description=Plays a sound after n ticks of wave start.
+zombiesaddon.config.waveDelaysCustomPlaySound=Custom Play Sound
+zombiesaddon.config.waveDelaysCustomPlaySound.description=Plays sounds with a sound name, pitch, and playType that you set in a json file.
+zombiesaddon.config.waveDelaysPrefix=Prefix
+zombiesaddon.config.waveDelaysPrefix.description=Enable or disable the prefix.
+zombiesaddon.config.waveDelaysBossColor=Boss Color
+zombiesaddon.config.waveDelaysBossColor.description=Enable or disable colors of waves where a boss spawns.
+zombiesaddon.config.waveDelaysTextStyle=Text Style
+zombiesaddon.config.waveDelaysTextStyle.description=The style of texts that are displayed on the screen.
+zombiesaddon.config.waveDelaysHighlightStyle=Highlight Style
+zombiesaddon.config.waveDelaysHighlightStyle.description=The Highlight method for a current wave, passed waves, and next waves.
+zombiesaddon.config.waveDelaysHidePassedWave=Hide Passed Wave
+zombiesaddon.config.waveDelaysHidePassedWave.description=Enable or disable hiding passed waves.
+zombiesaddon.config.waveDelaysRLModeOffset=RL Mode Offset
+zombiesaddon.config.waveDelaysRLModeOffset.description=The offset for RL Mode.
+
+zombiesaddon.config.slaAutoSLA=Auto SLA
+zombiesaddon.config.slaAutoSLA.description=Turns on SLA when the game starts.
+zombiesaddon.config.slaTextColor=Text Color
+zombiesaddon.config.slaTextColor.description=Enable or disable colors for SLA texts.
+zombiesaddon.config.slaActivatedWindows=Activated Windows
+zombiesaddon.config.slaActivatedWindows.description=Displays activated windows in SLA.
+zombiesaddon.config.slaUnactivatedWindows=Unactivated Windows
+zombiesaddon.config.slaUnactivatedWindows.description=Displays unactivated windows in SLA.
+
+zombiesaddon.config.defaultAutoRejoin=Default Toggle State
+zombiesaddon.config.defaultAutoRejoin.description=Toggle state when the game starts.
+zombiesaddon.config.autoRejoinText=Displays Text
+zombiesaddon.config.autoRejoinText.description=Displays texts with state of Auto Rejoin.
+
+zombiesaddon.config.lwToggle=Toggle Last Weapons
+zombiesaddon.config.lwToggle.description=Enable or disable Last Weapons.
+zombiesaddon.config.lwDisplayArmors=Display Armors
+zombiesaddon.config.lwDisplayArmors.description=Displays armors in Last Weapons.
+zombiesaddon.config.lwDisplayWeaponsLevel=Display Weapons Level
+zombiesaddon.config.lwDisplayWeaponsLevel.description=Displays weapons level in Last Weapons.
+zombiesaddon.config.lwDisplayCooledDownSkill=Display Cooled Down Skills
+zombiesaddon.config.lwDisplayCooledDownSkill.description=Displays a cooled down skill in Last Weapons.
+
+zombiesaddon.config.koreanPatchersIngame=Ingame
+zombiesaddon.config.koreanPatchersIngame.description=Enable or disable Korean Patchers for ingame.
+zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
+zombiesaddon.config.koreanPatchersZombiesOverlay.description=Enable or disable Korean Patchers for Zombies Overlay.
+zombiesaddon.config.koreanPatchersSST=SST
+zombiesaddon.config.koreanPatchersSST.description=Enable or disable Korean Patchers for SST.
+
+zombiesaddon.config.disableSpawnTimeOfSST=Disable Spawn Time of SST
+zombiesaddon.config.disableSpawnTimeOfSST.description=Disable the spawn time of SST.
+zombiesaddon.config.disableTimerOfZombiesUtils=Disable Timer of Zombies Utils
+zombiesaddon.config.disableTimerOfZombiesUtils.description=Disable the timer of Zombies Utils.

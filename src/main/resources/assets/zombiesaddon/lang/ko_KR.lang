@@ -17,21 +17,19 @@ zombiesaddon.key.carTimer=카펜터 타이머
 zombiesaddon.key.bgTimer=보너스 골드 타이머
 
 
-zombiesaddon.commands.autosplits.success.stop=§eAuto Splits: 타이머를 중지했습니다
-zombiesaddon.commands.autosplits.success.run=§eAuto Splits: 타이머를 실행했습니다
-
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|숫자|on|off]
-zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: %s§e의 패턴을§c 재설정했습니다
+zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: %s§e의 패턴을§c 재설정§e했습니다
 zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: %s§e의 패턴을 %s§e(으)로 설정했습니다
 
 zombiesaddon.commands.sla.setMap=§eSLA: SLA를 %s§e(으)로 설정했습니다
 zombiesaddon.commands.sla.setOffset=§eSLA: 오프셋을 %s§e(으)로 설정했습니다
-zombiesaddon.commands.sla.resetRotations=§eSLA: 회전을 §c재설정했습니다
-zombiesaddon.commands.sla.rotates=§eSLA: 모든 창문을 축 0 y 0을 따라 시계 방향으로 %s§e 만큼 회전했습니다
-zombiesaddon.commands.sla.resetMirroring=§eSLA: 미러링을 §c재설정했습니다
+zombiesaddon.commands.sla.resetRotations=§eSLA: 회전을§c 재설정§e했습니다
+zombiesaddon.commands.sla.rotates=§eSLA: 모든 창문을 축 0 y 0을 따라 시계 반대 방향으로 %s§e 만큼 회전했습니다
+zombiesaddon.commands.sla.resetMirroring=§eSLA: 미러링을§c 재설정§e했습니다
 zombiesaddon.commands.sla.mirror=§eSLA: 모든 창문을 평면 %s§e(을)를 따라 미러링했습니다
 
-zombiesaddon.commands.wavedelays.success=§eWave Delays: 난이도를 %s§e(으)로 설정했습니다
+zombiesaddon.commands.wavedelays.difficulty=§eWave Delays: 난이도를 %s§e(으)로 설정했습니다
+zombiesaddon.commands.wavedelays.offset=§eWave Delays: 오프셋을 %s§e(으)로 설정했습니다
 
 zombiesaddon.commands.zombiesaddon.checkingUpdate=§eZombies Addon: 업데이트 확인 중...
 zombiesaddon.commands.zombiesaddon.checkedUpdate=§eZombies Addon: 업데이트 확인됨
@@ -41,13 +39,17 @@ zombiesaddon.commands.zsv.wrongURL=URL은 "https://pastebin.com/raw/"로 시작�
 zombiesaddon.commands.zsv.failed=§eZSV: §cZSV를 설정하는데 실패했습니다
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
-zombiesaddon.commands.zsvlines.success=§eZSV: %d§e줄까지 볼 수 있도록 설정했습니다
+zombiesaddon.commands.zsvlines.success=§eZSV: 표시 라인을 %d§e줄 설정했습니다
 
 
 zombiesaddon.features.general.toggled=%s§e(을)를 %s§e(으)로 토글했습니다
+zombiesaddon.features.general.disabled=§e%s:§c 비활성화 되어있습니다
 
 zombiesaddon.features.notLast.failed=§eNot Last: §c마지막을 찾는데 실패했습니다
+zombiesaddon.features.notLast.or=§e또는
 zombiesaddon.features.notLast.printLast=§eNot Last: %s§e(이)가 마지막입니다
+
+zombiesaddon.features.autoSplits.failed=§eAuto Splits: %s§c 신호를 전달하는데 실패했습니다
 
 zombiesaddon.features.sla.auto.wrongMap=§eAuto SLA: §c잘못된 맵
 zombiesaddon.features.sla.auto.setMap=§eAuto SLA: SLA를 %s§e(으)로 설정했습니다
@@ -56,9 +58,25 @@ zombiesaddon.features.autoRejoin.rejoining=§eAuto Rejoin: 재접속 중...
 
 zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: %s§e의 수동 타이머를 실행했습니다
 
-zombiesaddon.hud.done=완료
-zombiesaddon.hud.reset=재설정
-zombiesaddon.hud.comment=현재 HUD 위치 설정을 저장하려면 "완료"를 클릭하세요
+zombiesaddon.gui.reset=재설정
+zombiesaddon.gui.comment=현재 HUD 위치 설정을 저장하려면 "완료"를 클릭하세요
+zombiesaddon.gui.windowsOnly=이 기능은 Windows에서만 작동합니다
+
+zombiesaddon.gui.detectedUnlegitMods.title=언레짓 모드 감지됨
+zombiesaddon.gui.detectedUnlegitMods.list=언레짓 모드:
+zombiesaddon.gui.detectedUnlegitMods.button.remove=언레짓 모드 삭제(윈도우 전용)
+zombiesaddon.gui.detectedUnlegitMods.button.quit=게임 종료
+
+zombiesaddon.gui.downloadWaiting.title=다운로드 중...
+zombiesaddon.gui.downloadWaiting.failed=업데이트를 다운로드하는데 실패했습니다.
+
+zombiesaddon.gui.GuiUpdateScreen.title.normal=새로운 추천 버전이 출시되었습니다.
+zombiesaddon.gui.GuiUpdateScreen.title.mandatory=§c필수 업데이트가 출시되었습니다.
+zombiesaddon.gui.GuiUpdateScreen.message.mandatory=모드를 업데이트하지 않으면 게임을 플레이할 수 없습니다.
+zombiesaddon.gui.GuiUpdateScreen.button.autoupdate=자동 업데이트(윈도우 전용)
+zombiesaddon.gui.GuiUpdateScreen.button.url=다운로드 URL 열기
+zombiesaddon.gui.GuiUpdateScreen.button.continue=계속
+zombiesaddon.gui.GuiUpdateScreen.button.quit=게임 종료
 
 zombiesaddon.game.round=§f라운드 %d
 zombiesaddon.game.ins=§c즉시 처치
@@ -67,3 +85,127 @@ zombiesaddon.game.ss=§5지름신 강림
 zombiesaddon.game.dg=§6더블 골드
 zombiesaddon.game.car=§9카펜터
 zombiesaddon.game.bg=§6보너스 골드
+
+
+zombiesaddon.update.downloadText= §9여기를 눌러 다운로드합니다.
+zombiesaddon.update.downloadHover=다운로드 URL 열기.
+zombiesaddon.update.usingLatest=최신 버전을 사용하고 있습니다.
+zombiesaddon.update.latestWarning=§c최신 버전은 완벽하지 않습니다. 버그가 있을 수 있습니다.
+zombiesaddon.update.newLatest=새로운 최신버전이 출시되었습니다.
+zombiesaddon.update.currentVer=현재 버전: %s
+zombiesaddon.update.latestVer=최신 버전: %s
+
+
+zombiesaddon.config.category.general=일반
+zombiesaddon.config.category.general.tooltip=일반 옵션
+zombiesaddon.config.category.modules=모듈
+zombiesaddon.config.category.modules.tooltip=다른 모듈 옵션
+zombiesaddon.config.category.pv=Player Visibility
+zombiesaddon.config.category.pv.tooltip=PV 옵션
+zombiesaddon.config.category.blockAlarm=Block Alarm
+zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm 옵션
+zombiesaddon.config.category.autoSplits=Auto Splits
+zombiesaddon.config.category.autoSplits.tooltip=Auto Splits 옵션
+zombiesaddon.config.category.waveDelays=Wave Delays
+zombiesaddon.config.category.waveDelays.tooltip=Wave Delays 옵션
+zombiesaddon.config.category.autoRejoin=Auto Rejoin
+zombiesaddon.config.category.autoRejoin.tooltip=Auto Rejoin 옵션
+zombiesaddon.config.category.sla=SLA
+zombiesaddon.config.category.sla.tooltip=SLA 옵션
+zombiesaddon.config.category.lw=Last Weapons
+zombiesaddon.config.category.lw.tooltip=Last Weapons 옵션
+zombiesaddon.config.category.koreanPatchers=한글 패치
+zombiesaddon.config.category.koreanPatchers.tooltip=한글 패치 옵션
+zombiesaddon.config.category.otherMods=다른 모드
+zombiesaddon.config.category.otherMods.tooltip=Zombies Utils, SST 옵션
+
+zombiesaddon.config.enableMod=모드 활성화
+zombiesaddon.config.enableMod.description=Zombies Addon 모드를 활성화 또는 비활성화합니다.
+zombiesaddon.config.language=언어
+zombiesaddon.config.language.description=모드에 사용할 언어입니다.
+
+zombiesaddon.config.toggleNotLast=토글 Not Last
+zombiesaddon.config.toggleNotLast.description=Not Last를 활성화 또는 비활성화합니다.
+zombiesaddon.config.toggleInternalTimer=토글 Internal Timer
+zombiesaddon.config.toggleInternalTimer.description=Internal Timer를 활성화 또는 비활성화합니다.
+zombiesaddon.config.togglePowerupPatterns=토글 Powerup Patterns
+zombiesaddon.config.togglePowerupPatterns.description=Powerup Patterns를 활성화 또는 비활성화합니다.
+zombiesaddon.config.textMacro=Text Macro
+zombiesaddon.config.textMacro.description=Text Macro의 텍스트입니다.
+
+zombiesaddon.config.pvDefault=토글 기본값
+zombiesaddon.config.pvDefault.description=Player Visibility의 토글 기본값입니다.
+zombiesaddon.config.pvText=텍스트 표시
+zombiesaddon.config.pvText.description=Player Visibility 상태를 표시하는 텍스트입니다.
+zombiesaddon.config.pvRange=범위
+zombiesaddon.config.pvRange.description=Player Visibility의 범위(블록 단위)입니다.
+zombiesaddon.config.pvToggleSemiPV=토글 Semi PV
+zombiesaddon.config.pvToggleSemiPV.description=Semi Player Visibility를 활성화 또는 비활성화합니다.
+zombiesaddon.config.pvSemiPVRange=Semi PV 범위
+zombiesaddon.config.pvSemiPVRange.description=Semi Player Visibility의 범위(블록 단위)입니다.
+
+zombiesaddon.config.defaultBlockAlarm=토글 기본값
+zombiesaddon.config.defaultBlockAlarm.description=Block Alarm의 토글 기본값입니다.
+zombiesaddon.config.blockAlarmText=텍스트 표시
+zombiesaddon.config.blockAlarmText.description=Block Alarm 상태를 표시하는 텍스트입니다.
+
+zombiesaddon.config.autoSplitsToggle=토글 Auto Splits
+zombiesaddon.config.autoSplitsToggle.description=Auto Splits를 활성화 또는 비활성화합니다.
+zombiesaddon.config.autoSplitsHost=호스트
+zombiesaddon.config.autoSplitsHost.description=LiveSplit 서버의 호스트입니다.
+zombiesaddon.config.autoSplitsPort=포트
+zombiesaddon.config.autoSplitsPort.description=LiveSplit 서버의 포트입니다.
+
+zombiesaddon.config.waveDelaysToggle=토글 Wave Delays
+zombiesaddon.config.waveDelaysToggle.description=Wave Delays를 활성화 또는 비활성화합니다.
+zombiesaddon.config.waveDelaysPlaySounds=소리 재생
+zombiesaddon.config.waveDelaysPlaySounds.description=웨이브 시작 n 틱 후 소리를 재생합니다.
+zombiesaddon.config.waveDelaysCustomPlaySound=커스텀 소리 재생
+zombiesaddon.config.waveDelaysCustomPlaySound.description=Json 파일에서 설정한 소리 이름, 피치, 플레이 타입으로 소리를 재생합니다.
+zombiesaddon.config.waveDelaysPrefix=접두사
+zombiesaddon.config.waveDelaysPrefix.description=접두사를 활성화 또는 비활성화합니다.
+zombiesaddon.config.waveDelaysBossColor=보스 색상
+zombiesaddon.config.waveDelaysBossColor.description=보스가 등장하는 웨이브의 색상을 활성화 또는 비활성화합니다.
+zombiesaddon.config.waveDelaysTextStyle=텍스트 스타일
+zombiesaddon.config.waveDelaysTextStyle.description=화면에 표시되는 텍스트의 스타일입니다.
+zombiesaddon.config.waveDelaysHighlightStyle=하이라이트 스타일
+zombiesaddon.config.waveDelaysHighlightStyle.description=현재 웨이브, 지난 웨이브, 다음 웨이브에 대한 하이라이트 방식입니다.
+zombiesaddon.config.waveDelaysHidePassedWave=지난 웨이브 숨기기
+zombiesaddon.config.waveDelaysHidePassedWave.description=지난 웨이브를 숨길지 여부를 설정합니다.
+zombiesaddon.config.waveDelaysRLModeOffset=RL 모드 오프셋
+zombiesaddon.config.waveDelaysRLModeOffset.description=RL 모드의 오프셋입니다.
+
+zombiesaddon.config.slaAutoSLA=자동 SLA
+zombiesaddon.config.slaAutoSLA.description=게임 시작 시 SLA를 자동으로 켭니다.
+zombiesaddon.config.slaTextColor=텍스트 색상
+zombiesaddon.config.slaTextColor.description=SLA 텍스트의 색상을 활성화 또는 비활성화합니다.
+zombiesaddon.config.slaActivatedWindows=활성화된 창문
+zombiesaddon.config.slaActivatedWindows.description=SLA에서 활성화된 창문을 표시합니다.
+zombiesaddon.config.slaUnactivatedWindows=비활성화된 창문
+zombiesaddon.config.slaUnactivatedWindows.description=SLA에서 비활성화된 창문을 표시합니다.
+
+zombiesaddon.config.defaultAutoRejoin=토글 기본값
+zombiesaddon.config.defaultAutoRejoin.description=게임 시작 시 Auto Rejoin의 토글 기본값입니다.
+zombiesaddon.config.autoRejoinText=텍스트 표시
+zombiesaddon.config.autoRejoinText.description=Auto Rejoin 상태를 표시하는 텍스트입니다.
+
+zombiesaddon.config.lwToggle=토글 Last Weapons
+zombiesaddon.config.lwToggle.description=Last Weapons를 활성화 또는 비활성화합니다.
+zombiesaddon.config.lwDisplayArmors=갑옷 표시
+zombiesaddon.config.lwDisplayArmors.description=Last Weapons에서 갑옷을 표시합니다.
+zombiesaddon.config.lwDisplayWeaponsLevel=무기 레벨 표시
+zombiesaddon.config.lwDisplayWeaponsLevel.description=Last Weapons에서 무기 레벨을 표시합니다.
+zombiesaddon.config.lwDisplayCooledDownSkill=쿨다운된 스킬 표시
+zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weapons에서 쿨다운된 스킬을 표시합니다.
+
+zombiesaddon.config.koreanPatchersIngame=인게임
+zombiesaddon.config.koreanPatchersIngame.description=인게임에 대한 한글 패치를 활성화 또는 비활성화합니다.
+zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
+zombiesaddon.config.koreanPatchersZombiesOverlay.description=Zombies Overlay에 대한 한글 패치를 활성화 또는 비활성화합니다.
+zombiesaddon.config.koreanPatchersSST=SST
+zombiesaddon.config.koreanPatchersSST.description=SST에 대한 한글 패치를 활성화 또는 비활성화합니다.
+
+zombiesaddon.config.disableSpawnTimeOfSST=SST의 스폰 시간 비활성화
+zombiesaddon.config.disableSpawnTimeOfSST.description=SST의 스폰 시간을 비활성화합니다.
+zombiesaddon.config.disableTimerOfZombiesUtils=Zombies Utils의 타이머 비활성화
+zombiesaddon.config.disableTimerOfZombiesUtils.description=Zombies Utils의 타이머를 비활성화합니다.

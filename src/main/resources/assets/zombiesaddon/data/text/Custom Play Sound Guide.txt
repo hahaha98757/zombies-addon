@@ -1,0 +1,51 @@
+How to use Custom Play Sound.
+
+Find and Open ".minecraft\config\zombiesaddon\CustomPlaySound.json" file.
+
+Write it:
+[{sound1}, {sound2}, {sound3} ... ]
+
+The contents of each bracket are as follows:
+{"name": sound_name, "pitch": sound_pitch, "timing": sound_timing, "playType": sound_playType}
+
+sound_name: A name of the sound. It must be wrapped in double quotes("). (e.g. "note.pling")
+sound_pitch: A pitch of the sound. The range is 0.0 to 2.0.
+
+sound_timing: It is the timing when the sound will be played. (e.g. If sound_timing is -20, the sound will play 20 ticks(1 second) before the wave starts.)
+
+sound_playType: Sets which wave the sound will be played on. (0: Any waves. 1: Any waves without the last wave. 2: Only the last wave.)
+
+
+e.g. Playing the sound of SST mod:
+[
+  {
+    "name": "note.pling",
+    "pitch": 2.0,
+    "timing": 0,
+    "playType": 1
+  },
+  {
+    "name": "note.pling",
+    "pitch": 1.5,
+    "timing": -60,
+    "playType": 2
+  },
+  {
+    "name": "note.pling",
+    "pitch": 1.5,
+    "timing": -40,
+    "playType": 2
+  },
+  {
+    "name": "note.pling",
+    "pitch": 1.5,
+    "timing": -20,
+    "playType": 2
+  },
+  {
+    "name": "random.orb",
+    "pitch": 0.5,
+    "timing": 0,
+    "playType": 2
+  },
+]

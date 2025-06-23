@@ -4,33 +4,40 @@ The mod for Hypixel Zombies.
 
 Supported language: [English (US)](README.md), [한국어 (대한민국)](README-ko_KR.md)
 
-## Features
+## Modules
 \* means that Hypixel language must be set to English or Korean for working.
 
 ### Player Visibility
 Hides nearby players from your view.
-<br>Makes out of range players appear semi-transparent from your view.
+<br>There is Semi PV that makes the players appear semi-transparent from your view.
 <br>Toggle with the Z key.
 <br>You can set the range in the config.
-<br>Player Invisible of SST isn't worked if you are using this mod.
+<br>A semi-transparent of Player Invisible in SST isn't worked.
+<br>You can set to hide toggle text in the config.
 
 ### Block Alarm*
 Displays "BLOCK" on the screen when you survived alone and there is a player you can revive.
-<br>Toggle with the B key.
+<br>Toggle with the P key.
+<br>You can set to hide toggle text in the config.
 
 ### Not Last
 Displays the player who killed the last one.
 
 ### Auto Splits
+Sends a startorsplit signal to LiveSplits at start of the round.
+<br>You can set the IP and port of LiveSplits in the config.
+
+### Internal Timer
 Runs a timer at start of the round.
 <br>You can set the position of timer with /zombiesaddon hud command.
 
 ### Wave Delays*
 Displays the wave delays.
+<br>Displays characteristics of the wave through prefixes.
 <br>You can set the many options in the config.
 <br>You can set the position of wave delays with /zombiesaddon hud command.
-<br>You can set the difficult with /wavedelays command.
-<br>You can set the Custom Play Sound. See .minecraft\config\zombiesaddon\CustomPlaySoundGuide.txt file for details.
+<br>You can set the difficult and offset with /wavedelays command.
+<br>You can set the Custom Play Sound. See ".minecraft\config\zombiesaddon\Custom Play Sound Guide.txt" file for details.
 
 Displays the wave which the boss spawns.
 | Color | Boss name |
@@ -51,7 +58,7 @@ Displays the text in https://pastebin.com/ on the screen.
 <br>Use /zsvlines <number> command to set lines of view.
 
 ### Spawn Limit Action
-Displays the number and names of windows where zombies can spawn.
+Displays the number of windows where zombies can spawn.
 <br>Use /sla <de|bb|aa|off> command to set the map or off SLA.
 <br>You can set the SLA for custom map(e.g. Housing) with /sla custom <offset|rotate|mirror> command.
 <br>You can set the many options in the config.
@@ -65,11 +72,11 @@ Displays the patterns of power-ups.
 <br>Use /pow <insta|max|ss> [reset|number|on|off] command to reset or set the pattern.
 <br>The displayed power-up pattern will be updated in the next round.
 <br>For example, if Insta Kill spawned in round 2, Insta Kill pattern will be displayed on the screen when round 3 starts.
-<br>Use hotkeys or /pow <insta|max|ss|dg|carpenter|bg> command to run Manual Timer.
+<br>Use hotkeys or /pow <insta|max|ss|dg|carpenter|bg> command to run timer.
 
 ### Last Weapons
-Displays your weapons when You Win.
-<br>Displays level of your weapons when You Win.
+Displays your weapons and armors when you win.
+<br>Displays level of your weapons when you win.
 <br>You can set the many options in the config.
 
 ### Text Macro
@@ -86,10 +93,11 @@ You can turn off spawn time of SST in the config.
 <br>You can turn off timer of Zombies Utils in the config.
 
 ### Other
-The game ends when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)
+You can't start the game when you are using unlegit mods.(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)
 <br>Blocks the unlegit features of SST.
 <br>Changed /sla command of Zombies Utils to /sla_zombiesutils
 <br>Use /de, /bb, /aa, or /pr commands to join each map.
+<br>Supports automatic updates for Windows only, limited to the recommended version.
 
 
 ## License
@@ -101,6 +109,7 @@ It allows for personal use, modification, distribution, and commercial use under
 - [DevAuth](https://github.com/DJtheRedstoner/DevAuth) by DJtheRedstoner ([MIT License](https://github.com/DJtheRedstoner/DevAuth/blob/master/LICENSE))
 - [Essential Loom](https://github.com/EssentialGG/architectury-loom) by EssentialGG ([MIT License](https://github.com/EssentialGG/architectury-loom/blob/dev/1.6/LICENSE))
 - [Gson](https://github.com/google/gson) by google ([Apache License 2.0](https://github.com/google/gson/blob/main/LICENSE))
+- [Kotlin](https://github.com/JetBrains/kotlin) by JetBrains ([Apache License 2.0](https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt))
 - [Mixin](https://github.com/SpongePowered/Mixin) by SpongePowered ([MIT License](https://github.com/SpongePowered/Mixin/blob/master/LICENSE.txt))
 - [Show Spawn Time](https://github.com/Seosean/ShowSpawnTime/tree/1.15.0) by Seosean ([MIT License](licenses/Show%20Spawn%20Time-LICENSE))
 - [Zombies AutoSplits](https://github.com/tahmid-23/ZombiesAutoSplits) by tahmid-23 ([MIT License](https://github.com/tahmid-23/ZombiesAutoSplits/blob/main/LICENSE))
@@ -114,6 +123,23 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 ## Update Log
+
+### 4.4.0-pre1
+- Changed Java to Kotlin.
+- Fixed bugs.
+- Code reorganization.
+- Fixed config: Translated option names and descriptions.
+- Fixed Detect Unlegit Mods: Apprise it with GUI., Added a feature that automatic deletion the mods.(Windows only)
+- 업데이트 채크 수정: Apprise recommended version and required updates with GUI, Added auto update.(Windows only)
+- Changed version system.
+- Fixed Player Visibility: Can be set semi-transparent range, It works only ingame.
+- Fixed Block Alarm: Does not work when not alive, Change the default key to P.
+- Fixed Auto Splits: Changed to for LiveSplits only.
+- Added Internal Timer: Same functionality as the existing Auto Splits.
+- Fixed Wave Delays: Fixed prefixes for Giant and The Old One.
+- Fixed ZSV: Korean language support.
+- Fixed SLA: Added option to remove window name and text color.
+
 
 ### 4.3.2
 - Reduces excessive allocations

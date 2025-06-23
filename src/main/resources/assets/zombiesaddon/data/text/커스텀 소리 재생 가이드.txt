@@ -1,0 +1,51 @@
+Custom Play Sound 사용법.
+
+".minecraft\config\zombiesaddon\CustomPlaySound.json" 파일을 찾아 엽니다.
+
+다음과 같이 작성합니다:
+[{소리1}, {소리2}, {소리3} ... ]
+
+각 괄호의 내용은 다음과 같습니다:
+{"name": 소리_이름, "pitch": 소리_피치, "timing": 소리_타이밍, "playType": 소리_재생타입}
+
+소리_이름: 소리의 이름입니다. 큰따옴표로 묶어야 합니다. (예: "note.pling")
+소리_피치: 소리의 피치입니다. 범위는 0.0~2.0입니다.
+
+소리_타이밍: 소리가 재생되는 타이밍입니다. (예: 소리_타이밍이 -20이면 웨이브가 시작하기 20틱(1초) 전에 소리가 재생됩니다.)
+
+소리_재생타입: 소리가 재생될 웨이브를 설정합니다. (0: 모든 웨이브. 1: 마지막 웨이브가 아닌 모든 웨이브. 2: 마지막 웨이브.)
+
+
+예시: SST 모드의 사운드 재생:
+[
+  {
+    "name": "note.pling",
+    "pitch": 2.0,
+    "timing": 0,
+    "playType": 1
+  },
+  {
+    "name": "note.pling",
+    "pitch": 1.5,
+    "timing": -60,
+    "playType": 2
+  },
+  {
+    "name": "note.pling",
+    "pitch": 1.5,
+    "timing": -40,
+    "playType": 2
+  },
+  {
+    "name": "note.pling",
+    "pitch": 1.5,
+    "timing": -20,
+    "playType": 2
+  },
+  {
+    "name": "random.orb",
+    "pitch": 0.5,
+    "timing": 0,
+    "playType": 2
+  },
+]

@@ -1,8 +1,0 @@
-package kr.hahaha98757.zombiesaddon.enums;
-
-public enum GameMode {
-    DEAD_END_NORMAL, DEAD_END_HARD, DEAD_END_RIP,
-    BAD_BLOOD_NORMAL, BAD_BLOOD_HARD, BAD_BLOOD_RIP,
-    ALIEN_ARCADIUM,
-    PRISON_NORMAL, PRISON_HARD, PRISON_RIP
-}

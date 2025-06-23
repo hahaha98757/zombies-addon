@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.mixins;
 
 import com.seosean.showspawntime.features.spawntimes.SpawnTimeRenderer;
-import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
+import kr.hahaha98757.zombiesaddon.ZombiesAddon;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,6 +13,6 @@ public class MixinSpawnTimeRenderer {
 
     @Inject(method = "onRender", at = @At("HEAD"), cancellable = true, remap = false)
     private void onRender(RenderGameOverlayEvent.Post event, CallbackInfo ci) {
-        if (ZombiesAddonConfig.isEnableMod() && ZombiesAddonConfig.isSSTSetting()) ci.cancel();
+        if (ZombiesAddon.getInstance().getConfig().getEnableMod() && ZombiesAddon.getInstance().getConfig().getDisableSpawnTimeOfSST()) ci.cancel();
     }
 }

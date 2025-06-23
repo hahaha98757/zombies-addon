@@ -11,9 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SoundManager.class)
 public class MixinSoundManager {
-
     @Inject(method = "playSound", at = @At("HEAD"))
     private void playSound(ISound p_sound, CallbackInfo ci) {
-        MinecraftForge.EVENT_BUS.post(new SoundEvent(p_sound));
+        MinecraftForge.EVENT_BUS.post(new SoundEvent(p_sound.getSoundLocation().toString()));
     }
 }

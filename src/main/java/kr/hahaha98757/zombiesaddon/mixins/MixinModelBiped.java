@@ -2,8 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.mixins;
 
-import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
-import kr.hahaha98757.zombiesaddon.features.PlayerVisibility;
+import kr.hahaha98757.zombiesaddon.modules.PlayerVisibility;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -34,10 +33,10 @@ public abstract class MixinModelBiped extends MixinModelBase {
 
     @Override
     public void render(Entity entityIn, float f, float g, float h, float i, float j, float scale) {
-        this.setRotationAngles(f, g, h, i, j, scale, entityIn);
+        setRotationAngles(f, g, h, i, j, scale, entityIn);
         GlStateManager.pushMatrix();
-        if (ZombiesAddonConfig.isEnableMod() && PlayerVisibility.playerVisibility && ZombiesAddonConfig.isPlayerTranslucent() && PlayerVisibility.isPlayerInvisible(entityIn)) {
-            GlStateManager.color(1.0F, 1.0F, 1.0F, PlayerVisibility.getAlpha(entityIn));
+        if (PlayerVisibility.Companion.isSemiPV(entityIn)) {
+            GlStateManager.color(1.0F, 1.0F, 1.0F, PlayerVisibility.Companion.getAlpha(entityIn));
             GlStateManager.depthMask(false);
             GlStateManager.enableBlend();
             GlStateManager.blendFunc(770, 771);
@@ -47,24 +46,24 @@ public abstract class MixinModelBiped extends MixinModelBase {
         if (this.isChild) {
             GlStateManager.scale(0.75F, 0.75F, 0.75F);
             GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
-            this.bipedHead.render(scale);
+            bipedHead.render(scale);
             GlStateManager.popMatrix();
             GlStateManager.pushMatrix();
             GlStateManager.scale(0.5F, 0.5F, 0.5F);
             GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
         } else {
             if (entityIn.isSneaking()) GlStateManager.translate(0.0F, 0.2F, 0.0F);
-            this.bipedHead.render(scale);
+            bipedHead.render(scale);
         }
-        this.bipedBody.render(scale);
-        this.bipedRightArm.render(scale);
-        this.bipedLeftArm.render(scale);
-        this.bipedRightLeg.render(scale);
-        this.bipedLeftLeg.render(scale);
-        this.bipedHeadwear.render(scale);
+        bipedBody.render(scale);
+        bipedRightArm.render(scale);
+        bipedLeftArm.render(scale);
+        bipedRightLeg.render(scale);
+        bipedLeftLeg.render(scale);
+        bipedHeadwear.render(scale);
 
 
-        if (PlayerVisibility.playerVisibility && PlayerVisibility.isPlayerInvisible(entityIn)) {
+        if (PlayerVisibility.Companion.isSemiPV(entityIn)) {
             GlStateManager.disableBlend();
             GlStateManager.alphaFunc(516, 0.1F);
             GlStateManager.depthMask(true);

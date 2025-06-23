@@ -6,6 +6,7 @@
   "priority": 50,
   "mixins": [
     "MixinClientCommandHandler",
+    "MixinConfigElement",
     "MixinLayerCape",
     "MixinMainConfiguration",
     "MixinModelBase",
@@ -19,6 +20,7 @@
   "client": [
     "MixinGuiIngame",
     "MixinGuiNewChat",
+    "MixinMinecraft",
     "MixinSoundManager"
   ]
 }

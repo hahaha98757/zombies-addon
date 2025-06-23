@@ -2,8 +2,7 @@
 
 package kr.hahaha98757.zombiesaddon.mixins;
 
-import kr.hahaha98757.zombiesaddon.config.ZombiesAddonConfig;
-import kr.hahaha98757.zombiesaddon.features.PlayerVisibility;
+import kr.hahaha98757.zombiesaddon.modules.PlayerVisibility;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -28,8 +27,8 @@ public abstract class MixinModelPlayer extends MixinModelBiped {
     public void render(Entity entityIn, float f, float g, float h, float i, float j, float scale) {
         super.render(entityIn, f, g, h, i, j, scale);
         GlStateManager.pushMatrix();
-        if(ZombiesAddonConfig.isEnableMod() && PlayerVisibility.playerVisibility && ZombiesAddonConfig.isPlayerTranslucent() && PlayerVisibility.isPlayerInvisible(entityIn)) {
-            GlStateManager.color(1.0F, 1.0F, 1.0F, PlayerVisibility.getAlpha(entityIn));
+        if (PlayerVisibility.Companion.isSemiPV(entityIn)) {
+            GlStateManager.color(1.0F, 1.0F, 1.0F, PlayerVisibility.Companion.getAlpha(entityIn));
             GlStateManager.depthMask(false);
             GlStateManager.enableBlend();
             GlStateManager.blendFunc(770, 771);
@@ -47,7 +46,7 @@ public abstract class MixinModelPlayer extends MixinModelBiped {
         this.bipedRightArmwear.render(scale);
         this.bipedBodyWear.render(scale);
 
-        if(ZombiesAddonConfig.isEnableMod() && PlayerVisibility.playerVisibility && ZombiesAddonConfig.isPlayerTranslucent() && PlayerVisibility.isPlayerInvisible(entityIn)) {
+        if (PlayerVisibility.Companion.isSemiPV(entityIn)) {
             GlStateManager.disableBlend();
             GlStateManager.alphaFunc(516, 0.1F);
             GlStateManager.depthMask(true);

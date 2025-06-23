@@ -8,6 +8,7 @@ plugins {
     id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm") version "2.1.20"
 }
 
 //Constants:
@@ -55,21 +56,23 @@ loom {
     }
     // If you don't want mixins, remove these lines
     @Suppress("UnstableApiUsage")
-    mixin {
-        defaultRefmapName.set("mixins.$modid.refmap.json")
-    }
+    mixin { defaultRefmapName.set("mixins.$modid.refmap.json") }
+}
+
+tasks.compileJava {
+    dependsOn(tasks.processResources)
 }
 
 sourceSets.main {
     output.setResourcesDir(sourceSets.main.flatMap { it.java.classesDirectory })
+    java.srcDir(layout.projectDirectory.dir("src/main/kotlin"))
+    kotlin.destinationDirectory.set(java.destinationDirectory)
 }
 
 // Dependencies:
 
 repositories {
-    flatDir {
-        dirs("libs")
-    }
+    flatDir { dirs("libs") }
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
     // If you don't want to log in with your real minecraft account, remove this line
@@ -86,12 +89,11 @@ dependencies {
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
     implementation(files("libs/zombies-utils-1.3.7.jar", "libs/ShowSpawnTime-2.1.1.jar"))
 
+    shadowImpl(kotlin("stdlib-jdk8"))
+
     // If you don't want mixins, remove these lines
-    shadowImpl("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
-        isTransitive = false
-    }
+    shadowImpl("org.spongepowered:mixin:0.7.11-SNAPSHOT") { isTransitive = false }
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
-    annotationProcessor("com.google.code.gson:gson:2.11.0")
 
     // If you don't want to log in with your real minecraft account, remove this line
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
@@ -112,8 +114,7 @@ tasks.withType(org.gradle.jvm.tasks.Jar::class) {
         // If you don't want mixins, remove these lines
         this["TweakClass"] = "org.spongepowered.asm.launch.MixinTweaker"
         this["MixinConfigs"] = "mixins.$modid.json"
-        if (transformerFile.exists())
-            this["FMLAT"] = "${modid}_at.cfg"
+        if (transformerFile.exists()) this["FMLAT"] = "${modid}_at.cfg"
     }
 }
 
@@ -128,9 +129,7 @@ tasks.processResources {
     }
 
     rename("(.+_at.cfg)", "META-INF/$1")
-    from("LICENSE") {
-        rename { "LICENSE.txt" }
-    }
+    from("LICENSE") { rename { "LICENSE.txt" } }
 }
 
 

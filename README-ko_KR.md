@@ -4,24 +4,30 @@
 
 지원 언어: [English (US)](README.md), [한국어 (대한민국)](README-ko_KR.md)
 
-## 기능
+## 모듈
 *은 하이픽셀 언어를 영어나 한국어로 설정해야 작동하는 것을 의미합니다.
 
 ### Player Visibility
 주변 플레이어를 시야에서 숨깁니다.
-<br>범위 밖 플레이어(정확히는 범위 x2 이내의 플레이어)를 반투명하게 표시합니다.
+<br>플레이어를 반투명하게 표시하는 Semi PV가 있습니다.
 <br>단축키 Z로 토글합니다.
 <br>컨피그에서 범위를 설정할 수 있습니다.
-<br>이 모드를 사용 시 SST의 Player Invisible이 작동하지 않습니다.
+<br>SST의 Player Invisible의 반투명 기능이 작동하지 않습니다.
+<br>컨피그에서 화면에 표시되는 토글 여부 텍스트를 숨길 수 있습니다.
 
 ### Block Alarm*
 혼자 살아있고 살릴 수 있는 플레이어가 있다면, 화면에 "BLOCK"이 표시됩니다.
-<br>단축키 B로 토글합니다.
+<br>단축키 P로 토글합니다.
+<br>컨피그에서 화면에 표시되는 토글 여부 텍스트를 숨길 수 있습니다.
 
 ### Not Last
 마지막 적을 죽인 플레이어를 표시합니다.
 
 ### Auto Splits
+라운드 시작 시 LiveSplits에 startorsplit 신호를 전달합니다.
+<br>컨피그에서 LiveSplits의 IP와 포트를 수정할 수 있습니다.
+
+### Internal Timer
 라운드 시작 시 타이머를 실행합니다.
 <br>/zombiesaddon hud 명령어로 타이머의 위치를 수정할 수 있습니다.
 
@@ -29,29 +35,28 @@
 웨이브 딜레이를 표시합니다.
 <br>컨피그에서 텍스트의 스타일을 변경할 수 있습니다. 기본값인 "W1: 0.10.0"과 "W1 0.10.0", "W1: 00:10", "W1 00:10"이 있습니다.
 <br>하이라이트 스타일을 변경할 수 있습니다. 기본값인 "Zombies Addon"과 "Zombies Utils"가 있습니다.
-<br>전자의 경우, 3초 후 시작할 웨이브는 노란색, 시작한 웨이브는 녹색, 시작되지 않은 웨이브는 진한 회색으로 표시되며 현재 웨이브는 보라핵 화살표로 표시됩니다.
-<br>후자의 경우, 시작될 웨이브는 노란색과 보라색 화살표로 강조됩니다. 지나간 웨이브는 진한 회색, 강조되지 않은 예정된 웨이브는 밝은 회색으로 표시됩니다.
 <br>컨피그에서 지나간 웨이브를 숨기도록 설정할 수 있습니다
 <br>컨피그에서 소리를 재생하도록 설정할 수 있습니다.
 <br>소리는 웨이브를 기준으로 설정된 틱 만큼 추가된 시점에서 재생됩니다.
-<br>컨피그에서 소리 재생을 더 자세히 설정할 수 있습니다. 자세한건 ".minecraft\config\zombiesaddon\CustomPlaySoundGuide(ko_KR).txt"파일을 확인하세요.
+<br>컨피그에서 소리 재생을 더 자세히 설정할 수 있습니다. 자세한건 ".minecraft\config\zombiesaddon\커스텀 소리 재생 가이드.txt"파일을 확인하세요.
 <br>단축키 Up(위쪽 화살표)로 RL 모드를 토글합니다.
 <br>RL 모드에선 웨이브 딜레이가 설정된 틱 만큼 추가되어 표시됩니다.
 <br>/zombiesaddon hud 명령어로 웨이브 딜레이의 위치를 설정할 수 있습니다.
-<br>/wavedelays 명령어로 난이도를 설정할 수 있습니다.
+<br>/wavedelays 명령어로 난이도, 오프셋을 설정할 수 있습니다.
+<br>접두사로 웨이브의 특징이 표시됩니다.
 
 보스나 보스급 적이 스폰하는 웨이브를 알 수 있습니다.
-| Color | Boss name |
+| 색 | 보스 이름 |
 |----|----|
-| Gold | Bombie or Warden |
-| Red | Inferno, Angry Prisoner, or Corrupted Pigman |
-| Dark Purple | The Broodmother, Wither, or Herobrine |
-| Red and Apua | Lily and Ellie |
-| Green | King Slime or Mega Blob |
-| Dark Apua | (Rainbow) Giant |
-| Dark Red | The Old One or Mega Magma |
-| Dark Apua and Dark Red | (Rainbow) Giant and The Old One |
-| Black | World Ender |
+| 금색 | 봄비 또는 Warden |
+| 빨간색 | 인페르노, Angry Prisoner, or Corrupted Pigman |
+| 어두운 보라색 | 브루드마더, 위더, 또는 히로빈 |
+| 빨간색과 아쿠아색 | 릴리와 엘리 |
+| 녹색 | 킹 슬라임 또는 메가 블롭 |
+| 어두운 아쿠아색 | (무지개) 자이언트 |
+| 어두운 빨간색 | 오래된 자 또는 메가 마그마 |
+| 어두운 아쿠아색과 어두운 빨간색 | (무지개) 자이언트와 오래된 자 |
+| 검은색 | 세계 엔더 |
 
 ### Zombies Strat Viewer
 https://pastebin.com/ 에 있는 글을 화면에 표시합니다.
@@ -59,10 +64,11 @@ https://pastebin.com/ 에 있는 글을 화면에 표시합니다.
 <br>/zsvlines <숫자> 명령어로 표시할 줄을 설정합니다.
 
 ### Spawn Limit Action
-좀비가 스폰할 수 있는 창문의 수와 이름을 표시합니다.
+좀비가 스폰할 수 있는 창문의 수를 표시합니다.
 <br>/sla <de|bb|aa|off> 명령어로 맵을 설정하거나 끕니다.
 <br>SLA가 다른 맵(예: 하우징)에서 작동하도록 하려면 /sla custom <offset|rotate|mirror> 명령어를 사용합니다.
-<br>컨피그에서 비활성화된 창문을 볼 수 있도록 설정할 수 있습니다.
+<br>컨피그에서 창문의 이름을 볼 수 있도록 설정할 수 있습니다.
+<br>컨피그에서 텍스트의 색상을 제거할 수 있습니다.
 <br>컨피그에서 SLA를 자동으로 키도록 설정할 수 있습니다.
 
 ### Auto Rejoin
@@ -75,10 +81,10 @@ https://pastebin.com/ 에 있는 글을 화면에 표시합니다.
 <br>/pow <insta|max|ss> [reset|숫자|on|off] 명령어로 패턴을 리셋하거나, 직접 설정, 또는 끌 수 있습니다.
 <br>변경, 감지된 패턴은 다음 라운드에서 반영됩니다.
 <br>예를 들어 라운드 2에 즉시 처치가 스폰한 경우, 라운드 3이 시작되야 화면에 즉시 처치의 패턴이 표시됩니다.
-<br>단축키나 /pow <insta|max|ss|dg|carpenter|bg> 명령어로 수동 타이머를 작동시킬 수 있다.
+<br>단축키나 /pow <insta|max|ss|dg|carpenter|bg> 명령어로 타이머를 작동시킬 수 있습니다.
 
 ### Last Weapons*
-게임에서 승리했을 때 가지고 있던 무기를 보여줍니다.
+게임에서 승리했을 때 가지고 있던 무기와 갑옷을 보여줍니다.
 <br>가지고 있던 무기나 퍼크의 레벨을 보여줍니다.
 
 ### Text Macro
@@ -95,10 +101,11 @@ https://pastebin.com/ 에 있는 글을 화면에 표시합니다.
 <br>컨피그에서 Zombies Utils의 타이머를 끌 수 있습니다.
 
 ### 그 외
-언레짓 모드(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)가 감지될 때 게임이 종료됩니다. 컨피그 파일을 통해 끌 수 있습니다.
+언레짓 모드(ZombiesSatellite, Zombies Explorer, TeammatesOutline, and ZombiesHelper)가 감지되면 게임을 시작할 수 없습니다. 컨피그 파일을 통해 끌 수 있습니다.
 <br>SST의 언레짓 기능이 차단됩니다. 컨피그 파일을 통해 끌 수 있습니다.
 <br>Zombies Utils의 /sla 명령어가 /sla_zombiesutils로 바뀝니다.
 <br>/de, /bb, /aa, /pr 명령어로 각 맵에 접속할 수 있습니다.
+<br>추천 버전에 한에 윈도우 전용 자동 업데이트를 지원합니다.
 
 
 ## 라이선스
@@ -106,10 +113,11 @@ https://pastebin.com/ 에 있는 글을 화면에 표시합니다.
 라이선스 및 저작권 고지 하에 개인적 이용, 수정, 배포, 상업적 이용이 가능하며 보증 및 책임을 지지 않습니다.
 
 ## Credits
-- architectury의 [Architectury Pack200](https://github.com/architectury/architectury-pack200) ([Classpath Exception을 포함된 GNU 일반 공중 사용 허가서 v2.0](https://github.com/architectury/architectury-pack200/blob/master/LICENSE))
+- architectury의 [Architectury Pack200](https://github.com/architectury/architectury-pack200) ([Classpath Exception을 포함한 GNU 일반 공중 사용 허가서 v2.0](https://github.com/architectury/architectury-pack200/blob/master/LICENSE))
 - DJtheRedstoner의 [DevAuth](https://github.com/DJtheRedstoner/DevAuth) ([MIT 허가서](https://github.com/DJtheRedstoner/DevAuth/blob/master/LICENSE))
 - EssentialGG의 [Essential Loom](https://github.com/EssentialGG/architectury-loom) ([MIT 허가서](https://github.com/EssentialGG/architectury-loom/blob/dev/1.6/LICENSE))
 - google의 [Gson](https://github.com/google/gson) ([아파치 라이선스 2.0](https://github.com/google/gson/blob/main/LICENSE))
+- JetBrains의 [Kotlin](https://github.com/JetBrains/kotlin) ([아파치 라이선스 2.0](https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt))
 - SpongePowered의 [Mixin](https://github.com/SpongePowered/Mixin) ([MIT 허가서](https://github.com/SpongePowered/Mixin/blob/master/LICENSE.txt))
 - Seosean의 [Show Spawn Time](https://github.com/Seosean/ShowSpawnTime/tree/1.15.0) ([MIT 허가서](licenses/Show%20Spawn%20Time-LICENSE))
 - tahmid-23의 [Zombies AutoSplits](https://github.com/tahmid-23/ZombiesAutoSplits) ([MIT 허가서](https://github.com/tahmid-23/ZombiesAutoSplits/blob/main/LICENSE))
@@ -123,6 +131,22 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 ****
 
 ## 업데이트 로그
+
+### 4.4.0-pre1
+- 자바를 코틀린으로 변경.
+- 버그 수정.
+- 코드 개편.
+- 컨피그 수정: 옵션의 이름과 설명을 번역.
+- Detect Unlegit Mods 수정: 게임 시작 시 GUI로 알림, 자동 모드 삭제 기능 추가.(윈도우 전용)
+- 업데이트 채크 수정: 추천 버전과 필수 업데이트를 GUI로 알림, 자동 업데이트 추가.(윈도우 전용)
+- 버전 체계 변경.
+- Player Visibility 수정: 반투명 범위 조절 가능, 인게임에서만 작동하도록 변경.
+- Block Alarm 수정: 살아있지 않은 상태에서 작동하지 않음, 단축키의 기본값을 P로 변경.
+- Auto Splits 수정: LiveSplits 전용으로 변경.
+- Internal Timer 추가: 기존 Auto Splits의 기능과 동일.
+- Wave Delays 수정: 자이언트와 오래된 자의 접두사 수정.
+- ZSV 수정: 한글 지원.
+- SLA 수정: 창문의 이름과 텍스트 색상 제거 옵션 추가.
 
 ### 4.3.2
 - 과도한 할당을 줄임.
