@@ -132,6 +132,9 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 ## 업데이트 로그
 
+### 4.4.0-pre2
+- Wave Delays 수정: 잘못된 순서의 접두사 수정. 
+
 ### 4.4.0-pre1
 - 자바를 코틀린으로 변경.
 - 버그 수정.

@@ -683,8 +683,8 @@
       {
         "ticks": 680,
         "prefixes": [
-          "HBM",
-          "WINDOW"
+          "WINDOW",
+          "HBM"
         ]
       }
     ]

@@ -4,6 +4,8 @@ The mod for Hypixel Zombies.
 
 Supported language: [English (US)](README.md), [한국어 (대한민국)](README-ko_KR.md)
 
+Translated by Google Translate
+
 ## Modules
 \* means that Hypixel language must be set to English or Korean for working.
 
@@ -123,6 +125,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 ## Update Log
+
+### 4.4.0-pre2
+- Fixed Wave Delays: Fixed incorrect order of prefixes.
 
 ### 4.4.0-pre1
 - Changed Java to Kotlin.

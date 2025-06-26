@@ -456,8 +456,8 @@
       {
         "ticks": 800,
         "prefixes": [
-          "BOSS",
-          "WINDOW"
+          "WINDOW",
+          "BOSS"
         ]
       }
     ]
@@ -712,8 +712,8 @@
       {
         "ticks": 1200,
         "prefixes": [
-          "BOSS",
-          "WINDOW"
+          "WINDOW",
+          "BOSS"
         ]
       },
       {
