@@ -1,4 +1,4 @@
 {
-  "version": "4.4.0-pre2",
-  "log": "Fixed Wave Delays: Fixed incorrect order of prefixes."
+  "version": "4.4.0-pre3",
+  "log": "Fixed a bug: Missing boss colors in Wave Delays.\nReplaces \"playWave\", the old usage with \"playType\" in \"CustomPlaySound.json\" when starting the game."
 }

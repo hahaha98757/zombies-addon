@@ -126,6 +126,10 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 ## Update Log
 
+### 4.4.0-pre3
+- Fixed a bug: Missing boss colors in Wave Delays.
+- Replaces "playWave", the old usage with "playType" in "CustomPlaySound.json" when starting the game.
+
 ### 4.4.0-pre2
 - Fixed Wave Delays: Fixed incorrect order of prefixes.
 

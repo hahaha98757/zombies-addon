@@ -132,6 +132,10 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 ## 업데이트 로그
 
+### 4.4.0-pre3
+- 버그 수정: Wave Delays에서 보스 색상이 누락됨.
+- 게임 시작 시 "CustomPlaySound.json"에서 예전 사용법 이었던 "playWave"를 "playType"으로 교체.
+
 ### 4.4.0-pre2
 - Wave Delays 수정: 잘못된 순서의 접두사 수정. 
 

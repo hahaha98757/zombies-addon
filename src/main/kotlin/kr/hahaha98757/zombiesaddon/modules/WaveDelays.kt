@@ -149,11 +149,11 @@ class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysT
 
         val waves = round.waves
         val roundTime = InternalTimer.instance.ticks
-        val length = waves.size
+        val lastIndex = waves.lastIndex
 
         for ((i, wave) in waves.withIndex()) {
             val waveTime = wave.ticks + offset
-            var b = false
+            var play = false
 
             if (ZombiesAddon.instance.config.waveDelaysCustomPlaySound) {
                 val cpsArr = CustomPlaySoundLoader.cps ?: return
@@ -161,10 +161,10 @@ class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysT
 
                 for (cps in cpsArr) {
                     if (cps.timing != pre) continue
-                    b = true
+                    play = true
                     when (cps.playType) {
-                        1 -> if (length != i + 1) mc.thePlayer.playSound(cps.name, 1f, cps.pitch)
-                        2 -> if (length == i + 1) mc.thePlayer.playSound(cps.name, 1f, cps.pitch)
+                        1 -> if (lastIndex != i) mc.thePlayer.playSound(cps.name, 1f, cps.pitch)
+                        2 -> if (lastIndex == i) mc.thePlayer.playSound(cps.name, 1f, cps.pitch)
                         else -> mc.thePlayer.playSound(cps.name, 1f, cps.pitch)
                     }
                 }
@@ -173,11 +173,11 @@ class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysT
                 val pre = roundTime - waveTime
 
                 if (Arrays.stream(timings).anyMatch { it == pre }) {
-                    b = true
+                    play = true
                     mc.thePlayer.playSound("note.pling", 1f, 2.0f)
                 }
             }
-            if (b) break
+            if (play) break
         }
     }
 
@@ -281,7 +281,7 @@ private fun getBossColor1(map: Map, difficulty: Difficulty, round: Int, wave: In
                 30, 42, 44 -> "§3"
                 35, 59, in 102..105 -> "§4"
                 in 36..39, 41 -> {
-                    if (wave == 2 || wave == 4) "§3"
+                    if (wave == 2 || wave == 3) "§3"
                     else ""
                 }
                 40 -> {

@@ -28,7 +28,7 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.4.0-pre2"
+const val VERSION = "4.4.0-pre3"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {
@@ -104,7 +104,10 @@ class ZombiesAddon {
         }
 
         val json = File(file, "CustomPlaySound.json")
-        if (json.exists()) return
+        if (json.exists()) {
+            json.writeText(json.readText().replace("playWave", "playType"))
+            return
+        }
 
         val cps = arrayOf(
             CustomPlaySound("note.pling", 2.0f, 0, 1),

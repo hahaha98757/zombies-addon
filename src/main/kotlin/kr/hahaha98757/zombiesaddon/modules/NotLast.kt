@@ -45,8 +45,8 @@ class NotLast: Module("Not Last", ZombiesAddon.instance.config.toggleNotLast) {
         StringBuilder("§e").run {
             append(players[0])
 
-            for (i in 1..<players.size) {
-                if (i == players.size - 1) append(", ${getTranslatedString("zombiesaddon.features.notLast.or")}§e ${players[i]}")
+            for (i in 1..players.lastIndex) {
+                if (i == players.lastIndex) append(", ${getTranslatedString("zombiesaddon.features.notLast.or")}§e ${players[i]}")
                 else append(", ${players[i]}")
             }
 
