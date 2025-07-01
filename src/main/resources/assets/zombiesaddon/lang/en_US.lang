@@ -17,6 +17,8 @@ zombiesaddon.key.carTimer=Carpenter Timer
 zombiesaddon.key.bgTimer=Bonus Gold Timer
 
 
+zombiesaddon.commands.autosplits.usage=/autosplits <signal>
+
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|number|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: §cReset %s§e pattern
 zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e pattern to %s
@@ -39,7 +41,7 @@ zombiesaddon.commands.zsv.wrongURL=The URL must start with "https://pastebin.com
 zombiesaddon.commands.zsv.failed=§eZSV: §cFailed to set ZSV
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <number>
-zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to %d
+zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to %s
 
 
 zombiesaddon.features.general.toggled=§eToggled %s§e to %s
@@ -79,7 +81,7 @@ zombiesaddon.gui.GuiUpdateScreen.button.continue=Continue
 zombiesaddon.gui.GuiUpdateScreen.button.quit=Quit the game
 
 
-zombiesaddon.game.round=§fRound %d
+zombiesaddon.game.round=§fRound %s
 zombiesaddon.game.ins=§cInsta Kill
 zombiesaddon.game.max=§9Max Ammo
 zombiesaddon.game.ss=§5Shopping Spree
@@ -98,27 +100,27 @@ zombiesaddon.update.latestVer=Latest version: %s
 
 
 zombiesaddon.config.category.general=General
-zombiesaddon.config.category.general.tooltip=General options
+zombiesaddon.config.category.general.tooltip=General options.
 zombiesaddon.config.category.modules=Modules
-zombiesaddon.config.category.modules.tooltip=Other modules options
+zombiesaddon.config.category.modules.tooltip=Other modules options.
 zombiesaddon.config.category.pv=Player Visibility
 zombiesaddon.config.category.pv.tooltip=PV options.
 zombiesaddon.config.category.blockAlarm=Block Alarm
-zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm options
+zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm options.
 zombiesaddon.config.category.autoSplits=Auto Splits
-zombiesaddon.config.category.autoSplits.tooltip=Auto Splits options
+zombiesaddon.config.category.autoSplits.tooltip=Auto Splits options.
 zombiesaddon.config.category.waveDelays=Wave Delays
-zombiesaddon.config.category.waveDelays.tooltip=Wave Delays options
+zombiesaddon.config.category.waveDelays.tooltip=Wave Delays options.
 zombiesaddon.config.category.autoRejoin=Auto Rejoin
-zombiesaddon.config.category.autoRejoin.tooltip=Auto Rejoin options
+zombiesaddon.config.category.autoRejoin.tooltip=Auto Rejoin options.
 zombiesaddon.config.category.sla=SLA
-zombiesaddon.config.category.sla.tooltip=SLA options
+zombiesaddon.config.category.sla.tooltip=SLA options.
 zombiesaddon.config.category.lw=Last Weapons
-zombiesaddon.config.category.lw.tooltip=Last Weapons options
+zombiesaddon.config.category.lw.tooltip=Last Weapons options.
 zombiesaddon.config.category.koreanPatchers=Korean Patchers
-zombiesaddon.config.category.koreanPatchers.tooltip=Korean Patchers options
+zombiesaddon.config.category.koreanPatchers.tooltip=Korean Patchers options.
 zombiesaddon.config.category.otherMods=Other Mods
-zombiesaddon.config.category.otherMods.tooltip=Zombies Utils and SST options
+zombiesaddon.config.category.otherMods.tooltip=Zombies Utils and SST options.
 
 zombiesaddon.config.enableMod=Enable Mod
 zombiesaddon.config.enableMod.description=Enable or disable Zombies Addon mod.

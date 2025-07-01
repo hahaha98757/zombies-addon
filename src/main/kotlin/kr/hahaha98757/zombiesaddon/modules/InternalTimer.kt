@@ -90,16 +90,4 @@ class InternalTimer: Module("Internal Timer", true) {
             lock.unlock()
         }
     }
-
-    fun reset() {
-        lock.lock()
-        try {
-            millis = 0
-            stopTimer = true
-            future?.cancel(false)
-            future = null
-        } finally {
-            lock.unlock()
-        }
-    }
 }

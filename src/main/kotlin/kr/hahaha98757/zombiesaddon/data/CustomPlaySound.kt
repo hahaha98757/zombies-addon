@@ -13,10 +13,6 @@ object CustomPlaySoundLoader {
 
         if (!file.exists()) cps = null
 
-        cps = try {
-            JsonLoader.loadJsonFromFile(file, Array<CustomPlaySound>::class.java)
-        } catch (e: Exception) {
-            null
-        }
+        cps = runCatching { JsonLoader.loadJsonFromFile(file, Array<CustomPlaySound>::class.java) }.getOrNull()
     }
 }

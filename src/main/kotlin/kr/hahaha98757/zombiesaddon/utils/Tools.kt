@@ -102,11 +102,7 @@ fun getRound(): Int {
     val scoreboard = getScoreboard() ?: return 0
 
     val str = scoreboard[13] ?: return 0
-    return try {
-        str.replace(Regex("[^0-9]"), "").toInt()
-    } catch (_: Exception) {
-        0
-    }
+    return str.runCatching { replace(Regex("[^0-9]"), "").toInt() }.getOrElse { 0 }
 }
 
 /** 인덱스 3은 thePlayer의 상태(0: 살아있음, 1: 부활, 2: 사망, 3: 떠남) */
@@ -117,11 +113,8 @@ fun getPlayerState(): IntArray {
     for (i in 7..10) {
         var str = scoreboard[i] ?: continue
 
-        try {
-            str = str.split(":")[1].trim()
-        } catch (_: IndexOutOfBoundsException) {
-            continue
-        }
+
+        str = str.runCatching { split(":")[1].trim() }.getOrNull() ?: continue
 
         when (str) {
             "REVIVE", "부활" -> playerState[0]++

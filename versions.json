@@ -1,4 +1,4 @@
 {
-  "version": "4.4.0-pre3",
-  "log": "Fixed a bug: Missing boss colors in Wave Delays.\nReplaces \"playWave\", the old usage with \"playType\" in \"CustomPlaySound.json\" when starting the game."
+  "version": "4.4.0-pre4",
+  "log": "Fixed a bug: Some strings cause crashes when changing languages.\nFixed codes: Changes some try statement to runCatching function."
 }

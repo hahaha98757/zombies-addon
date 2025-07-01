@@ -28,7 +28,7 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.4.0-pre3"
+const val VERSION = "4.4.0-pre4"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {
@@ -69,10 +69,7 @@ class ZombiesAddon {
             hasUnlegitMod = true
             break
         }
-        if (Loader.isModLoaded("showspawntime")) try {
-            ShowSpawnTime.getMainConfiguration().ConfigLoad()
-        } catch (_: NoClassDefFoundError) {
-        }
+        if (Loader.isModLoaded("showspawntime")) runCatching { ShowSpawnTime.getMainConfiguration().ConfigLoad() }
 
         UpdateChecker.setVersion()
         println("$NAME v$VERSION is loaded.")

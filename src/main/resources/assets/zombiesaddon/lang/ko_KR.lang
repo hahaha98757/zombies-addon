@@ -17,6 +17,8 @@ zombiesaddon.key.carTimer=카펜터 타이머
 zombiesaddon.key.bgTimer=보너스 골드 타이머
 
 
+zombiesaddon.commands.autosplits.usage=/autosplits <신호>
+
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|숫자|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: %s§e의 패턴을§c 재설정§e했습니다
 zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: %s§e의 패턴을 %s§e(으)로 설정했습니다
@@ -39,7 +41,7 @@ zombiesaddon.commands.zsv.wrongURL=URL은 "https://pastebin.com/raw/"로 시작�
 zombiesaddon.commands.zsv.failed=§eZSV: §cZSV를 설정하는데 실패했습니다
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
-zombiesaddon.commands.zsvlines.success=§eZSV: 표시 라인을 %d§e줄 설정했습니다
+zombiesaddon.commands.zsvlines.success=§eZSV: 표시 라인을 %s§e줄 설정했습니다
 
 
 zombiesaddon.features.general.toggled=%s§e(을)를 %s§e(으)로 토글했습니다
@@ -78,7 +80,7 @@ zombiesaddon.gui.GuiUpdateScreen.button.url=다운로드 URL 열기
 zombiesaddon.gui.GuiUpdateScreen.button.continue=계속
 zombiesaddon.gui.GuiUpdateScreen.button.quit=게임 종료
 
-zombiesaddon.game.round=§f라운드 %d
+zombiesaddon.game.round=§f라운드 %s
 zombiesaddon.game.ins=§c즉시 처치
 zombiesaddon.game.max=§9탄약 충전
 zombiesaddon.game.ss=§5지름신 강림

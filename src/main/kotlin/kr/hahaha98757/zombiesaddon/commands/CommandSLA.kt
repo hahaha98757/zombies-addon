@@ -52,12 +52,10 @@ class CommandSLA: CustomCommandBase() {
                     }
                     "rotate" -> {
                         if (args.size == 2) SLA.sla?.resetRotate()
-                        else {
-                            try {
-                                SLA.sla?.rotate(args[2].toInt())
-                            } catch (e: NumberFormatException) {
-                                throw NumberInvalidException("commands.generic.num.invalid", args[2])
-                            }
+                        else try {
+                            SLA.sla?.rotate(args[2].toInt())
+                        } catch (e: NumberFormatException) {
+                            throw NumberInvalidException("commands.generic.num.invalid", args[2])
                         }
                     }
                     "mirror" -> {
