@@ -54,7 +54,7 @@ class CommandSLA: CustomCommandBase() {
                         if (args.size == 2) SLA.sla?.resetRotate()
                         else try {
                             SLA.sla?.rotate(args[2].toInt())
-                        } catch (e: NumberFormatException) {
+                        } catch (_: NumberFormatException) {
                             throw NumberInvalidException("commands.generic.num.invalid", args[2])
                         }
                     }

@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.KeyBindings
+import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.utils.fr
 import net.minecraft.client.gui.Gui
 import net.minecraftforge.client.event.RenderGameOverlayEvent
@@ -20,7 +20,7 @@ class ZombiesStratViewer: Module("Zombies Strat Viewer", false) {
     private var width = 0
     private var height = 20
 
-    fun recalcActualLines() {
+    fun refreshActualLines() {
         height = 0
         width = 20
         actualLines.clear()
@@ -28,29 +28,29 @@ class ZombiesStratViewer: Module("Zombies Strat Viewer", false) {
             if (i >= stratLines.size) continue
             var line = stratLines[i]
             if (line.isEmpty()) {
-                actualLines.add("\$CONTROL EMPTY$")
+                actualLines += "\$CONTROL EMPTY$"
                 height += 10
             } else {
                 line = WordUtils.wrap(line, 55)
                 val strArr = line.split("\n")
                 for (s in strArr) {
                     val str = s.replace("\r", "")
-                    actualLines.add(str)
+                    actualLines += str
                     val width = fr.getStringWidth(str)
                     if (width > this.width) this.width = width
                     height += 10
                 }
-                actualLines.add("\$HEY CONTROL$")
+                actualLines += "\$HEY CONTROL$"
                 height += 5
             }
         }
     }
 
     override fun onKeyInput(event: KeyInputEvent) {
-        if (KeyBindings.zsvScrollDown.isPressed && currentLine + 1 < stratLines.size) currentLine++
-        else if (KeyBindings.zsvScrollUp.isPressed && currentLine > 0) currentLine--
+        if (ZombiesAddon.instance.keyBindings.zsvScrollDown.isPressed && currentLine + 1 < stratLines.size) currentLine++
+        else if (ZombiesAddon.instance.keyBindings.zsvScrollUp.isPressed && currentLine > 0) currentLine--
         else return
-        recalcActualLines()
+        refreshActualLines()
     }
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {

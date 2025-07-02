@@ -1,6 +1,5 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.KeyBindings
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.data.Prefix
@@ -33,7 +32,7 @@ class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysT
     }
 
     override fun onKeyInput(event: KeyInputEvent) {
-        if (!KeyBindings.toggleRLMode.isPressed) return
+        if (!ZombiesAddon.instance.keyBindings.toggleRLMode.isPressed) return
         rlMode = !rlMode
         offset = if (rlMode) ZombiesAddon.instance.config.waveDelaysRLModeOffset else 0
         addTranslationChat("zombiesaddon.features.general.toggled", "§eRL Mode", if (rlMode) "§aon" else "§coff")

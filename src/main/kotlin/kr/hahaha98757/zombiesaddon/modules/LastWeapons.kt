@@ -94,7 +94,7 @@ class LastWeapons: Module("Last Weapons", ZombiesAddon.instance.config.lwToggle)
         var name = itemName
         if ("Ultimate" in itemName) try {
             name = itemName.split("Ultimate")[1].trim()
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             return 0
         }
         if ("레벨" in itemName) name = itemName.split("레벨")[0].trim()

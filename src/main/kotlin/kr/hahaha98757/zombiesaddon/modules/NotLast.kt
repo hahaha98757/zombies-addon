@@ -28,7 +28,7 @@ class NotLast: Module("Not Last", ZombiesAddon.instance.config.toggleNotLast) {
             val players = mutableListOf<String>()
             for (score in scoreboard.getSortedScores(scoreObjective)) {
                 val kills = scoreMap[score.playerName] ?: continue
-                if (score.scorePoints != kills) players.add(score.playerName)
+                if (score.scorePoints != kills) players += score.playerName
             }
 
             if (players.isNotEmpty()) {

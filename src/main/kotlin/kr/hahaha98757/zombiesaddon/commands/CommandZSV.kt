@@ -21,7 +21,7 @@ class CommandZSV: CustomCommandBase() {
         if (args.isEmpty()) throw WrongUsageException(getCommandUsage(null))
         if (args[0] == "off") {
             ZombiesStratViewer.instance.stratLines.clear()
-            ZombiesStratViewer.instance.stratLines.add("")
+            ZombiesStratViewer.instance.stratLines += ""
             ZombiesStratViewer.instance.currentLine = 0
             addTranslationChat("zombiesaddon.commands.zsv.success", "§coff")
             ZombiesStratViewer.instance.enabled = false
@@ -29,26 +29,29 @@ class CommandZSV: CustomCommandBase() {
         }
         if (!args[0].startsWith("https://pastebin.com/raw/")) throw CommandException("zombiesaddon.commands.zsv.wrongURL")
 
-        ZombiesStratViewer.instance.stratLines.clear()
-        ZombiesStratViewer.instance.stratLines.add("")
-        ZombiesStratViewer.instance.currentLine = 0
-
-        try {
-            val url = URL(args[0])
-            val connection = url.openConnection()
-            connection.doInput = true
-            connection.connect()
-            BufferedReader(InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)).use { reader ->
-                var str: String?
-                while (reader.readLine().also { str = it } != null) ZombiesStratViewer.instance.stratLines.add(str!!)
+        Thread {
+            try {
+                val list = mutableListOf("")
+                val url = URL(args[0])
+                val connection = url.openConnection()
+                connection.doInput = true
+                connection.connect()
+                BufferedReader(InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)).use { reader ->
+                    var str: String?
+                    while (reader.readLine().also { str = it } != null) list += str!!
+                }
+                mc.addScheduledTask {
+                    ZombiesStratViewer.instance.stratLines.clear()
+                    ZombiesStratViewer.instance.currentLine = 0
+                    ZombiesStratViewer.instance.stratLines += list
+                    ZombiesStratViewer.instance.enabled = true
+                    ZombiesStratViewer.instance.refreshActualLines()
+                    addTranslationChat("zombiesaddon.commands.zsv.success", "§aon")
+                }
+            } catch (_: Exception) {
+                mc.addScheduledTask { addTranslationChat("zombiesaddon.commands.zsv.failed") }
             }
-        } catch (e: Exception) {
-            addTranslationChat("zombiesaddon.commands.zsv.failed")
-        }
-
-        ZombiesStratViewer.instance.enabled = true
-        ZombiesStratViewer.instance.recalcActualLines()
-        addTranslationChat("zombiesaddon.commands.zsv.success", "§aon")
+        }.start()
     }
 
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? {

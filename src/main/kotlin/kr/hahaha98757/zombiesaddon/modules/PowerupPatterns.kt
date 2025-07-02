@@ -1,6 +1,5 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.KeyBindings
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.enums.Map
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
@@ -259,7 +258,7 @@ class PowerupPatterns: Module("Powerup Patterns", ZombiesAddon.instance.config.t
 
             when (name) {
                 "INSTA KILL", "즉시 처치" -> {
-                    spawnedEntities.add(entity)
+                    spawnedEntities += entity
                     val round = getRound()
                     for (i in insPattern1) if (i == round) {
                         rawInsPattern = 2
@@ -271,7 +270,7 @@ class PowerupPatterns: Module("Powerup Patterns", ZombiesAddon.instance.config.t
                     }
                 }
                 "MAX AMMO", "탄약 충전" -> {
-                    spawnedEntities.add(entity)
+                    spawnedEntities += entity
                     val round = getRound()
                     for (i in maxPattern1) if (i == round) {
                         rawMaxPattern = 2
@@ -283,7 +282,7 @@ class PowerupPatterns: Module("Powerup Patterns", ZombiesAddon.instance.config.t
                     }
                 }
                 "SHOPPING SPREE", "지름신 강림" -> {
-                    spawnedEntities.add(entity)
+                    spawnedEntities += entity
                     val round = getRound()
                     for (i in ssPattern1) if (i == round) {
                         rawSSPattern = 5
@@ -332,12 +331,13 @@ class PowerupPatterns: Module("Powerup Patterns", ZombiesAddon.instance.config.t
     }
 
     override fun onKeyInput(event: InputEvent.KeyInputEvent) {
-        if (KeyBindings.insTimer.isPressed) insTimer = true
-        if (KeyBindings.maxTimer.isPressed) maxTimer = true
-        if (KeyBindings.ssTimer.isPressed) ssTimer = true
-        if (KeyBindings.dgTimer.isPressed) dgTimer = true
-        if (KeyBindings.carTimer.isPressed) carTimer = true
-        if (KeyBindings.bgTimer.isPressed) bgTimer = true
+        val keys = ZombiesAddon.instance.keyBindings
+        if (keys.insTimer.isPressed) insTimer = true
+        if (keys.maxTimer.isPressed) maxTimer = true
+        if (keys.ssTimer.isPressed) ssTimer = true
+        if (keys.dgTimer.isPressed) dgTimer = true
+        if (keys.carTimer.isPressed) carTimer = true
+        if (keys.bgTimer.isPressed) bgTimer = true
     }
 
     override fun onChat(event: ClientChatReceivedEvent) {

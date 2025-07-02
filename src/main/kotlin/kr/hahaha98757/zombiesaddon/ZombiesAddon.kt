@@ -28,7 +28,7 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.4.0-pre4"
+const val VERSION = "4.4.0-rc1"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {
@@ -46,6 +46,7 @@ class ZombiesAddon {
         get() = configOrNull ?: throw IllegalStateException("ZAConfig is not initialized yet.")
 
     private var hasUnlegitMod = false
+    val keyBindings = KeyBindings()
 
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
@@ -121,7 +122,7 @@ class ZombiesAddon {
     }
 
     private fun registerAll() {
-        KeyBindings.registerAll()
+        keyBindings.registerAll()
 
         Commands.registerCommands()
 

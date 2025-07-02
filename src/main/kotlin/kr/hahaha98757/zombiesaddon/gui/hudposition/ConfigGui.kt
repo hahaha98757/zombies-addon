@@ -42,16 +42,11 @@ class ConfigGui: GuiScreen() {
         buttonList.add(GuiButton(1, x, y, 80, 20, getTranslatedString("gui.done")))
         buttonList.add(GuiButton(2, x + 85, y, 80, 20, getTranslatedString("zombiesaddon.gui.reset")))
         boxes.clear()
-        val boxAutoSplits = HudCoordinate(2, HUDUtils.autoSplitsX, HUDUtils.autoSplitsY, widthAutoSplits, fr.FONT_HEIGHT, width, height)
-        boxes.add(boxAutoSplits)
-        val boxWaveDelays = HudCoordinate(0, HUDUtils.waveDelaysX, HUDUtils.waveDelaysY, widthWaveDelays, fr.FONT_HEIGHT * 8, width, height)
-        boxes.add(boxWaveDelays)
-        val boxPowerupPatterns = HudCoordinate(1, HUDUtils.powerupPatternsX, HUDUtils.powerupPatternsY, widthPowerupPatterns, fr.FONT_HEIGHT * 6, width, height)
-        boxes.add(boxPowerupPatterns)
-        val boxModName = HudCoordinate(3, HUDUtils.modNameX, HUDUtils.modNameY, widthModName, fr.FONT_HEIGHT, width, height)
-        boxes.add(boxModName)
-        val boxToggleText = HudCoordinate(4, HUDUtils.toggleTextX, HUDUtils.toggleTextY, widthToggleText, fr.FONT_HEIGHT * 3, width, height)
-        boxes.add(boxToggleText)
+        boxes += HudCoordinate(2, HUDUtils.autoSplitsX, HUDUtils.autoSplitsY, widthAutoSplits, fr.FONT_HEIGHT, width, height)
+        boxes += HudCoordinate(0, HUDUtils.waveDelaysX, HUDUtils.waveDelaysY, widthWaveDelays, fr.FONT_HEIGHT * 8, width, height)
+        boxes += HudCoordinate(1, HUDUtils.powerupPatternsX, HUDUtils.powerupPatternsY, widthPowerupPatterns, fr.FONT_HEIGHT * 6, width, height)
+        boxes += HudCoordinate(3, HUDUtils.modNameX, HUDUtils.modNameY, widthModName, fr.FONT_HEIGHT, width, height)
+        boxes += HudCoordinate(4, HUDUtils.toggleTextX, HUDUtils.toggleTextY, widthToggleText, fr.FONT_HEIGHT * 3, width, height)
     }
 
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {

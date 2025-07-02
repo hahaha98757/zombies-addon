@@ -149,7 +149,7 @@ private fun getTranslateKey(key: String): String {
     val resourceLocation = ResourceLocation(MODID, "lang/$langCode.lang")
     try {
         InputStreamReader(mc.resourceManager.getResource(resourceLocation).inputStream, StandardCharsets.UTF_8).use { langFile.load(it) }
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         return key
     }
     return langFile.getProperty(key, key)

@@ -1,4 +1,4 @@
 {
-  "version": "4.4.0-pre4",
+  "version": "4.4.0-pre5",
   "log": "Fixed a bug: Some strings cause crashes when changing languages.\nFixed codes: Changes some try statement to runCatching function."
 }

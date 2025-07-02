@@ -18,9 +18,9 @@ class CommandZSVLines: CustomCommandBase() {
             if (i < 1) throw CommandException("commands.generic.num.tooSmall", i, 1)
 
             ZombiesStratViewer.instance.linesOfView = i
-            ZombiesStratViewer.instance.recalcActualLines()
+            ZombiesStratViewer.instance.refreshActualLines()
             addTranslationChat("zombiesaddon.commands.zsvlines.success", "§a$i")
-        } catch (e: NumberFormatException) {
+        } catch (_: NumberFormatException) {
             throw NumberInvalidException("commands.generic.num.invalid", args[0])
         }
     }

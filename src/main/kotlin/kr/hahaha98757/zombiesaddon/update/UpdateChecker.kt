@@ -68,8 +68,8 @@ object UpdateChecker {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            latest = Version(4, 3, 2)
-            recommended = Version(4, 3, 2)
+            latest = Version()
+            recommended = Version()
         }
     }.start()
 

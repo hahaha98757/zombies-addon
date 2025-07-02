@@ -4,7 +4,7 @@ import net.minecraft.client.settings.KeyBinding
 import net.minecraftforge.fml.client.registry.ClientRegistry
 import org.lwjgl.input.Keyboard
 
-object KeyBindings {
+class KeyBindings {
     val togglePV = KeyBinding("zombiesaddon.key.togglePlayerVisibility", Keyboard.KEY_Z, NAME)
     val toggleBlockAlarm = KeyBinding("zombiesaddon.key.toggleBlockAlarm", Keyboard.KEY_P, NAME)
     val toggleAutoRejoin = KeyBinding("zombiesaddon.key.toggleAutoRejoin", Keyboard.CHAR_NONE, NAME)

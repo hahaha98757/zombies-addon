@@ -1,6 +1,5 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.KeyBindings
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.DelayedTask
@@ -12,7 +11,7 @@ class AutoRejoin: ToggleModule("Auto Rejoin", ZombiesAddon.instance.config.autoR
         val instance = AutoRejoin()
     }
 
-    override fun getKeyBinding() = KeyBindings.toggleAutoRejoin
+    override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.toggleAutoRejoin
     override fun addToggleText(enabled: Boolean) =
         addTranslationChat("zombiesaddon.features.general.toggled", "§eAuto Rejoin", if (enabled) "§aon" else "§coff")
 
