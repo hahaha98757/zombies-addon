@@ -213,7 +213,7 @@ public class MixinMainConfiguration {
 
         config.save();
         logger.info("Finished loading config. ");
-        logger.info("The unlegit features have been blocked by Zombies Addon.");
-        Tools.addChatLine("The unlegit features have been blocked by Zombies Addon.");
+        logger.info(Tools.getTranslatedString("zombiesaddon.messages.blockUnlegitSST"));
+        Tools.addTranslationChat("zombiesaddon.messages.blockUnlegitSST");
     }
 }

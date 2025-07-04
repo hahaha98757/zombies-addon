@@ -17,6 +17,11 @@ zombiesaddon.key.carTimer=카펜터 타이머
 zombiesaddon.key.bgTimer=보너스 골드 타이머
 
 
+zombiesaddon.messages.offBlockUnlegitMods=언레짓 모드 차단이 꺼져 있습니다.
+zombiesaddon.messages.offBlockUnlegitSST=SST 언레짓 기능 차단이 꺼져 있습니다.
+zombiesaddon.messages.blockUnlegitSST=SST의 언레짓 기능이 Zombies Addon에 의해 차단되었습니다.
+
+
 zombiesaddon.commands.autosplits.usage=/autosplits <신호>
 
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|숫자|on|off]

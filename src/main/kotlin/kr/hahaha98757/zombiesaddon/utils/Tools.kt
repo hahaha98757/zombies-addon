@@ -38,6 +38,8 @@ fun addChatLine(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText("
 
 fun addTranslationChat(key: String, vararg any: Any) = addChat(getTranslatedString(key, any = any))
 
+fun addTranslationChatLine(key: String, vararg any: Any) = addChatLine(getTranslatedString(key, any = any))
+
 fun sendChat(text: String) = mc.thePlayer?.sendChatMessage(text) ?: println("sendChat: $text")
 
 @JvmOverloads

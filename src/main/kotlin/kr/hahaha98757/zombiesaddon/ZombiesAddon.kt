@@ -8,6 +8,7 @@ import kr.hahaha98757.zombiesaddon.data.CustomPlaySound
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEventListener
 import kr.hahaha98757.zombiesaddon.events.RoundStartEventListener
+import kr.hahaha98757.zombiesaddon.events.ThePlayerJoinEventListener
 import kr.hahaha98757.zombiesaddon.gui.GuiDetectedUnlegitMods
 import kr.hahaha98757.zombiesaddon.modules.*
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker
@@ -28,7 +29,7 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.4.0-rc1"
+const val VERSION = "4.4.0"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {
@@ -128,6 +129,7 @@ class ZombiesAddon {
 
         MinecraftForge.EVENT_BUS.register(this)
         MinecraftForge.EVENT_BUS.register(config)
+        MinecraftForge.EVENT_BUS.register(ThePlayerJoinEventListener())
         MinecraftForge.EVENT_BUS.register(UpdateCheckerListener())
         MinecraftForge.EVENT_BUS.register(LastClientTickEventListener())
         MinecraftForge.EVENT_BUS.register(RoundStartEventListener())

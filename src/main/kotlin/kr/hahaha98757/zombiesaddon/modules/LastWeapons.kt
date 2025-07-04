@@ -36,25 +36,28 @@ class LastWeapons: Module("Last Weapons", ZombiesAddon.instance.config.lwToggle)
             for (i in 0..8) {
                 val weapon = weapons[i]
 
-                if (weapon != null) {
-                    if (i == 4 && ZombiesAddon.instance.config.lwDisplayCooledDownSkill && weapon.item == Items.dye && weapon.itemDamage == 8) {
-                        val name = weapon.displayName
-                        if ("Heal Skill" in name || "회복 기술" in name)
+                weapon?.let {
+                    if (i == 4 && ZombiesAddon.instance.config.lwDisplayCooledDownSkill && it.item == Items.dye && it.itemDamage == 8) {
+                        val name = it.displayName
+                        if ("Heal Skill" in name || "회복 기술" in name) {
                             displayTexture("textures/items/heal_cool.png", x + 20 * i, y)
-                        else if ("Lightning Rod Skill" in name || "번개 막대 기술" in name)
+                            return@let
+                        } else if ("Lightning Rod Skill" in name || "번개 막대 기술" in name) {
                             displayTexture("textures/items/lrod_cool.png", x + 20 * i, y)
-                        else if ("Deployable Turret Skill" in name)
+                            return@let
+                        } else if ("Deployable Turret Skill" in name) {
                             displayTexture("textures/items/turret_cool.png", x + 20 * i, y)
-                        continue
+                            return@let
+                        }
                     }
 
-                    val level = getLevel(getText(weapon.displayName))
+                    val level = getLevel(getText(it.displayName))
 
-                    renderItem.renderItemAndEffectIntoGUI(weapon, x + 20 * i, y)
+                    renderItem.renderItemAndEffectIntoGUI(it, x + 20 * i, y)
 
                     if (ZombiesAddon.instance.config.lwDisplayWeaponsLevel && level != 0)
                         displayTexture("textures/items/level$level.png", x + 20 * i, y)
-                    renderItem.renderItemOverlayIntoGUI(fr, weapon, x + 20 * i, y, null)
+                    renderItem.renderItemOverlayIntoGUI(fr, it, x + 20 * i, y, null)
                 }
             }
 

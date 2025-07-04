@@ -195,6 +195,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.4.0
+- Bugfix: Empty slots in skills are not displayed in Last Weapons.
+
 ## 4.4.0-rc1
 - ZSV Fix: Fixed the game not freezing when loading text.
 - Bugfix: Fixed a bug where if loading a version fails, it would fall back to the wrong version.
