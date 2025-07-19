@@ -3,6 +3,7 @@ package kr.hahaha98757.zombiesaddon.modules
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.data.Prefix
+import kr.hahaha98757.zombiesaddon.data.Wave
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.Map
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
@@ -96,7 +97,7 @@ class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysT
                 if (map == Map.ALIEN_ARCADIUM) bossColor[1] = getBossColor2(this.round, i+1)
             }
 
-            val str = when (ZombiesAddon.instance.config.waveDelaysTextStyle) {
+            val waveText = when (ZombiesAddon.instance.config.waveDelaysTextStyle) {
                 "W1: 0:10.0" -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTime.toLong())}:${bossColor[1] + getSecondsString(waveTime.toLong())}.${getTenthSecondsString(waveTime.toLong())}"
                 "W1 0:10.0" -> "W${i+1} ${bossColor[0] + getMinutesString(waveTime.toLong())}:${bossColor[1] + getSecondsString(waveTime.toLong())}.${getTenthSecondsString(waveTime.toLong())}"
                 "W1: 00:10" -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTime.toLong(), true)}:${bossColor[1] + getSecondsString(waveTime.toLong())}"
@@ -106,36 +107,33 @@ class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysT
 
             if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == "Zombies Addon") {
                 if (roundTime >= waveTime + DESPAWN_TICK)
-                    fr.drawStringWithShadow("§c$str", HUDUtils.getWaveDelaysStrX(str), HUDUtils.getWaveDelaysStrY(length, i), 0)
+                    fr.drawStringWithShadow("§c$waveText", HUDUtils.getWaveDelaysStrX(waveText), HUDUtils.getWaveDelaysStrY(length, i), 0)
                 else if (roundTime >= waveTime) if (roundTime != waveTime && ZombiesAddon.instance.config.waveDelaysHidePassedWave) continue
-                    else fr.drawStringWithShadow("§a$str", HUDUtils.getWaveDelaysStrX(str), HUDUtils.getWaveDelaysStrY(length, i), 0)
+                    else fr.drawStringWithShadow("§a$waveText", HUDUtils.getWaveDelaysStrX(waveText), HUDUtils.getWaveDelaysStrY(length, i), 0)
                 else if (roundTime > waveTime - 60)
-                    fr.drawStringWithShadow("§e$str", HUDUtils.getWaveDelaysStrX(str), HUDUtils.getWaveDelaysStrY(length, i), 0)
+                    fr.drawStringWithShadow("§e$waveText", HUDUtils.getWaveDelaysStrX(waveText), HUDUtils.getWaveDelaysStrY(length, i), 0)
                 else
-                    fr.drawStringWithShadow("§8$str", HUDUtils.getWaveDelaysStrX(str), HUDUtils.getWaveDelaysStrY(length, i), 0)
+                    fr.drawStringWithShadow("§8$waveText", HUDUtils.getWaveDelaysStrX(waveText), HUDUtils.getWaveDelaysStrY(length, i), 0)
 
-                var width = HUDUtils.getWaveDelaysStrX("➤ $str")
-                for (prefix in wave.prefixes) {
-                    if (!ZombiesAddon.instance.config.waveDelaysPrefix) continue
-                    if (ZombiesAddon.instance.config.waveDelaysBossColor && (prefix == Prefix.BOSS || prefix == Prefix.GIANT || prefix == Prefix.OLD_ONE)) continue
-                    val prefixStr = "${prefix.prefix} "
-                    width -= fr.getStringWidth(prefixStr)
-                    fr.drawStringWithShadow(prefixStr, width, HUDUtils.getWaveDelaysStrY(length, i), prefix.color)
-                }
+                drawPrefixes(waveText, wave, i, length)
             } else if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == "Zombies Utils") {
                 faded = if (roundTime > waveTime) if (!ZombiesAddon.instance.config.waveDelaysHidePassedWave) true else continue else false
+                fr.drawStringWithShadow(if (faded) "§8$waveText" else color + waveText, HUDUtils.getWaveDelaysStrX(waveText), HUDUtils.getWaveDelaysStrY(length, i), 0)
 
-                fr.drawStringWithShadow(if (faded) "§8$str" else color + str, HUDUtils.getWaveDelaysStrX(str), HUDUtils.getWaveDelaysStrY(length, i), 0)
-                var width = HUDUtils.getWaveDelaysStrX("➤ $str")
-                for (prefix in wave.prefixes) {
-                    if (!ZombiesAddon.instance.config.waveDelaysPrefix) continue
-                    if (ZombiesAddon.instance.config.waveDelaysBossColor && (prefix == Prefix.BOSS || prefix == Prefix.GIANT || prefix == Prefix.OLD_ONE)) continue
-                    val prefixStr = "${prefix.prefix} "
-                    width -= fr.getStringWidth(prefixStr)
-                    fr.drawStringWithShadow(prefixStr, width, HUDUtils.getWaveDelaysStrY(length, i), if (faded) prefix.fadedColor else prefix.color)
-                }
+                drawPrefixes(waveText, wave, i, length, faded)
                 if (!faded) color = "§7"
             }
+        }
+    }
+
+    private fun drawPrefixes(waveText: String, wave: Wave, i: Int, length: Int, faded: Boolean = false) {
+        if (!ZombiesAddon.instance.config.waveDelaysPrefix) return
+        var width = HUDUtils.getWaveDelaysStrX("➤ $waveText")
+        for (prefix in wave.prefixes) {
+            if (ZombiesAddon.instance.config.waveDelaysBossColor && (prefix == Prefix.BOSS || prefix == Prefix.GIANT || prefix == Prefix.OLD_ONE)) continue
+            val prefixStr = "${prefix.prefix} "
+            width -= fr.getStringWidth(prefixStr)
+            fr.drawStringWithShadow(prefixStr, width, HUDUtils.getWaveDelaysStrY(length, i), if (faded) prefix.fadedColor else prefix.color)
         }
     }
 
@@ -246,13 +244,18 @@ private fun getBossColor1(map: Map, difficulty: Difficulty, round: Int, wave: In
                     if (difficulty == Difficulty.RIP) "§a"
                     else ""
                 }
-                20, 30 -> {
+                20 -> {
                     if (difficulty != Difficulty.RIP && wave == 2) "§5"
-                    else if (difficulty == Difficulty.RIP && (wave == 1 || wave == 2)) "§5"
+                    else if (difficulty == Difficulty.RIP && (wave == 1 || wave == 3)) "§5"
                     else ""
                 }
                 25 -> {
                     if (difficulty == Difficulty.RIP && wave == 3) "§a"
+                    else ""
+                }
+                30 -> {
+                    if (difficulty != Difficulty.RIP && wave == 2) "§5"
+                    else if (difficulty == Difficulty.RIP && (wave == 1 || wave == 2)) "§5"
                     else ""
                 }
                 else -> ""

@@ -72,18 +72,17 @@ zombiesaddon.gui.windowsOnly=이 기능은 Windows에서만 작동합니다
 zombiesaddon.gui.detectedUnlegitMods.title=언레짓 모드 감지됨
 zombiesaddon.gui.detectedUnlegitMods.list=언레짓 모드:
 zombiesaddon.gui.detectedUnlegitMods.button.remove=언레짓 모드 삭제(윈도우 전용)
-zombiesaddon.gui.detectedUnlegitMods.button.quit=게임 종료
 
 zombiesaddon.gui.downloadWaiting.title=다운로드 중...
 zombiesaddon.gui.downloadWaiting.failed=업데이트를 다운로드하는데 실패했습니다.
 
-zombiesaddon.gui.GuiUpdateScreen.title.normal=새로운 추천 버전이 출시되었습니다.
-zombiesaddon.gui.GuiUpdateScreen.title.mandatory=§c필수 업데이트가 출시되었습니다.
-zombiesaddon.gui.GuiUpdateScreen.message.mandatory=모드를 업데이트하지 않으면 게임을 플레이할 수 없습니다.
-zombiesaddon.gui.GuiUpdateScreen.button.autoupdate=자동 업데이트(윈도우 전용)
-zombiesaddon.gui.GuiUpdateScreen.button.url=다운로드 URL 열기
-zombiesaddon.gui.GuiUpdateScreen.button.continue=계속
-zombiesaddon.gui.GuiUpdateScreen.button.quit=게임 종료
+zombiesaddon.gui.updateScreen.title.normal=새로운 추천 버전이 출시되었습니다.
+zombiesaddon.gui.updateScreen.title.mandatory=§c필수 업데이트가 출시되었습니다.
+zombiesaddon.gui.updateScreen.message.mandatory=모드를 업데이트하지 않으면 게임을 플레이할 수 없습니다.
+zombiesaddon.gui.updateScreen.button.autoupdate=자동 업데이트(윈도우 전용)
+zombiesaddon.gui.updateScreen.button.url=다운로드 URL 열기
+zombiesaddon.gui.updateScreen.button.continue=계속
+zombiesaddon.gui.updateScreen.button.quit=게임 종료
 
 zombiesaddon.game.round=§f라운드 %s
 zombiesaddon.game.ins=§c즉시 처치

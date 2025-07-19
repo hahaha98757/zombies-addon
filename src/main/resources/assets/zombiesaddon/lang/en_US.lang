@@ -72,18 +72,17 @@ zombiesaddon.gui.windowsOnly=This feature is only available on Windows.
 zombiesaddon.gui.detectedUnlegitMods.title=Detected Unlegit Mods
 zombiesaddon.gui.detectedUnlegitMods.list=Unlegit Mods:
 zombiesaddon.gui.detectedUnlegitMods.button.remove=Remove Unlegit Mods(Windows only)
-zombiesaddon.gui.detectedUnlegitMods.button.quit=Quit the game
 
 zombiesaddon.gui.downloadWaiting.title=Downloading...
 zombiesaddon.gui.downloadWaiting.failed=Failed download the update.
 
-zombiesaddon.gui.GuiUpdateScreen.title.normal=The new recommended version has been released.
-zombiesaddon.gui.GuiUpdateScreen.title.mandatory=§cThe mandatory update has been released.
-zombiesaddon.gui.GuiUpdateScreen.message.mandatory=You should update this mod or can't play the game.
-zombiesaddon.gui.GuiUpdateScreen.button.autoupdate=Auto update(Windows only)
-zombiesaddon.gui.GuiUpdateScreen.button.url=Open download URL
-zombiesaddon.gui.GuiUpdateScreen.button.continue=Continue
-zombiesaddon.gui.GuiUpdateScreen.button.quit=Quit the game
+zombiesaddon.gui.updateScreen.title.normal=The new recommended version has been released.
+zombiesaddon.gui.updateScreen.title.mandatory=§cThe mandatory update has been released.
+zombiesaddon.gui.updateScreen.message.mandatory=You should update this mod or can't play the game.
+zombiesaddon.gui.updateScreen.button.autoupdate=Auto update(Windows only)
+zombiesaddon.gui.updateScreen.button.url=Open download URL
+zombiesaddon.gui.updateScreen.button.continue=Continue
+zombiesaddon.gui.updateScreen.button.quit=Quit the game
 
 
 zombiesaddon.game.round=§fRound %s

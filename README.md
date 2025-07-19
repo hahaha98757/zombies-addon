@@ -1,8 +1,6 @@
 ![Zombies Addon Logo](src/main/resources/logo.png)
 # Zombies Addon
-추천 버전: 4.3.2
-<br>최신 버전: 4.4.0-rc1
-<br>지원 언어: [한국어 (대한민국)](README.md), [English (US)](README-en_US.md)
+지원 언어: [한국어 (대한민국)](README.md), [English (US)](README-en_US.md)
 - 여러 좀비즈 모드를 통합하고 자잘한 버그 수정, 새로운 기능을 가진 모드입니다.
 
 
@@ -197,6 +195,10 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 ****
 
 # 업데이트 로그
+
+## 4.4.1
+- 버그 수정: Wave Delays에서 잘못된 보스 색상.
+- Gui 수정: Gui의 게임 종료 이름을 기존 번역 문자열로 변경.
 
 ## 4.4.0
 - 버그 수정: Last Weapons에서 기술의 빈 슬롯이 표시되지 않음.

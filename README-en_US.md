@@ -1,8 +1,6 @@
 ![Zombies Addon Logo](src/main/resources/logo.png)
 # Zombies Addon
-Recommended version: 4.3.2
-<br>Latest version: 4.4.0-rc1
-<br>Supported Languages: [한국어 (대한민국)](README.md), [English (US)](README-en_US.md)
+Supported Languages: [한국어 (대한민국)](README.md), [English (US)](README-en_US.md)
 <br>Translated by Google Translate.
 - A mod that combines several Zombies mods, fixes minor bugs, and has new features.
 
@@ -194,6 +192,10 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 ****
 
 # Update Log
+
+## 4.4.1
+- Bugfix: Wrong boss color in Wave Delays.
+- Gui fix: Changed the game exit name in the Gui to the original translated string.
 
 ## 4.4.0
 - Bugfix: Empty slots in skills are not displayed in Last Weapons.
