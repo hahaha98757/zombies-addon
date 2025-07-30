@@ -42,11 +42,11 @@ class ConfigGui: GuiScreen() {
         buttonList.add(GuiButton(1, x, y, 80, 20, getTranslatedString("gui.done")))
         buttonList.add(GuiButton(2, x + 85, y, 80, 20, getTranslatedString("zombiesaddon.gui.reset")))
         boxes.clear()
-        boxes += HudCoordinate(2, HUDUtils.autoSplitsX, HUDUtils.autoSplitsY, widthAutoSplits, fr.FONT_HEIGHT, width, height)
-        boxes += HudCoordinate(0, HUDUtils.waveDelaysX, HUDUtils.waveDelaysY, widthWaveDelays, fr.FONT_HEIGHT * 8, width, height)
-        boxes += HudCoordinate(1, HUDUtils.powerupPatternsX, HUDUtils.powerupPatternsY, widthPowerupPatterns, fr.FONT_HEIGHT * 6, width, height)
-        boxes += HudCoordinate(3, HUDUtils.modNameX, HUDUtils.modNameY, widthModName, fr.FONT_HEIGHT, width, height)
-        boxes += HudCoordinate(4, HUDUtils.toggleTextX, HUDUtils.toggleTextY, widthToggleText, fr.FONT_HEIGHT * 3, width, height)
+        boxes += HudCoordinate(2, HudUtils.autoSplitsX, HudUtils.autoSplitsY, widthAutoSplits, fr.FONT_HEIGHT, width, height)
+        boxes += HudCoordinate(0, HudUtils.waveDelaysX, HudUtils.waveDelaysY, widthWaveDelays, fr.FONT_HEIGHT * 8, width, height)
+        boxes += HudCoordinate(1, HudUtils.powerupPatternsX, HudUtils.powerupPatternsY, widthPowerupPatterns, fr.FONT_HEIGHT * 6, width, height)
+        boxes += HudCoordinate(3, HudUtils.modNameX, HudUtils.modNameY, widthModName, fr.FONT_HEIGHT, width, height)
+        boxes += HudCoordinate(4, HudUtils.toggleTextX, HudUtils.toggleTextY, widthToggleText, fr.FONT_HEIGHT * 3, width, height)
     }
 
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
@@ -66,51 +66,51 @@ class ConfigGui: GuiScreen() {
                 for (box in boxes) when (box.contents) {
                     0 -> {
                         if (!box.isDefault) {
-                            HUDUtils.waveDelaysX = box.x
+                            HudUtils.waveDelaysX = box.x
                             ZombiesAddon.instance.config.config.get("HUD", "waveDelaysX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
-                            HUDUtils.waveDelaysY = box.y
+                            HudUtils.waveDelaysY = box.y
                             ZombiesAddon.instance.config.config.get("HUD", "waveDelaysY", -1).set(box.y)
                         }
                     }
                     1 -> {
                         if (!box.isDefault) {
-                            HUDUtils.powerupPatternsX = box.x
+                            HudUtils.powerupPatternsX = box.x
                             ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
-                            HUDUtils.powerupPatternsY = box.y
+                            HudUtils.powerupPatternsY = box.y
                             ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsY", -1).set(box.y)
                         }
                     }
                     2 -> {
                         if (!box.isDefault) {
-                            HUDUtils.autoSplitsX = box.x
+                            HudUtils.autoSplitsX = box.x
                             ZombiesAddon.instance.config.config.get("HUD", "autoSplitsX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
-                            HUDUtils.autoSplitsY = box.y
+                            HudUtils.autoSplitsY = box.y
                             ZombiesAddon.instance.config.config.get("HUD", "autoSplitsY", -1).set(box.y)
                         }
                     }
                     3 -> {
                         if (!box.isDefault) {
-                            HUDUtils.modNameX = box.x
+                            HudUtils.modNameX = box.x
                             ZombiesAddon.instance.config.config.get("HUD", "modNameX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
-                            HUDUtils.modNameY = box.y
+                            HudUtils.modNameY = box.y
                             ZombiesAddon.instance.config.config.get("HUD", "modNameY", -1).set(box.y)
                         }
                     }
                     4 -> {
                         if (!box.isDefault) {
-                            HUDUtils.toggleTextX = box.x
+                            HudUtils.toggleTextX = box.x
                             ZombiesAddon.instance.config.config.get("HUD", "toggleTextX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
-                            HUDUtils.toggleTextY = box.y
+                            HudUtils.toggleTextY = box.y
                             ZombiesAddon.instance.config.config.get("HUD", "toggleTextY", -1).set(box.y)
                         }
                     }
@@ -123,66 +123,66 @@ class ConfigGui: GuiScreen() {
                     0 -> {
                         ZombiesAddon.instance.config.config.get("HUD", "waveDelaysX", -1).set(-1)
                         ZombiesAddon.instance.config.config.get("HUD", "waveDelaysY", -1).set(-1)
-                        HUDUtils.waveDelaysX = -1.0
-                        HUDUtils.waveDelaysY = -1.0
+                        HudUtils.waveDelaysX = -1.0
+                        HudUtils.waveDelaysY = -1.0
                         box.isDefault = true
                         DelayedTask {
-                            box.x = HUDUtils.waveDelaysX
-                            box.absoluteX = (HUDUtils.waveDelaysX * width.toDouble()).toInt()
-                            box.y = HUDUtils.waveDelaysY
-                            box.absoluteY = (HUDUtils.waveDelaysY * width.toDouble()).toInt()
+                            box.x = HudUtils.waveDelaysX
+                            box.absoluteX = (HudUtils.waveDelaysX * width.toDouble()).toInt()
+                            box.y = HudUtils.waveDelaysY
+                            box.absoluteY = (HudUtils.waveDelaysY * width.toDouble()).toInt()
                         }
                     }
                     1 -> {
                         ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsX", -1).set(-1)
                         ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsY", -1).set(-1)
-                        HUDUtils.powerupPatternsX = -1.0
-                        HUDUtils.powerupPatternsY = -1.0
+                        HudUtils.powerupPatternsX = -1.0
+                        HudUtils.powerupPatternsY = -1.0
                         box.isDefault = true
                         DelayedTask {
-                            box.x = HUDUtils.powerupPatternsX
-                            box.absoluteX = (HUDUtils.powerupPatternsX * width.toDouble()).toInt()
-                            box.y = HUDUtils.powerupPatternsY
-                            box.absoluteY = (HUDUtils.powerupPatternsY * width.toDouble()).toInt()
+                            box.x = HudUtils.powerupPatternsX
+                            box.absoluteX = (HudUtils.powerupPatternsX * width.toDouble()).toInt()
+                            box.y = HudUtils.powerupPatternsY
+                            box.absoluteY = (HudUtils.powerupPatternsY * width.toDouble()).toInt()
                         }
                     }
                     2 -> {
                         ZombiesAddon.instance.config.config.get("HUD", "autoSplitsX", -1).set(-1)
                         ZombiesAddon.instance.config.config.get("HUD", "autoSplitsY", -1).set(-1)
-                        HUDUtils.autoSplitsX = -1.0
-                        HUDUtils.autoSplitsY = -1.0
+                        HudUtils.autoSplitsX = -1.0
+                        HudUtils.autoSplitsY = -1.0
                         box.isDefault = true
                         DelayedTask {
-                            box.x = HUDUtils.autoSplitsX
-                            box.absoluteX = (HUDUtils.autoSplitsX * width.toDouble()).toInt()
-                            box.y = HUDUtils.autoSplitsY
-                            box.absoluteY = (HUDUtils.autoSplitsY * width.toDouble()).toInt()
+                            box.x = HudUtils.autoSplitsX
+                            box.absoluteX = (HudUtils.autoSplitsX * width.toDouble()).toInt()
+                            box.y = HudUtils.autoSplitsY
+                            box.absoluteY = (HudUtils.autoSplitsY * width.toDouble()).toInt()
                         }
                     }
                     3 -> {
                         ZombiesAddon.instance.config.config.get("HUD", "modNameX", -1).set(-1)
                         ZombiesAddon.instance.config.config.get("HUD", "modNameY", -1).set(-1)
-                        HUDUtils.modNameX = -1.0
-                        HUDUtils.modNameY = -1.0
+                        HudUtils.modNameX = -1.0
+                        HudUtils.modNameY = -1.0
                         box.isDefault = true
                         DelayedTask {
-                            box.x = HUDUtils.modNameX
-                            box.absoluteX = (HUDUtils.modNameX * width.toDouble()).toInt()
-                            box.y = HUDUtils.modNameY
-                            box.absoluteY = (HUDUtils.modNameY * width.toDouble()).toInt()
+                            box.x = HudUtils.modNameX
+                            box.absoluteX = (HudUtils.modNameX * width.toDouble()).toInt()
+                            box.y = HudUtils.modNameY
+                            box.absoluteY = (HudUtils.modNameY * width.toDouble()).toInt()
                         }
                     }
                     4 -> {
                         ZombiesAddon.instance.config.config.get("HUD", "toggleTextX", -1).set(-1)
                         ZombiesAddon.instance.config.config.get("HUD", "toggleTextY", -1).set(-1)
-                        HUDUtils.toggleTextX = -1.0
-                        HUDUtils.toggleTextY = -1.0
+                        HudUtils.toggleTextX = -1.0
+                        HudUtils.toggleTextY = -1.0
                         box.isDefault = true
                         DelayedTask {
-                            box.x = HUDUtils.toggleTextX
-                            box.absoluteX = (HUDUtils.toggleTextX * width.toDouble()).toInt()
-                            box.y = HUDUtils.toggleTextY
-                            box.absoluteY = (HUDUtils.toggleTextY * width.toDouble()).toInt()
+                            box.x = HudUtils.toggleTextX
+                            box.absoluteX = (HudUtils.toggleTextX * width.toDouble()).toInt()
+                            box.y = HudUtils.toggleTextY
+                            box.absoluteY = (HudUtils.toggleTextY * width.toDouble()).toInt()
                         }
                     }
                 }

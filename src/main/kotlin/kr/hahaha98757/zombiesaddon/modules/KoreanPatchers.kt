@@ -4,7 +4,7 @@ import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.ClientChatPrintedEvent
 import kr.hahaha98757.zombiesaddon.utils.addChat
 import kr.hahaha98757.zombiesaddon.utils.getText
-import kr.hahaha98757.zombiesaddon.utils.isNotZombies
+import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 
@@ -14,15 +14,15 @@ class KoreanPatchers: Module("Korean Patchers", true) {
     }
 
     override fun onChat(event: ClientChatReceivedEvent) {
-        ingame(event)
-        zombiesOverlay(event)
-    }
-
-    private fun ingame(event: ClientChatReceivedEvent) {
-        if (!ZombiesAddon.instance.config.koreanPatchersIngame) return
-        if (isNotZombies()) return
         val message = event.message.unformattedText
         if ("<" in message) return
+        ingame(message, event)
+        zombiesOverlay(message)
+    }
+
+    private fun ingame(message: String, event: ClientChatReceivedEvent) {
+        if (!ZombiesAddon.instance.config.koreanPatchersIngame) return
+        if (isNotPlayZombies()) return
 
         when (message) {
             "This weapon is out of ammo! You can refill ammo at the place that you purchased the weapon or through collecting the Max Ammo Power Up." ->
@@ -34,10 +34,8 @@ class KoreanPatchers: Module("Korean Patchers", true) {
         event.isCanceled = true
     }
 
-    private fun zombiesOverlay(event: ClientChatReceivedEvent) {
+    private fun zombiesOverlay(message: String) {
         if (!ZombiesAddon.instance.config.koreanPatchersZombiesOverlay) return
-        val message = event.message.unformattedText
-        if ("<" in message) return
 
         if (message.startsWith("온라인: ")) addChat("ONLINE: ${message.split(":")[1].trim()}")
         if ("님이 참여했습니다!" in message) {
@@ -58,8 +56,8 @@ class KoreanPatchers: Module("Korean Patchers", true) {
 
     override fun onEvent(event: Event) {
         if (event !is ClientChatPrintedEvent) return
-        if (!ZombiesAddon.instance.config.koreanPatchersSST) return
-        if (isNotZombies()) return
+        if (!ZombiesAddon.instance.config.koreanPatchersSst) return
+        if (isNotPlayZombies()) return
         val message = getText(event.message.unformattedText) // 왜인지 모르겠지만 색깔 코드가 제거가 안된다.
         if ("<" in message) return
 

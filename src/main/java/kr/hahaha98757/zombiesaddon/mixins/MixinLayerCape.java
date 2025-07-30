@@ -17,7 +17,7 @@ public class MixinLayerCape {
 
     @Inject(method = "doRenderLayer*", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;pushMatrix()V", shift = At.Shift.AFTER))
     private void doRenderLayerPre(AbstractClientPlayer entitylivingbaseIn, float f, float g, float partialTicks, float h, float i, float j, float scale, CallbackInfo ci) {
-        if (PlayerVisibility.Companion.isSemiPV(entitylivingbaseIn)) {
+        if (PlayerVisibility.Companion.isSemiPv(entitylivingbaseIn)) {
             GlStateManager.color(1.0F, 1.0F, 1.0F, PlayerVisibility.Companion.getAlpha(entitylivingbaseIn));
             GlStateManager.depthMask(false);
             GlStateManager.enableBlend();
@@ -30,7 +30,7 @@ public class MixinLayerCape {
     @SuppressWarnings("DiscouragedShift")
     @Inject(method = "doRenderLayer*", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;popMatrix()V", shift = At.Shift.BEFORE))
     private void doRenderLayerPost (AbstractClientPlayer entitylivingbaseIn, float f, float g, float partialTicks, float h, float i, float j, float scale, CallbackInfo ci) {
-        if(PlayerVisibility.Companion.isSemiPV(entitylivingbaseIn)) {
+        if(PlayerVisibility.Companion.isSemiPv(entitylivingbaseIn)) {
             GlStateManager.disableBlend();
             GlStateManager.alphaFunc(516, 0.1F);
             GlStateManager.depthMask(true);

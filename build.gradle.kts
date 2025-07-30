@@ -16,7 +16,6 @@ plugins {
 val baseGroup: String by project
 val mcVersion: String by project
 val version: String by project
-val mixinGroup = "$baseGroup.mixins"
 val modid: String by project
 val transformerFile = file("src/main/resources/accesstransformer.cfg")
 val archiveName = "ZombiesAddon1.8.9"
@@ -72,11 +71,11 @@ sourceSets.main {
 // Dependencies:
 
 repositories {
-    flatDir { dirs("libs") }
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
     // If you don't want to log in with your real minecraft account, remove this line
     maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+    flatDir { dirs("libs") }
 }
 
 val shadowImpl: Configuration by configurations.creating {
@@ -119,7 +118,7 @@ tasks.withType(org.gradle.jvm.tasks.Jar::class) {
 }
 
 tasks.processResources {
-    inputs.property("version", project.version)
+    inputs.property("version", version)
     inputs.property("mcversion", mcVersion)
     inputs.property("modid", modid)
     inputs.property("basePackage", baseGroup)
@@ -128,12 +127,12 @@ tasks.processResources {
         expand(inputs.properties)
     }
 
-    rename("(.+_at.cfg)", "META-INF/$1")
+    rename("accesstransformer.cfg", "META-INF/${modid}_at.cfg")
     from("LICENSE") { rename { "LICENSE.txt" } }
 }
 
 
-val remapJar by tasks.named<net.fabricmc.loom.task.RemapJarTask>("remapJar") {
+tasks.named<net.fabricmc.loom.task.RemapJarTask>("remapJar") {
     archiveClassifier.set("")
     from(tasks.shadowJar)
     input.set(tasks.shadowJar.get().archiveFile)
@@ -155,6 +154,7 @@ tasks.shadowJar {
     }
 
     // If you want to include other dependencies and shadow them, you can relocate them in here
+    @Suppress("unused")
     fun relocate(name: String) = relocate(name, "$baseGroup.deps.$name")
 }
 

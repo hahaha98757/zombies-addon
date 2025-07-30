@@ -1,4 +1,4 @@
-package kr.hahaha98757.zombiesaddon.data
+package kr.hahaha98757.zombiesaddon.enums
 
 @Suppress("unused")
 enum class Prefix(val color: Int, val fadedColor: Int, val prefix: String) {

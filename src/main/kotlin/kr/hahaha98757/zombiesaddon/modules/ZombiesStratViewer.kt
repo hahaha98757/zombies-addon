@@ -14,9 +14,9 @@ class ZombiesStratViewer: Module("Zombies Strat Viewer", false) {
     }
 
     val stratLines = mutableListOf<String>()
-    private val actualLines = mutableListOf<String>()
     var currentLine = 0
     var linesOfView = 1
+    private val actualLines = mutableListOf<String>()
     private var width = 0
     private var height = 20
 

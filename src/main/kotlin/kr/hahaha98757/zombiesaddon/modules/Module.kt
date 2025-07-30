@@ -1,9 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
-import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
-import kr.hahaha98757.zombiesaddon.events.SoundEvent
-import kr.hahaha98757.zombiesaddon.events.TitleEvent
+import kr.hahaha98757.zombiesaddon.events.*
 import kr.hahaha98757.zombiesaddon.utils.isDisable
 import net.minecraft.client.settings.KeyBinding
 import net.minecraftforge.client.event.ClientChatReceivedEvent
@@ -12,12 +9,7 @@ import net.minecraftforge.fml.common.eventhandler.Event
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 
-abstract class Module(val name: String, enabled: Boolean) {
-    var enabled = enabled
-        set (value) {
-            field = value
-            if (!value) onDisable()
-        }
+abstract class Module(val name: String, var enabled: Boolean) {
 
     internal open fun occurEvent(event: Event) {
         if (isDisable()) return
@@ -28,18 +20,19 @@ abstract class Module(val name: String, enabled: Boolean) {
             is SoundEvent -> onSound(event)
             is TitleEvent -> onTitle(event)
             is RoundStartEvent -> onRoundStart(event)
+            is GameEndEvent -> onGameEnd(event)
             is ClientChatReceivedEvent -> onChat(event)
             is KeyInputEvent -> onKeyInput(event)
             else -> onEvent(event)
         }
     }
 
-    protected open fun onDisable() {}
     protected open fun onLastTick(event: LastClientTickEvent) {}
     protected open fun onRender(event: RenderGameOverlayEvent.Text) {}
     protected open fun onSound(event: SoundEvent) {}
     protected open fun onTitle(event: TitleEvent) {}
     protected open fun onRoundStart(event: RoundStartEvent) {}
+    protected open fun onGameEnd(event: GameEndEvent) {}
     protected open fun onChat(event: ClientChatReceivedEvent) {}
     protected open fun onKeyInput(event: KeyInputEvent) {}
     protected open fun onEvent(event: Event) {}

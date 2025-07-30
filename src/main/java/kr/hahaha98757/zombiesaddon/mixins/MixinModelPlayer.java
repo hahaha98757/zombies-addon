@@ -27,7 +27,7 @@ public abstract class MixinModelPlayer extends MixinModelBiped {
     public void render(Entity entityIn, float f, float g, float h, float i, float j, float scale) {
         super.render(entityIn, f, g, h, i, j, scale);
         GlStateManager.pushMatrix();
-        if (PlayerVisibility.Companion.isSemiPV(entityIn)) {
+        if (PlayerVisibility.Companion.isSemiPv(entityIn)) {
             GlStateManager.color(1.0F, 1.0F, 1.0F, PlayerVisibility.Companion.getAlpha(entityIn));
             GlStateManager.depthMask(false);
             GlStateManager.enableBlend();
@@ -46,7 +46,7 @@ public abstract class MixinModelPlayer extends MixinModelBiped {
         this.bipedRightArmwear.render(scale);
         this.bipedBodyWear.render(scale);
 
-        if (PlayerVisibility.Companion.isSemiPV(entityIn)) {
+        if (PlayerVisibility.Companion.isSemiPv(entityIn)) {
             GlStateManager.disableBlend();
             GlStateManager.alphaFunc(516, 0.1F);
             GlStateManager.depthMask(true);

@@ -10,6 +10,7 @@ class RepeatedTask(private var tick: Int = 100, private val block: (Int) -> Bool
         MinecraftForge.EVENT_BUS.register(this)
     }
 
+    @Suppress("unused")
     @SubscribeEvent
     fun onTick(event: LastClientTickEvent) {
         if (tick <= 0) {

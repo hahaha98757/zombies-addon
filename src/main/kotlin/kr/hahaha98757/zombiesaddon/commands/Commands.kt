@@ -9,12 +9,11 @@ object Commands {
         ClientCommandHandler.instance.registerCommand(CommandAA())
         ClientCommandHandler.instance.registerCommand(CommandPR())
         ClientCommandHandler.instance.registerCommand(CommandPowerupPatterns())
-        ClientCommandHandler.instance.registerCommand(CommandSLA())
+        ClientCommandHandler.instance.registerCommand(CommandSla())
         ClientCommandHandler.instance.registerCommand(CommandZombiesAddon())
-        ClientCommandHandler.instance.registerCommand(CommandZSV())
-        ClientCommandHandler.instance.registerCommand(CommandZSVLines())
-        ClientCommandHandler.instance.registerCommand(CommandWaveDelays())
+        ClientCommandHandler.instance.registerCommand(CommandZsv())
+        ClientCommandHandler.instance.registerCommand(CommandZsvLines())
         ClientCommandHandler.instance.registerCommand(CommandAutoSplits())
-        ClientCommandHandler.instance.registerCommand(CommandInternalTimer())
+        ClientCommandHandler.instance.registerCommand(CommandZaDebug())
     }
 }

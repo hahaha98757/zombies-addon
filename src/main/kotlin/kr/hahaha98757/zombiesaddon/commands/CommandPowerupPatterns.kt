@@ -20,13 +20,13 @@ class CommandPowerupPatterns: CustomCommandBase() {
                     when (args[1]) {
                         "reset" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§cInsta Kill")
-                            PowerupPatterns.instance.rawInsPattern = 0
+                            PowerupPatterns.instance.queuedInsPattern = 0
                         }
                         "2", "3" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§a${args[1]}")
-                            PowerupPatterns.instance.rawInsPattern = args[1].toInt()
+                            PowerupPatterns.instance.queuedInsPattern = args[1].toInt()
                         }
-                        else -> throw WrongUsageException("/poweruppatterns in <reset|2|3>")
+                        else -> throw WrongUsageException("/poweruppatterns ins [reset|2|3]")
                     }
                 }
             }
@@ -36,13 +36,13 @@ class CommandPowerupPatterns: CustomCommandBase() {
                     when (args[1]) {
                         "reset" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§9Max Ammo")
-                            PowerupPatterns.instance.rawMaxPattern = 0
+                            PowerupPatterns.instance.queuedMaxPattern = 0
                         }
                         "2", "3" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§9Max Ammo", "§a${args[1]}")
-                            PowerupPatterns.instance.rawMaxPattern = args[1].toInt()
+                            PowerupPatterns.instance.queuedMaxPattern = args[1].toInt()
                         }
-                        else -> throw WrongUsageException("/poweruppatterns max <reset|2|3>")
+                        else -> throw WrongUsageException("/poweruppatterns max [reset|2|3]")
                     }
                 }
             }
@@ -52,13 +52,13 @@ class CommandPowerupPatterns: CustomCommandBase() {
                     when (args[1]) {
                         "reset" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§5Shopping Spree")
-                            PowerupPatterns.instance.rawSSPattern = 0
+                            PowerupPatterns.instance.queuedSsPattern = 0
                         }
                         "5", "6", "7" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§5Shopping Spree", "§a${args[1]}")
-                            PowerupPatterns.instance.rawSSPattern = args[1].toInt()
+                            PowerupPatterns.instance.queuedSsPattern = args[1].toInt()
                         }
-                        else -> throw WrongUsageException("/poweruppatterns ss <reset|5|6|7>")
+                        else -> throw WrongUsageException("/poweruppatterns ss [reset|5|6|7]")
                     }
                 }
             }
@@ -69,10 +69,12 @@ class CommandPowerupPatterns: CustomCommandBase() {
         }
     }
 
-    override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? {
-        return if (args.size == 1) getListOfStringsMatchingLastWord(args, "ins", "max", "ss", "dg", "car", "bg")
-        else if (args[0] == "ins" || args[0] == "max") getListOfStringsMatchingLastWord(args, "reset", "2", "3")
-        else if (args[0] == "ss") getListOfStringsMatchingLastWord(args, "reset", "5", "6", "7")
-        else return null
-    }
+    override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?) =
+        when (args.size) {
+            1 -> getListOfStringsMatchingLastWord(args, "ins", "max", "ss", "dg", "car", "bg")
+            2 -> if (args[0] == "ins" || args[0] == "max") getListOfStringsMatchingLastWord(args, "reset", "2", "3")
+            else if (args[0] == "ss") getListOfStringsMatchingLastWord(args, "reset", "5", "6", "7")
+            else null
+            else -> null
+        }
 }

@@ -7,6 +7,7 @@ data class CustomPlaySound(val name: String, val pitch: Float, val timing: Int, 
 
 object CustomPlaySoundLoader {
     var cps: Array<CustomPlaySound>? = null
+        private set
 
     fun loadFile() {
         val file = File("config/zombiesaddon/CustomPlaySound.json")

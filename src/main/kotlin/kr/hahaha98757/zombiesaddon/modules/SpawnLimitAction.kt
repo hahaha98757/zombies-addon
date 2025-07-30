@@ -2,20 +2,23 @@ package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.Room
-import kr.hahaha98757.zombiesaddon.enums.Map
-import kr.hahaha98757.zombiesaddon.events.TitleEvent
-import kr.hahaha98757.zombiesaddon.utils.*
+import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
+import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
+import kr.hahaha98757.zombiesaddon.utils.JsonLoader
+import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.fr
+import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import kotlin.math.pow
 
-class SLAListener: Module("Spawn Limit Action", true) {
+class SlaListener: Module("Spawn Limit Action", true) {
     companion object {
-        val instance = SLAListener()
+        val instance = SlaListener()
     }
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
-        SLA.sla?.refresh() ?: return
-        val rooms = SLA.sla?.rooms ?: return
+        Sla.sla?.refresh() ?: return
+        val rooms = Sla.sla?.rooms ?: return
         var y = 0
         for (room in rooms) {
             if (!ZombiesAddon.instance.config.slaUnactivatedWindows && room.activeWindows == 0) continue
@@ -23,19 +26,17 @@ class SLAListener: Module("Spawn Limit Action", true) {
         }
     }
 
-    override fun onTitle(event: TitleEvent) {
-        if (!ZombiesAddon.instance.config.slaAutoSLA) return
-        if (!(event.title == "Round 1" || event.title == "1라운드")) return
-        DelayedTask(10) {
-            val map = getMap() ?: return@DelayedTask
-            runCatching { SLA.on(map) }
-        }
+    override fun onRoundStart(event: RoundStartEvent) {
+        if (!ZombiesAddon.instance.config.slaAutoSla) return
+        if (event.game.round != 1) return
+        val map = event.game.gameMode.map
+        runCatching { Sla.on(map) }
     }
 }
 
-class SLA(map: Map) {
+class Sla(map: ZombiesMap) {
     companion object {
-        var sla: SLA? = null
+        var sla: Sla? = null
             private set
 
         fun off() {
@@ -43,16 +44,16 @@ class SLA(map: Map) {
             addTranslationChat("zombiesaddon.commands.sla.setMap", "§coff")
         }
 
-        fun on(map: Map) {
-            sla = SLA(map)
+        fun on(map: ZombiesMap) {
+            sla = Sla(map)
             addTranslationChat("zombiesaddon.commands.sla.setMap", "§a$map")
         }
     }
 
-    val rooms: Array<Room> = when (map) {
-        Map.DEAD_END -> JsonLoader.loadJsonFromResource("data/sla/DE.json", Array<Room>::class.java)
-        Map.BAD_BLOOD -> JsonLoader.loadJsonFromResource("data/sla/BB.json", Array<Room>::class.java)
-        Map.ALIEN_ARCADIUM -> JsonLoader.loadJsonFromResource("data/sla/AA.json", Array<Room>::class.java)
+    val rooms = when (map) {
+        ZombiesMap.DEAD_END -> JsonLoader.loadJsonFromResource("data/sla/DE.json", Array<Room>::class.java)
+        ZombiesMap.BAD_BLOOD -> JsonLoader.loadJsonFromResource("data/sla/BB.json", Array<Room>::class.java)
+        ZombiesMap.ALIEN_ARCADIUM -> JsonLoader.loadJsonFromResource("data/sla/AA.json", Array<Room>::class.java)
         else -> throw IllegalArgumentException("$map has no SLA")
     }
     private var offset = IntArray(3)

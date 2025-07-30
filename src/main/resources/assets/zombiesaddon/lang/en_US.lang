@@ -5,7 +5,7 @@ zombiesaddon.key.toggleAutoRejoin=Toggle Auto Rejoin
 zombiesaddon.key.zsvScrollUp=ZSV Scroll Up
 zombiesaddon.key.zsvScrollDown=ZSV Scroll Down
 
-zombiesaddon.key.toggleRLMode=Toggle RL Mode
+zombiesaddon.key.toggleRlMode=Toggle RL Mode
 
 zombiesaddon.key.textMacro=Text Macro
 
@@ -35,14 +35,11 @@ zombiesaddon.commands.sla.rotates=§eSLA: Rotates all windows %s§e counterclock
 zombiesaddon.commands.sla.resetMirroring=§eSLA: §cReset§e mirroring
 zombiesaddon.commands.sla.mirror=§eSLA: Mirrors all windows along the plane %s
 
-zombiesaddon.commands.wavedelays.difficulty=§eWave Delays: Set difficulty to %s
-zombiesaddon.commands.wavedelays.offset=§eWave Delays: Set offset to %s
-
-zombiesaddon.commands.zombiesaddon.checkingUpdate=§eZombies Addon: Checking update...
-zombiesaddon.commands.zombiesaddon.checkedUpdate=§eZombies Addon: Checked update
+zombiesaddon.commands.zombiesaddon.difficulty.failed=§eZombies Addon: §cThis command can only be used in-game
+zombiesaddon.commands.zombiesaddon.difficulty=§eZombies Addon: Set difficulty to %s
 
 zombiesaddon.commands.zsv.success=§eZSV: Set ZSV to %s
-zombiesaddon.commands.zsv.wrongURL=The URL must start with "https://pastebin.com/raw/"
+zombiesaddon.commands.zsv.wrongUrl=The URL must start with "https://pastebin.com/raw/"
 zombiesaddon.commands.zsv.failed=§eZSV: §cFailed to set ZSV
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <number>
@@ -146,10 +143,10 @@ zombiesaddon.config.pvText=Displays Text
 zombiesaddon.config.pvText.description=Displays texts with state of Player Visibility.
 zombiesaddon.config.pvRange=Range
 zombiesaddon.config.pvRange.description=The range for Player Visibility in blocks.
-zombiesaddon.config.pvToggleSemiPV=Toggle Semi PV
-zombiesaddon.config.pvToggleSemiPV.description=Enable or disable Semi Player Visibility.
-zombiesaddon.config.pvSemiPVRange=Semi PV Range
-zombiesaddon.config.pvSemiPVRange.description=The range for Semi Player Visibility in blocks.
+zombiesaddon.config.pvToggleSemiPv=Toggle Semi PV
+zombiesaddon.config.pvToggleSemiPv.description=Enable or disable Semi Player Visibility.
+zombiesaddon.config.pvSemiPvRange=Semi PV Range
+zombiesaddon.config.pvSemiPvRange.description=The range for Semi Player Visibility in blocks.
 
 zombiesaddon.config.defaultBlockAlarm=Default Toggle State
 zombiesaddon.config.defaultBlockAlarm.description=Toggle state when the game starts.
@@ -179,11 +176,11 @@ zombiesaddon.config.waveDelaysHighlightStyle=Highlight Style
 zombiesaddon.config.waveDelaysHighlightStyle.description=The Highlight method for a current wave, passed waves, and next waves.
 zombiesaddon.config.waveDelaysHidePassedWave=Hide Passed Wave
 zombiesaddon.config.waveDelaysHidePassedWave.description=Enable or disable hiding passed waves.
-zombiesaddon.config.waveDelaysRLModeOffset=RL Mode Offset
-zombiesaddon.config.waveDelaysRLModeOffset.description=The offset for RL Mode.
+zombiesaddon.config.waveDelaysRlModeOffset=RL Mode Offset
+zombiesaddon.config.waveDelaysRlModeOffset.description=The offset for RL Mode.
 
-zombiesaddon.config.slaAutoSLA=Auto SLA
-zombiesaddon.config.slaAutoSLA.description=Turns on SLA when the game starts.
+zombiesaddon.config.slaAutoSla=Auto SLA
+zombiesaddon.config.slaAutoSla.description=Turns on SLA when the game starts.
 zombiesaddon.config.slaTextColor=Text Color
 zombiesaddon.config.slaTextColor.description=Enable or disable colors for SLA texts.
 zombiesaddon.config.slaActivatedWindows=Activated Windows
@@ -209,10 +206,10 @@ zombiesaddon.config.koreanPatchersIngame=Ingame
 zombiesaddon.config.koreanPatchersIngame.description=Enable or disable Korean Patchers for ingame.
 zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
 zombiesaddon.config.koreanPatchersZombiesOverlay.description=Enable or disable Korean Patchers for Zombies Overlay.
-zombiesaddon.config.koreanPatchersSST=SST
-zombiesaddon.config.koreanPatchersSST.description=Enable or disable Korean Patchers for SST.
+zombiesaddon.config.koreanPatchersSst=SST
+zombiesaddon.config.koreanPatchersSst.description=Enable or disable Korean Patchers for SST.
 
-zombiesaddon.config.disableSpawnTimeOfSST=Disable Spawn Time of SST
-zombiesaddon.config.disableSpawnTimeOfSST.description=Disable the spawn time of SST.
+zombiesaddon.config.disableSpawnTimeOfSst=Disable Spawn Time of SST
+zombiesaddon.config.disableSpawnTimeOfSst.description=Disable the spawn time of SST.
 zombiesaddon.config.disableTimerOfZombiesUtils=Disable Timer of Zombies Utils
 zombiesaddon.config.disableTimerOfZombiesUtils.description=Disable the timer of Zombies Utils.

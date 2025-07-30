@@ -5,14 +5,14 @@ import net.minecraftforge.fml.client.registry.ClientRegistry
 import org.lwjgl.input.Keyboard
 
 class KeyBindings {
-    val togglePV = KeyBinding("zombiesaddon.key.togglePlayerVisibility", Keyboard.KEY_Z, NAME)
+    val togglePv = KeyBinding("zombiesaddon.key.togglePlayerVisibility", Keyboard.KEY_Z, NAME)
     val toggleBlockAlarm = KeyBinding("zombiesaddon.key.toggleBlockAlarm", Keyboard.KEY_P, NAME)
     val toggleAutoRejoin = KeyBinding("zombiesaddon.key.toggleAutoRejoin", Keyboard.CHAR_NONE, NAME)
 
     val zsvScrollUp = KeyBinding("zombiesaddon.key.zsvScrollUp", Keyboard.KEY_LBRACKET, NAME)
     val zsvScrollDown = KeyBinding("zombiesaddon.key.zsvScrollDown", Keyboard.KEY_RBRACKET, NAME)
 
-    val toggleRLMode = KeyBinding("zombiesaddon.key.toggleRLMode", Keyboard.KEY_UP, NAME)
+    val toggleRlMode = KeyBinding("zombiesaddon.key.toggleRlMode", Keyboard.KEY_UP, NAME)
 
     val textMacro = KeyBinding("zombiesaddon.key.textMacro", Keyboard.KEY_Q, NAME)
 
@@ -24,12 +24,12 @@ class KeyBindings {
     val bgTimer = KeyBinding("zombiesaddon.key.bgTimer", Keyboard.KEY_NUMPAD6, NAME)
 
     fun registerAll() {
-        ClientRegistry.registerKeyBinding(togglePV)
+        ClientRegistry.registerKeyBinding(togglePv)
         ClientRegistry.registerKeyBinding(toggleBlockAlarm)
         ClientRegistry.registerKeyBinding(toggleAutoRejoin)
         ClientRegistry.registerKeyBinding(zsvScrollUp)
         ClientRegistry.registerKeyBinding(zsvScrollDown)
-        ClientRegistry.registerKeyBinding(toggleRLMode)
+        ClientRegistry.registerKeyBinding(toggleRlMode)
         ClientRegistry.registerKeyBinding(textMacro)
         ClientRegistry.registerKeyBinding(insTimer)
         ClientRegistry.registerKeyBinding(maxTimer)

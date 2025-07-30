@@ -5,7 +5,7 @@ zombiesaddon.key.toggleAutoRejoin=토글 Auto Rejoin
 zombiesaddon.key.zsvScrollUp=ZSV 스크롤 업
 zombiesaddon.key.zsvScrollDown=ZSV 스크롤 다운
 
-zombiesaddon.key.toggleRLMode=토글 RL Mode
+zombiesaddon.key.toggleRlMode=토글 RL Mode
 
 zombiesaddon.key.textMacro=Text Macro
 
@@ -35,14 +35,11 @@ zombiesaddon.commands.sla.rotates=§eSLA: 모든 창문을 축 0 y 0을 따라 �
 zombiesaddon.commands.sla.resetMirroring=§eSLA: 미러링을§c 재설정§e했습니다
 zombiesaddon.commands.sla.mirror=§eSLA: 모든 창문을 평면 %s§e(을)를 따라 미러링했습니다
 
-zombiesaddon.commands.wavedelays.difficulty=§eWave Delays: 난이도를 %s§e(으)로 설정했습니다
-zombiesaddon.commands.wavedelays.offset=§eWave Delays: 오프셋을 %s§e(으)로 설정했습니다
-
-zombiesaddon.commands.zombiesaddon.checkingUpdate=§eZombies Addon: 업데이트 확인 중...
-zombiesaddon.commands.zombiesaddon.checkedUpdate=§eZombies Addon: 업데이트 확인됨
+zombiesaddon.commands.zombiesaddon.difficulty.failed=§eZombies Addon: §c이 명령어는 인게임에서만 사용할 수 있습니다
+zombiesaddon.commands.zombiesaddon.difficulty=§eZombies Addon: 난이도를 %s§e(으)로 설정했습니다
 
 zombiesaddon.commands.zsv.success=§eZSV: ZSV를 %s§e(으)로 설정했습니다
-zombiesaddon.commands.zsv.wrongURL=URL은 "https://pastebin.com/raw/"로 시작해야 합니다
+zombiesaddon.commands.zsv.wrongUrl=URL은 "https://pastebin.com/raw/"로 시작해야 합니다
 zombiesaddon.commands.zsv.failed=§eZSV: §cZSV를 설정하는데 실패했습니다
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
@@ -145,10 +142,10 @@ zombiesaddon.config.pvText=텍스트 표시
 zombiesaddon.config.pvText.description=Player Visibility 상태를 표시하는 텍스트입니다.
 zombiesaddon.config.pvRange=범위
 zombiesaddon.config.pvRange.description=Player Visibility의 범위(블록 단위)입니다.
-zombiesaddon.config.pvToggleSemiPV=토글 Semi PV
-zombiesaddon.config.pvToggleSemiPV.description=Semi Player Visibility를 활성화 또는 비활성화합니다.
-zombiesaddon.config.pvSemiPVRange=Semi PV 범위
-zombiesaddon.config.pvSemiPVRange.description=Semi Player Visibility의 범위(블록 단위)입니다.
+zombiesaddon.config.pvToggleSemiPv=토글 Semi PV
+zombiesaddon.config.pvToggleSemiPv.description=Semi Player Visibility를 활성화 또는 비활성화합니다.
+zombiesaddon.config.pvSemiPvRange=Semi PV 범위
+zombiesaddon.config.pvSemiPvRange.description=Semi Player Visibility의 범위(블록 단위)입니다.
 
 zombiesaddon.config.defaultBlockAlarm=토글 기본값
 zombiesaddon.config.defaultBlockAlarm.description=Block Alarm의 토글 기본값입니다.
@@ -178,11 +175,11 @@ zombiesaddon.config.waveDelaysHighlightStyle=하이라이트 스타일
 zombiesaddon.config.waveDelaysHighlightStyle.description=현재 웨이브, 지난 웨이브, 다음 웨이브에 대한 하이라이트 방식입니다.
 zombiesaddon.config.waveDelaysHidePassedWave=지난 웨이브 숨기기
 zombiesaddon.config.waveDelaysHidePassedWave.description=지난 웨이브를 숨길지 여부를 설정합니다.
-zombiesaddon.config.waveDelaysRLModeOffset=RL 모드 오프셋
-zombiesaddon.config.waveDelaysRLModeOffset.description=RL 모드의 오프셋입니다.
+zombiesaddon.config.waveDelaysRlModeOffset=RL 모드 오프셋
+zombiesaddon.config.waveDelaysRlModeOffset.description=RL 모드의 오프셋입니다.
 
-zombiesaddon.config.slaAutoSLA=자동 SLA
-zombiesaddon.config.slaAutoSLA.description=게임 시작 시 SLA를 자동으로 켭니다.
+zombiesaddon.config.slaAutoSla=자동 SLA
+zombiesaddon.config.slaAutoSla.description=게임 시작 시 SLA를 자동으로 켭니다.
 zombiesaddon.config.slaTextColor=텍스트 색상
 zombiesaddon.config.slaTextColor.description=SLA 텍스트의 색상을 활성화 또는 비활성화합니다.
 zombiesaddon.config.slaActivatedWindows=활성화된 창문
@@ -208,10 +205,10 @@ zombiesaddon.config.koreanPatchersIngame=인게임
 zombiesaddon.config.koreanPatchersIngame.description=인게임에 대한 한글 패치를 활성화 또는 비활성화합니다.
 zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
 zombiesaddon.config.koreanPatchersZombiesOverlay.description=Zombies Overlay에 대한 한글 패치를 활성화 또는 비활성화합니다.
-zombiesaddon.config.koreanPatchersSST=SST
-zombiesaddon.config.koreanPatchersSST.description=SST에 대한 한글 패치를 활성화 또는 비활성화합니다.
+zombiesaddon.config.koreanPatchersSst=SST
+zombiesaddon.config.koreanPatchersSst.description=SST에 대한 한글 패치를 활성화 또는 비활성화합니다.
 
-zombiesaddon.config.disableSpawnTimeOfSST=SST의 스폰 시간 비활성화
-zombiesaddon.config.disableSpawnTimeOfSST.description=SST의 스폰 시간을 비활성화합니다.
+zombiesaddon.config.disableSpawnTimeOfSst=SST의 스폰 시간 비활성화
+zombiesaddon.config.disableSpawnTimeOfSst.description=SST의 스폰 시간을 비활성화합니다.
 zombiesaddon.config.disableTimerOfZombiesUtils=Zombies Utils의 타이머 비활성화
 zombiesaddon.config.disableTimerOfZombiesUtils.description=Zombies Utils의 타이머를 비활성화합니다.

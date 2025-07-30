@@ -13,7 +13,6 @@ class CommandAutoSplits: CustomCommandBase() {
         AutoSplits.instance.sendCommand(args[0])
     }
 
-    override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? {
-        return if (args.isNotEmpty()) getListOfStringsMatchingLastWord(args, "startorsplit", "pause", "reset") else null
-    }
+    override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?) =
+        if (args.size == 1) getListOfStringsMatchingLastWord(args, "startorsplit", "pause", "reset") else null
 }

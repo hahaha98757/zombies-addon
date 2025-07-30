@@ -1,6 +1,7 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.enums.Status
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.scoreboard.ScoreObjective
@@ -16,15 +17,18 @@ class NotLast: Module("Not Last", ZombiesAddon.instance.config.toggleNotLast) {
     private lateinit var scoreObjective: ScoreObjective
 
     override fun onRoundStart(event: RoundStartEvent) {
-        if (isNotZombies()) return
-        if (getRound() == 1) return
-        if (getPlayerState()[2] == 3) return
+        if (event.game.round == 1) return
+        if (isNotPlayZombies()) return
+        var quitCounter = 0
+        for (i in getPlayerStatus()) if (i == Status.QUIT) quitCounter++
+        if (quitCounter == 3) return
+
         scoreboard = mc.theWorld.scoreboard
         scoreObjective = scoreboard.getObjectiveInDisplaySlot(0) ?: return
         for (score in scoreboard.getSortedScores(scoreObjective))
             scoreMap[score.playerName] = score.scorePoints
 
-        RepeatedTask(101) {
+        RepeatedTask {
             val players = mutableListOf<String>()
             for (score in scoreboard.getSortedScores(scoreObjective)) {
                 val kills = scoreMap[score.playerName] ?: continue

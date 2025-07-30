@@ -9,6 +9,7 @@ class DelayedTask(private var tick: Int = 2, private val block: () -> Unit) {
         MinecraftForge.EVENT_BUS.register(this)
     }
 
+    @Suppress("unused")
     @SubscribeEvent
     fun onTick(event: LastClientTickEvent) {
         if (tick <= 0) {

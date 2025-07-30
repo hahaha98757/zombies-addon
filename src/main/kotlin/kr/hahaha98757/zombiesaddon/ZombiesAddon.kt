@@ -7,8 +7,6 @@ import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySound
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEventListener
-import kr.hahaha98757.zombiesaddon.events.RoundStartEventListener
-import kr.hahaha98757.zombiesaddon.events.ThePlayerJoinEventListener
 import kr.hahaha98757.zombiesaddon.gui.GuiDetectedUnlegitMods
 import kr.hahaha98757.zombiesaddon.modules.*
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker
@@ -29,25 +27,26 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.4.1"
+const val VERSION = "4.5.0-alpha1"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {
     companion object {
-        private var instanceOrNull: ZombiesAddon? = null
+        private lateinit var varInstance: ZombiesAddon
         @JvmStatic
-        val instance: ZombiesAddon
-            get() = instanceOrNull ?: throw IllegalStateException("ZombiesAddon instance is not initialized yet.")
+        val instance get() = varInstance
     }
     init {
-        instanceOrNull = this
+        varInstance = this
     }
-    private var configOrNull: ZAConfig? = null
-    val config: ZAConfig
-        get() = configOrNull ?: throw IllegalStateException("ZAConfig is not initialized yet.")
+    private lateinit var varConfig: ZAConfig
+    val config get() = varConfig
+    val keyBindings = KeyBindings()
+    val gameManager = GameManager()
 
     private var hasUnlegitMod = false
-    val keyBindings = KeyBindings()
+    var debug = false
+        internal set
 
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
@@ -55,16 +54,18 @@ class ZombiesAddon {
         val directory = File(event.modConfigurationDirectory, MODID)
         if (!directory.exists()) directory.mkdir()
 
-        configOrNull = ZAConfig(Configuration(File(directory, "$MODID.cfg")))
+        varConfig = ZAConfig(Configuration(File(directory, "$MODID.cfg")))
         writeFile(directory)
         CustomPlaySoundLoader.loadFile()
     }
 
+    @Suppress("unused")
     @Mod.EventHandler
     fun init(event: FMLInitializationEvent) {
         registerAll()
     }
 
+    @Suppress("unused")
     @Mod.EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
         if (config.blockUnlegitMods) for (mod in unlegitMods) if (Loader.isModLoaded(mod)) {
@@ -77,6 +78,7 @@ class ZombiesAddon {
         println("$NAME v$VERSION is loaded.")
     }
 
+    @Suppress("unused")
     @SubscribeEvent
     fun startGame(event: GuiScreenEvent.DrawScreenEvent.Post) {
         MinecraftForge.EVENT_BUS.unregister(this)
@@ -129,12 +131,11 @@ class ZombiesAddon {
 
         MinecraftForge.EVENT_BUS.register(this)
         MinecraftForge.EVENT_BUS.register(config)
-        MinecraftForge.EVENT_BUS.register(ThePlayerJoinEventListener())
         MinecraftForge.EVENT_BUS.register(UpdateCheckerListener())
         MinecraftForge.EVENT_BUS.register(LastClientTickEventListener())
-        MinecraftForge.EVENT_BUS.register(RoundStartEventListener())
         MinecraftForge.EVENT_BUS.register(ManualTimer())
         MinecraftForge.EVENT_BUS.register(ModuleListener())
+        MinecraftForge.EVENT_BUS.register(ThePlayerJoinListener())
 
         ModuleListener.registerModule(Modules.instance)
         ModuleListener.registerModule(PlayerVisibility.instance)
@@ -144,7 +145,7 @@ class ZombiesAddon {
         ModuleListener.registerModule(InternalTimer.instance)
         ModuleListener.registerModule(WaveDelays.instance)
         ModuleListener.registerModule(ZombiesStratViewer.instance)
-        ModuleListener.registerModule(SLAListener.instance)
+        ModuleListener.registerModule(SlaListener.instance)
         ModuleListener.registerModule(AutoRejoin.instance)
         ModuleListener.registerModule(PowerupPatterns.instance)
         ModuleListener.registerModule(LastWeapons.instance)

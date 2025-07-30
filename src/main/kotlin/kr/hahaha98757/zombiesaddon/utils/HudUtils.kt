@@ -4,7 +4,7 @@ import kr.hahaha98757.zombiesaddon.NAME
 import kr.hahaha98757.zombiesaddon.VERSION
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 
-object HUDUtils {
+object HudUtils {
 
     private var rawAutoSplitsX = 0.0
     var autoSplitsX = 0.0

@@ -12,7 +12,7 @@ import java.io.InputStreamReader
 import java.net.URL
 import java.nio.charset.StandardCharsets
 
-class CommandZSV: CustomCommandBase() {
+class CommandZsv: CustomCommandBase() {
     override fun getCommandName() = "zsv"
     override fun getCommandUsage(sender: ICommandSender?) = "/zsv <off|URL>"
 
@@ -27,7 +27,7 @@ class CommandZSV: CustomCommandBase() {
             ZombiesStratViewer.instance.enabled = false
             return
         }
-        if (!args[0].startsWith("https://pastebin.com/raw/")) throw CommandException("zombiesaddon.commands.zsv.wrongURL")
+        if (!args[0].startsWith("https://pastebin.com/raw/")) throw CommandException("zombiesaddon.commands.zsv.wrongUrl")
 
         Thread {
             try {
@@ -54,8 +54,6 @@ class CommandZSV: CustomCommandBase() {
         }.start()
     }
 
-    override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? {
-        if (args.size == 1) return getListOfStringsMatchingLastWord(args, "off")
-        return null
-    }
+    override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?) =
+        if (args.size == 1) getListOfStringsMatchingLastWord(args, "off") else null
 }

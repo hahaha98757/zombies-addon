@@ -2,7 +2,6 @@ package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
-import kr.hahaha98757.zombiesaddon.events.TitleEvent
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.renderer.GlStateManager
@@ -18,15 +17,13 @@ class LastWeapons: Module("Last Weapons", ZombiesAddon.instance.config.lwToggle)
 
     private val weapons = arrayOfNulls<ItemStack>(9)
     private val armors = arrayOfNulls<ItemStack>(4)
-    private var win = false
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
-        if (isNotPlayZombies()) {
-            win = false
-            return
-        }
+        val game = ZombiesAddon.instance.gameManager.game ?: return
 
-        if (win) {
+        if (!game.gameEnd) return
+
+        if (game.isWin) {
             val renderItem = mc.renderItem
             var x = (getX() / 2 - 88).toInt()
             var y = (getY() - 19).toInt()
@@ -67,9 +64,9 @@ class LastWeapons: Module("Last Weapons", ZombiesAddon.instance.config.lwToggle)
                 x = (getX() / 2 +12).toInt()
                 y = (getY() - 60).toInt()
 
-                for (i in 3 downTo 0) {
-                    renderItem.renderItemAndEffectIntoGUI(armors[i], x + 20 * i, y)
-                    renderItem.renderItemOverlayIntoGUI(fr, armors[i], x + 20 * i, y, null)
+                for (i in 0..3) {
+                    renderItem.renderItemAndEffectIntoGUI(armors[3-i], x + 20 * i, y)
+                    renderItem.renderItemOverlayIntoGUI(fr, armors[3-i], x + 20 * i, y, null)
                 }
             }
         }
@@ -79,11 +76,7 @@ class LastWeapons: Module("Last Weapons", ZombiesAddon.instance.config.lwToggle)
         if (player.inventory.getStackInSlot(1) == null) return
 
         for (i in 0..8) weapons[i] = player.inventory.getStackInSlot(i)
-        for (i in 0..3) armors[i] = player.inventory.armorInventory[i]
-    }
-
-    override fun onTitle(event: TitleEvent) {
-        if (event.title == "You Win!" || event.title == "승리했습니다!") win = true
+        player.inventory.armorInventory.copyInto(armors)
     }
 
     private fun displayTexture(path: String, x: Int, y: Int) {
