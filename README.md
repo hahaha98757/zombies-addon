@@ -196,6 +196,9 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 # 업데이트 로그
 
+## 4.4.2
+- 버그 수정: 잘못된 Mixin으로 컨피그가 열리지 않음.
+
 ## 4.4.1
 - 버그 수정: Wave Delays에서 잘못된 보스 색상.
 - Gui 수정: Gui의 게임 종료 이름을 기존 번역 문자열로 변경.

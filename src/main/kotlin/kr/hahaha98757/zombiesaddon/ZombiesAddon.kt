@@ -29,7 +29,7 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.4.1"
+const val VERSION = "4.4.2"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {
@@ -60,11 +60,13 @@ class ZombiesAddon {
         CustomPlaySoundLoader.loadFile()
     }
 
+    @Suppress("unused")
     @Mod.EventHandler
     fun init(event: FMLInitializationEvent) {
         registerAll()
     }
 
+    @Suppress("unused")
     @Mod.EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
         if (config.blockUnlegitMods) for (mod in unlegitMods) if (Loader.isModLoaded(mod)) {
@@ -77,6 +79,7 @@ class ZombiesAddon {
         println("$NAME v$VERSION is loaded.")
     }
 
+    @Suppress("unused")
     @SubscribeEvent
     fun startGame(event: GuiScreenEvent.DrawScreenEvent.Post) {
         MinecraftForge.EVENT_BUS.unregister(this)
