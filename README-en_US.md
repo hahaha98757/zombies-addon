@@ -193,6 +193,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.4.2
+- Bug fix: Config wouldn't open with incorrect Mixin.
+
 ## 4.4.1
 - Bugfix: Wrong boss color in Wave Delays.
 - Gui fix: Changed the game exit name in the Gui to the original translated string.

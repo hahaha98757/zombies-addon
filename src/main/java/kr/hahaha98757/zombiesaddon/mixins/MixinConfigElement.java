@@ -16,7 +16,6 @@ public class MixinConfigElement {
     private boolean isProperty;
     @Shadow(remap = false)
     private Property prop;
-    @SuppressWarnings("SpellCheckingInspection")
     @Shadow(remap = false)
     private ConfigCategory ctgy;
 
