@@ -9,11 +9,12 @@ import net.minecraftforge.fml.common.eventhandler.Event
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 
-abstract class Module(val name: String, var enabled: Boolean) {
+abstract class Module(val name: String) {
+    abstract fun isEnable(): Boolean
 
     internal open fun occurEvent(event: Event) {
         if (isDisable()) return
-        if (!enabled) return
+        if (!isEnable()) return
         when (event) {
             is LastClientTickEvent -> onLastTick(event)
             is RenderGameOverlayEvent.Text -> onRender(event)
@@ -38,7 +39,7 @@ abstract class Module(val name: String, var enabled: Boolean) {
     protected open fun onEvent(event: Event) {}
 }
 
-abstract class ToggleModule(name: String, enabled: Boolean): Module(name, enabled) {
+abstract class ToggleableModule(name: String, var enabled: Boolean): Module(name) {
     abstract fun getKeyBinding(): KeyBinding
     abstract fun addToggleText(enabled: Boolean)
 
@@ -60,7 +61,11 @@ abstract class ToggleModule(name: String, enabled: Boolean): Module(name, enable
         }
     }
 
+    final override fun isEnable() = enabled
+}
 
+open class AlwaysEnableModule(name: String): Module(name) {
+    final override fun isEnable() = true
 }
 
 class ModuleListener {

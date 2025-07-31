@@ -9,7 +9,7 @@ import java.io.OutputStreamWriter
 import java.net.Socket
 
 
-class AutoSplits: Module("Auto Splits", ZombiesAddon.instance.config.autoSplitsToggle) {
+class AutoSplits: Module("Auto Splits") {
     companion object {
         val instance = AutoSplits()
     }
@@ -35,4 +35,6 @@ class AutoSplits: Module("Auto Splits", ZombiesAddon.instance.config.autoSplitsT
             mc.addScheduledTask { addTranslationChat("zombiesaddon.features.autoSplits.failed", "§a$signal") }
         }
     }.start()
+
+    override fun isEnable() = ZombiesAddon.instance.config.autoSplitsToggle
 }

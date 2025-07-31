@@ -4,7 +4,7 @@ import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.utils.sendChat
 import net.minecraftforge.fml.common.gameevent.InputEvent
 
-class TextMacro: Module("Text Macro", true) {
+class TextMacro: AlwaysEnableModule("Text Macro") {
     companion object {
         val instance = TextMacro()
     }

@@ -14,7 +14,7 @@ import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.EntityJoinWorldEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
-class Modules: Module("Modules", true) {
+class Modules: AlwaysEnableModule("Modules") {
     companion object {
         val instance = Modules()
     }

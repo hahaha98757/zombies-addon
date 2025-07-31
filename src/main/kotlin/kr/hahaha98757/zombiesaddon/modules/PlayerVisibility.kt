@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer
 import net.minecraftforge.client.event.RenderPlayerEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 
-class PlayerVisibility: ToggleModule("Player Visibility", ZombiesAddon.instance.config.pvDefault) {
+class PlayerVisibility: ToggleableModule("Player Visibility", ZombiesAddon.instance.config.pvDefault) {
     override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.togglePv
     override fun addToggleText(enabled: Boolean) =
         addTranslationChat("zombiesaddon.features.general.toggled", "§ePlayer Visibility", if (enabled) "§aon" else "§coff")

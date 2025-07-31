@@ -13,7 +13,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 
 
-class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysToggle) {
+class WaveDelays: Module("Wave Delays") {
     companion object {
         val instance = WaveDelays()
         private const val DESPAWN_TICK: Short = 6000
@@ -159,6 +159,8 @@ class WaveDelays: Module("Wave Delays", ZombiesAddon.instance.config.waveDelaysT
         if (tenthSeconds < 0) tenthSeconds = 0
         return String.format("%d", tenthSeconds)
     }
+
+    override fun isEnable() = ZombiesAddon.instance.config.waveDelaysToggle
 }
 
 private fun getBossColor1(gameMode: GameMode, round: Int, wave: Int): String {

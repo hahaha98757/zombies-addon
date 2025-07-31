@@ -6,7 +6,7 @@ import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import org.lwjgl.opengl.GL11
 
-class BlockAlarm: ToggleModule("Block Alarm", ZombiesAddon.instance.config.blockAlarmDefault) {
+class BlockAlarm: ToggleableModule("Block Alarm", ZombiesAddon.instance.config.blockAlarmDefault) {
     companion object {
         val instance = BlockAlarm()
     }

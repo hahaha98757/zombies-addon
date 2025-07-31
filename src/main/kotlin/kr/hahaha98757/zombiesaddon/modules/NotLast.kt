@@ -7,7 +7,7 @@ import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.scoreboard.ScoreObjective
 import net.minecraft.scoreboard.Scoreboard
 
-class NotLast: Module("Not Last", ZombiesAddon.instance.config.toggleNotLast) {
+class NotLast: Module("Not Last") {
     companion object {
         val instance = NotLast()
     }
@@ -57,4 +57,6 @@ class NotLast: Module("Not Last", ZombiesAddon.instance.config.toggleNotLast) {
             addTranslationChat("zombiesaddon.features.notLast.printLast", toString())
         }
     }
+
+    override fun isEnable() = ZombiesAddon.instance.config.toggleNotLast
 }

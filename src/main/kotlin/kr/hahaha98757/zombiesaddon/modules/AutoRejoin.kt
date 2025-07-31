@@ -6,7 +6,7 @@ import kr.hahaha98757.zombiesaddon.utils.DelayedTask
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.sendChat
 
-class AutoRejoin: ToggleModule("Auto Rejoin", ZombiesAddon.instance.config.autoRejoinDefault) {
+class AutoRejoin: ToggleableModule("Auto Rejoin", ZombiesAddon.instance.config.autoRejoinDefault) {
     companion object {
         val instance = AutoRejoin()
     }

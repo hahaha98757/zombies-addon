@@ -13,7 +13,7 @@ import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent
 
-class PowerupPatterns: Module("Powerup Patterns", ZombiesAddon.instance.config.togglePowerupPatterns) {
+class PowerupPatterns: Module("Powerup Patterns") {
     companion object {
         val instance = PowerupPatterns()
     }
@@ -345,6 +345,8 @@ class PowerupPatterns: Module("Powerup Patterns", ZombiesAddon.instance.config.t
         if ("Carpenter" in message || "목수" in message) carTimer = false
         if ("Bonus Gold" in message || "보너스 골드" in message) bgTimer = false
     }
+
+    override fun isEnable() = ZombiesAddon.instance.config.togglePowerupPatterns
 }
 
 class ManualTimer {
@@ -366,7 +368,7 @@ class ManualTimer {
 
     @Suppress("unused")
     @SubscribeEvent
-    fun onTick(event: LastClientTickEvent) {
+    fun onTick(@Suppress("unused") event: LastClientTickEvent) {
         if (--timer <= 0) MinecraftForge.EVENT_BUS.register(this)
     }
 }
