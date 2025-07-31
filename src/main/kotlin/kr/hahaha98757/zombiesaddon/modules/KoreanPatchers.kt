@@ -8,11 +8,7 @@ import kr.hahaha98757.zombiesaddon.utils.isNotZombies
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 
-class KoreanPatchers: Module("Korean Patchers", true) {
-    companion object {
-        val instance = KoreanPatchers()
-    }
-
+class KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
     override fun onChat(event: ClientChatReceivedEvent) {
         ingame(event)
         zombiesOverlay(event)
@@ -55,7 +51,6 @@ class KoreanPatchers: Module("Korean Patchers", true) {
         }
     }
 
-
     override fun onEvent(event: Event) {
         if (event !is ClientChatPrintedEvent) return
         if (!ZombiesAddon.instance.config.koreanPatchersSST) return
@@ -72,5 +67,9 @@ class KoreanPatchers: Module("Korean Patchers", true) {
             event.isCanceled = true
             addChat("                  §c라운드 ${message.split("in")[0].replace(Regex("[^0-9]"), "")}§e을(를) §a${message.split("in")[1].replace(Regex("[^0-9:]"), "")}§e에 완료했습니다!")
         }
+    }
+
+    companion object {
+        val instance = KoreanPatchers()
     }
 }

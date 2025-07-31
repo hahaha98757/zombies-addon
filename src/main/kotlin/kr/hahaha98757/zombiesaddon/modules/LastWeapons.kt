@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 
-class LastWeapons: Module("Last Weapons", ZombiesAddon.instance.config.lwToggle) {
+class LastWeapons: Module("Last Weapons") {
     companion object {
         val instance = LastWeapons()
     }
@@ -115,4 +115,6 @@ class LastWeapons: Module("Last Weapons", ZombiesAddon.instance.config.lwToggle)
             else -> 0
         }
     }
+
+    override fun isEnable() = ZombiesAddon.instance.config.lwToggle
 }

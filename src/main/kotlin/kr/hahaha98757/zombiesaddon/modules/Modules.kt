@@ -10,7 +10,7 @@ import kr.hahaha98757.zombiesaddon.utils.fr
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 
-class Modules: Module("Modules", true) {
+class Modules: AlwaysEnableModule("Modules") {
     companion object {
         val instance = Modules()
     }

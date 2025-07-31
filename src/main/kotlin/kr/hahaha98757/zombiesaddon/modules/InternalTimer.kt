@@ -15,7 +15,7 @@ import java.util.concurrent.locks.ReentrantLock
 
 val executor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
 
-class InternalTimer: Module("Internal Timer", true) {
+class InternalTimer: AlwaysEnableModule("Internal Timer") {
     companion object {
         val instance = InternalTimer()
     }

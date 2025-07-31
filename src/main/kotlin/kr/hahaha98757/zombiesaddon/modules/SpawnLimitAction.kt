@@ -8,7 +8,7 @@ import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import kotlin.math.pow
 
-class SLAListener: Module("Spawn Limit Action", true) {
+class SLAListener: AlwaysEnableModule("Spawn Limit Action") {
     companion object {
         val instance = SLAListener()
     }
