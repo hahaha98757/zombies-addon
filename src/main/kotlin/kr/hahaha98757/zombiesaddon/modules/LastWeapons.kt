@@ -71,7 +71,7 @@ class LastWeapons: Module("Last Weapons") {
             }
         }
 
-        val player = mc.thePlayer
+        val player = mc.thePlayer ?: return
 
         if (player.inventory.getStackInSlot(1) == null) return
 

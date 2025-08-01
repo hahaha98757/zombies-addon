@@ -7,6 +7,7 @@ import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySound
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEventListener
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.gui.GuiDetectedUnlegitMods
 import kr.hahaha98757.zombiesaddon.modules.*
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker

@@ -114,7 +114,7 @@ class Sla(map: ZombiesMap) {
     }
 
     fun refresh() {
-        val player = mc.thePlayer
+        val player = mc.thePlayer ?: return
         val playerCoords = doubleArrayOf((player.posX - offset[0]), (player.posY - offset[1]), (player.posZ - offset[2]))
         for (room in rooms) {
             room.activeWindows = 0

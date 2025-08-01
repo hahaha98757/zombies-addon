@@ -1,14 +1,13 @@
-package kr.hahaha98757.zombiesaddon
+package kr.hahaha98757.zombiesaddon.game
 
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
-import kr.hahaha98757.zombiesaddon.utils.Scoreboard
 import kr.hahaha98757.zombiesaddon.utils.getMap
 import kr.hahaha98757.zombiesaddon.utils.getServerNumber
-import kr.hahaha98757.zombiesaddon.utils.mc
+import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
 import net.minecraftforge.common.MinecraftForge
 
 class GameManager {
@@ -53,8 +52,7 @@ class GameManager {
     }
 
     fun removeGame() {
-        if (mc.thePlayer == null || mc.theWorld == null) return
-        if (Scoreboard.lines.size == 15 && Scoreboard.lines[5].contains(mc.thePlayer.name)) return
+        if (isNotPlayZombies()) return
         val queuedEndedGames = games.values.filter { it.gameEnd }
         for (game in queuedEndedGames) games.remove(game.serverNumber)
     }

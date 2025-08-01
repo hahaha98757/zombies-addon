@@ -60,6 +60,7 @@ fun getYFont(): Float = getY() - fr.FONT_HEIGHT - 1
 fun isNotZombies() = if (ZombiesAddon.instance.debug) CommandZaDebug.debugIsNotZombies else Scoreboard.title != "ZOMBIES"
 
 fun isNotPlayZombies(): Boolean {
+    if (mc.thePlayer == null || mc.theWorld == null) return true
     if (isNotZombies()) return true
     return ZombiesAddon.instance.gameManager.game == null
 }
@@ -92,9 +93,9 @@ fun getPlayerStatus(): Array<Status> {
     val lines = Scoreboard.lines
 
     for (i in 5..8) {
-        val status = lines[i].runCatching { split(":")[1].trim() }.getOrNull() ?: run { playerState[i] = Status.QUIT }
+        val status = runCatching { lines[i].split(":")[1].trim() }.getOrNull() ?: run { playerState[i - 5] = Status.QUIT }
 
-        playerState[i] = when (status) {
+        playerState[i - 5] = when (status) {
             "REVIVE", "부활" -> Status.REVIVE
             "DEAD", "사망" ->  Status.DEAD
             "QUIT", "떠남" ->  Status.QUIT

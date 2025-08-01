@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.events
 
-import kr.hahaha98757.zombiesaddon.Game
+import kr.hahaha98757.zombiesaddon.game.Game
 import net.minecraftforge.fml.common.eventhandler.Event
 
 class RoundStartEvent(val game: Game): Event()

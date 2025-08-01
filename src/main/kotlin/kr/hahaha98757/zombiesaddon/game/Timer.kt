@@ -1,4 +1,4 @@
-package kr.hahaha98757.zombiesaddon
+package kr.hahaha98757.zombiesaddon.game
 
 import kr.hahaha98757.zombiesaddon.utils.mc
 
