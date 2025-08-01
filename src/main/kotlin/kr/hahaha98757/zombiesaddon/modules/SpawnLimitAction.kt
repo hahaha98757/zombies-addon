@@ -22,7 +22,7 @@ class SlaListener: AlwaysEnableModule("Spawn Limit Action") {
         var y = 0
         for (room in rooms) {
             if (!ZombiesAddon.instance.config.slaUnactivatedWindows && room.activeWindows == 0) continue
-            fr.drawStringWithShadow(room.toString(), 1f, 1f + fr.FONT_HEIGHT*y++, 0xffffff)
+            fr.drawStringWithShadow(room.toString(), 1f, 1f + fr.FONT_HEIGHT * y++, 0xffffff)
         }
     }
 

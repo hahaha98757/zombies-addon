@@ -39,7 +39,10 @@ class CommandZaDebug: CustomCommandBase() {
                 addChat("isNotZombies를 $debugIsNotZombies(으)로 설정했습니다.")
             }
             "serverNumber" -> {
-                if (args.size < 2) addChat("서버 번호: $debugServerNumber")
+                if (args.size < 2) {
+                    addChat("서버 번호: $debugServerNumber")
+                    return
+                }
                 debugServerNumber = if (args[1] == "null") null else ServerNumber(args[1])
                 addChat("서버 번호를 $debugServerNumber(으)로 설정했습니다.")
             }
@@ -122,6 +125,7 @@ class CommandZaDebug: CustomCommandBase() {
             1 -> getListOfStringsMatchingLastWord(args, "isNotZombies", "serverNumber", "new", "map", "pass", "helicopter", "end", "remove")
             2 -> when (args[0]) {
                 "isNotZombies" -> getListOfStringsMatchingLastWord(args, "true", "false")
+                "serverNumber" -> getListOfStringsMatchingLastWord(args, "null")
                 "map" -> getListOfStringsMatchingLastWord(args, "de", "bb", "aa", "pr")
                 "end" -> getListOfStringsMatchingLastWord(args, "win", "lose")
                 else -> null

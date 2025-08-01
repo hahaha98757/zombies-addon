@@ -19,7 +19,8 @@ class AutoSplits: Module("Auto Splits") {
     }
 
     override fun onGameEnd(event: GameEndEvent) {
-        sendCommand("pause")
+        if (event.isWin) sendCommand("startorsplit")
+        else sendCommand("pause")
     }
 
     fun sendCommand(signal: String) = Thread {

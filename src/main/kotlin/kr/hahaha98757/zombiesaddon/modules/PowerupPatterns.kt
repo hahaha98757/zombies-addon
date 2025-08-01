@@ -1,8 +1,10 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
+import kr.hahaha98757.zombiesaddon.events.GameRemoveEvent
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.*
@@ -10,6 +12,7 @@ import net.minecraft.entity.item.EntityArmorStand
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.common.MinecraftForge
+import net.minecraftforge.fml.common.eventhandler.Event
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent
 
@@ -23,139 +26,104 @@ class PowerupPatterns: Module("Powerup Patterns") {
     private val maxPatternArr1 = intArrayOf(2, 5, 8, 12, 16, 21, 26, 31, 36, 41, 46, 51, 61, 66, 71, 76, 81, 86, 91, 96)
     private val maxPatternArr2 = intArrayOf(3, 6, 9, 13, 17, 22, 27, 32, 37, 42, 47, 52, 62, 67, 72, 77, 82, 87, 92, 97, 102)
 
-    private val ssPatternArr1 = intArrayOf(5, 15, 45, 55, 65, 75, 85, 95, 105)
+    private val ssPatternArr1 = intArrayOf(5, 15, 45, 55, 65, 75, 85, 95)
     private val ssPatternArr2 = intArrayOf(6, 16, 26, 36, 46, 66, 76, 86, 96)
     private val ssPatternArr3 = intArrayOf(7, 17, 27, 37, 47, 67, 77, 87, 97)
 
-    var queuedInsPattern = 0
-    var queuedMaxPattern = 0
-    var queuedSsPattern = 0
+    val fieldsStorage = mutableMapOf<ServerNumber, FieldsStorage>()
 
-    var insTimer = false
-        set(b) {
-            field = b
-            if (field) {
-                ManualTimer.ins.runTimer()
-                addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§cInsta Kill")
-            }
-        }
-    var maxTimer = false
-        set(b) {
-            field = b
-            if (field) {
-                ManualTimer.max.runTimer()
-                addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Max Ammo")
-            }
-        }
-    var ssTimer = false
-        set(b) {
-            field = b
-            if (field) {
-                ManualTimer.ss.runTimer()
-                addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§5Shopping Spree")
-            }
-        }
-    var dgTimer = false
-        set(b) {
-            field = b
-            if (field) {
-                ManualTimer.dg.runTimer()
-                addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Double Gold")
-            }
-        }
-    var carTimer = false
-        set(b) {
-            field = b
-            if (field) {
-                ManualTimer.car.runTimer()
-                addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Carpenter")
-            }
-        }
-    var bgTimer = false
-        set(b) {
-            field = b
-            if (field) {
-                ManualTimer.bg.runTimer()
-                addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Bonus Gold")
-            }
+    val fields get() = fieldsStorage[getServerNumber()]
+
+    override fun onRoundStart(event: RoundStartEvent) {
+        val serverNumber = event.game.serverNumber
+        if (fieldsStorage[serverNumber] == null) fieldsStorage[serverNumber] = FieldsStorage()
+        val fields = fieldsStorage[serverNumber] ?: return
+
+        if (event.game.round == 1) {
+            fields.spawnedEntities.clear()
+            fields.queuedInsPattern = 0
+            fields.queuedMaxPattern = 0
+            fields.queuedSsPattern = 0
         }
 
-    private val spawnedEntities = mutableSetOf<EntityArmorStand>()
-    private var insPattern = 0
-    private var maxPattern = 0
-    private var ssPattern = 0
+        fields.insPattern = fields.queuedInsPattern
+        fields.maxPattern = fields.queuedMaxPattern
+        fields.ssPattern = fields.queuedSsPattern
+    }
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         if (isNotPlayZombies()) return
-        drawTimers()
-        drawPatterns()
+        val game = ZombiesAddon.instance.gameManager.game ?: return
+        val fields = fieldsStorage[game.serverNumber] ?: return
+        drawTimers(fields)
+        drawPatterns(fields)
     }
 
-    private fun drawTimers() {
-        if (insTimer) {
+    private fun drawTimers(fields: FieldsStorage) {
+        if (fields.insTimer) {
             val timer = ManualTimer.ins.timer
             val second = timer / 20
             val timerText = String.format("%02d", second)
 
             val str = "${getTranslatedString("zombiesaddon.game.ins")}: §f${timerText}s"
             fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(1), 0xffffff)
-            if (timer <= 0) insTimer = false
+            if (timer <= 0) fields.insTimer = false
         }
-        if (maxTimer) {
+        if (fields.maxTimer) {
             val timer = ManualTimer.max.timer
             val second = timer / 20
             val timerText = String.format("%02d", second)
 
             val str = "${getTranslatedString("zombiesaddon.game.max")}: §f${timerText}s"
             fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(2), 0xffffff)
-            if (timer <= 0) maxTimer = false
+            if (timer <= 0) fields.maxTimer = false
         }
-        if (ssTimer) {
+        if (fields.ssTimer) {
             val timer = ManualTimer.ss.timer
             val second = timer / 20
             val timerText = String.format("%02d", second)
 
             val str = "${getTranslatedString("zombiesaddon.game.ss")}: §f${timerText}s"
             fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(3), 0xffffff)
-            if (timer <= 0) ssTimer = false
+            if (timer <= 0) fields.ssTimer = false
         }
-        if (dgTimer) {
+        if (fields.dgTimer) {
             val timer = ManualTimer.dg.timer
             val second = timer / 20
             val timerText = String.format("%02d", second)
 
             val str = "${getTranslatedString("zombiesaddon.game.dg")}: §f${timerText}s"
             fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(4), 0xffffff)
-            if (timer <= 0) dgTimer = false
+            if (timer <= 0) fields.dgTimer = false
         }
-        if (carTimer) {
+        if (fields.carTimer) {
             val timer = ManualTimer.car.timer
             val second = timer / 20
             val timerText = String.format("%02d", second)
 
             val str = "${getTranslatedString("zombiesaddon.game.car")}: §f${timerText}s"
             fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(5), 0xffffff)
-            if (timer <= 0) carTimer = false
+            if (timer <= 0) fields.carTimer = false
         }
-        if (bgTimer) {
+        if (fields.bgTimer) {
             val timer = ManualTimer.bg.timer
             val second = timer / 20
             val timerText = String.format("%02d", second)
 
             val str = "${getTranslatedString("zombiesaddon.game.bg")}: §f${timerText}s"
             fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(6), 0xffffff)
-            if (timer <= 0) bgTimer = false
+            if (timer <= 0) fields.bgTimer = false
         }
     }
 
-    private fun drawPatterns() {
+    private fun drawPatterns(fields: FieldsStorage) {
         val game = ZombiesAddon.instance.gameManager.game ?: return
         val round = if (game.gameEnd) 0 else game.round
         val map = game.gameMode.map
 
-        if (insPattern != 0) {
+        if (fields.insPattern != 0) {
             var patternRound = 0
-            if (insPattern == 2) {
+            if (fields.insPattern == 2) {
                 for (i in insPatternArr1) if (round <= i) {
                     if (map == ZombiesMap.DEAD_END && i == 5) {
                         patternRound = 8
@@ -168,8 +136,8 @@ class PowerupPatterns: Module("Powerup Patterns") {
                     patternRound = i
                     break
                 }
-                if (patternRound != 0) drawIns(patternRound)
-            } else if (insPattern == 3) {
+                if (patternRound != 0) drawIns(fields, patternRound)
+            } else if (fields.insPattern == 3) {
                 for (i in insPatternArr2) if (round <= i) {
                     if (map != ZombiesMap.ALIEN_ARCADIUM && i == 15) {
                         patternRound = 18
@@ -178,13 +146,13 @@ class PowerupPatterns: Module("Powerup Patterns") {
                     if (map != ZombiesMap.ALIEN_ARCADIUM || i != 24) patternRound = i
                     break
                 }
-                if (patternRound != 0) drawIns(patternRound)
+                if (patternRound != 0) drawIns(fields, patternRound)
             }
         }
 
-        if (maxPattern != 0) {
+        if (fields.maxPattern != 0) {
             var patternRound = 0
-            if (maxPattern == 2) {
+            if (fields.maxPattern == 2) {
                 for (i in maxPatternArr1) if (round <= i) {
                     if (map == ZombiesMap.DEAD_END && i == 5) {
                         patternRound = 8
@@ -194,102 +162,90 @@ class PowerupPatterns: Module("Powerup Patterns") {
                     patternRound = i
                     break
                 }
-                if (patternRound != 0) drawMax(patternRound)
-            } else if (maxPattern == 3) {
+                if (patternRound != 0) drawMax(fields, patternRound)
+            } else if (fields.maxPattern == 3) {
                 for (i in maxPatternArr2) if (round <= i) {
                     if (map != ZombiesMap.ALIEN_ARCADIUM && i > 30) break
                     patternRound = i
                     break
                 }
-                if (patternRound != 0) drawMax(patternRound)
+                if (patternRound != 0) drawMax(fields, patternRound)
             }
         }
 
-        if (ssPattern != 0) {
+        if (fields.ssPattern != 0) {
             var patternRound = 0
-            if (ssPattern == 5) {
+            if (fields.ssPattern == 5) {
                 for (i in ssPatternArr1) if (round <= i) {
                     patternRound = i
                     break
                 }
-                if (patternRound != 0) drawSs(patternRound)
-            } else if (ssPattern == 6) {
+                if (patternRound != 0) drawSs(fields, patternRound)
+            } else if (fields.ssPattern == 6) {
                 for (i in ssPatternArr2) if (round <= i) {
                     patternRound = i
                     break
                 }
-                if (patternRound != 0) drawSs(patternRound)
-            } else if (ssPattern == 7) {
+                if (patternRound != 0) drawSs(fields, patternRound)
+            } else if (fields.ssPattern == 7) {
                 for (i in ssPatternArr3) if (round <= i) {
                     patternRound = i
                     break
                 }
-                if (patternRound != 0) drawSs(patternRound)
+                if (patternRound != 0) drawSs(fields, patternRound)
             }
         }
-    }
-
-    override fun onRoundStart(event: RoundStartEvent) {
-        if (event.game.round == 1) {
-            spawnedEntities.clear()
-            queuedInsPattern = 0
-            queuedMaxPattern = 0
-            queuedSsPattern = 0
-        }
-
-        insPattern = queuedInsPattern
-        maxPattern = queuedMaxPattern
-        ssPattern = queuedSsPattern
     }
 
     override fun onLastTick(event: LastClientTickEvent) {
         if (isNotPlayZombies()) return
         val game = ZombiesAddon.instance.gameManager.game ?: return
         if (game.gameEnd) return
+        val fields = fieldsStorage[game.serverNumber] ?: return
         val round = game.round
 
         for (entity in mc.theWorld.loadedEntityList) {
             if (entity !is EntityArmorStand) continue
-            if (entity in spawnedEntities) continue
+            if (entity in fields.spawnedEntities) continue
 
             val name = getText(entity.name)
 
             when (name) {
                 "INSTA KILL", "즉시 처치" -> {
                     @Suppress("DuplicatedCode")
-                    spawnedEntities += entity
+                    fields.spawnedEntities += entity
                     for (i in insPatternArr1) if (i == round) {
-                        queuedInsPattern = 2
+                        fields.queuedInsPattern = 2
                         break
                     }
                     for (i in insPatternArr2) if (i == round) {
-                        queuedInsPattern = 3
+                        fields.queuedInsPattern = 3
                         break
                     }
                 }
                 "MAX AMMO", "탄약 충전" -> {
-                    spawnedEntities += entity
+                    fields.spawnedEntities += entity
                     for (i in maxPatternArr1) if (i == round) {
-                        queuedMaxPattern = 2
+                        fields.queuedMaxPattern = 2
                         break
                     }
                     for (i in maxPatternArr2) if (i == round) {
-                        queuedMaxPattern = 3
+                        fields.queuedMaxPattern = 3
                         break
                     }
                 }
                 "SHOPPING SPREE", "지름신 강림" -> {
-                    spawnedEntities += entity
+                    fields.spawnedEntities += entity
                     for (i in ssPatternArr1) if (i == round) {
-                        queuedSsPattern = 5
+                        fields.queuedSsPattern = 5
                         break
                     }
                     for (i in ssPatternArr2) if (i == round) {
-                        queuedSsPattern = 6
+                        fields.queuedSsPattern = 6
                         break
                     }
                     for (i in ssPatternArr3) if (i == round) {
-                        queuedSsPattern = 7
+                        fields.queuedSsPattern = 7
                         break
                     }
                 }
@@ -297,59 +253,129 @@ class PowerupPatterns: Module("Powerup Patterns") {
         }
     }
 
-    private fun drawIns(pattern: Int) {
-        if (insTimer) return
+    private fun drawIns(fields: FieldsStorage, pattern: Int) {
+        if (fields.insTimer) return
         val str = "${getTranslatedString("zombiesaddon.game.ins")}: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
         fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(1), 0xffffff)
     }
 
-    private fun drawMax(pattern: Int) {
-        if (maxTimer) return
+    private fun drawMax(fields: FieldsStorage, pattern: Int) {
+        if (fields.maxTimer) return
         val str = "${getTranslatedString("zombiesaddon.game.max")}: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
         fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(2), 0xffffff)
     }
 
-    private fun drawSs(pattern: Int) {
-        if (ssTimer) return
+    private fun drawSs(fields: FieldsStorage, pattern: Int) {
+        if (fields.ssTimer) return
         val str = "${getTranslatedString("zombiesaddon.game.ss")}: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
         fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(3), 0xffffff)
     }
 
     override fun onGameEnd(event: GameEndEvent) {
-        insTimer = false
-        maxTimer = false
-        ssTimer = false
-        dgTimer = false
-        carTimer = false
-        bgTimer = false
+        val fields = fieldsStorage[event.game.serverNumber] ?: return
+        fields.insTimer = false
+        fields.maxTimer = false
+        fields.ssTimer = false
+        fields.dgTimer = false
+        fields.carTimer = false
+        fields.bgTimer = false
     }
 
     override fun onKeyInput(event: InputEvent.KeyInputEvent) {
+        if (isNotPlayZombies()) return
+        val fields = fieldsStorage[ZombiesAddon.instance.gameManager.game?.serverNumber] ?: return
+
         val keys = ZombiesAddon.instance.keyBindings
-        if (keys.insTimer.isPressed) insTimer = true
-        if (keys.maxTimer.isPressed) maxTimer = true
-        if (keys.ssTimer.isPressed) ssTimer = true
-        if (keys.dgTimer.isPressed) dgTimer = true
-        if (keys.carTimer.isPressed) carTimer = true
-        if (keys.bgTimer.isPressed) bgTimer = true
+        if (keys.insTimer.isPressed) fields.insTimer = true
+        if (keys.maxTimer.isPressed) fields.maxTimer = true
+        if (keys.ssTimer.isPressed) fields.ssTimer = true
+        if (keys.dgTimer.isPressed) fields.dgTimer = true
+        if (keys.carTimer.isPressed) fields.carTimer = true
+        if (keys.bgTimer.isPressed) fields.bgTimer = true
     }
 
     override fun onChat(event: ClientChatReceivedEvent) {
+        if (isNotPlayZombies()) return
+        val fields = fieldsStorage[ZombiesAddon.instance.gameManager.game?.serverNumber] ?: return
         val message = getText(event.message.unformattedText)
         if (">" in message) return
 
-        if ("Insta Kill" in message || "즉시 처치" in message) insTimer = false
-        if ("Max Ammo" in message || "탄약 보급" in message) maxTimer = false
-        if ("Shopping Spree" in message || "지름신 강림" in message) ssTimer = false
-        if ("Double Gold" in message || "더블 골드" in message) dgTimer = false
-        if ("Carpenter" in message || "목수" in message) carTimer = false
-        if ("Bonus Gold" in message || "보너스 골드" in message) bgTimer = false
+        if ("Insta Kill" in message || "즉시 처치" in message) fields.insTimer = false
+        if ("Max Ammo" in message || "탄약 보급" in message) fields.maxTimer = false
+        if ("Shopping Spree" in message || "지름신 강림" in message) fields.ssTimer = false
+        if ("Double Gold" in message || "더블 골드" in message) fields.dgTimer = false
+        if ("Carpenter" in message || "목수" in message) fields.carTimer = false
+        if ("Bonus Gold" in message || "보너스 골드" in message) fields.bgTimer = false
+    }
+
+    override fun onEvent(event: Event) {
+        if (event !is GameRemoveEvent) return
+        fieldsStorage.remove(event.game.serverNumber)
     }
 
     override fun isEnable() = ZombiesAddon.instance.config.togglePowerupPatterns
+
+    inner class FieldsStorage {
+        val spawnedEntities = mutableSetOf<EntityArmorStand>()
+        var insPattern = 0
+        var maxPattern = 0
+        var ssPattern = 0
+        var queuedInsPattern = 0
+        var queuedMaxPattern = 0
+        var queuedSsPattern = 0
+
+        var insTimer = false
+            set(b) {
+                field = b
+                if (field) {
+                    ManualTimer.ins.runTimer()
+                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§cInsta Kill")
+                }
+            }
+        var maxTimer = false
+            set(b) {
+                field = b
+                if (field) {
+                    ManualTimer.max.runTimer()
+                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Max Ammo")
+                }
+            }
+        var ssTimer = false
+            set(b) {
+                field = b
+                if (field) {
+                    ManualTimer.ss.runTimer()
+                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§5Shopping Spree")
+                }
+            }
+        var dgTimer = false
+            set(b) {
+                field = b
+                if (field) {
+                    ManualTimer.dg.runTimer()
+                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Double Gold")
+                }
+            }
+        var carTimer = false
+            set(b) {
+                field = b
+                if (field) {
+                    ManualTimer.car.runTimer()
+                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Carpenter")
+                }
+            }
+        var bgTimer = false
+            set(b) {
+                field = b
+                if (field) {
+                    ManualTimer.bg.runTimer()
+                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Bonus Gold")
+                }
+            }
+    }
 }
 
-class ManualTimer {
+private class ManualTimer {
     companion object {
         val ins = ManualTimer()
         val max = ManualTimer()
@@ -366,7 +392,6 @@ class ManualTimer {
         MinecraftForge.EVENT_BUS.register(this)
     }
 
-    @Suppress("unused")
     @SubscribeEvent
     fun onTick(@Suppress("unused") event: LastClientTickEvent) {
         if (--timer <= 0) MinecraftForge.EVENT_BUS.register(this)

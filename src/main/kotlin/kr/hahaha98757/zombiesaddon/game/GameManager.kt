@@ -4,6 +4,7 @@ import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
+import kr.hahaha98757.zombiesaddon.events.GameRemoveEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.getMap
 import kr.hahaha98757.zombiesaddon.utils.getServerNumber
@@ -54,6 +55,9 @@ class GameManager {
     fun removeGame() {
         if (isNotPlayZombies()) return
         val queuedEndedGames = games.values.filter { it.gameEnd }
-        for (game in queuedEndedGames) games.remove(game.serverNumber)
+        for (game in queuedEndedGames) {
+            games.remove(game.serverNumber)
+            MinecraftForge.EVENT_BUS.post(GameRemoveEvent(game))
+        }
     }
 }

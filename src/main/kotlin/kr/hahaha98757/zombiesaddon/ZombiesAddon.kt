@@ -134,7 +134,6 @@ class ZombiesAddon {
         MinecraftForge.EVENT_BUS.register(config)
         MinecraftForge.EVENT_BUS.register(UpdateCheckerListener())
         MinecraftForge.EVENT_BUS.register(LastClientTickEventListener())
-        MinecraftForge.EVENT_BUS.register(ManualTimer())
         MinecraftForge.EVENT_BUS.register(ModuleListener())
         MinecraftForge.EVENT_BUS.register(ThePlayerJoinListener())
 
