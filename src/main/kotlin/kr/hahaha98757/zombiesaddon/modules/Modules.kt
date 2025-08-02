@@ -23,9 +23,14 @@ class Modules: AlwaysEnableModule("Modules") {
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         var i = 1
 
-        val red = !ZombiesAddon.instance.config.blockUnlegitMods || !ZombiesAddon.instance.config.blockUnlegitSst
+        val color = when {
+            !ZombiesAddon.instance.config.blockUnlegitSst -> 0xff5555
+            !ZombiesAddon.instance.config.blockUnlegitMods -> 0xff5555
+            ZombiesAddon.instance.debug -> 0x55ff55
+            else -> 0xffff55
+        }
         var str = "$NAME v$VERSION"
-        fr.drawStringWithShadow(str, HudUtils.getModNameStrX(str), HudUtils.getModNameStrY(),  if (red) 0xff5555 else 0xffff55)
+        fr.drawStringWithShadow(str, HudUtils.getModNameStrX(str), HudUtils.getModNameStrY(),  color)
 
         str = "Player Visibility: ${if (PlayerVisibility.instance.enabled) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.pvText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i++), 0xffff55)

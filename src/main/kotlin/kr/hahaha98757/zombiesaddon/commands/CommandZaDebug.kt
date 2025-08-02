@@ -24,7 +24,10 @@ class CommandZaDebug: CustomCommandBase() {
             addMessage = true
             return
         }
-        if (!ZombiesAddon.instance.debug) return
+        if (!ZombiesAddon.instance.debug) {
+            addChat("디버그 모드가 비활성화되어있습니다.")
+            return
+        }
         when (args[0]) {
             "isNotZombies" -> {
                 if (args.size < 2) {
