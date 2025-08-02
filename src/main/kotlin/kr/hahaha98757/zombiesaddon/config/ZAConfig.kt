@@ -141,16 +141,16 @@ class ZAConfig(val config: Configuration) {
         blockUnlegitMods = addOption(categoryHidden.list, "zombiesaddon.config.blockUnlegitMods", config.get(categoryHidden.name, "blockUnlegitMods", true, "언레짓 모드 차단하는거")).boolean
         blockUnlegitSst = addOption(categoryHidden.list, "zombiesaddon.config.blockUnlegitSst", config.get(categoryHidden.name, "blockUnlegitSst", true, "Sst의 언레짓 기능 차단하는거")).boolean
 
-        HudUtils.autoSplitsX = config.get("HUD", "autoSplitsX", -1).double
-        HudUtils.autoSplitsY = config.get("HUD", "autoSplitsY", -1).double
-        HudUtils.waveDelaysX = config.get("HUD", "waveDelaysX", -1).double
-        HudUtils.waveDelaysY = config.get("HUD", "waveDelaysY", -1).double
-        HudUtils.powerupPatternsX = config.get("HUD", "powerupPatternsX", -1).double
-        HudUtils.powerupPatternsY = config.get("HUD", "powerupPatternsY", -1).double
-        HudUtils.modNameX = config.get("HUD", "modNameX", -1).double
-        HudUtils.modNameY = config.get("HUD", "modNameY", -1).double
-        HudUtils.toggleTextX = config.get("HUD", "toggleTextX", -1).double
-        HudUtils.toggleTextY = config.get("HUD", "toggleTextY", -1).double
+        HudUtils.autoSplitsX = config.get("HUD", "autoSplitsX", -1.0).double
+        HudUtils.autoSplitsY = config.get("HUD", "autoSplitsY", -1.0).double
+        HudUtils.waveDelaysX = config.get("HUD", "waveDelaysX", -1.0).double
+        HudUtils.waveDelaysY = config.get("HUD", "waveDelaysY", -1.0).double
+        HudUtils.powerupPatternsX = config.get("HUD", "powerupPatternsX", -1.0).double
+        HudUtils.powerupPatternsY = config.get("HUD", "powerupPatternsY", -1.0).double
+        HudUtils.modNameX = config.get("HUD", "modNameX", -1.0).double
+        HudUtils.modNameY = config.get("HUD", "modNameY", -1.0).double
+        HudUtils.toggleTextX = config.get("HUD", "toggleTextX", -1.0).double
+        HudUtils.toggleTextY = config.get("HUD", "toggleTextY", -1.0).double
     }
 
     private fun addOption(category: MutableList<IConfigElement>, langKey: String, prop: Property): Property {
