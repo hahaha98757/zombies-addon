@@ -193,6 +193,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.4.4
+- Bug fix: Saved location information not being loaded.
+
 ## 4.4.3
 - Bug fix: Module on/off not applied
 - Code fix: Warning suppression
