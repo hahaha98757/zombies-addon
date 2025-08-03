@@ -46,21 +46,20 @@ zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
 zombiesaddon.commands.zsvlines.success=§eZSV: 표시 라인을 %s§e줄 설정했습니다
 
 
-zombiesaddon.features.general.toggled=%s§e(을)를 %s§e(으)로 토글했습니다
-zombiesaddon.features.general.disabled=§e%s:§c 비활성화 되어있습니다
+zombiesaddon.modules.general.toggled=%s§e(을)를 %s§e(으)로 토글했습니다
 
-zombiesaddon.features.notLast.failed=§eNot Last: §c마지막을 찾는데 실패했습니다
-zombiesaddon.features.notLast.or=§e또는
-zombiesaddon.features.notLast.printLast=§eNot Last: %s§e(이)가 마지막입니다
+zombiesaddon.modules.notLast.failed=§eNot Last: §c마지막을 찾는데 실패했습니다
+zombiesaddon.modules.notLast.or=§e또는
+zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e(이)가 마지막입니다
 
-zombiesaddon.features.autoSplits.failed=§eAuto Splits: %s§c 신호를 전달하는데 실패했습니다
+zombiesaddon.modules.autoSplits.failed=§eAuto Splits: %s§c 신호를 전달하는데 실패했습니다
 
-zombiesaddon.features.sla.auto.wrongMap=§eAuto SLA: §c잘못된 맵
-zombiesaddon.features.sla.auto.setMap=§eAuto SLA: SLA를 %s§e(으)로 설정했습니다
+zombiesaddon.modules.sla.auto.wrongMap=§eAuto SLA: §c잘못된 맵
+zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: SLA를 %s§e(으)로 설정했습니다
 
-zombiesaddon.features.autoRejoin.rejoining=§eAuto Rejoin: 재접속 중...
+zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: 재접속 중...
 
-zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: %s§e의 수동 타이머를 실행했습니다
+zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: %s§e의 수동 타이머를 실행했습니다
 
 zombiesaddon.gui.reset=재설정
 zombiesaddon.gui.comment=현재 HUD 위치 설정을 저장하려면 "완료"를 클릭하세요

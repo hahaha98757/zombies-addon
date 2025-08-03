@@ -13,7 +13,7 @@ class BlockAlarm: ToggleableModule("Block Alarm", ZombiesAddon.instance.config.b
 
     override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.toggleBlockAlarm
     override fun addToggleText(enabled: Boolean) =
-        addTranslationChat("zombiesaddon.features.general.toggled", "§eBlock Alarm", if (enabled) "§aon" else "§coff")
+        addTranslationChat("zombiesaddon.modules.general.toggled", "§eBlock Alarm", if (enabled) "§aon" else "§coff")
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         if (isNotPlayZombies()) return

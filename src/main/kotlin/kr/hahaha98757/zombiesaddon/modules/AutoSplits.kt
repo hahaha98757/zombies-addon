@@ -33,7 +33,7 @@ class AutoSplits: Module("Auto Splits") {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            mc.addScheduledTask { addTranslationChat("zombiesaddon.features.autoSplits.failed", "§a$signal") }
+            mc.addScheduledTask { addTranslationChat("zombiesaddon.modules.autoSplits.failed", "§a$signal") }
         }
     }.start()
 

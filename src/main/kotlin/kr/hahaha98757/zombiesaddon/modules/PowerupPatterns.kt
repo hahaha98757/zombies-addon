@@ -329,7 +329,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.ins.runTimer()
-                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§cInsta Kill")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§cInsta Kill")
                 }
             }
         var maxTimer = false
@@ -337,7 +337,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.max.runTimer()
-                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Max Ammo")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§9Max Ammo")
                 }
             }
         var ssTimer = false
@@ -345,7 +345,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.ss.runTimer()
-                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§5Shopping Spree")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§5Shopping Spree")
                 }
             }
         var dgTimer = false
@@ -353,7 +353,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.dg.runTimer()
-                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Double Gold")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§6Double Gold")
                 }
             }
         var carTimer = false
@@ -361,7 +361,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.car.runTimer()
-                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§9Carpenter")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§9Carpenter")
                 }
             }
         var bgTimer = false
@@ -369,7 +369,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.bg.runTimer()
-                    addTranslationChat("zombiesaddon.features.powerupPatterns.timer", "§6Bonus Gold")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§6Bonus Gold")
                 }
             }
     }

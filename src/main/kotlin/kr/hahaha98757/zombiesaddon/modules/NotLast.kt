@@ -40,7 +40,7 @@ class NotLast: Module("Not Last") {
                 return@RepeatedTask true
             }
 
-            if (it == 1) addTranslationChat("zombiesaddon.features.notLast.failed")
+            if (it == 1) addTranslationChat("zombiesaddon.modules.notLast.failed")
             false
         }
     }
@@ -50,11 +50,11 @@ class NotLast: Module("Not Last") {
             append(players[0])
 
             for (i in 1..players.lastIndex) {
-                if (i == players.lastIndex) append(", ${getTranslatedString("zombiesaddon.features.notLast.or")}§e ${players[i]}")
+                if (i == players.lastIndex) append(", ${getTranslatedString("zombiesaddon.modules.notLast.or")}§e ${players[i]}")
                 else append(", ${players[i]}")
             }
 
-            addTranslationChat("zombiesaddon.features.notLast.printLast", toString())
+            addTranslationChat("zombiesaddon.modules.notLast.printLast", toString())
         }
     }
 

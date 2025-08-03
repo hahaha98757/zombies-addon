@@ -13,10 +13,10 @@ class AutoRejoin: ToggleableModule("Auto Rejoin", ZombiesAddon.instance.config.a
 
     override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.toggleAutoRejoin
     override fun addToggleText(enabled: Boolean) =
-        addTranslationChat("zombiesaddon.features.general.toggled", "§eAuto Rejoin", if (enabled) "§aon" else "§coff")
+        addTranslationChat("zombiesaddon.modules.general.toggled", "§eAuto Rejoin", if (enabled) "§aon" else "§coff")
 
     override fun onRoundStart(event: RoundStartEvent) {
-        addTranslationChat("zombiesaddon.features.autoRejoin.rejoining")
+        addTranslationChat("zombiesaddon.modules.autoRejoin.rejoining")
         sendChat("/l")
         DelayedTask(100) {
             sendChat("/rejoin")

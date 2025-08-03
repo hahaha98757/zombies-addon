@@ -19,7 +19,7 @@ zombiesaddon.key.bgTimer=Bonus Gold Timer
 
 zombiesaddon.messages.offBlockUnlegitMods=blockUnlegitMods is turned off.
 zombiesaddon.messages.offBlockUnlegitSST=blockUnlegitSST is turned off.
-zombiesaddon.messages.blockUnlegitSST=The unlegit features of SST have been blocked by Zombies Addon.
+zombiesaddon.messages.blockUnlegitSST=The unlegit modules of SST have been blocked by Zombies Addon.
 
 
 zombiesaddon.commands.autosplits.usage=/autosplits <signal>
@@ -46,21 +46,20 @@ zombiesaddon.commands.zsvlines.usage=/zsvlines <number>
 zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to %s
 
 
-zombiesaddon.features.general.toggled=§eToggled %s§e to %s
-zombiesaddon.features.general.disabled=§e%s:§c It is disabled
+zombiesaddon.modules.general.toggled=§eToggled %s§e to %s
 
-zombiesaddon.features.notLast.failed=§eNot Last: §cFailed to find the last
-zombiesaddon.features.notLast.or=§eor
-zombiesaddon.features.notLast.printLast=§eNot Last: %s§e was last
+zombiesaddon.modules.notLast.failed=§eNot Last: §cFailed to find the last
+zombiesaddon.modules.notLast.or=§eor
+zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e was last
 
-zombiesaddon.features.autoSplits.failed=§eAuto Splits: §cFailed to send %s§c signal
+zombiesaddon.modules.autoSplits.failed=§eAuto Splits: §cFailed to send %s§c signal
 
-zombiesaddon.features.sla.auto.wrongMap=§eAuto SLA: §cWrong map
-zombiesaddon.features.sla.auto.setMap=§eAuto SLA: Set SLA to %s
+zombiesaddon.modules.sla.auto.wrongMap=§eAuto SLA: §cWrong map
+zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: Set SLA to %s
 
-zombiesaddon.features.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
+zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
 
-zombiesaddon.features.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer of %s
+zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer of %s
 
 zombiesaddon.gui.reset=Reset
 zombiesaddon.gui.comment=Click "Done" to save your current HUD position settings.
