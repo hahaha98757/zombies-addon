@@ -18,7 +18,7 @@ public class MixinMainConfiguration {
      * @author hahaha98757
      * @reason 언레짓 기능 차단.
      */
-    @Overwrite()
+    @Overwrite
     public void ConfigLoad() {
         config.load();
         logger.info("Started loading config. ");

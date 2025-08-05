@@ -51,19 +51,21 @@ class KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
 
     override fun onEvent(event: Event) {
         if (event !is ClientChatPrintedEvent) return
-        if (!ZombiesAddon.instance.config.koreanPatchersSst) return
         if (isNotPlayZombies()) return
         val message = getText(event.message.unformattedText) // 왜인지 모르겠지만 색깔 코드가 제거가 안된다.
         if ("<" in message) return
+        if (ZombiesAddon.instance.config.koreanPatchersSst) sst(event, message)
+    }
 
+    private fun sst(event: ClientChatPrintedEvent, message: String) {
         if (" seconds to clean up after the last wave." in message) {
             val time = message.replace(Regex("[^0-9.]"), "")
-            event.isCanceled = true
             addChat("§e마지막 웨이브 이후 넘어가는데 §c${time.substring(0, time.length - 1)}§e초가 걸렸습니다.")
+            event.isCanceled = true
         }
         if ("You completed Round " in message) {
-            event.isCanceled = true
             addChat("                  §c라운드 ${message.split("in")[0].replace(Regex("[^0-9]"), "")}§e을(를) §a${message.split("in")[1].replace(Regex("[^0-9:]"), "")}§e에 완료했습니다!")
+            event.isCanceled = true
         }
     }
 

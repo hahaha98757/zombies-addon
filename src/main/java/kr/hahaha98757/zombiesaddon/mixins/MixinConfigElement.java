@@ -12,11 +12,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = ConfigElement.class, remap = false)
 public class MixinConfigElement {
-    @Shadow()
+    @Shadow
     private boolean isProperty;
-    @Shadow()
+    @Shadow
     private Property prop;
-    @Shadow()
+    @Shadow
     private ConfigCategory ctgy;
 
     @Inject(method = "getComment", at = @At("HEAD"), cancellable = true)
