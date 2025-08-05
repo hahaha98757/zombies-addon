@@ -19,7 +19,7 @@ zombiesaddon.key.bgTimer=Bonus Gold Timer
 
 zombiesaddon.messages.offBlockUnlegitMods=blockUnlegitMods is turned off.
 zombiesaddon.messages.offBlockUnlegitSST=blockUnlegitSST is turned off.
-zombiesaddon.messages.blockUnlegitSST=The unlegit modules of SST have been blocked by Zombies Addon.
+zombiesaddon.messages.blockUnlegitSST=The unlegit features of SST have been blocked by Zombies Addon.
 
 
 zombiesaddon.commands.autosplits.usage=/autosplits <signal>
