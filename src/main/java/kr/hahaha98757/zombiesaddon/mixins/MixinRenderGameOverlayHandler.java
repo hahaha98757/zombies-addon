@@ -7,10 +7,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(RenderGameOverlayHandler.class)
+@Mixin(value = RenderGameOverlayHandler.class, remap = false)
 public class MixinRenderGameOverlayHandler {
-
-    @Inject(method = "renderTime", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "renderTime", at = @At("HEAD"), cancellable = true)
     private void renderTime(short timerTicks, CallbackInfo ci) {
         if (ZombiesAddon.getInstance().getConfig().getEnableMod() && ZombiesAddon.getInstance().getConfig().getDisableTimerOfZombiesUtils()) ci.cancel();
     }

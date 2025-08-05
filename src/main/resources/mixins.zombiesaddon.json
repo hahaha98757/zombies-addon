@@ -1,26 +1,7 @@
 {
   "package": "kr.hahaha98757.zombiesaddon.mixins",
+  "plugin": "kr.hahaha98757.zombiesaddon.init.AutoDiscoveryMixinPlugin",
   "refmap": "mixins.${modid}.refmap.json",
   "minVersion": "0.7",
-  "compatibilityLevel": "JAVA_8",
-  "priority": 50,
-  "mixins": [
-    "MixinClientCommandHandler",
-    "MixinConfigElement",
-    "MixinLayerCape",
-    "MixinMainConfiguration",
-    "MixinModelBase",
-    "MixinModelBiped",
-    "MixinModelPlayer",
-    "MixinRender",
-    "MixinRenderGameOverlayHandler",
-    "MixinSlaCommand",
-    "MixinSpawnTimeRenderer"
-  ],
-  "client": [
-    "MixinGuiIngame",
-    "MixinGuiNewChat",
-    "MixinMinecraft",
-    "MixinSoundManager"
-  ]
+  "compatibilityLevel": "JAVA_8"
 }

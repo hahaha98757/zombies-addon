@@ -10,16 +10,16 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(ConfigElement.class)
+@Mixin(value = ConfigElement.class, remap = false)
 public class MixinConfigElement {
-    @Shadow(remap = false)
+    @Shadow()
     private boolean isProperty;
-    @Shadow(remap = false)
+    @Shadow()
     private Property prop;
-    @Shadow(remap = false)
+    @Shadow()
     private ConfigCategory ctgy;
 
-    @Inject(method = "getComment", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "getComment", at = @At("HEAD"), cancellable = true)
     private void getComment(CallbackInfoReturnable<String> cir) {
         if (!isProperty) cir.setReturnValue(ctgy.getComment());
         cir.setReturnValue(prop.comment.startsWith("zombiesaddon") ? Tools.getTranslatedString(prop.comment) : prop.comment);
