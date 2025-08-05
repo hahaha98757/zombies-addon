@@ -5,8 +5,6 @@ import kr.hahaha98757.zombiesaddon.VERSION
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
-import kr.hahaha98757.zombiesaddon.events.SoundEvent
-import kr.hahaha98757.zombiesaddon.events.TitleEvent
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.RenderGameOverlayEvent
@@ -18,7 +16,6 @@ class Modules: AlwaysEnableModule("Modules") {
     companion object {
         val instance = Modules()
     }
-    private var aaR10 = false
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         var i = 1
@@ -40,26 +37,6 @@ class Modules: AlwaysEnableModule("Modules") {
 
         str = "Auto Rejoin: ${if (AutoRejoin.instance.enabled) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.autoRejoinText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i), 0xffff55)
-    }
-
-    override fun onSound(event: SoundEvent) {
-        val sound = event.sound
-        ZombiesAddon.instance.gameManager.runCatching {
-            if (sound == "minecraft:mob.wither.spawn") {
-                aaR10 = false
-                startOrNew(Scoreboard.round)
-            } else if (sound == "minecraft:mob.guardian.curse" && !aaR10) {
-                aaR10 = true
-                startOrNew(Scoreboard.round)
-            }
-        }.onFailure { it.printStackTrace() }
-    }
-
-    override fun onTitle(event: TitleEvent) {
-        val title = event.title
-        val serverNumber = getServerNumber() ?: return
-        if (title == "You Win!" || title == "승리했습니다.") ZombiesAddon.instance.gameManager.endGame(serverNumber, true)
-        else if (title == "Game Over!" || title == "게임 끝!") ZombiesAddon.instance.gameManager.endGame(serverNumber, false)
     }
 
     override fun onChat(event: ClientChatReceivedEvent) {

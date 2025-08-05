@@ -1,6 +1,8 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.events.*
+import kr.hahaha98757.zombiesaddon.events.GameEndEvent
+import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
+import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.isDisable
 import net.minecraft.client.settings.KeyBinding
 import net.minecraftforge.client.event.ClientChatReceivedEvent
@@ -18,8 +20,6 @@ abstract class Module(val name: String) {
         when (event) {
             is LastClientTickEvent -> onLastTick(event)
             is RenderGameOverlayEvent.Text -> onRender(event)
-            is SoundEvent -> onSound(event)
-            is TitleEvent -> onTitle(event)
             is RoundStartEvent -> onRoundStart(event)
             is GameEndEvent -> onGameEnd(event)
             is ClientChatReceivedEvent -> onChat(event)
@@ -30,8 +30,6 @@ abstract class Module(val name: String) {
 
     protected open fun onLastTick(event: LastClientTickEvent) {}
     protected open fun onRender(event: RenderGameOverlayEvent.Text) {}
-    protected open fun onSound(event: SoundEvent) {}
-    protected open fun onTitle(event: TitleEvent) {}
     protected open fun onRoundStart(event: RoundStartEvent) {}
     protected open fun onGameEnd(event: GameEndEvent) {}
     protected open fun onChat(event: ClientChatReceivedEvent) {}

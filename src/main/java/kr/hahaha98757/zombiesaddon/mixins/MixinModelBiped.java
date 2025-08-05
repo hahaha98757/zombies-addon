@@ -16,7 +16,7 @@ public class MixinModelBiped {
         MixinToolsKt.renderPre(entityIn);
     }
 
-    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;popMatrix()V", shift = At.Shift.BEFORE))
+    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;popMatrix()V", ordinal = 1, shift = At.Shift.BEFORE))
     private void renderPost(Entity entityIn, float f, float g, float h, float i, float j, float scale, CallbackInfo ci) {
         MixinToolsKt.renderPost(entityIn);
     }

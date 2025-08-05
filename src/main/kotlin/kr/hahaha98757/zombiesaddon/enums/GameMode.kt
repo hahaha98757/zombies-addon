@@ -3,7 +3,7 @@ package kr.hahaha98757.zombiesaddon.enums
 import kr.hahaha98757.zombiesaddon.data.Round
 import kr.hahaha98757.zombiesaddon.utils.JsonLoader
 
-enum class GameMode(val map: ZombiesMap, val difficulty: Difficulty, val rounds: Array<Round>, val lastRoundIndex: Int = rounds.size - 1) {
+enum class GameMode(val map: ZombiesMap, val difficulty: Difficulty, val rounds: Array<Round>) {
     DEAD_END_NORMAL(ZombiesMap.DEAD_END, Difficulty.NORMAL, readFromFile("data/rounds/DEN_WAVES.json")),
     DEAD_END_HARD(ZombiesMap.DEAD_END, Difficulty.HARD, readFromFile("data/rounds/DEH_WAVES.json")),
     DEAD_END_RIP(ZombiesMap.DEAD_END, Difficulty.RIP, readFromFile("data/rounds/DER_WAVES.json")),
