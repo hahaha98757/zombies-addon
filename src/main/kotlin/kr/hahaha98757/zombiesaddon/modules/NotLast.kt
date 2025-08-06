@@ -45,17 +45,13 @@ class NotLast: Module("Not Last") {
         }
     }
 
-    private fun printLast(players: List<String>) {
-        StringBuilder("§e").run {
-            append(players[0])
+    private fun printLast(players: List<String>) = StringBuilder("§e").run {
+        append(players[0])
 
-            for (i in 1..players.lastIndex) {
-                if (i == players.lastIndex) append(", ${getTranslatedString("zombiesaddon.modules.notLast.or")}§e ${players[i]}")
-                else append(", ${players[i]}")
-            }
+        for (i in 1..players.lastIndex) if (i != players.lastIndex) append(", ${players[i]}")
+        else append(", ${getTranslatedString("zombiesaddon.modules.notLast.or")}§e ${players[i]}")
 
-            addTranslationChat("zombiesaddon.modules.notLast.printLast", toString())
-        }
+        addTranslationChat("zombiesaddon.modules.notLast.printLast", toString())
     }
 
     override fun isEnable() = ZombiesAddon.instance.config.toggleNotLast

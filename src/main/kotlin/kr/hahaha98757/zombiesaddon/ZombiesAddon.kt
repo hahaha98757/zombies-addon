@@ -137,7 +137,7 @@ class ZombiesAddon {
         MinecraftForge.EVENT_BUS.register(ModuleListener())
         MinecraftForge.EVENT_BUS.register(ThePlayerJoinListener())
 
-        ModuleListener.registerModule(Modules.instance)
+        ModuleListener.registerModule(General.instance)
         ModuleListener.registerModule(PlayerVisibility.instance)
         ModuleListener.registerModule(BlockAlarm.instance)
         ModuleListener.registerModule(NotLast.instance)

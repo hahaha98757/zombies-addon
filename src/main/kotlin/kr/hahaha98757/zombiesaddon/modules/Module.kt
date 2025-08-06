@@ -15,7 +15,6 @@ abstract class Module(val name: String) {
     abstract fun isEnable(): Boolean
 
     internal open fun occurEvent(event: Event) {
-        if (isDisable()) return
         if (!isEnable()) return
         when (event) {
             is LastClientTickEvent -> onLastTick(event)
@@ -42,7 +41,6 @@ abstract class ToggleableModule(name: String, var enabled: Boolean): Module(name
     abstract fun addToggleText(enabled: Boolean)
 
     final override fun occurEvent(event: Event) {
-        if (isDisable()) return
         when (event) {
             is KeyInputEvent -> onKeyInput(event)
             else -> {
@@ -77,6 +75,7 @@ class ModuleListener {
 
     @SubscribeEvent
     fun onEvent(event: Event) {
+        if (isDisable()) return
         for (module in modules) module.occurEvent(event)
     }
 }

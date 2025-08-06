@@ -12,9 +12,9 @@ import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.EntityJoinWorldEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
-class Modules: AlwaysEnableModule("Modules") {
+class General: AlwaysEnableModule("General") {
     companion object {
-        val instance = Modules()
+        val instance = General()
     }
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
