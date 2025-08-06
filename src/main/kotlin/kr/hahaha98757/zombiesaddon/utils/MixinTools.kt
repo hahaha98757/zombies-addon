@@ -2,6 +2,7 @@ package kr.hahaha98757.zombiesaddon.utils
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.modules.PlayerVisibility
+import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.entity.Entity
 import net.minecraft.network.play.server.S29PacketSoundEffect
@@ -26,6 +27,7 @@ internal fun renderPost(entity: Entity) {
 
 private var aaR10 = false
 internal fun onSound(packet: S29PacketSoundEffect) {
+    if (!Minecraft.getMinecraft().isCallingFromMinecraftThread) return
     if (isNotZombies()) return
     val sound = packet.soundName
     ZombiesAddon.instance.gameManager.runCatching {
@@ -40,6 +42,7 @@ internal fun onSound(packet: S29PacketSoundEffect) {
 }
 
 internal fun onTitle(packet: S45PacketTitle) {
+    if (!Minecraft.getMinecraft().isCallingFromMinecraftThread) return
     if (packet.type != S45PacketTitle.Type.TITLE) return
     if (isNotZombies()) return
     val title = packet.message.unformattedText.trim()
