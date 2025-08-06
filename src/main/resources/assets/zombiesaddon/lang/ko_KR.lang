@@ -61,6 +61,8 @@ zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: 재접속 중...
 
 zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: %s§e의 수동 타이머를 실행했습니다
 
+zombiesaddon.modules.recorder.failed=§eRecorder:§c 기록을 실패했습니다
+
 zombiesaddon.gui.reset=재설정
 zombiesaddon.gui.comment=현재 HUD 위치 설정을 저장하려면 "완료"를 클릭하세요
 zombiesaddon.gui.windowsOnly=이 기능은 Windows에서만 작동합니다
@@ -206,6 +208,8 @@ zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
 zombiesaddon.config.koreanPatchersZombiesOverlay.description=Zombies Overlay에 대한 한글 패치를 활성화 또는 비활성화합니다.
 zombiesaddon.config.koreanPatchersSst=SST
 zombiesaddon.config.koreanPatchersSst.description=SST에 대한 한글 패치를 활성화 또는 비활성화합니다.
+zombiesaddon.config.koreanPatchersZombiesUtils=Zombies Utils
+zombiesaddon.config.koreanPatchersZombiesUtils.description=Zombies Utils에 대한 한글 패치를 활성화 또는 비활성화합니다.
 
 zombiesaddon.config.disableSpawnTimeOfSst=SST의 스폰 시간 비활성화
 zombiesaddon.config.disableSpawnTimeOfSst.description=SST의 스폰 시간을 비활성화합니다.

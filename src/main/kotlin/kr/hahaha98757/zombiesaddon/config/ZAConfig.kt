@@ -73,6 +73,7 @@ class ZAConfig(val config: Configuration) {
     var koreanPatchersIngame = false
     var koreanPatchersZombiesOverlay = false
     var koreanPatchersSst = false
+//    var koreanPatchersZombiesUtils = false
 
     var disableSpawnTimeOfSst = true
     var disableTimerOfZombiesUtils = true
@@ -134,6 +135,7 @@ class ZAConfig(val config: Configuration) {
         koreanPatchersIngame = addOption(categoryKoreanPatchers.list, "zombiesaddon.config.koreanPatchersIngame", config.get(categoryKoreanPatchers.name, "koreanPatchersIngame", false, "zombiesaddon.config.koreanPatchersIngame.description")).boolean
         koreanPatchersZombiesOverlay = addOption(categoryKoreanPatchers.list, "zombiesaddon.config.koreanPatchersZombiesOverlay", config.get(categoryKoreanPatchers.name, "koreanPatchersZombiesOverlay", false, "zombiesaddon.config.koreanPatchersZombiesOverlay.description")).boolean
         koreanPatchersSst = addOption(categoryKoreanPatchers.list, "zombiesaddon.config.koreanPatchersSst", config.get(categoryKoreanPatchers.name, "koreanPatchersSst", false, "zombiesaddon.config.koreanPatchersSst.description")).boolean
+//        koreanPatchersZombiesUtils = addOption(categoryKoreanPatchers.list, "zombiesaddon.config.koreanPatchersZombiesUtils", config.get(categoryKoreanPatchers.name, "koreanPatchersZombiesUtils", false, "zombiesaddon.config.koreanPatchersZombiesUtils.description")).boolean
 
         disableSpawnTimeOfSst = addOption(categoryOtherMods.list, "zombiesaddon.config.disableSpawnTimeOfSst", config.get(categoryOtherMods.name, "disableSpawnTimeOfSst", true, "zombiesaddon.config.disableSpawnTimeOfSst.description")).boolean
         disableTimerOfZombiesUtils = addOption(categoryOtherMods.list, "zombiesaddon.config.disableTimerOfZombiesUtils", config.get(categoryOtherMods.name, "disableTimerOfZombiesUtils", true, "zombiesaddon.config.disableTimerOfZombiesUtils.description")).boolean

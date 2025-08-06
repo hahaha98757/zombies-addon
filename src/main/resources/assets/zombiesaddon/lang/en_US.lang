@@ -61,6 +61,8 @@ zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
 
 zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer of %s
 
+zombiesaddon.modules.recorder.failed=§eRecorder: §cFailed to record
+
 zombiesaddon.gui.reset=Reset
 zombiesaddon.gui.comment=Click "Done" to save your current HUD position settings.
 zombiesaddon.gui.windowsOnly=This feature is only available on Windows.
@@ -207,6 +209,8 @@ zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
 zombiesaddon.config.koreanPatchersZombiesOverlay.description=Enable or disable Korean Patchers for Zombies Overlay.
 zombiesaddon.config.koreanPatchersSst=SST
 zombiesaddon.config.koreanPatchersSst.description=Enable or disable Korean Patchers for SST.
+zombiesaddon.config.koreanPatchersZombiesUtils=Zombies Utils
+zombiesaddon.config.koreanPatchersZombiesUtils.description=Enable or disable Korean Patchers for Zombies Utils.
 
 zombiesaddon.config.disableSpawnTimeOfSst=Disable Spawn Time of SST
 zombiesaddon.config.disableSpawnTimeOfSst.description=Disable the spawn time of SST.
