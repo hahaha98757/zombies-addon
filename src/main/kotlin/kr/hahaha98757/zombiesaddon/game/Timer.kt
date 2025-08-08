@@ -10,7 +10,7 @@ class Timer {
 
     val roundTick get() = gameTick - roundStartTick
 
-    fun run() {
+    fun split() {
         roundStartTick = gameTick
     }
 

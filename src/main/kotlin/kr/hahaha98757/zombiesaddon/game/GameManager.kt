@@ -18,7 +18,7 @@ class GameManager {
 
     val game get() = games[getServerNumber()]
 
-    fun startOrNew(round: Int) {
+    fun splitOrNew(round: Int) {
         val serverNumber = getServerNumber() ?: throw IllegalStateException("Unknown server number")
         if (serverNumber in games.keys) {
             if (round == 0) newGame(serverNumber)

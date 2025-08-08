@@ -50,7 +50,7 @@ class CommandZaDebug: CustomCommandBase() {
                 addChat("서버 번호를 $debugServerNumber(으)로 설정했습니다.")
             }
             "new" -> {
-                runCatching { ZombiesAddon.instance.gameManager.startOrNew(0) }.onFailure {
+                runCatching { ZombiesAddon.instance.gameManager.splitOrNew(0) }.onFailure {
                     addChat("게임을 시작하는데 실패했습니다: ${it.message ?: "알 수 없음"}")
                 }.onSuccess {
                     addChat("새 게임을 시작했습니다.")

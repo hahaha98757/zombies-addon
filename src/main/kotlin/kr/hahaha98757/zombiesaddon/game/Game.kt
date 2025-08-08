@@ -35,7 +35,7 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, round: Int) {
 //            it.printStackTrace()
 //            addTranslationChat("zombiesaddon.recorder.failed")
 //        }
-        timer.run()
+        timer.split()
         if (gameEnd) return
         this.round = round + 1
         MinecraftForge.EVENT_BUS.post(RoundStartEvent(this))
