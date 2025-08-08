@@ -193,6 +193,15 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.5.0-beta1
+- Internal Timer fix: More accurate timer.
+- Bug fixes: Added null check. Translation fixes. Log messages are not translated.
+- Powerup Patterns Fixed: Patterns are now recorded separately for each game.
+- Added: /za_debug command and debug mode. Added Korean language option to Zombies Utils.
+- Player Visibility Fix: Fixed Player Invisibility from conflicting with SST's Player Invisible.
+- Changed: Aligned game handling with Zombies Utils.
+
+
 ## 4.4.4
 - Bug fix: Saved location information not being loaded.
 

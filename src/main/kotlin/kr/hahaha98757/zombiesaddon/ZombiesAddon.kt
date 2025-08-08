@@ -28,7 +28,7 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.5.0-alpha1"
+const val VERSION = "4.5.0-beta1"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {

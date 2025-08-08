@@ -196,6 +196,15 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 # 업데이트 로그
 
+## 4.5.0-beta1
+- Internal Timer 수정: 더 정확한 타이머.
+- 버그 수정: null 체크 추가. 번역 수정. 로그 메시지를 번역하지 않음.
+- Powerup Patterns 수정: 패턴을 게임마다 따로 기록함.
+- 추가: /za_debug 명령어와 디버그 모드. Zombies Utils에 한국어 옵션 추가.
+- Player Visibility 수정: SST의 Player Invisible과 충돌하지 않도록 수정.
+- 변경: 게임 처리 방식을 Zombies Utils에 맞춤.
+
+
 ## 4.4.4
 - 버그 수정: 저장된 위치 정보가 불러와지지 않음.
 
