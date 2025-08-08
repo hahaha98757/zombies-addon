@@ -46,6 +46,6 @@ internal fun onTitle(packet: S45PacketTitle) {
     if (isNotZombies()) return
     val title = packet.message.unformattedText.trim()
     val serverNumber = getServerNumber() ?: return
-    if (title == "You Win!" || title == "승리했습니다.") ZombiesAddon.instance.gameManager.endGame(serverNumber, true)
+    if (title == "You Win!" || title == "승리했습니다!") ZombiesAddon.instance.gameManager.endGame(serverNumber, true)
     else if (title == "Game Over!" || title == "게임 끝!") ZombiesAddon.instance.gameManager.endGame(serverNumber, false)
 }
