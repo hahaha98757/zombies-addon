@@ -8,7 +8,7 @@ import net.minecraft.network.play.server.S29PacketSoundEffect
 import net.minecraft.network.play.server.S45PacketTitle
 import org.lwjgl.opengl.GL11
 
-internal fun renderPre(entity: Entity) {
+fun renderPre(entity: Entity) {
     if (!PlayerVisibility.isSemiPv(entity)) return
     GlStateManager.color(1f, 1f, 1f, PlayerVisibility.getAlpha(entity))
     GlStateManager.depthMask(false)
@@ -17,7 +17,7 @@ internal fun renderPre(entity: Entity) {
     GlStateManager.alphaFunc(GL11.GL_GREATER, 0.003921569f) // 0.003921569f = 1/255
 }
 
-internal fun renderPost(entity: Entity) {
+fun renderPost(entity: Entity) {
     if (!PlayerVisibility.isSemiPv(entity)) return
     GlStateManager.disableBlend()
     GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f)
@@ -25,7 +25,7 @@ internal fun renderPost(entity: Entity) {
 }
 
 private var aaR10 = false
-internal fun onSound(packet: S29PacketSoundEffect) {
+fun onSound(packet: S29PacketSoundEffect) {
     if (!mc.isCallingFromMinecraftThread) return
     if (isNotZombies()) return
     val sound = packet.soundName
@@ -40,11 +40,11 @@ internal fun onSound(packet: S29PacketSoundEffect) {
     }.onFailure { it.printStackTrace() }
 }
 
-internal fun onTitle(packet: S45PacketTitle) {
+fun onTitle(packet: S45PacketTitle) {
     if (!mc.isCallingFromMinecraftThread) return
     if (packet.type != S45PacketTitle.Type.TITLE) return
     if (isNotZombies()) return
-    val title = packet.message.unformattedText.trim()
+    val title = getText(packet.message.unformattedText.trim())
     val serverNumber = getServerNumber() ?: return
     if (title == "You Win!" || title == "승리했습니다!") ZombiesAddon.instance.gameManager.endGame(serverNumber, true)
     else if (title == "Game Over!" || title == "게임 끝!") ZombiesAddon.instance.gameManager.endGame(serverNumber, false)

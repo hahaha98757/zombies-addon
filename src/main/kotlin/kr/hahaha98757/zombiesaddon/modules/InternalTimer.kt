@@ -11,14 +11,12 @@ class InternalTimer: Module("Internal Timer") {
         val instance = InternalTimer()
     }
 
-    private var ticks = 0
-
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         if (isNotPlayZombies()) return
 
         val game = ZombiesAddon.instance.gameManager.game ?: return
 
-        if (!game.gameEnd) ticks = game.timer.roundTick
+        val ticks = game.timer.roundTick
         val minutesPart = ticks / 1200
         val secondsPart = (ticks % 1200) / 20
         val tenthSecondsPart = ((ticks % 1200) % 20) / 2

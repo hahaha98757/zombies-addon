@@ -44,6 +44,7 @@ class GameManager {
         }
         game.gameEnd = true
         game.isWin = isWin
+        game.timer.stop = true
         MinecraftForge.EVENT_BUS.post(GameEndEvent(game, isWin))
     }
 

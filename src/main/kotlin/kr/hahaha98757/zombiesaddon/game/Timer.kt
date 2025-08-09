@@ -5,6 +5,8 @@ import kr.hahaha98757.zombiesaddon.utils.mc
 class Timer {
     private var startTick = currentTick
     private var roundStartTick = 0
+    private var worldTime = 0L
+    var stop = false
 
     val gameTick get() = (currentTick - startTick).toInt()
 
@@ -20,6 +22,7 @@ class Timer {
 
     private val currentTick: Long get() {
         if (mc.theWorld == null) return 0
-        return mc.theWorld.totalWorldTime
+        if (!stop) worldTime = mc.theWorld.totalWorldTime
+        return worldTime
     }
 }
