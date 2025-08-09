@@ -194,6 +194,10 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 # Update Log
 
 ## 4.5.0-beta1
+- Bug fix: The game wouldn't end.
+- Change: The timer now stops when the game ends.
+
+## 4.5.0-beta1
 - Internal Timer fix: More accurate timer.
 - Bug fixes: Added null check. Translation fixes. Log messages are not translated.
 - Powerup Patterns Fixed: Patterns are now recorded separately for each game.

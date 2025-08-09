@@ -197,6 +197,10 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 # 업데이트 로그
 
 ## 4.5.0-beta1
+- 버그 수정: 게임이 종료되지 않음.
+- 변경: 게임 종료 시 타이머 정지.
+
+## 4.5.0-beta1
 - Internal Timer 수정: 더 정확한 타이머.
 - 버그 수정: null 체크 추가. 번역 수정. 로그 메시지를 번역하지 않음.
 - Powerup Patterns 수정: 패턴을 게임마다 따로 기록함.
