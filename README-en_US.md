@@ -193,7 +193,10 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
-## 4.5.0-beta1
+## 4.5.0-beta3
+- Bug fix: The game no longer ends in Prison. If the mode is activated during the game, it will start from round 1.
+
+## 4.5.0-beta2
 - Bug fix: The game wouldn't end.
 - Change: The timer now stops when the game ends.
 
