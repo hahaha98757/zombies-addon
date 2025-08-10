@@ -7,11 +7,9 @@ import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import net.minecraftforge.common.MinecraftForge
 
-class Game(var gameMode: GameMode, val serverNumber: ServerNumber, round: Int) {
-    constructor(gameMode: GameMode, serverNumber: ServerNumber) : this(gameMode, serverNumber, 1)
+class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: Int) {
 
     val timer = Timer()
-    var round = round
     var gameEnd = false
     var isWin = false
         get() = if (gameEnd) field else throw IllegalStateException("Game has not ended yet")
@@ -30,13 +28,13 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, round: Int) {
 
     fun pass(round: Int) {
         if (round == 0) return
-        if (round >= gameMode.rounds.size) return
+        if (round > gameMode.rounds.size) return
 //        recorder.runCatching { record() }.onFailure {
 //            it.printStackTrace()
 //            addTranslationChat("zombiesaddon.recorder.failed")
 //        }
-        timer.split()
         if (gameEnd) return
+        timer.split()
         this.round = round + 1
         MinecraftForge.EVENT_BUS.post(RoundStartEvent(this))
     }

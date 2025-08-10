@@ -23,11 +23,11 @@ class GameManager {
         if (serverNumber in games.keys) {
             if (round == 0) newGame(serverNumber)
             else games[serverNumber]?.pass(round)
-        } else newGame(serverNumber)
+        } else newGame(serverNumber, round)
     }
 
-    private fun newGame(serverNumber: ServerNumber) {
-        val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("Unknown map"), serverNumber)
+    private fun newGame(serverNumber: ServerNumber, round: Int = 0) {
+        val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("Unknown map"), serverNumber, if (round == 0) 1 else round)
         if (serverNumber == queuedServerNumber) queuedDifficulty?.let { game.changeDifficulty(it) }
         queuedDifficulty = null
         games[serverNumber] = game
@@ -36,15 +36,15 @@ class GameManager {
 
     fun endGame(serverNumber: ServerNumber, isWin: Boolean) {
         val game = games[serverNumber] ?: return
+        game.gameEnd = true
+        game.timer.stop = true
+        game.isWin = isWin
         if (isWin) {
             when (game.gameMode.map) {
                 ZombiesMap.DEAD_END, ZombiesMap.BAD_BLOOD, ZombiesMap.PRISON -> game.pass(30)
                 ZombiesMap.ALIEN_ARCADIUM -> game.pass(105)
             }
         }
-        game.gameEnd = true
-        game.isWin = isWin
-        game.timer.stop = true
         MinecraftForge.EVENT_BUS.post(GameEndEvent(game, isWin))
     }
 
