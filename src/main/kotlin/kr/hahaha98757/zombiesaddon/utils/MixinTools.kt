@@ -27,7 +27,7 @@ fun renderPost(entity: Entity) {
 private var aaR10 = false
 fun onSound(packet: S29PacketSoundEffect) {
     if (!mc.isCallingFromMinecraftThread) return
-    if (isNotZombies()) return
+    if (Scoreboard.isNotZombies) return
     val sound = packet.soundName
     ZombiesAddon.instance.gameManager.runCatching {
         if (sound == "mob.wither.spawn") {
@@ -43,7 +43,7 @@ fun onSound(packet: S29PacketSoundEffect) {
 fun onTitle(packet: S45PacketTitle) {
     if (!mc.isCallingFromMinecraftThread) return
     if (packet.type != S45PacketTitle.Type.TITLE) return
-    if (isNotZombies()) return
+    if (Scoreboard.isNotZombies) return
     val title = getText(packet.message.unformattedText.trim())
     val serverNumber = getServerNumber() ?: return
     if (title == "You Win!" || title == "승리했습니다!") ZombiesAddon.instance.gameManager.endGame(serverNumber, true)

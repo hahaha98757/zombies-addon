@@ -57,24 +57,22 @@ fun getX(text: String): Float = getX() - fr.getStringWidth(text) - 1
 fun getY(): Float = ScaledResolution(mc).scaledHeight.toFloat()
 fun getYFont(): Float = getY() - fr.FONT_HEIGHT - 1
 
-fun isNotZombies() = if (ZombiesAddon.instance.debug) CommandZaDebug.debugIsNotZombies else Scoreboard.title != "ZOMBIES"
-
 fun isNotPlayZombies(): Boolean {
     if (mc.thePlayer == null || mc.theWorld == null) return true
-    if (isNotZombies()) return true
+    if (Scoreboard.isNotZombies) return true
     return ZombiesAddon.instance.gameManager.game == null
 }
 
 fun getServerNumber(): ServerNumber? {
     if (ZombiesAddon.instance.debug) return CommandZaDebug.debugServerNumber
-    if (isNotZombies()) return null
+    if (Scoreboard.isNotZombies) return null
     return runCatching { ServerNumber(Scoreboard.lines[0].replace(serverNumberPattern, "$1")) }.getOrNull()
 }
 
 fun getMap(): ZombiesMap? {
     if (ZombiesAddon.instance.debug) return ZombiesMap.DEAD_END
     val world = mc.theWorld ?: return null
-    if (isNotZombies()) return null
+    if (Scoreboard.isNotZombies) return null
     val pos = BlockPos(44, 71, 0)
     if (!world.isBlockLoaded(pos)) return null
 

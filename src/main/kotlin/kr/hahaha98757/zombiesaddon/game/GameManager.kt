@@ -54,7 +54,7 @@ class GameManager {
     }
 
     fun removeGame() {
-        if (isNotPlayZombies()) return
+        if (!isNotPlayZombies()) return
         val queuedEndedGames = games.values.filter { it.gameEnd }
         for (game in queuedEndedGames) {
             games.remove(game.serverNumber)

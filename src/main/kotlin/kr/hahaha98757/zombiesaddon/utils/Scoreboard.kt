@@ -1,6 +1,7 @@
 package kr.hahaha98757.zombiesaddon.utils
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.commands.CommandZaDebug
 import net.minecraft.scoreboard.ScorePlayerTeam
 
 object Scoreboard {
@@ -24,9 +25,11 @@ object Scoreboard {
         }
     }
 
+    val isNotZombies get() = if (ZombiesAddon.instance.debug) CommandZaDebug.debugIsNotZombies else title != "ZOMBIES"
+
     val round: Int get() {
         if (ZombiesAddon.instance.debug) return 1
-        if (isNotZombies()) return 0
+        if (isNotZombies) return 0
         val line = lines.getOrNull(2) ?: return 0
         val round = line.replace(Regex("[^0-9]"), "").toIntOrNull() ?: return 0
         return round
