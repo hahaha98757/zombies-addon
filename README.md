@@ -196,6 +196,9 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 # 업데이트 로그
 
+## 4.5.0-beta4
+- 버그 수정: 잘못된 게임 제거 타이밍.
+
 ## 4.5.0-beta3
 - 버그 수정: Prison에서 게임 종료가 되지 않음. 게임 중 모드가 활성화 될 경우 라운드 1부터 시작함.
 
