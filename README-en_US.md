@@ -193,6 +193,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.5.0-beta5
+- Bug fix: Version does not change.
+
 ## 4.5.0-beta4
 - Bug fix: Incorrect game remove timing.
 
