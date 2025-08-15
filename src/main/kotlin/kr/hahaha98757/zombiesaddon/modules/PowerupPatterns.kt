@@ -9,6 +9,7 @@ import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.entity.item.EntityArmorStand
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.common.MinecraftForge
@@ -40,7 +41,12 @@ class PowerupPatterns: Module("Powerup Patterns") {
         val fields = fieldsStorage[serverNumber] ?: return
 
         if (event.game.round == 1) {
-            fields.spawnedEntities.clear()
+            fields.insEntities.clear()
+            fields.maxEntities.clear()
+            fields.ssEntities.clear()
+            fields.dgEntities.clear()
+            fields.carEntities.clear()
+            fields.bgEntities.clear()
             fields.queuedInsPattern = 0
             fields.queuedMaxPattern = 0
             fields.queuedSsPattern = 0
@@ -206,14 +212,20 @@ class PowerupPatterns: Module("Powerup Patterns") {
 
         for (entity in mc.theWorld.loadedEntityList) {
             if (entity !is EntityArmorStand) continue
-            if (entity in fields.spawnedEntities) continue
+            if (entity in fields.insEntities) continue
+            if (entity in fields.maxEntities) continue
+            if (entity in fields.ssEntities) continue
+            if (entity in fields.dgEntities) continue
+            if (entity in fields.carEntities) continue
+            if (entity in fields.bgEntities) continue
+
 
             val name = getText(entity.name)
 
             when (name) {
                 "INSTA KILL", "즉시 처치" -> {
                     @Suppress("DuplicatedCode")
-                    fields.spawnedEntities += entity
+                    fields.insEntities += entity
                     for (i in insPatternArr1) if (i == round) {
                         fields.queuedInsPattern = 2
                         break
@@ -224,7 +236,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                     }
                 }
                 "MAX AMMO", "탄약 충전" -> {
-                    fields.spawnedEntities += entity
+                    fields.maxEntities += entity
                     for (i in maxPatternArr1) if (i == round) {
                         fields.queuedMaxPattern = 2
                         break
@@ -235,7 +247,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                     }
                 }
                 "SHOPPING SPREE", "지름신 강림" -> {
-                    fields.spawnedEntities += entity
+                    fields.ssEntities += entity
                     for (i in ssPatternArr1) if (i == round) {
                         fields.queuedSsPattern = 5
                         break
@@ -249,6 +261,9 @@ class PowerupPatterns: Module("Powerup Patterns") {
                         break
                     }
                 }
+                "DOUBLE GOLD", "더블 골드" -> fields.dgEntities += entity
+                "CARPENTER", "카펜터" -> fields.carEntities += entity
+                "BONUS GOLD", "보너스 골드" -> fields.bgEntities += entity
             }
         }
     }
@@ -292,6 +307,24 @@ class PowerupPatterns: Module("Powerup Patterns") {
         if (keys.dgTimer.isPressed) fields.dgTimer = true
         if (keys.carTimer.isPressed) fields.carTimer = true
         if (keys.bgTimer.isPressed) fields.bgTimer = true
+        if (keys.autoTimer.isPressed) autoTimer(fields)
+    }
+
+    private fun autoTimer(fields: FieldsStorage) {
+        val armorStand = mc.thePlayer.rayTraceEntity()
+        if (armorStand == null) {
+            addTranslationChat("zombiesaddon.modules.powerupPatterns.autoTimer.failed")
+            return
+        }
+        when (armorStand) {
+            in fields.insEntities -> fields.insTimer = true
+            in fields.maxEntities -> fields.maxTimer = true
+            in fields.ssEntities -> fields.ssTimer = true
+            in fields.dgEntities -> fields.dgTimer = true
+            in fields.carEntities -> fields.carTimer = true
+            in fields.bgEntities -> fields.bgTimer = true
+            else -> addTranslationChat("zombiesaddon.modules.powerupPatterns.autoTimer.failed")
+        }
     }
 
     override fun onChat(event: ClientChatReceivedEvent) {
@@ -316,7 +349,12 @@ class PowerupPatterns: Module("Powerup Patterns") {
     override fun isEnable() = ZombiesAddon.instance.config.togglePowerupPatterns
 
     inner class FieldsStorage {
-        val spawnedEntities = mutableSetOf<EntityArmorStand>()
+        val insEntities = mutableSetOf<EntityArmorStand>()
+        val maxEntities = mutableSetOf<EntityArmorStand>()
+        val ssEntities = mutableSetOf<EntityArmorStand>()
+        val dgEntities = mutableSetOf<EntityArmorStand>()
+        val carEntities = mutableSetOf<EntityArmorStand>()
+        val bgEntities = mutableSetOf<EntityArmorStand>()
         var insPattern = 0
         var maxPattern = 0
         var ssPattern = 0
@@ -329,7 +367,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.ins.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§cInsta Kill")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.ins"))
                 }
             }
         var maxTimer = false
@@ -337,7 +375,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.max.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§9Max Ammo")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.max"))
                 }
             }
         var ssTimer = false
@@ -345,7 +383,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.ss.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§5Shopping Spree")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.ss"))
                 }
             }
         var dgTimer = false
@@ -353,7 +391,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.dg.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§6Double Gold")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.dg"))
                 }
             }
         var carTimer = false
@@ -361,7 +399,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.car.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§9Carpenter")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.car"))
                 }
             }
         var bgTimer = false
@@ -369,7 +407,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.bg.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", "§6Bonus Gold")
+                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.bg"))
                 }
             }
     }
@@ -396,4 +434,40 @@ private class ManualTimer {
     fun onTick(@Suppress("unused") event: LastClientTickEvent) {
         if (--timer <= 0) MinecraftForge.EVENT_BUS.register(this)
     }
+}
+
+private fun EntityPlayer.rayTraceEntity(): EntityArmorStand? {
+    val maxDistance = 5.0
+    val eyePos = getPositionEyes(1.0f)
+    val lookVec = getLook(1.0f)
+    val targetPos = eyePos.addVector(lookVec.xCoord * maxDistance, lookVec.yCoord * maxDistance, lookVec.zCoord * maxDistance)
+
+    val blockHit = worldObj.rayTraceBlocks(eyePos, targetPos, false, false, false)
+    var closestDistance = maxDistance
+    if (blockHit != null) closestDistance = eyePos.distanceTo(blockHit.hitVec)
+
+    val aabb = entityBoundingBox.addCoord(lookVec.xCoord * maxDistance, lookVec.yCoord * maxDistance, lookVec.zCoord * maxDistance).expand(1.0, 1.0, 1.0)
+    val entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, aabb).filterIsInstance<EntityArmorStand>()
+
+    var pointedEntity: EntityArmorStand? = null
+    for (entity in entities) {
+        if (!entity.canBeCollidedWith()) continue
+
+        val border = entity.collisionBorderSize
+        val entityAABB = entity.entityBoundingBox.expand(border.toDouble(), border.toDouble(), border.toDouble())
+        val intercept = entityAABB.calculateIntercept(eyePos, targetPos)
+
+        if (entityAABB.isVecInside(eyePos)) {
+            pointedEntity = entity
+            break
+        } else if (intercept != null) {
+            val distanceToEntity = eyePos.distanceTo(intercept.hitVec)
+            if (distanceToEntity < closestDistance) {
+                if (entity == ridingEntity && !entity.canRiderInteract()) continue
+                pointedEntity = entity
+                closestDistance = distanceToEntity
+            }
+        }
+    }
+    return pointedEntity
 }

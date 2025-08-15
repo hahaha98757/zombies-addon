@@ -22,6 +22,7 @@ class KeyBindings {
     val dgTimer = KeyBinding("zombiesaddon.key.dgTimer", Keyboard.KEY_NUMPAD4, NAME)
     val carTimer = KeyBinding("zombiesaddon.key.carTimer", Keyboard.KEY_NUMPAD5, NAME)
     val bgTimer = KeyBinding("zombiesaddon.key.bgTimer", Keyboard.KEY_NUMPAD6, NAME)
+    val autoTimer = KeyBinding("zombiesaddon.key.autoTimer", Keyboard.KEY_F, NAME)
 
     fun registerAll() {
         ClientRegistry.registerKeyBinding(togglePv)
@@ -37,5 +38,6 @@ class KeyBindings {
         ClientRegistry.registerKeyBinding(dgTimer)
         ClientRegistry.registerKeyBinding(carTimer)
         ClientRegistry.registerKeyBinding(bgTimer)
+        ClientRegistry.registerKeyBinding(autoTimer)
     }
 }

@@ -15,6 +15,7 @@ zombiesaddon.key.ssTimer=Shopping Spree Timer
 zombiesaddon.key.dgTimer=Double Gold Timer
 zombiesaddon.key.carTimer=Carpenter Timer
 zombiesaddon.key.bgTimer=Bonus Gold Timer
+zombiesaddon.key.autoTimer=Auto Timer
 
 
 zombiesaddon.messages.offBlockUnlegitMods=blockUnlegitMods is turned off.
@@ -60,6 +61,7 @@ zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: Set SLA to %s
 zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
 
 zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer of %s
+zombiesaddon.modules.powerupPatterns.autoTimer.failed=§ePowerup Patterns: §cFailed to find powerup
 
 zombiesaddon.modules.recorder.failed=§eRecorder: §cFailed to record
 

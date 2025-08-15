@@ -15,6 +15,7 @@ zombiesaddon.key.ssTimer=지름신 강림 타이머
 zombiesaddon.key.dgTimer=더블 골드 타이머
 zombiesaddon.key.carTimer=카펜터 타이머
 zombiesaddon.key.bgTimer=보너스 골드 타이머
+zombiesaddon.key.autoTimer=자동 타이머
 
 
 zombiesaddon.messages.offBlockUnlegitMods=언레짓 모드 차단이 꺼져 있습니다.
@@ -60,6 +61,7 @@ zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: SLA를 %s§e(으)로 설정했
 zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: 재접속 중...
 
 zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: %s§e의 수동 타이머를 실행했습니다
+zombiesaddon.modules.powerupPatterns.autoTimer.failed=§ePowerup Patterns: §c파워업을 찾는데 실패했습니다
 
 zombiesaddon.modules.recorder.failed=§eRecorder:§c 기록을 실패했습니다
 

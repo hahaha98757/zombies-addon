@@ -1,5 +1,6 @@
 package kr.hahaha98757.zombiesaddon.game
 
+import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
@@ -54,7 +55,7 @@ class GameManager {
     }
 
     fun removeGame() {
-        if (!isNotPlayZombies()) return
+        if (!ZombiesAddon.instance.debug && !isNotPlayZombies()) return
         val queuedEndedGames = games.values.filter { it.gameEnd }
         for (game in queuedEndedGames) {
             games.remove(game.serverNumber)
