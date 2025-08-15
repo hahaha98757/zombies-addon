@@ -193,6 +193,10 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.5.0-beta6
+- Bug fixes: Last Weapons fixed.
+- Powerup Patterns fixed: Added an auto-timer key.
+
 ## 4.5.0-beta5
 - Bug fix: Version does not change.
 

@@ -196,6 +196,10 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 # 업데이트 로그
 
+## 4.5.0-beta6
+- 버그 수정: Last Weapons 수정.
+- Powerup Patterns 수정: 자동 타이머 키 추가.
+
 ## 4.5.0-beta5
 - 버그 수정: 버전이 변경되지 않음.
 
