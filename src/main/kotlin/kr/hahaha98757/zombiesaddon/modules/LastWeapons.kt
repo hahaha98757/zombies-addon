@@ -21,9 +21,7 @@ class LastWeapons: Module("Last Weapons") {
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         val game = ZombiesAddon.instance.gameManager.game ?: return
 
-        if (!game.gameEnd) return
-
-        if (game.isWin) {
+        if (game.gameEnd && game.isWin) {
             val renderItem = mc.renderItem
             var x = (getX() / 2 - 88).toInt()
             var y = (getY() - 19).toInt()
