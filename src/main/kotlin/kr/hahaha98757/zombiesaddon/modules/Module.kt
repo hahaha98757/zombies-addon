@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 abstract class Module(val name: String) {
     abstract fun isEnable(): Boolean
 
-    internal open fun occurEvent(event: Event) {
+    internal fun occurEvent(event: Event) {
         if (!isEnable()) return
         when (event) {
             is LastClientTickEvent -> onLastTick(event)
@@ -22,7 +22,6 @@ abstract class Module(val name: String) {
             is RoundStartEvent -> onRoundStart(event)
             is GameEndEvent -> onGameEnd(event)
             is ClientChatReceivedEvent -> onChat(event)
-            is KeyInputEvent -> onKeyInput(event)
             else -> onEvent(event)
         }
     }
@@ -32,26 +31,18 @@ abstract class Module(val name: String) {
     protected open fun onRoundStart(event: RoundStartEvent) {}
     protected open fun onGameEnd(event: GameEndEvent) {}
     protected open fun onChat(event: ClientChatReceivedEvent) {}
-    protected open fun onKeyInput(event: KeyInputEvent) {}
     protected open fun onEvent(event: Event) {}
+
+    internal open fun onKeyInput(event: KeyInputEvent) {}
 }
 
 abstract class ToggleableModule(name: String, var enabled: Boolean): Module(name) {
     abstract fun getKeyBinding(): KeyBinding
     abstract fun addToggleText(enabled: Boolean)
 
-    final override fun occurEvent(event: Event) {
-        when (event) {
-            is KeyInputEvent -> onKeyInput(event)
-            else -> {
-                if (!enabled) return
-                super.occurEvent(event)
-            }
-        }
-    }
-
     final override fun onKeyInput(event: KeyInputEvent) {
         if (getKeyBinding().isPressed) {
+            if (isDisable()) return
             enabled = !enabled
             addToggleText(enabled)
         }
@@ -75,6 +66,7 @@ class ModuleListener {
 
     @SubscribeEvent
     fun onEvent(event: Event) {
+        if (event is KeyInputEvent) for (module in modules) module.onKeyInput(event)
         if (isDisable()) return
         for (module in modules) module.occurEvent(event)
     }

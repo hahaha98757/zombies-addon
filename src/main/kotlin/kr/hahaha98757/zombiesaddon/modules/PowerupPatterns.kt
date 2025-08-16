@@ -287,7 +287,10 @@ class PowerupPatterns: Module("Powerup Patterns") {
     }
 
     override fun onKeyInput(event: InputEvent.KeyInputEvent) {
-        if (isNotPlayZombies()) return
+        if (isDisable() || !isEnable() || isNotPlayZombies()) {
+            resetKeys()
+            return
+        }
         val fields = fieldsStorage[ZombiesAddon.instance.gameManager.game?.serverNumber] ?: return
 
         val keys = ZombiesAddon.instance.keyBindings
@@ -298,6 +301,17 @@ class PowerupPatterns: Module("Powerup Patterns") {
         if (keys.carTimer.isPressed) fields.carTimer = true
         if (keys.bgTimer.isPressed) fields.bgTimer = true
         if (keys.autoTimer.isPressed) autoTimer(fields)
+    }
+
+    private fun resetKeys() {
+        val keys = ZombiesAddon.instance.keyBindings
+        keys.insTimer.isPressed
+        keys.maxTimer.isPressed
+        keys.ssTimer.isPressed
+        keys.dgTimer.isPressed
+        keys.carTimer.isPressed
+        keys.bgTimer.isPressed
+        keys.autoTimer.isPressed
     }
 
     private fun autoTimer(fields: FieldsStorage) {
