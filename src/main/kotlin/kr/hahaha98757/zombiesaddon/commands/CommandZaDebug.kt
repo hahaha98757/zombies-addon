@@ -127,7 +127,7 @@ class CommandZaDebug: CustomCommandBase() {
         return when (args.size) {
             1 -> getListOfStringsMatchingLastWord(args, "isNotZombies", "serverNumber", "new", "map", "pass", "helicopter", "end", "remove")
             2 -> when (args[0]) {
-                "isNotZombies" -> getListOfStringsMatchingLastWord(args, "true", "false")
+                "isNotZombies" -> getListOfStringsMatchingLastWord(args, "false", "true")
                 "serverNumber" -> getListOfStringsMatchingLastWord(args, "null")
                 "map" -> getListOfStringsMatchingLastWord(args, "de", "bb", "aa", "pr")
                 "end" -> getListOfStringsMatchingLastWord(args, "win", "lose")

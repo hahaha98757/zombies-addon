@@ -460,7 +460,7 @@ private class ManualTimer {
 }
 
 private fun EntityPlayer.rayTraceEntity(): List<EntityArmorStand> {
-    val maxDistance = 10.0
+    val maxDistance = 30
     val startVec = this.getPositionEyes(1.0f)
     val lookVec = this.getLook(1.0f)
     val endVec = startVec.addVector(lookVec.xCoord * maxDistance, lookVec.yCoord * maxDistance, lookVec.zCoord * maxDistance)
@@ -469,5 +469,5 @@ private fun EntityPlayer.rayTraceEntity(): List<EntityArmorStand> {
 
     val entities = mc.theWorld.getEntitiesWithinAABB(EntityArmorStand::class.java, aabb) ?: emptyList<EntityArmorStand>()
 
-    return entities.filter { it.entityBoundingBox.expand(0.3, 0.3, 0.3).calculateIntercept(startVec, endVec) != null }
+    return entities.filter { it.entityBoundingBox.expand(0.625, 0.625, 0.625).calculateIntercept(startVec, endVec) != null }
 }
