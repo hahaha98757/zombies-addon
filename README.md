@@ -196,6 +196,10 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 # 업데이트 로그
 
+## 4.5.0-beta7
+- 버그 수정: Powerup Patterns의 자동 타이머가 작동하지 않음. 게임 시작 시 그동안 입력된 단축키가 감지됨.
+- Powerup Patterns 수정: 파워업의 감지 범위 수정.
+
 ## 4.5.0-beta6
 - 버그 수정: Last Weapons 수정.
 - Powerup Patterns 수정: 자동 타이머 키 추가.
