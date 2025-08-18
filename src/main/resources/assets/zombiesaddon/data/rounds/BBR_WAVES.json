@@ -92,8 +92,7 @@
       {
         "ticks": 680,
         "prefixes": [
-          "WINDOW",
-          "BOSS"
+          "WINDOW"
         ]
       }
     ]
@@ -437,17 +436,17 @@
     "waves": [
       {
         "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "WITHER_SKELETON"
-        ]
-      },
-      {
-        "ticks": 440,
         "prefixes": [
           "WINDOW",
           "WITHER_SKELETON",
           "BOSS"
+        ]
+      },
+      {
+        "ticks": 440,
+        "prefixes": [
+          "WINDOW",
+          "WITHER_SKELETON"
         ]
       },
       {
