@@ -3,10 +3,7 @@ package kr.hahaha98757.zombiesaddon.modules
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.data.Wave
-import kr.hahaha98757.zombiesaddon.enums.Difficulty
-import kr.hahaha98757.zombiesaddon.enums.GameMode
-import kr.hahaha98757.zombiesaddon.enums.Prefix
-import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
+import kr.hahaha98757.zombiesaddon.enums.*
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.RenderGameOverlayEvent
@@ -43,7 +40,7 @@ class WaveDelays: Module("Wave Delays") {
         var faded: Boolean
         var color = "§e"
 
-        if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == "Zombies Addon") for (i in waves.indices.reversed()) {
+        if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == HighlightStyle.ZOMBIES_ADDON) for (i in waves.indices.reversed()) {
             val waveTicks = waves[i].ticks + offset
             if (roundTicks >= waveTicks) {
                 if (ZombiesAddon.instance.config.waveDelaysHidePassedWave && roundTicks > waveTicks) break
@@ -65,14 +62,13 @@ class WaveDelays: Module("Wave Delays") {
             }
 
             val waveText = when (ZombiesAddon.instance.config.waveDelaysTextStyle) {
-                "W1: 0:10.0" -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
-                "W1 0:10.0" -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
-                "W1: 00:10" -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
-                "W1 00:10" -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
-                else -> throw Error("이 코드에 도달하는 것은 불가능합니다.")
+                TextStyle.NEW_COLON -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
+                TextStyle.NEW -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
+                TextStyle.OLD_COLON -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
+                TextStyle.OLD -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
             }
 
-            if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == "Zombies Addon") {
+            if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == HighlightStyle.ZOMBIES_ADDON) {
                 if (roundTicks >= waveTicks + DESPAWN_TICK)
                     fr.drawStringWithShadow("§c$waveText", HudUtils.getWaveDelaysStrX(waveText), HudUtils.getWaveDelaysStrY(size, i), 0)
                 else if (roundTicks >= waveTicks) if (roundTicks != waveTicks && ZombiesAddon.instance.config.waveDelaysHidePassedWave) continue
@@ -83,7 +79,7 @@ class WaveDelays: Module("Wave Delays") {
                     fr.drawStringWithShadow("§8$waveText", HudUtils.getWaveDelaysStrX(waveText), HudUtils.getWaveDelaysStrY(size, i), 0)
 
                 drawPrefixes(waveText, wave, i, size)
-            } else if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == "Zombies Utils") {
+            } else if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == HighlightStyle.ZOMBIES_UTILS) {
                 faded = if (roundTicks > waveTicks) if (!ZombiesAddon.instance.config.waveDelaysHidePassedWave) true else continue else false
                 fr.drawStringWithShadow(if (faded) "§8$waveText" else color + waveText, HudUtils.getWaveDelaysStrX(waveText), HudUtils.getWaveDelaysStrY(size, i), 0)
 

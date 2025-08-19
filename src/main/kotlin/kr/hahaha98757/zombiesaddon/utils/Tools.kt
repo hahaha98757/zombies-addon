@@ -6,6 +6,7 @@ import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.commands.CommandZaDebug
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
+import kr.hahaha98757.zombiesaddon.enums.Language
 import kr.hahaha98757.zombiesaddon.enums.Status
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import net.minecraft.client.Minecraft
@@ -115,18 +116,15 @@ internal fun runBatchFileAndQuit(file: File, commands: String) {
 
 private fun getTranslateKey(key: String): String {
     val lang = ZombiesAddon.instance.config.language
-    var langCode = "en_US"
-    when (lang) {
-        "Auto" -> return key
-        "English (US)" -> langCode = "en_US"
-        "한국어 (한국)" -> langCode = "ko_KR"
+    val langCode = when (lang) {
+        Language.AUTO -> return key
+        Language.KO_KR -> "ko_KR"
+        Language.EN_US -> "en_US"
     }
     val langFile = Properties()
     val resourceLocation = ResourceLocation(MODID, "lang/$langCode.lang")
-    try {
-        InputStreamReader(mc.resourceManager.getResource(resourceLocation).inputStream, StandardCharsets.UTF_8).use { langFile.load(it) }
-    } catch (_: Exception) {
-        return key
-    }
+    mc.resourceManager.runCatching {
+        InputStreamReader(this.getResource(resourceLocation).inputStream, StandardCharsets.UTF_8).use { langFile.load(it) }
+    }.getOrElse { key }
     return langFile.getProperty(key, key)
 }
