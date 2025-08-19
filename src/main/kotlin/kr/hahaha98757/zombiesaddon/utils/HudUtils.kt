@@ -5,7 +5,6 @@ import kr.hahaha98757.zombiesaddon.VERSION
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 
 object HudUtils {
-
     private var rawAutoSplitsX = 0.0
     var autoSplitsX = 0.0
         get() = if (field < 0) 1.0 - (fr.getStringWidth("0:00.0") + 1) / getX() else field

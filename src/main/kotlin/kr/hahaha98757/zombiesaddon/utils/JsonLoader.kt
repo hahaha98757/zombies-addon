@@ -9,7 +9,6 @@ import java.io.FileReader
 import java.io.InputStreamReader
 
 object JsonLoader {
-
     fun <T> loadJsonFromFile(file: File, clazz: Class<T>): T =
         FileReader(file).use { return Gson().fromJson(JsonParser().parse(it), clazz) }
 

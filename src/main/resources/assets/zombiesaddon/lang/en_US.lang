@@ -67,7 +67,6 @@ zombiesaddon.modules.recorder.failed=§eRecorder: §cFailed to record
 
 zombiesaddon.gui.reset=Reset
 zombiesaddon.gui.comment=Click "Done" to save your current HUD position settings.
-zombiesaddon.gui.windowsOnly=This feature is only available on Windows.
 
 zombiesaddon.gui.detectedUnlegitMods.title=Detected Unlegit Mods
 zombiesaddon.gui.detectedUnlegitMods.list=Unlegit Mods:

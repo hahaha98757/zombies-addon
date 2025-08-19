@@ -54,7 +54,7 @@ class Sla(map: ZombiesMap) {
         ZombiesMap.DEAD_END -> JsonLoader.loadJsonFromResource("data/sla/DE.json", Array<Room>::class.java)
         ZombiesMap.BAD_BLOOD -> JsonLoader.loadJsonFromResource("data/sla/BB.json", Array<Room>::class.java)
         ZombiesMap.ALIEN_ARCADIUM -> JsonLoader.loadJsonFromResource("data/sla/AA.json", Array<Room>::class.java)
-        else -> throw IllegalArgumentException("$map has no SLA")
+        else -> throw IllegalArgumentException("맵 ${map}은(는) SLA를 지원하지 않습니다.")
     }
     private var offset = IntArray(3)
     private var rotations = 0

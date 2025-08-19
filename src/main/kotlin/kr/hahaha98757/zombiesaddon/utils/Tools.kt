@@ -27,23 +27,25 @@ val modFile: File by lazy {
     file
 }
 val unlegitMods = arrayOf("zombiesatellite", "zombiesexplorer", "TeammatesOutline", "zombieshelper")
+val logger = ZombiesAddon.instance.logger
+
 
 fun isDisable() = !ZombiesAddon.instance.config.enableMod
 
 fun getText(text: String): String = EnumChatFormatting.getTextWithoutFormattingCodes(text)
 
-fun addLine() = mc.thePlayer?.addChatMessage(ChatComponentText(LINE)) ?: println(LINE)
+fun addLine() = mc.thePlayer?.addChatMessage(ChatComponentText(LINE)) ?: logger.info(LINE)
 
-fun addChat(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText(text)) ?: println(text)
-fun addChat(chatComponent: IChatComponent) = mc.thePlayer?.addChatMessage(chatComponent) ?: println(chatComponent.formattedText)
+fun addChat(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText(text)) ?: logger.info(text)
+fun addChat(chatComponent: IChatComponent) = mc.thePlayer?.addChatMessage(chatComponent) ?: logger.info(chatComponent.formattedText)
 
-fun addChatLine(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText("$LINE\n$text\n$LINE")) ?: println("$LINE\n$text\n$LINE")
+fun addChatLine(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText("$LINE\n$text\n$LINE")) ?: logger.info("$LINE\n$text\n$LINE")
 
 fun addTranslationChat(key: String, vararg any: Any) = addChat(getTranslatedString(key, any = any))
 
 fun addTranslationChatLine(key: String, vararg any: Any) = addChatLine(getTranslatedString(key, any = any))
 
-fun sendChat(text: String) = mc.thePlayer?.sendChatMessage(text) ?: println("sendChat: $text")
+fun sendChat(text: String) = mc.thePlayer?.sendChatMessage(text) ?: logger.info("sendChat: $text")
 
 @JvmOverloads
 fun getTranslatedString(key: String, withColor: Boolean = true, vararg any: Any): String {
@@ -107,6 +109,7 @@ fun getPlayerStatus(): Array<Status> {
 internal fun runBatchFileAndQuit(file: File, commands: String) {
     file.writeText(commands.replace("\n", "\r\n"))
     Runtime.getRuntime().exec("cmd /c start ${file.absolutePath}")
+    logger.info("게임을 종료합니다.")
     mc.shutdown()
 }
 

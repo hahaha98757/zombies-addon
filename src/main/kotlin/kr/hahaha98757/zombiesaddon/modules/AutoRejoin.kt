@@ -18,8 +18,6 @@ class AutoRejoin: ToggleableModule("Auto Rejoin", ZombiesAddon.instance.config.a
     override fun onRoundStart(event: RoundStartEvent) {
         addTranslationChat("zombiesaddon.modules.autoRejoin.rejoining")
         sendChat("/l")
-        DelayedTask(100) {
-            sendChat("/rejoin")
-        }
+        DelayedTask(100) { sendChat("/rejoin") }
     }
 }

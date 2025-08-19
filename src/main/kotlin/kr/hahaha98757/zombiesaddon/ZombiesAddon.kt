@@ -23,6 +23,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import org.apache.logging.log4j.Logger
 import java.io.File
 import java.io.FileWriter
 
@@ -40,8 +41,10 @@ class ZombiesAddon {
     init {
         varInstance = this
     }
-    private lateinit var varConfig: ZAConfig
-    val config get() = varConfig
+    lateinit var config: ZAConfig
+        private set
+    lateinit var logger: Logger
+        private set
     val keyBindings = KeyBindings()
     val gameManager = GameManager()
 
@@ -51,11 +54,12 @@ class ZombiesAddon {
 
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
+        logger = event.modLog
         File(mc.mcDataDir, "mods/deleter_zombiesaddon.bat").delete()
         val directory = File(event.modConfigurationDirectory, MODID)
         if (!directory.exists()) directory.mkdir()
 
-        varConfig = ZAConfig(Configuration(File(directory, "$MODID.cfg")))
+        config = ZAConfig(Configuration(File(directory, "$MODID.cfg")))
         writeFile(directory)
         CustomPlaySoundLoader.loadFile()
     }
@@ -70,13 +74,17 @@ class ZombiesAddon {
     @Mod.EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
         if (config.blockUnlegitMods) for (mod in unlegitMods) if (Loader.isModLoaded(mod)) {
+            logger.info("언레짓 모드 ${mod}가 감지되었습니다.")
             hasUnlegitMod = true
-            break
         }
-        if (Loader.isModLoaded("showspawntime")) runCatching { ShowSpawnTime.getMainConfiguration().ConfigLoad() }
+        if (Loader.isModLoaded("showspawntime")) {
+            runCatching { ShowSpawnTime.getMainConfiguration().ConfigLoad() }
+            logger.info("ShowSpawnTime 모드가 감지되었습니다. 2.1.1 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
+        }
+        if (Loader.isModLoaded("zombiesutils")) logger.info("Zombies Utils 모드가 감지되었습니다. 1.3.7 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
 
         UpdateChecker.setVersion()
-        println("$NAME v$VERSION is loaded.")
+        logger.info("$NAME v${VERSION}이 로드되었습니다.")
     }
 
     @Suppress("unused")
@@ -89,7 +97,7 @@ class ZombiesAddon {
     }
 
     private fun writeFile(file: File) {
-        javaClass.classLoader.getResourceAsStream("assets/$MODID/data/text/Custom Play Sound Guide.txt")?.use { input ->
+        javaClass.classLoader.getResourceAsStream("assets/$MODID/data/text/Custom Play Sound Guide.txt")!!.use { input ->
             File(file, "Custom Play Sound Guide.txt").outputStream().use { output ->
                 val buffer = ByteArray(1024)
                 var bytesRead: Int
@@ -97,7 +105,7 @@ class ZombiesAddon {
             }
         }
 
-        javaClass.classLoader.getResourceAsStream("assets/$MODID/data/text/커스텀 소리 재생 가이드.txt")?.use { input ->
+        javaClass.classLoader.getResourceAsStream("assets/$MODID/data/text/커스텀 소리 재생 가이드.txt")!!.use { input ->
             File(file, "커스텀 소리 재생 가이드.txt").outputStream().use { output ->
                 val buffer = ByteArray(1024)
                 var bytesRead: Int
@@ -107,6 +115,7 @@ class ZombiesAddon {
 
         val json = File(file, "CustomPlaySound.json")
         if (json.exists()) {
+            logger.info("CustomPlaySound.json 파일이 존재합니다. 발생 가능한 문제 해결을 위해, 하위 버전의 문법을 현재 문법으로 변경합니다. playWave -> playType")
             json.writeText(json.readText().replace("playWave", "playType"))
             return
         }

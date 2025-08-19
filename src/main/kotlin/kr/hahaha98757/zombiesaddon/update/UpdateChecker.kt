@@ -29,8 +29,6 @@ object UpdateChecker {
     private var latest = Version()
     private var recommended = Version()
 
-    private var gui = false
-
     private var ctx: SSLContext?
     init {
         try {
@@ -44,7 +42,7 @@ object UpdateChecker {
             ctx = SSLContext.getInstance("TLS")
             ctx!!.init(kmf.keyManagers, tmf.trustManagers, null)
         } catch (e: Exception) {
-            e.printStackTrace()
+            logger.error("SSLContext 초기화 실패. 업데이트 확인이 불가능합니다.", e)
             ctx = null
         }
     }
@@ -67,15 +65,15 @@ object UpdateChecker {
                 recommended = Version.toVersion(json.get("recommended").asString)
             }
         } catch (e: Exception) {
-            e.printStackTrace()
+            logger.warn("최신 버전 정보를 가져오는데 실패했습니다. 업데이트 확인이 불가능합니다.", e)
             latest = Version()
             recommended = Version()
         }
     }.start()
 
-    fun checkUpdate() {
+    fun checkUpdate(displayGui: Boolean = true) {
         when (val i = compareVersion()) {
-            0, 3, 4 -> if (!gui) mc.displayGuiScreen(GuiUpdateScreen(i == 0))
+            0, 3, 4 -> if (displayGui) mc.displayGuiScreen(GuiUpdateScreen(i == 0))
             2 -> {
                 addLine()
                 addTranslationChat("zombiesaddon.update.usingLatest")
@@ -102,7 +100,6 @@ object UpdateChecker {
                 addLine()
             }
         }
-        gui = true
     }
 
     //0: Required update, 1: Using recommended(= latest), 2: Using latest, 3: Using old ver(latest != recommended), 4: New recommended, 5: New latest
@@ -134,7 +131,7 @@ object UpdateChecker {
             val newMod = File(modFile.parentFile, "ZombiesAddon1.8.9-$recommended.jar")
             Files.copy(connection.inputStream, newMod.toPath(), StandardCopyOption.REPLACE_EXISTING)
             mc.addScheduledTask {
-                println("Run auto update.")
+                logger.info("배치 파일 실행 및 게임 종료를 시작합니다.")
                 runBatchFileAndQuit(File(mc.mcDataDir, "mods/deleter_zombiesaddon.bat"), """
                     @echo off
                     chcp 65001
@@ -149,7 +146,7 @@ object UpdateChecker {
                 """.trimIndent())
             }
         } catch (e: Exception) {
-            e.printStackTrace()
+            logger.error("자동 업데이트 중 오류 발생.", e)
             GuiDownloadWaiting.failed = true
         }
     }.start()
@@ -159,7 +156,7 @@ class UpdateCheckerListener {
     @SubscribeEvent
     fun onPlayerJoin(event: EntityJoinWorldEvent) {
         if (event.entity != mc.thePlayer) return
-        UpdateChecker.checkUpdate()
+        UpdateChecker.checkUpdate(false)
         MinecraftForge.EVENT_BUS.unregister(this)
     }
 }

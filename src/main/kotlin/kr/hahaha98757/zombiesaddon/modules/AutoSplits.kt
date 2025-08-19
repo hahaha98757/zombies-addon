@@ -4,6 +4,7 @@ import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
 import java.io.OutputStreamWriter
 import java.net.Socket
@@ -32,7 +33,7 @@ class AutoSplits: Module("Auto Splits") {
                 }
             }
         } catch (e: Exception) {
-            e.printStackTrace()
+            logger.warn("LiveSplit에 신호를 전송하는데 실패했습니다: $signal", e)
             mc.addScheduledTask { addTranslationChat("zombiesaddon.modules.autoSplits.failed", "§a$signal") }
         }
     }.start()

@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.gui
 
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.getTranslatedString
+import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.runBatchFileAndQuit
 import kr.hahaha98757.zombiesaddon.utils.unlegitMods
 import net.minecraft.client.gui.GuiButton
@@ -32,14 +32,13 @@ class GuiDetectedUnlegitMods: GuiScreen() {
         when (button.id) {
             0 -> {
                 if ("win" !in System.getProperty("os.name").lowercase()) {
-                    addTranslationChat("zombiesaddon.gui.windowsOnly")
+                    logger.warn("자동 언레짓 모드 제거는 Windows에서만 지원됩니다.")
                     return
                 }
                 val strBuilder = StringBuilder()
                 for (mod in Loader.instance().modList)
                     if (mod.modId in unlegitMods) strBuilder.append("del \"${mod.source.absolutePath}\"\n")
-                println("Run remove unlegit mods.")
-                println("언레짓 모드를 제거합니다.")
+                logger.info("배치 파일 실행 및 게임 종료를 시작합니다.")
                 runBatchFileAndQuit(File(mc.mcDataDir, "mods/deleter_zombiesaddon.bat"), """
                     @echo off
                     chcp 65001

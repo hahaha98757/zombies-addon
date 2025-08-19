@@ -69,7 +69,7 @@ class WaveDelays: Module("Wave Delays") {
                 "W1 0:10.0" -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
                 "W1: 00:10" -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
                 "W1 00:10" -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
-                else -> throw Error("It is impossible to reach this code.")
+                else -> throw Error("이 코드에 도달하는 것은 불가능합니다.")
             }
 
             if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == "Zombies Addon") {

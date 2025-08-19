@@ -84,7 +84,7 @@ class CommandZaDebug: CustomCommandBase() {
                 val round = args[1].toIntOrNull() ?: throw NumberInvalidException("commands.generic.num.invalid", args[1])
                 if (round < 0) throw NumberInvalidException("commands.generic.num.tooSmall", args[1], 0)
                 game.pass(round)
-                addChat("라운드 $round(을)를 통과했습니다.")
+                addChat("라운드 ${round}을(를) 통과했습니다.")
             }
             "helicopter" -> {
                 val game = ZombiesAddon.instance.gameManager.game ?: run {

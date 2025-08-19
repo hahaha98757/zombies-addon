@@ -1,8 +1,8 @@
 package kr.hahaha98757.zombiesaddon.gui
 
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.getTranslatedString
+import kr.hahaha98757.zombiesaddon.utils.logger
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.gui.GuiConfirmOpenLink
 import net.minecraft.client.gui.GuiScreen
@@ -33,7 +33,7 @@ class GuiUpdateScreen(private val mandatory: Boolean): GuiScreen() {
         when (button.id) {
             0 -> {
                 if ("win" !in System.getProperty("os.name").lowercase()) {
-                    addTranslationChat("zombiesaddon.gui.windowsOnly")
+                    logger.warn("자동 업데이트는 Windows에서만 지원됩니다.")
                     return
                 }
                 mc.displayGuiScreen(GuiDownloadWaiting())

@@ -37,7 +37,9 @@ fun onSound(packet: S29PacketSoundEffect) {
             aaR10 = true
             splitOrNew(Scoreboard.round)
         }
-    }.onFailure { it.printStackTrace() }
+    }.onFailure {
+        logger.error("게임 또는 라운드 시작에 실패했습니다.", it)
+    }
 }
 
 fun onTitle(packet: S45PacketTitle) {

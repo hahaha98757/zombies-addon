@@ -2,6 +2,7 @@ package kr.hahaha98757.zombiesaddon.config
 
 import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.utils.HudUtils
+import kr.hahaha98757.zombiesaddon.utils.logger
 import net.minecraftforge.common.config.ConfigElement
 import net.minecraftforge.common.config.Configuration
 import net.minecraftforge.common.config.Property
@@ -87,6 +88,7 @@ class ZAConfig(val config: Configuration) {
 
     private fun loadConfig() {
         config.load()
+        logger.info("컨피그 로딩 시작...")
 
         enableMod = addOption(categoryGeneral.list, "zombiesaddon.config.enableMod", config.get(categoryGeneral.name, "enableMod", true, "zombiesaddon.config.enableMod.description")).boolean
         language = addOption(categoryGeneral.list, "zombiesaddon.config.language", config.get(categoryGeneral.name, "language", "Auto", "zombiesaddon.config.language.description", arrayOf("Auto", "English (US)", "한국어 (한국)"))).string
@@ -153,6 +155,8 @@ class ZAConfig(val config: Configuration) {
         HudUtils.modNameY = config.get("HUD", "modNameY", -1.0).double
         HudUtils.toggleTextX = config.get("HUD", "toggleTextX", -1.0).double
         HudUtils.toggleTextY = config.get("HUD", "toggleTextY", -1.0).double
+
+        logger.info("컨피그 로딩 완료.")
     }
 
     private fun addOption(category: MutableList<IConfigElement>, langKey: String, prop: Property): Property {
@@ -179,8 +183,8 @@ class ZAConfig(val config: Configuration) {
     private fun save() {
         config.save()
         loadConfig()
-        if (enableMod) println("Enable Mod is true")
-        else println("Enable Mod is false")
+        if (enableMod) logger.info("Enable Mod가 true로 설정되었습니다.")
+        else logger.info("Enable Mod가 false로 설정되었습니다.")
     }
 
     @SubscribeEvent

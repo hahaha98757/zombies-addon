@@ -12,7 +12,7 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
     val timer = Timer()
     var gameEnd = false
     var isWin = false
-        get() = if (gameEnd) field else throw IllegalStateException("Game has not ended yet")
+        get() = if (gameEnd) field else throw IllegalStateException("게임이 아직 종료되지 않았습니다.")
 //    private val recorder = Recorder(this)
     private var escape = false
 
@@ -30,7 +30,7 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
         if (round == 0) return
         if (round > gameMode.rounds.size) return
 //        recorder.runCatching { record() }.onFailure {
-//            it.printStackTrace()
+//            logger.error("게임 기록을 실패했습니다.", it)
 //            addTranslationChat("zombiesaddon.recorder.failed")
 //        }
         if (gameEnd) return

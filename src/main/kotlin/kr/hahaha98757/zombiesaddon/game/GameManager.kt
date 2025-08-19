@@ -20,7 +20,7 @@ class GameManager {
     val game get() = games[getServerNumber()]
 
     fun splitOrNew(round: Int) {
-        val serverNumber = getServerNumber() ?: throw IllegalStateException("Unknown server number")
+        val serverNumber = getServerNumber() ?: throw IllegalStateException("알 수 없는 서버 번호")
         if (serverNumber in games.keys) {
             if (round == 0) newGame(serverNumber)
             else games[serverNumber]?.pass(round)
@@ -28,7 +28,7 @@ class GameManager {
     }
 
     private fun newGame(serverNumber: ServerNumber, round: Int = 0) {
-        val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("Unknown map"), serverNumber, if (round == 0) 1 else round)
+        val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("알 수 없는 맵"), serverNumber, if (round == 0) 1 else round)
         if (serverNumber == queuedServerNumber) queuedDifficulty?.let { game.changeDifficulty(it) }
         queuedDifficulty = null
         games[serverNumber] = game
