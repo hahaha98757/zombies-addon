@@ -35,18 +35,19 @@ fun isDisable() = !ZombiesAddon.instance.config.enableMod
 
 fun getText(text: String): String = EnumChatFormatting.getTextWithoutFormattingCodes(text)
 
-fun addLine() = mc.thePlayer?.addChatMessage(ChatComponentText(LINE)) ?: logger.info(LINE)
+fun addLine() = mc.thePlayer?.addChatMessage(ChatComponentText(LINE)) ?: logger.info("[addLine] $LINE")
 
-fun addChat(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText(text)) ?: logger.info(text)
-fun addChat(chatComponent: IChatComponent) = mc.thePlayer?.addChatMessage(chatComponent) ?: logger.info(chatComponent.formattedText)
+@Suppress("LoggingSimilarMessage")
+fun addChat(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText(text)) ?: logger.info("[addChat] $text")
+fun addChat(chatComponent: IChatComponent) = mc.thePlayer?.addChatMessage(chatComponent) ?: logger.info("[addChat] ${chatComponent.formattedText}")
 
-fun addChatLine(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText("$LINE\n$text\n$LINE")) ?: logger.info("$LINE\n$text\n$LINE")
+fun addChatLine(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText("$LINE\n$text\n$LINE")) ?: logger.info("[addChatLine] $LINE\n$text\n$LINE")
 
 fun addTranslationChat(key: String, vararg any: Any) = addChat(getTranslatedString(key, any = any))
 
 fun addTranslationChatLine(key: String, vararg any: Any) = addChatLine(getTranslatedString(key, any = any))
 
-fun sendChat(text: String) = mc.thePlayer?.sendChatMessage(text) ?: logger.info("sendChat: $text")
+fun sendChat(text: String) = mc.thePlayer?.sendChatMessage(text) ?: logger.info("[sendChat] $text")
 
 @JvmOverloads
 fun getTranslatedString(key: String, withColor: Boolean = true, vararg any: Any): String {
@@ -124,7 +125,7 @@ private fun getTranslateKey(key: String): String {
     val langFile = Properties()
     val resourceLocation = ResourceLocation(MODID, "lang/$langCode.lang")
     mc.resourceManager.runCatching {
-        InputStreamReader(this.getResource(resourceLocation).inputStream, StandardCharsets.UTF_8).use { langFile.load(it) }
+        InputStreamReader(getResource(resourceLocation).inputStream, StandardCharsets.UTF_8).use { langFile.load(it) }
     }.getOrElse { key }
     return langFile.getProperty(key, key)
 }
