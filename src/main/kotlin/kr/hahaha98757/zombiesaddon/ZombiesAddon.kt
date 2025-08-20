@@ -55,6 +55,7 @@ class ZombiesAddon {
     @Mod.EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         logger = event.modLog
+        logger.info("preInit 시작.")
         File(mc.mcDataDir, "mods/deleter_zombiesaddon.bat").delete()
         val directory = File(event.modConfigurationDirectory, MODID)
         if (!directory.exists()) directory.mkdir()
@@ -67,12 +68,14 @@ class ZombiesAddon {
     @Suppress("unused")
     @Mod.EventHandler
     fun init(event: FMLInitializationEvent) {
+        logger.info("init 시작.")
         registerAll()
     }
 
     @Suppress("unused")
     @Mod.EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
+        logger.info("postInit 시작.")
         if (config.blockUnlegitMods) for (mod in unlegitMods) if (Loader.isModLoaded(mod)) {
             logger.info("언레짓 모드 ${mod}가 감지되었습니다.")
             hasUnlegitMod = true
@@ -90,6 +93,7 @@ class ZombiesAddon {
     @Suppress("unused")
     @SubscribeEvent
     fun startGame(event: GuiScreenEvent.DrawScreenEvent.Post) {
+        logger.info("게임 시작.")
         MinecraftForge.EVENT_BUS.unregister(this)
 
         if (hasUnlegitMod) mc.displayGuiScreen(GuiDetectedUnlegitMods())

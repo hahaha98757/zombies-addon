@@ -20,15 +20,15 @@ import java.util.*
 
 private val serverNumberPattern = Regex(".*([mLM][0-9A-Z]+)")
 const val LINE = "§e-----------------------------------------------------"
-val mc by lazy { Minecraft.getMinecraft()!! }
-val fr by lazy { mc.fontRendererObj!! }
+val mc get() = Minecraft.getMinecraft()!!
+val fr get() = mc.fontRendererObj!!
 val modFile: File by lazy {
     var file = File("")
     for (mod in Loader.instance().modList) if (mod.modId == MODID) file = mod.source
     file
 }
 val unlegitMods = arrayOf("zombiesatellite", "zombiesexplorer", "TeammatesOutline", "zombieshelper")
-val logger = ZombiesAddon.instance.logger
+val logger get() = ZombiesAddon.instance.logger
 
 
 fun isDisable() = !ZombiesAddon.instance.config.enableMod
