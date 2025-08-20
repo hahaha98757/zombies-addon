@@ -193,6 +193,10 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.5.0-pre1
+- Bug fix: Incorrect prefix.
+- Added log.
+
 ## 4.5.0-beta7
 - Bug fix: Powerup Patterns' automatic timer no longer works. Hotkeys entered during the game's start are now detected.
 - Powerup Patterns fix: The detection range for powerup has been adjusted.
