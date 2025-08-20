@@ -34,12 +34,12 @@ const val VERSION = "4.5.0-beta7"
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
 class ZombiesAddon {
     companion object {
-        private lateinit var varInstance: ZombiesAddon
         @JvmStatic
-        val instance get() = varInstance
+        lateinit var instance: ZombiesAddon
+            private set
     }
     init {
-        varInstance = this
+        instance = this
     }
     lateinit var config: ZAConfig
         private set

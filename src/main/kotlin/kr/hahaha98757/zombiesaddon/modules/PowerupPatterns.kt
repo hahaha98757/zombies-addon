@@ -376,7 +376,7 @@ class PowerupPatterns: Module("Powerup Patterns") {
 
     override fun isEnable() = ZombiesAddon.instance.config.togglePowerupPatterns
 
-    inner class FieldsStorage {
+    class FieldsStorage {
         val spawnedEntities = mutableSetOf<EntityArmorStand>()
         var insPattern = 0
         var maxPattern = 0

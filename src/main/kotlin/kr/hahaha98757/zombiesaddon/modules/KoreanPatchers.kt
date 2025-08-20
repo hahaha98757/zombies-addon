@@ -61,7 +61,7 @@ class KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
     private fun sst(event: ClientChatPrintedEvent, message: String) {
         if (" seconds to clean up after the last wave." in message) {
             val time = message.replace(Regex("[^0-9.]"), "")
-            addChat("§e마지막 웨이브 이후 넘어가는데 §c${time.substring(0, time.length - 1)}§e초가 걸렸습니다.")
+            addChat("§e마지막 웨이브 이후 넘어가는데 §c${time.dropLast(1)}§e초가 걸렸습니다.")
             event.isCanceled = true
         }
         if ("You completed Round " in message) {
