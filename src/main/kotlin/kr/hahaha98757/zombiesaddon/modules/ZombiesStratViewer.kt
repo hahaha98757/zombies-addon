@@ -46,13 +46,13 @@ object ZombiesStratViewer: Module("Zombies Strat Viewer") {
 
     override fun onKeyInput(event: KeyInputEvent) {
         val keys = ZombiesAddon.instance.keyBindings
-        if (keys.zsvScrollUp.isPressed) {
+        if (keys.zsvScrollDown.isPressed) {
             if (isDisable()) return
             if (!isEnable()) return
             if (currentLine + 1 < stratLines.size) currentLine++
             refreshActualLines()
         }
-        if (keys.zsvScrollDown.isPressed) {
+        if (keys.zsvScrollUp.isPressed) {
             if (isDisable()) return
             if (!isEnable()) return
             if (currentLine > 0) currentLine--
