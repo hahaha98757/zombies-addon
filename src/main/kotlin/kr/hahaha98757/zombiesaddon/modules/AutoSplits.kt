@@ -1,8 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
-import kr.hahaha98757.zombiesaddon.events.GameEndEvent
-import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
@@ -10,17 +8,15 @@ import java.io.OutputStreamWriter
 import java.net.Socket
 
 
-class AutoSplits: Module("Auto Splits") {
-    companion object {
-        val instance = AutoSplits()
-    }
-
-    override fun onRoundStart(event: RoundStartEvent) {
+object AutoSplits {
+    fun startOrSplit() {
+        if (!ZombiesAddon.instance.config.autoSplitsToggle) return
         sendCommand("startorsplit")
     }
 
-    override fun onGameEnd(event: GameEndEvent) {
-        if (event.isWin) sendCommand("startorsplit")
+    fun endGame(isWin: Boolean) {
+        if (!ZombiesAddon.instance.config.autoSplitsToggle) return
+        if (isWin) sendCommand("startorsplit")
         else sendCommand("pause")
     }
 
@@ -37,6 +33,4 @@ class AutoSplits: Module("Auto Splits") {
             mc.addScheduledTask { addTranslationChat("zombiesaddon.modules.autoSplits.failed", "§a$signal") }
         }
     }.start()
-
-    override fun isEnable() = ZombiesAddon.instance.config.autoSplitsToggle
 }

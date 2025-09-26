@@ -37,7 +37,7 @@ class CommandZaDebug: CustomCommandBase() {
                 debugIsNotZombies = when (args[1]) {
                     "true" -> true
                     "false" -> false
-                    else -> throw WrongUsageException("/za_debug isNotZombies [true|false]")
+                    else -> throw WrongUsageException("/za_debug isNotZombies [false|true]")
                 }
                 addChat("isNotZombies를 $debugIsNotZombies(으)로 설정했습니다.")
             }
@@ -50,7 +50,7 @@ class CommandZaDebug: CustomCommandBase() {
                 addChat("서버 번호를 $debugServerNumber(으)로 설정했습니다.")
             }
             "new" -> {
-                runCatching { ZombiesAddon.instance.gameManager.splitOrNew(0) }.onFailure {
+                runCatching { ZombiesAddon.instance.gameManager.splitOrNew(0, true) }.onFailure {
                     addChat("게임을 시작하는데 실패했습니다: ${it.message ?: "알 수 없음"}")
                 }.onSuccess {
                     addChat("새 게임을 시작했습니다.")
@@ -82,8 +82,8 @@ class CommandZaDebug: CustomCommandBase() {
                 }
                 if (args.size < 2) throw WrongUsageException("/za_debug pass <라운드>")
                 val round = args[1].toIntOrNull() ?: throw NumberInvalidException("commands.generic.num.invalid", args[1])
-                if (round < 0) throw NumberInvalidException("commands.generic.num.tooSmall", args[1], 0)
-                game.pass(round)
+                if (round <= 0) throw NumberInvalidException("commands.generic.num.tooSmall", args[1], 1)
+                game.pass(round, true)
                 addChat("라운드 ${round}을(를) 통과했습니다.")
             }
             "helicopter" -> {
@@ -124,6 +124,7 @@ class CommandZaDebug: CustomCommandBase() {
         }
     }
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? {
+        if (!ZombiesAddon.instance.debug) return null
         return when (args.size) {
             1 -> getListOfStringsMatchingLastWord(args, "isNotZombies", "serverNumber", "new", "map", "pass", "helicopter", "end", "remove")
             2 -> when (args[0]) {

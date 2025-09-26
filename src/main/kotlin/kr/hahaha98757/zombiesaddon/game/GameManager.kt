@@ -7,9 +7,11 @@ import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.GameRemoveEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
+import kr.hahaha98757.zombiesaddon.modules.AutoSplits
 import kr.hahaha98757.zombiesaddon.utils.getMap
 import kr.hahaha98757.zombiesaddon.utils.getServerNumber
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
+import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraftforge.common.MinecraftForge
 
 class GameManager {
@@ -19,24 +21,27 @@ class GameManager {
 
     val game get() = games[getServerNumber()]
 
-    fun splitOrNew(round: Int) {
+    fun splitOrNew(round: Int, byCommand: Boolean = false) {
         val serverNumber = getServerNumber() ?: throw IllegalStateException("알 수 없는 서버 번호")
         if (serverNumber in games.keys) {
-            if (round == 0) newGame(serverNumber)
-            else games[serverNumber]?.pass(round)
-        } else newGame(serverNumber, round)
+            if (round == 0) newGame(serverNumber, doNotCorrectTimer = byCommand)
+            else games[serverNumber]?.pass(round, byCommand)
+        } else newGame(serverNumber, round, byCommand)
     }
 
-    private fun newGame(serverNumber: ServerNumber, round: Int = 0) {
-        val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("알 수 없는 맵"), serverNumber, if (round == 0) 1 else round)
+    private fun newGame(serverNumber: ServerNumber, round: Int = 0, doNotCorrectTimer: Boolean = false) {
+        if (!mc.isCallingFromMinecraftThread) return
+        val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("알 수 없는 맵"), serverNumber, if (round == 0) 1 else round, doNotCorrectTimer)
         if (serverNumber == queuedServerNumber) queuedDifficulty?.let { game.changeDifficulty(it) }
         queuedDifficulty = null
         games[serverNumber] = game
+        AutoSplits.startOrSplit()
         MinecraftForge.EVENT_BUS.post(RoundStartEvent(game))
     }
 
     fun endGame(serverNumber: ServerNumber, isWin: Boolean) {
         val game = games[serverNumber] ?: return
+        if (game.gameEnd) return // 중복 호출 방지
         game.gameEnd = true
         game.timer.stop = true
         game.isWin = isWin
@@ -46,7 +51,9 @@ class GameManager {
                 ZombiesMap.ALIEN_ARCADIUM -> game.pass(105)
             }
         }
-        MinecraftForge.EVENT_BUS.post(GameEndEvent(game, isWin))
+        AutoSplits.endGame(isWin)
+        if (mc.isCallingFromMinecraftThread) MinecraftForge.EVENT_BUS.post(GameEndEvent(game, isWin))
+        else mc.addScheduledTask { MinecraftForge.EVENT_BUS.post(GameEndEvent(game, isWin)) }
     }
 
     fun setDifficulty(difficulty: Difficulty) {

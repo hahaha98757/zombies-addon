@@ -154,7 +154,6 @@ class ZombiesAddon {
         ModuleListener.registerModule(PlayerVisibility.instance)
         ModuleListener.registerModule(BlockAlarm.instance)
         ModuleListener.registerModule(NotLast.instance)
-        ModuleListener.registerModule(AutoSplits.instance)
         ModuleListener.registerModule(InternalTimer.instance)
         ModuleListener.registerModule(WaveDelays.instance)
         ModuleListener.registerModule(ZombiesStratViewer.instance)

@@ -10,7 +10,7 @@ class CommandAutoSplits: CustomCommandBase() {
     override fun getCommandUsage(sender: ICommandSender?) = "zombiesaddon.commands.autosplits.usage"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {
         if (args.isEmpty()) throw WrongUsageException(getCommandUsage(null))
-        AutoSplits.instance.sendCommand(args[0])
+        AutoSplits.sendCommand(args[0])
     }
 
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?) =
