@@ -15,56 +15,56 @@ class CommandPowerupPatterns: CustomCommandBase() {
 
         when (args[0]) {
             "ins" -> {
-                if (args.size == 1) PowerupPatterns.instance.fields?.insTimer = true
+                if (args.size == 1) PowerupPatterns.fields?.insTimer = true
                 else {
                     when (args[1]) {
                         "reset" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§cInsta Kill")
-                            PowerupPatterns.instance.fields?.queuedInsPattern = 0
+                            PowerupPatterns.fields?.queuedInsPattern = 0
                         }
                         "2", "3" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§a${args[1]}")
-                            PowerupPatterns.instance.fields?.queuedInsPattern = args[1].toInt()
+                            PowerupPatterns.fields?.queuedInsPattern = args[1].toInt()
                         }
                         else -> throw WrongUsageException("/poweruppatterns ins [reset|2|3]")
                     }
                 }
             }
             "max" -> {
-                if (args.size == 1) PowerupPatterns.instance.fields?.maxTimer = true
+                if (args.size == 1) PowerupPatterns.fields?.maxTimer = true
                 else {
                     when (args[1]) {
                         "reset" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§9Max Ammo")
-                            PowerupPatterns.instance.fields?.queuedMaxPattern = 0
+                            PowerupPatterns.fields?.queuedMaxPattern = 0
                         }
                         "2", "3" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§9Max Ammo", "§a${args[1]}")
-                            PowerupPatterns.instance.fields?.queuedMaxPattern = args[1].toInt()
+                            PowerupPatterns.fields?.queuedMaxPattern = args[1].toInt()
                         }
                         else -> throw WrongUsageException("/poweruppatterns max [reset|2|3]")
                     }
                 }
             }
             "ss" -> {
-                if (args.size == 1) PowerupPatterns.instance.fields?.ssTimer = true
+                if (args.size == 1) PowerupPatterns.fields?.ssTimer = true
                 else {
                     when (args[1]) {
                         "reset" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§5Shopping Spree")
-                            PowerupPatterns.instance.fields?.queuedSsPattern = 0
+                            PowerupPatterns.fields?.queuedSsPattern = 0
                         }
                         "5", "6", "7" -> {
                             addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§5Shopping Spree", "§a${args[1]}")
-                            PowerupPatterns.instance.fields?.queuedSsPattern = args[1].toInt()
+                            PowerupPatterns.fields?.queuedSsPattern = args[1].toInt()
                         }
                         else -> throw WrongUsageException("/poweruppatterns ss [reset|5|6|7]")
                     }
                 }
             }
-            "dg" -> PowerupPatterns.instance.fields?.dgTimer = true
-            "car" -> PowerupPatterns.instance.fields?.carTimer = true
-            "bg" -> PowerupPatterns.instance.fields?.bgTimer = true
+            "dg" -> PowerupPatterns.fields?.dgTimer = true
+            "car" -> PowerupPatterns.fields?.carTimer = true
+            "bg" -> PowerupPatterns.fields?.bgTimer = true
             else -> throw WrongUsageException(getCommandUsage(null))
         }
     }

@@ -12,10 +12,7 @@ import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.EntityJoinWorldEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
-class General: AlwaysEnableModule("General") {
-    companion object {
-        val instance = General()
-    }
+object General: AlwaysEnableModule("General") {
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         var i = 1
@@ -29,13 +26,13 @@ class General: AlwaysEnableModule("General") {
         var str = "$NAME v$VERSION"
         fr.drawStringWithShadow(str, HudUtils.getModNameStrX(str), HudUtils.getModNameStrY(),  color)
 
-        str = "Player Visibility: ${if (PlayerVisibility.instance.enabled) "§aon" else "§coff"}"
+        str = "Player Visibility: ${if (PlayerVisibility.enabled) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.pvText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i++), 0xffff55)
 
-        str = "Block Alarm: ${if (BlockAlarm.instance.enabled) "§aon" else "§coff"}"
+        str = "Block Alarm: ${if (BlockAlarm.enabled) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.blockAlarmText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i++), 0xffff55)
 
-        str = "Auto Rejoin: ${if (AutoRejoin.instance.enabled) "§aon" else "§coff"}"
+        str = "Auto Rejoin: ${if (AutoRejoin.enabled) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.autoRejoinText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i), 0xffff55)
     }
 
@@ -55,7 +52,7 @@ class General: AlwaysEnableModule("General") {
     }
 }
 
-class ThePlayerJoinListener() {
+class ThePlayerJoinHandler {
     @SubscribeEvent
     fun onPlayerJoin(event: EntityJoinWorldEvent) {
         if (event.entity != mc.thePlayer) return

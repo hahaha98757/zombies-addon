@@ -1,5 +1,6 @@
 package kr.hahaha98757.zombiesaddon.mixins;
 
+import kr.hahaha98757.zombiesaddon.modules.PVUtils;
 import kr.hahaha98757.zombiesaddon.modules.PlayerVisibility;
 import kr.hahaha98757.zombiesaddon.utils.Tools;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,9 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinRender {
     @Inject(method = "renderEntityOnFire", at = {@At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;color(FFFF)V", shift = At.Shift.AFTER)})
     private void renderEntityOnFire(Entity entity, double x, double y, double z, float partialTicks, CallbackInfo ci) {
-        if (!Tools.isDisable() && !Tools.isNotPlayZombies() && PlayerVisibility.instance.getEnabled()
+        if (!Tools.isDisable() && !Tools.isNotPlayZombies() && PlayerVisibility.INSTANCE.getEnabled()
                 && entity instanceof EntityPlayer && entity != Tools.getMc().thePlayer) {
-            final boolean b = !PlayerVisibility.Companion.withoutRange((EntityPlayer) entity);
+            final boolean b = !PVUtils.INSTANCE.withoutRange((EntityPlayer) entity);
             GlStateManager.color(1.0F, 1.0F, 1.0F, b ? 0 : 1.0F);
         }
     }

@@ -6,11 +6,7 @@ import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
 import kr.hahaha98757.zombiesaddon.utils.sendChat
 import net.minecraftforge.fml.common.gameevent.InputEvent
 
-class TextMacro: AlwaysEnableModule("Text Macro") {
-    companion object {
-        val instance = TextMacro()
-    }
-
+object TextMacro: AlwaysEnableModule("Text Macro") {
     override fun onKeyInput(event: InputEvent.KeyInputEvent) {
         if (!ZombiesAddon.instance.keyBindings.textMacro.isPressed) return
         if (isDisable()) return

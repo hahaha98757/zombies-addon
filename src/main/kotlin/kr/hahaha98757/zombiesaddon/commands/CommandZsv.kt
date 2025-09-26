@@ -20,11 +20,11 @@ class CommandZsv: CustomCommandBase() {
         if (sender != mc.thePlayer) return
         if (args.isEmpty()) throw WrongUsageException(getCommandUsage(null))
         if (args[0] == "off") {
-            ZombiesStratViewer.instance.stratLines.clear()
-            ZombiesStratViewer.instance.stratLines += ""
-            ZombiesStratViewer.instance.currentLine = 0
+            ZombiesStratViewer.stratLines.clear()
+            ZombiesStratViewer.stratLines += ""
+            ZombiesStratViewer.currentLine = 0
             addTranslationChat("zombiesaddon.commands.zsv.success", "§coff")
-            ZombiesStratViewer.instance.enabled = false
+            ZombiesStratViewer.enabled = false
             return
         }
         if (!args[0].startsWith("https://pastebin.com/raw/")) throw CommandException("zombiesaddon.commands.zsv.wrongUrl")
@@ -41,11 +41,11 @@ class CommandZsv: CustomCommandBase() {
                     while (reader.readLine().also { str = it } != null) list += str!!
                 }
                 mc.addScheduledTask {
-                    ZombiesStratViewer.instance.stratLines.clear()
-                    ZombiesStratViewer.instance.currentLine = 0
-                    ZombiesStratViewer.instance.stratLines += list
-                    ZombiesStratViewer.instance.enabled = true
-                    ZombiesStratViewer.instance.refreshActualLines()
+                    ZombiesStratViewer.stratLines.clear()
+                    ZombiesStratViewer.currentLine = 0
+                    ZombiesStratViewer.stratLines += list
+                    ZombiesStratViewer.enabled = true
+                    ZombiesStratViewer.refreshActualLines()
                     addTranslationChat("zombiesaddon.commands.zsv.success", "§aon")
                 }
             } catch (_: Exception) {

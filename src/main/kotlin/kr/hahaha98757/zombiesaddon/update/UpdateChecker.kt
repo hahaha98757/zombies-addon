@@ -152,7 +152,7 @@ object UpdateChecker {
     }.start()
 }
 
-class UpdateCheckerListener {
+class UpdateCheckerHandler {
     @SubscribeEvent
     fun onPlayerJoin(event: EntityJoinWorldEvent) {
         if (event.entity != mc.thePlayer) return

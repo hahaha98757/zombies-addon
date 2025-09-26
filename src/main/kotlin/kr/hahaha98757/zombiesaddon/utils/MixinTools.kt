@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.utils
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
-import kr.hahaha98757.zombiesaddon.modules.PlayerVisibility
+import kr.hahaha98757.zombiesaddon.modules.PVUtils
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.entity.Entity
 import net.minecraft.network.play.server.S29PacketSoundEffect
@@ -9,8 +9,8 @@ import net.minecraft.network.play.server.S45PacketTitle
 import org.lwjgl.opengl.GL11
 
 fun renderPre(entity: Entity) {
-    if (!PlayerVisibility.isSemiPv(entity)) return
-    GlStateManager.color(1f, 1f, 1f, PlayerVisibility.getAlpha(entity))
+    if (!PVUtils.isSemiPv(entity)) return
+    GlStateManager.color(1f, 1f, 1f, PVUtils.getAlpha(entity))
     GlStateManager.depthMask(false)
     GlStateManager.enableBlend()
     GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
@@ -18,7 +18,7 @@ fun renderPre(entity: Entity) {
 }
 
 fun renderPost(entity: Entity) {
-    if (!PlayerVisibility.isSemiPv(entity)) return
+    if (!PVUtils.isSemiPv(entity)) return
     GlStateManager.disableBlend()
     GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1f)
     GlStateManager.depthMask(true)

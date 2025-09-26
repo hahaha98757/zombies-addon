@@ -11,7 +11,7 @@ import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.gui.GuiDetectedUnlegitMods
 import kr.hahaha98757.zombiesaddon.modules.*
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker
-import kr.hahaha98757.zombiesaddon.update.UpdateCheckerListener
+import kr.hahaha98757.zombiesaddon.update.UpdateCheckerHandler
 import kr.hahaha98757.zombiesaddon.utils.mc
 import kr.hahaha98757.zombiesaddon.utils.unlegitMods
 import net.minecraftforge.client.event.GuiScreenEvent
@@ -145,23 +145,23 @@ class ZombiesAddon {
 
         MinecraftForge.EVENT_BUS.register(this)
         MinecraftForge.EVENT_BUS.register(config)
-        MinecraftForge.EVENT_BUS.register(UpdateCheckerListener())
+        MinecraftForge.EVENT_BUS.register(UpdateCheckerHandler())
         MinecraftForge.EVENT_BUS.register(LastClientTickEventListener())
         MinecraftForge.EVENT_BUS.register(ModuleListener())
-        MinecraftForge.EVENT_BUS.register(ThePlayerJoinListener())
+        MinecraftForge.EVENT_BUS.register(ThePlayerJoinHandler())
 
-        ModuleListener.registerModule(General.instance)
-        ModuleListener.registerModule(PlayerVisibility.instance)
-        ModuleListener.registerModule(BlockAlarm.instance)
-        ModuleListener.registerModule(NotLast.instance)
-        ModuleListener.registerModule(InternalTimer.instance)
-        ModuleListener.registerModule(WaveDelays.instance)
-        ModuleListener.registerModule(ZombiesStratViewer.instance)
-        ModuleListener.registerModule(SlaListener.instance)
-        ModuleListener.registerModule(AutoRejoin.instance)
-        ModuleListener.registerModule(PowerupPatterns.instance)
-        ModuleListener.registerModule(LastWeapons.instance)
-        ModuleListener.registerModule(TextMacro.instance)
-        ModuleListener.registerModule(KoreanPatchers.instance)
+        ModuleListener.registerModule(General)
+        ModuleListener.registerModule(PlayerVisibility)
+        ModuleListener.registerModule(BlockAlarm)
+        ModuleListener.registerModule(NotLast)
+        ModuleListener.registerModule(InternalTimer)
+        ModuleListener.registerModule(WaveDelays)
+        ModuleListener.registerModule(ZombiesStratViewer)
+        ModuleListener.registerModule(SlaHandler)
+        ModuleListener.registerModule(AutoRejoin)
+        ModuleListener.registerModule(PowerupPatterns)
+        ModuleListener.registerModule(LastWeapons)
+        ModuleListener.registerModule(TextMacro)
+        ModuleListener.registerModule(KoreanPatchers)
     }
 }

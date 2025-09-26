@@ -8,7 +8,7 @@ import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 
-class KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
+object KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
     override fun onChat(event: ClientChatReceivedEvent) {
         val message = event.message.unformattedText
         if ("<" in message) return
@@ -73,8 +73,4 @@ class KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
 //    private fun zombiesutils(event: ClientChatPrintedEvent, message: String) {
 //
 //    }
-
-    companion object {
-        val instance = KoreanPatchers()
-    }
 }

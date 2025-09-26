@@ -6,11 +6,7 @@ import kr.hahaha98757.zombiesaddon.utils.fr
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 
-class InternalTimer: Module("Internal Timer") {
-    companion object {
-        val instance = InternalTimer()
-    }
-
+object InternalTimer: Module("Internal Timer") {
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         if (isNotPlayZombies()) return
 

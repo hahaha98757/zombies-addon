@@ -17,10 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.Event
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent
 
-class PowerupPatterns: Module("Powerup Patterns") {
-    companion object {
-        val instance = PowerupPatterns()
-    }
+object PowerupPatterns: Module("Powerup Patterns") {
     private val insPatternArr1 = intArrayOf(2, 5, 8, 11, 14, 17, 20, 23)
     private val insPatternArr2 = intArrayOf(3, 6, 9, 12, 15, 18, 21, 24)
 

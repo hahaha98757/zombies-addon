@@ -6,11 +6,7 @@ import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import org.lwjgl.opengl.GL11
 
-class BlockAlarm: ToggleableModule("Block Alarm", ZombiesAddon.instance.config.blockAlarmDefault) {
-    companion object {
-        val instance = BlockAlarm()
-    }
-
+object BlockAlarm: ToggleableModule("Block Alarm", ZombiesAddon.instance.config.blockAlarmDefault) {
     override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.toggleBlockAlarm
     override fun addToggleText(enabled: Boolean) =
         addTranslationChat("zombiesaddon.modules.general.toggled", "§eBlock Alarm", if (enabled) "§aon" else "§coff")

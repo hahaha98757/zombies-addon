@@ -7,11 +7,7 @@ import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.scoreboard.ScoreObjective
 import net.minecraft.scoreboard.Scoreboard
 
-class NotLast: Module("Not Last") {
-    companion object {
-        val instance = NotLast()
-    }
-
+object NotLast: Module("Not Last") {
     private val scoreMap = mutableMapOf<String, Int>()
     private lateinit var scoreboard: Scoreboard
     private lateinit var scoreObjective: ScoreObjective

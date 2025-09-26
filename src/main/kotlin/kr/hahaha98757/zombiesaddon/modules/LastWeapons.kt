@@ -10,11 +10,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 
-class LastWeapons: Module("Last Weapons") {
-    companion object {
-        val instance = LastWeapons()
-    }
-
+object LastWeapons: Module("Last Weapons") {
     private val weapons = arrayOfNulls<ItemStack>(9)
     private val armors = arrayOfNulls<ItemStack>(4)
 

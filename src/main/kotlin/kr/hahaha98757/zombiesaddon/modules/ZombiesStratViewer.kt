@@ -9,11 +9,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 import org.apache.commons.lang3.text.WordUtils
 
 
-class ZombiesStratViewer: Module("Zombies Strat Viewer") {
-    companion object {
-        val instance = ZombiesStratViewer()
-    }
-
+object ZombiesStratViewer: Module("Zombies Strat Viewer") {
     var enabled = false
     val stratLines = mutableListOf<String>()
     var currentLine = 0

@@ -10,11 +10,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 
 
-class WaveDelays: Module("Wave Delays") {
-    companion object {
-        val instance = WaveDelays()
-        private const val DESPAWN_TICK: Short = 6000
-    }
+object WaveDelays: Module("Wave Delays") {
+    private const val DESPAWN_TICK: Short = 6000
     private var rlMode = false
     private var offset = 0
 

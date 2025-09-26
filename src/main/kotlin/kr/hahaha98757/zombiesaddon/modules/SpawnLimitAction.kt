@@ -12,11 +12,7 @@ import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import kotlin.math.pow
 
-class SlaListener: AlwaysEnableModule("Spawn Limit Action") {
-    companion object {
-        val instance = SlaListener()
-    }
-
+object SlaHandler: AlwaysEnableModule("Spawn Limit Action") {
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         Sla.sla?.refresh() ?: return
         val rooms = Sla.sla?.rooms ?: return

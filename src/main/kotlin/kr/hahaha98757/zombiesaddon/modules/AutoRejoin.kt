@@ -6,11 +6,7 @@ import kr.hahaha98757.zombiesaddon.utils.DelayedTask
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.sendChat
 
-class AutoRejoin: ToggleableModule("Auto Rejoin", ZombiesAddon.instance.config.autoRejoinDefault) {
-    companion object {
-        val instance = AutoRejoin()
-    }
-
+object AutoRejoin: ToggleableModule("Auto Rejoin", ZombiesAddon.instance.config.autoRejoinDefault) {
     override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.toggleAutoRejoin
     override fun addToggleText(enabled: Boolean) =
         addTranslationChat("zombiesaddon.modules.general.toggled", "§eAuto Rejoin", if (enabled) "§aon" else "§coff")
