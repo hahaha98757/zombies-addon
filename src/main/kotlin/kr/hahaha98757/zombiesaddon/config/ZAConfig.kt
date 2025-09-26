@@ -45,13 +45,13 @@ class ZAConfig(val config: Configuration) {
     var blockAlarmDefault = false
     var blockAlarmText = false
 
-    var autoSplitsToggle = true
+    var autoSplitsToggle = false
     var autoSplitsHost = "127.0.0.1"
     var autoSplitsPort = 16384
 
     var waveDelaysToggle = true
-    var waveDelaysPlaySounds = intArrayOf(-60, -40, -20)
-    var waveDelaysCustomPlaySound = true
+    var waveDelaysPlaySounds = intArrayOf(-40, -20, 0)
+    var waveDelaysCustomPlaySound = false
     var waveDelaysPrefix = true
     var waveDelaysBossColor = true
     var waveDelaysTextStyle = TextStyle.NEW_COLON
@@ -59,7 +59,7 @@ class ZAConfig(val config: Configuration) {
     var waveDelaysHidePassedWave = false
     var waveDelaysRlModeOffset = -28
     
-    var slaAutoSla = true
+    var slaAutoSla = false
     var slaTextColor = true
     var slaActivatedWindows = true
     var slaUnactivatedWindows = false
@@ -211,7 +211,7 @@ class ZAConfig(val config: Configuration) {
         autoSplitsToggle = addOption(categoryAutoSplits.list, autoSplitsToggleKey, config.get(
             categoryAutoSplits.name,
             "autoSplitsToggle",
-            true,
+            false,
             "$autoSplitsToggleKey.description"
         )).boolean
 
@@ -246,7 +246,7 @@ class ZAConfig(val config: Configuration) {
         waveDelaysPlaySounds = addOption(categoryWaveDelays.list, waveDelaysPlaySoundsKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysPlaySounds",
-            intArrayOf(-60, -40, -20),
+            intArrayOf(-40, -20, 0),
             "$waveDelaysPlaySoundsKey.description",
             -200, 200, false, 5
         )).intList
@@ -255,7 +255,7 @@ class ZAConfig(val config: Configuration) {
         waveDelaysCustomPlaySound = addOption(categoryWaveDelays.list, waveDelaysCustomPlaySoundKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysCustomPlaySound",
-            true,
+            false,
             "$waveDelaysCustomPlaySoundKey.description"
         )).boolean
 
@@ -316,7 +316,7 @@ class ZAConfig(val config: Configuration) {
         slaAutoSla = addOption(categorySla.list, slaAutoSlaKey, config.get(
             categorySla.name,
             "slaAutoSla",
-            true,
+            false,
             "$slaAutoSlaKey.description"
         )).boolean
 
