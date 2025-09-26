@@ -194,9 +194,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 # Update Log
 
 ## 4.5.0-pre2
-- Fix: More accurate timers and Auto Splits. Config default. Auto SLA disables SLA at game end.
-- Bug fix: ZSV's hotkeys were working in reverse.
-- Code fix: Classes inheriting from modules were converted to object.
+- Fix: More accurate timers and Auto Splits. Config defaults. Auto SLA disables SLA at game end.
+- Bug fix: ZSV's hotkeys worked in reverse.
+- Code fix: Changed classes that inherit from modules to singleton objects.
 
 ## 4.5.0-pre1
 - Bug fix: Incorrect prefix.
