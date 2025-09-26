@@ -3,6 +3,7 @@ package kr.hahaha98757.zombiesaddon.modules
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.Room
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
+import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.JsonLoader
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
@@ -31,6 +32,11 @@ class SlaListener: AlwaysEnableModule("Spawn Limit Action") {
         if (event.game.round != 1) return
         val map = event.game.gameMode.map
         runCatching { Sla.on(map) }
+    }
+
+    override fun onGameEnd(event: GameEndEvent) {
+        if (!ZombiesAddon.instance.config.slaAutoSla) return
+        Sla.off()
     }
 }
 
