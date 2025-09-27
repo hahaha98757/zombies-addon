@@ -193,6 +193,9 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.5.0-rc1
+- Auto Splits fix: Added options to the /autosplits command. Fixed message.
+
 ## 4.5.0-pre2
 - Fix: More accurate timers and Auto Splits. Config defaults. Auto SLA disables SLA at game end.
 - Bug fix: ZSV's hotkeys worked in reverse.

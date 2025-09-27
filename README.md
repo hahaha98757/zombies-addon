@@ -196,6 +196,9 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 # 업데이트 로그
 
+## 4.5.0-rc1
+- Auto Splits 수정: /autosplits 명령어에 옵션 추가. 메시지 수정.
+
 ## 4.5.0-pre2
 - 수정: 더 정확한 타이머 및 Auto Splits. 컨피그 기본값. Auto SLA가 게임 종료 시 SLA를 끔.
 - 버그 수정: ZSV의 단축키가 반대로 작동함.
