@@ -32,19 +32,19 @@
 
 
 ## Auto Splits
-- 라운드 시작 시 LiveSplit에 startorsplit 신호를 전달합니다.
+- 라운드 시작 시 LiveSplit에 startorsplit 명령어를 전달합니다.
 ### 컨피그
 - 토글 Auto Splits: Auto Splits를 활성화 또는 비활성화합니다.
 - 호스트: LiveSplit 서버의 호스트입니다.
 - 포트: LiveSplit 서버의 포트입니다.
 ### 명령어
-- autosplits <신호>: LiveSplit에 원하는 신호를 전달합니다.
+- autosplits <명령어>: LiveSplit에 명령어를 전달합니다.
 ### 사용법
 1. [여기](https://livesplit.org/downloads/)에서 LiveSplit을 다운로드합니다.
 2. LiveSplit을 실행해 우클릭 → Settings에서 Server Port를 0~65535 중 원하는 숫자(기본값 16834)로 입력하고 OK 버튼을 눌러 창을 닫는다.
 3. 마인크래프트 실행 → 모드 → Zombies Addon → Config → Auto Splits에서 포트 값을 2단계에서 입력한 숫자(기본값 16834)를 그대로 입력한다.
 4. LiveSplit 우클릭 → Control → Start TCP Server로 서버를 시작한다.
-5. 인게임에서 Auto Splits를 키면, 라운드 시작 시 신호가 전달된다.
+5. 인게임에서 Auto Splits를 키면, 라운드 시작 시 명령어가 전달된다.
 
 
 ## Internal Timer

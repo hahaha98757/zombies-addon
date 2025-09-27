@@ -23,7 +23,7 @@ zombiesaddon.messages.offBlockUnlegitSST=blockUnlegitSST is turned off.
 zombiesaddon.messages.blockUnlegitSST=The unlegit features of SST have been blocked by Zombies Addon.
 
 
-zombiesaddon.commands.autosplits.usage=/autosplits <signal>
+zombiesaddon.commands.autosplits.usage=/autosplits <command>
 
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|number|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: §cReset %s§e pattern
@@ -53,7 +53,7 @@ zombiesaddon.modules.notLast.failed=§eNot Last: §cFailed to find the last
 zombiesaddon.modules.notLast.or=§eor
 zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e was last
 
-zombiesaddon.modules.autoSplits.failed=§eAuto Splits: §cFailed to send %s§c signal
+zombiesaddon.modules.autoSplits.failed=§eAuto Splits: §cFailed to send %s§c command
 
 zombiesaddon.modules.sla.auto.wrongMap=§eAuto SLA: §cWrong map
 zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: Set SLA to %s

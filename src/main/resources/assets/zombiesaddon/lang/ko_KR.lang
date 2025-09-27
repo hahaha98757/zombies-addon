@@ -23,7 +23,7 @@ zombiesaddon.messages.offBlockUnlegitSST=SST 언레짓 기능 차단이 꺼져 �
 zombiesaddon.messages.blockUnlegitSST=SST의 언레짓 기능이 Zombies Addon에 의해 차단되었습니다.
 
 
-zombiesaddon.commands.autosplits.usage=/autosplits <신호>
+zombiesaddon.commands.autosplits.usage=/autosplits <명령어>
 
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|숫자|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: %s§e의 패턴을§c 재설정§e했습니다
@@ -53,7 +53,7 @@ zombiesaddon.modules.notLast.failed=§eNot Last: §c마지막을 찾는데 실�
 zombiesaddon.modules.notLast.or=§e또는
 zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e이(가) 마지막입니다
 
-zombiesaddon.modules.autoSplits.failed=§eAuto Splits: %s§c 신호를 전달하는데 실패했습니다
+zombiesaddon.modules.autoSplits.failed=§eAuto Splits: %s§c 명령어를 전달하는데 실패했습니다
 
 zombiesaddon.modules.sla.auto.wrongMap=§eAuto SLA: §c잘못된 맵
 zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: SLA를 %s§e(으)로 설정했습니다

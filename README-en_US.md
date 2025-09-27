@@ -33,19 +33,19 @@ Supported Languages: [한국어 (대한민국)](README.md), [English (US)](READM
 
 
 ## Auto Splits
-- At the start of a round, pass a startorsplit signal to LiveSplit.
+- At the start of a round, pass a startorsplit command to LiveSplit.
 ### Config
 - Toggle Auto Splits: Enable or disable Auto Splits.
 - Host: The host of LiveSplit server.
 - Port: The port of LiveSplit server.
 ### Commands
-- autosplits <signal>: LiveSplit에 원하는 신호를 전달합니다.
+- autosplits <command>: Send the command to LiveSplit.
 ### Usage
 1. Download LiveSplit [here](https://livesplit.org/downloads/).
 2. Run LiveSplit, right-click → Settings, enter the desired number for Server Port between 0 and 65535 (default 16834), and click OK to close the window.
 3. Launch Minecraft → Mods → Zombies Addon → Config → Auto Splits and enter the port value as the number you entered in step 2 (default 16834).
 4. Right-click LiveSplit → Control → Start TCP Server to start the server.
-5. When you turn on Auto Splits in-game, a signal is sent at the start of the round.
+5. When you turn on Auto Splits in-game, a command is sent at the start of the round.
 
 
 ## Internal Timer

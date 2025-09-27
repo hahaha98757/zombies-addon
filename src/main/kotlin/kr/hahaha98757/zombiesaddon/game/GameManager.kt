@@ -51,7 +51,8 @@ class GameManager {
                 ZombiesMap.ALIEN_ARCADIUM -> game.pass(105)
             }
         }
-        AutoSplits.endGame(isWin)
+        if (isWin) AutoSplits.startOrSplit()
+        else AutoSplits.pause()
         if (mc.isCallingFromMinecraftThread) MinecraftForge.EVENT_BUS.post(GameEndEvent(game, isWin))
         else mc.addScheduledTask { MinecraftForge.EVENT_BUS.post(GameEndEvent(game, isWin)) }
     }

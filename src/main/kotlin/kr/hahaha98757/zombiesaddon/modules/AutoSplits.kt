@@ -4,7 +4,6 @@ import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
-import java.io.OutputStreamWriter
 import java.net.Socket
 
 
@@ -14,23 +13,22 @@ object AutoSplits {
         sendCommand("startorsplit")
     }
 
-    fun endGame(isWin: Boolean) {
+    fun pause() {
         if (!ZombiesAddon.instance.config.autoSplitsToggle) return
-        if (isWin) sendCommand("startorsplit")
-        else sendCommand("pause")
+        sendCommand("pause")
     }
 
-    fun sendCommand(signal: String) = Thread {
+    fun sendCommand(command: String) = Thread {
         try {
-            Socket(ZombiesAddon.instance.config.autoSplitsHost, ZombiesAddon.instance.config.autoSplitsPort).use { socket ->
-                OutputStreamWriter(socket.getOutputStream()).use {
-                    it.write("$signal\r\n")
-                    it.flush()
-                }
+            Socket(ZombiesAddon.instance.config.autoSplitsHost, ZombiesAddon.instance.config.autoSplitsPort).use {
+                val output = it.getOutputStream().bufferedWriter()
+
+                output.write("$command\r\n")
+                output.flush()
             }
         } catch (e: Exception) {
-            logger.warn("LiveSplit에 신호를 전송하는데 실패했습니다: $signal", e)
-            mc.addScheduledTask { addTranslationChat("zombiesaddon.modules.autoSplits.failed", "§a$signal") }
+            logger.warn("LiveSplit에 명령어를 전달하는데 실패했습니다: $command", e)
+            mc.addScheduledTask { addTranslationChat("zombiesaddon.modules.autoSplits.failed", "§a$command") }
         }
     }.start()
 }
