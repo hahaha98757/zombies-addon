@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard
 class KeyBindings {
     val togglePv = KeyBinding("zombiesaddon.key.togglePlayerVisibility", Keyboard.KEY_Z, NAME)
     val toggleBlockAlarm = KeyBinding("zombiesaddon.key.toggleBlockAlarm", Keyboard.KEY_P, NAME)
-    val toggleAutoRejoin = KeyBinding("zombiesaddon.key.toggleAutoRejoin", Keyboard.CHAR_NONE, NAME)
+    val toggleAutoRejoin = KeyBinding("zombiesaddon.key.toggleAutoRejoin", Keyboard.KEY_O, NAME)
 
     val zsvScrollUp = KeyBinding("zombiesaddon.key.zsvScrollUp", Keyboard.KEY_LBRACKET, NAME)
     val zsvScrollDown = KeyBinding("zombiesaddon.key.zsvScrollDown", Keyboard.KEY_RBRACKET, NAME)
