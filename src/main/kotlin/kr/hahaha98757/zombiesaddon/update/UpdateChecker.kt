@@ -25,6 +25,9 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManagerFactory
 
 object UpdateChecker {
+//    private const val RECOMMENDED_URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/main/update.json"
+//    private const val LATEST_URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/latest/update.json"
+//    private const val DEV_URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/dev/update.json"
     private const val URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/master/update.json"
     private var latest = Version()
     private var recommended = Version()
@@ -33,7 +36,6 @@ object UpdateChecker {
     init {
         try {
             val myKeyStore = KeyStore.getInstance("JKS")
-            @Suppress("SpellCheckingInspection")
             myKeyStore.load(UpdateChecker::class.java.getResourceAsStream("/mykeystore.jks"), "changeit".toCharArray())
             val kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm())
             val tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm())
@@ -41,8 +43,8 @@ object UpdateChecker {
             tmf.init(myKeyStore)
             ctx = SSLContext.getInstance("TLS")
             ctx!!.init(kmf.keyManagers, tmf.trustManagers, null)
-        } catch (e: Exception) {
-            logger.error("SSLContext 초기화 실패. 업데이트 확인이 불가능합니다.", e)
+        } catch (e: Throwable) {
+            logger.error("SSLContext 초기화 실패. 일부 JVM에서 업데이트 확인이 불가능합니다.", e)
             ctx = null
         }
     }
@@ -65,11 +67,27 @@ object UpdateChecker {
                 recommended = Version.toVersion(json.get("recommended").asString)
             }
         } catch (e: Exception) {
-            logger.warn("최신 버전 정보를 가져오는데 실패했습니다. 업데이트 확인이 불가능합니다.", e)
+            logger.warn("최신 버전 정보를 가져오는데 실패했습니다.", e)
             latest = Version()
             recommended = Version()
         }
     }.start()
+
+//    fun check() = Thread {
+//        recommended = runCatching { getVersion(RECOMMENDED_URL) }.getOrElse {
+//            logger.warn("추천 버전 가져오는데 실패했습니다.", it)
+//            null
+//        }
+//        latest = runCatching { getVersion(LATEST_URL) }.getOrElse {
+//            logger.warn("최신 버전 가져오는데 실패했습니다.", it)
+//            recommended
+//        }
+//        dev = runCatching { getVersion(DEV_URL) }.getOrElse {
+//            logger.warn("개발 버전 가져오는데 실패했습니다.", it)
+//            recommended
+//        }
+//        mc.addScheduledTask {  }
+//    }.start()
 
     fun checkUpdate(displayGui: Boolean = true) {
         when (val i = compareVersion()) {
@@ -150,6 +168,23 @@ object UpdateChecker {
             GuiDownloadWaiting.failed = true
         }
     }.start()
+
+//    private fun getVersion(url: String): Version {
+//        val url = URL(url)
+//        val connection = url.openConnection() as HttpsURLConnection?
+//        if (connection != null && ctx != null) connection.sslSocketFactory = ctx!!.socketFactory
+//
+//        connection!!.requestMethod = "GET"
+//        connection.connectTimeout = 60000
+//        connection.readTimeout = 60000
+//
+//        connection.inputStream.use {
+//            val jsonResponse = IOUtils.toString(it, StandardCharsets.UTF_8)
+//
+//            val json = JsonParser().parse(jsonResponse).asJsonObject
+//            return Version.toVersion(json.get("version").asString)
+//        }
+//    }
 }
 
 class UpdateCheckerHandler {
