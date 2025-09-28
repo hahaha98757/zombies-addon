@@ -1,6 +1,5 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import com.seosean.showspawntime.ShowSpawnTime
 import kr.hahaha98757.zombiesaddon.NAME
 import kr.hahaha98757.zombiesaddon.VERSION
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
@@ -66,7 +65,7 @@ class ThePlayerJoinHandler {
         if (za.hasSST && !za.config.blockUnlegitSst) addTranslationChatLine("zombiesaddon.messages.offBlockUnlegitSST")
 
         if (za.hasSST) {
-            val sstVer = runCatching { ShowSpawnTime.VERSION }.getOrNull() ?: "Unknown"
+            val sstVer = runCatching { Loader.instance().indexedModList["showspawntime"]!!.metadata.version }.getOrNull() ?: "Unknown"
             if (sstVer != "2.1.1") addTranslationChatLine("zombiesaddon.messages.sstDiffVer", sstVer)
         }
         if (za.hasZombiesUtils) {
