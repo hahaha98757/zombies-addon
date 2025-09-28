@@ -4,8 +4,7 @@ import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
-class RepeatedTask(private var tick: Int = 100, private val block: (Int) -> Boolean) {
-
+class RepeatedTask(private var tick: Int = 100, private val endTask: () -> Unit = {}, private val task: () -> Unit) {
     init {
         MinecraftForge.EVENT_BUS.register(this)
     }
@@ -13,11 +12,22 @@ class RepeatedTask(private var tick: Int = 100, private val block: (Int) -> Bool
     @Suppress("unused")
     @SubscribeEvent
     fun onTick(event: LastClientTickEvent) {
-        if (tick <= 0) {
+        try {
+            if (tick <= 0) {
+                MinecraftForge.EVENT_BUS.unregister(this)
+                endTask()
+                return
+            }
+            task()
+            tick--
+        } catch (e: StopRepeatedTask) {
             MinecraftForge.EVENT_BUS.unregister(this)
-            return
         }
-        if (block(tick)) MinecraftForge.EVENT_BUS.unregister(this)
-        tick--
+    }
+
+    companion object {
+        fun stop(): Nothing = throw StopRepeatedTask()
     }
 }
+
+private class StopRepeatedTask: Exception()

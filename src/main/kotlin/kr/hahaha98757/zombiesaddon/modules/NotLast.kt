@@ -24,7 +24,9 @@ object NotLast: Module("Not Last") {
         for (score in scoreboard.getSortedScores(scoreObjective))
             scoreMap[score.playerName] = score.scorePoints
 
-        RepeatedTask {
+        RepeatedTask(endTask = {
+            addTranslationChat("zombiesaddon.modules.notLast.failed")
+        }) {
             val players = mutableListOf<String>()
             for (score in scoreboard.getSortedScores(scoreObjective)) {
                 val kills = scoreMap[score.playerName] ?: continue
@@ -33,11 +35,8 @@ object NotLast: Module("Not Last") {
 
             if (players.isNotEmpty()) {
                 printLast(players)
-                return@RepeatedTask true
+                RepeatedTask.stop()
             }
-
-            if (it == 1) addTranslationChat("zombiesaddon.modules.notLast.failed")
-            false
         }
     }
 
