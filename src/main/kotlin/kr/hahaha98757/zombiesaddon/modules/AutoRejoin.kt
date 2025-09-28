@@ -2,7 +2,8 @@ package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
-import kr.hahaha98757.zombiesaddon.utils.DelayedTask
+import kr.hahaha98757.zombiesaddon.utils.RepeatedTask
+import kr.hahaha98757.zombiesaddon.utils.Scoreboard
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.sendChat
 
@@ -14,6 +15,13 @@ object AutoRejoin: ToggleableModule("Auto Rejoin", ZombiesAddon.instance.config.
     override fun onRoundStart(event: RoundStartEvent) {
         addTranslationChat("zombiesaddon.modules.autoRejoin.rejoining")
         sendChat("/l")
-        DelayedTask(100) { sendChat("/rejoin") }
+        RepeatedTask(endTask = {
+            sendChat("/rejoin")
+        }) {
+            if (Scoreboard.isNotZombies) {
+                sendChat("/rejoin")
+                RepeatedTask.stop()
+            }
+        }
     }
 }
