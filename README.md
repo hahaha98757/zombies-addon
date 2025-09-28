@@ -196,6 +196,11 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 
 # 업데이트 로그
 
+## 4.5.0-rc2
+- Auto Rejoin 수정: 단축키 기본값 변경. 성능 향상.
+- 수정: Auto Rejoin 활성화 중 Not Last 비활성화.
+- 업데이트 체크 수정: 로그 수정. 주석 추가.
+
 ## 4.5.0-rc1
 - Auto Splits 수정: /autosplits 명령어에 옵션 추가. 메시지 수정.
 
@@ -275,7 +280,7 @@ Show Spawn Time은 ShowSpawnTime-1.15.0.jar내에 있는 LICENSE.txt 파일에 M
 - 코드 개편.
 - 컨피그 수정: 옵션의 이름과 설명을 번역.
 - Detect Unlegit Mods 수정: 게임 시작 시 GUI로 알림, 자동 모드 삭제 기능 추가.(윈도우 전용)
-- 업데이트 채크 수정: 추천 버전과 필수 업데이트를 GUI로 알림, 자동 업데이트 추가.(윈도우 전용)
+- 업데이트 체크 수정: 추천 버전과 필수 업데이트를 GUI로 알림, 자동 업데이트 추가.(윈도우 전용)
 - 버전 체계 변경.
 - Player Visibility 수정: 반투명 범위 조절 가능, 인게임에서만 작동하도록 변경.
 - Block Alarm 수정: 살아있지 않은 상태에서 작동하지 않음, 단축키의 기본값을 P로 변경.

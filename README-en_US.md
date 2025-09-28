@@ -193,6 +193,11 @@ Show Spawn Time has MIT license in the LICENSE.txt file inside ShowSpawnTime-1.1
 
 # Update Log
 
+## 4.5.0-rc2
+- Auto Rejoin fix: Changed the default keybinding. Performance improvements.
+- Fix: Disabled "Not Last" when Auto Rejoin is enabled.
+- Fixed update checker: Fixed log. Added comments.
+
 ## 4.5.0-rc1
 - Auto Splits fix: Added options to the /autosplits command. Fixed message.
 
