@@ -1,5 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
+import com.seosean.showspawntime.ShowSpawnTime
 import kr.hahaha98757.zombiesaddon.NAME
 import kr.hahaha98757.zombiesaddon.VERSION
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
@@ -10,6 +11,7 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.EntityJoinWorldEvent
+import net.minecraftforge.fml.common.Loader
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 object General: AlwaysEnableModule("General") {
@@ -58,8 +60,18 @@ class ThePlayerJoinHandler {
         if (event.entity != mc.thePlayer) return
         MinecraftForge.EVENT_BUS.unregister(this)
 
-        if (!ZombiesAddon.instance.config.blockUnlegitMods) addTranslationChatLine("zombiesaddon.messages.offBlockUnlegitMods")
-        if (!ZombiesAddon.instance.config.blockUnlegitSst) addTranslationChatLine("zombiesaddon.messages.offBlockUnlegitSST")
-        else addTranslationChatLine("zombiesaddon.messages.blockUnlegitSST")
+        val za = ZombiesAddon.instance
+
+        if (!za.config.blockUnlegitMods) addTranslationChatLine("zombiesaddon.messages.offBlockUnlegitMods")
+        if (za.hasSST && !za.config.blockUnlegitSst) addTranslationChatLine("zombiesaddon.messages.offBlockUnlegitSST")
+
+        if (za.hasSST) {
+            val sstVer = runCatching { ShowSpawnTime.VERSION }.getOrNull() ?: "Unknown"
+            if (sstVer != "2.1.1") addTranslationChatLine("zombiesaddon.messages.sstDiffVer", sstVer)
+        }
+        if (za.hasZombiesUtils) {
+            val zuVer = runCatching { Loader.instance().indexedModList["zombiesutils"]!!.metadata.version }.getOrNull() ?: "Unknown"
+            if (zuVer != "1.3.7") addTranslationChatLine("zombiesaddon.messages.zuDiffVer", zuVer)
+        }
     }
 }

@@ -20,7 +20,8 @@ zombiesaddon.key.autoTimer=Auto Timer
 
 zombiesaddon.messages.offBlockUnlegitMods=blockUnlegitMods is turned off.
 zombiesaddon.messages.offBlockUnlegitSST=blockUnlegitSST is turned off.
-zombiesaddon.messages.blockUnlegitSST=The unlegit features of SST have been blocked by Zombies Addon.
+zombiesaddon.messages.sstDiffVer=SST version is incorrect. Current version: %s, required version: 2.1.1
+zombiesaddon.messages.zuDiffVer=Zombies Utils version is incorrect. Current version: %s, required version: 1.3.7
 
 
 zombiesaddon.commands.autosplits.usage=/autosplits <command>

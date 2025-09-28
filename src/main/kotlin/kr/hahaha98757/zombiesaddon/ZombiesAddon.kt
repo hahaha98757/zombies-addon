@@ -49,6 +49,8 @@ class ZombiesAddon {
     val gameManager = GameManager()
 
     private var hasUnlegitMod = false
+    var hasSST = false
+    var hasZombiesUtils = false
     var debug = false
         internal set
 
@@ -81,10 +83,14 @@ class ZombiesAddon {
             hasUnlegitMod = true
         }
         if (Loader.isModLoaded("showspawntime")) {
+            hasSST = true
             runCatching { ShowSpawnTime.getMainConfiguration().ConfigLoad() }
             logger.info("ShowSpawnTime 모드가 감지되었습니다. 2.1.1 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
         }
-        if (Loader.isModLoaded("zombiesutils")) logger.info("Zombies Utils 모드가 감지되었습니다. 1.3.7 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
+        if (Loader.isModLoaded("zombiesutils")) {
+            hasZombiesUtils = true
+            logger.info("Zombies Utils 모드가 감지되었습니다. 1.3.7 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
+        }
 
         UpdateChecker.setVersion()
         logger.info("$NAME v${VERSION}이 로드되었습니다.")
