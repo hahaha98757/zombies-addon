@@ -30,7 +30,7 @@ object PlayerVisibility: ToggleableModule("Player Visibility", ZombiesAddon.inst
 object PVUtils {
     fun isSemiPv(other: Entity): Boolean {
         if (isDisable()) return false
-        if (!PlayerVisibility.enabled) return false
+        if (!PlayerVisibility.isEnable()) return false
         if (!ZombiesAddon.instance.config.pvToggleSemiPv) return false
         if (isNotPlayZombies()) return false
         if (other !is EntityPlayer) return false

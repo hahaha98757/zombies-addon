@@ -28,13 +28,13 @@ object General: AlwaysEnableModule("General") {
         var str = "$NAME v$VERSION"
         fr.drawStringWithShadow(str, HudUtils.getModNameStrX(str), HudUtils.getModNameStrY(),  color)
 
-        str = "Player Visibility: ${if (PlayerVisibility.enabled) "§aon" else "§coff"}"
+        str = "Player Visibility: ${if (PlayerVisibility.isEnable()) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.pvText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i++), 0xffff55)
 
-        str = "Block Alarm: ${if (BlockAlarm.enabled) "§aon" else "§coff"}"
+        str = "Block Alarm: ${if (BlockAlarm.isEnable()) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.blockAlarmText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i++), 0xffff55)
 
-        str = "Auto Rejoin: ${if (AutoRejoin.enabled) "§aon" else "§coff"}"
+        str = "Auto Rejoin: ${if (AutoRejoin.isEnable()) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.autoRejoinText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i), 0xffff55)
     }
 

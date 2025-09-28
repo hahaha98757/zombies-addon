@@ -36,7 +36,7 @@ abstract class Module(val name: String) {
     internal open fun onKeyInput(event: KeyInputEvent) {}
 }
 
-abstract class ToggleableModule(name: String, var enabled: Boolean): Module(name) {
+abstract class ToggleableModule(name: String, private var enabled: Boolean): Module(name) {
     abstract fun getKeyBinding(): KeyBinding
     abstract fun addToggleText(enabled: Boolean)
 

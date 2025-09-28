@@ -13,6 +13,7 @@ object NotLast: Module("Not Last") {
     private lateinit var scoreObjective: ScoreObjective
 
     override fun onRoundStart(event: RoundStartEvent) {
+        if (AutoRejoin.isEnable()) return
         if (event.game.round == 1) return
         if (isNotPlayZombies()) return
         var quitCounter = 0
