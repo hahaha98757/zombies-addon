@@ -95,13 +95,18 @@ zombiesaddon.game.car=§9Carpenter
 zombiesaddon.game.bg=§6Bonus Gold
 
 
-zombiesaddon.update.downloadText= §9Click here to download.
+zombiesaddon.update.downloadText=§9Click here to download.
 zombiesaddon.update.downloadHover=Open download URL.
-zombiesaddon.update.latestWarning=§cThe latest version is not perfect. There may be bugs.
-zombiesaddon.update.usingLatest=You are using the latest version.
-zombiesaddon.update.newLatest=The new latest version has been released.
+zombiesaddon.update.usingDev=You are using the development version.
+zombiesaddon.update.newDev=The new development version has been released.
 zombiesaddon.update.currentVer=Current version: %s
-zombiesaddon.update.latestVer=Latest version: %s
+zombiesaddon.update.devVer=Development version: %s
+zombiesaddon.update.failed=§eZombiesAddon:§c Failed to check the update.
+
+zombiesaddon.update.alpha=§cThe alpha version is private. Do not share.
+zombiesaddon.update.beta=§cThe beta version is test version. There may be serious problem.
+zombiesaddon.update.pre=§cThe pre-release version is test version. There may be minor bugs.
+zombiesaddon.update.rc=§cThe release candidate version is final test version.
 
 
 zombiesaddon.config.category.general=General

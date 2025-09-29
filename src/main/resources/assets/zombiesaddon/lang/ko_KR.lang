@@ -94,13 +94,18 @@ zombiesaddon.game.car=§9카펜터
 zombiesaddon.game.bg=§6보너스 골드
 
 
-zombiesaddon.update.downloadText= §9여기를 눌러 다운로드합니다.
+zombiesaddon.update.downloadText=§9여기를 눌러 다운로드합니다.
 zombiesaddon.update.downloadHover=다운로드 URL 열기.
-zombiesaddon.update.usingLatest=최신 버전을 사용하고 있습니다.
-zombiesaddon.update.latestWarning=§c최신 버전은 완벽하지 않습니다. 버그가 있을 수 있습니다.
-zombiesaddon.update.newLatest=새로운 최신버전이 출시되었습니다.
+zombiesaddon.update.usingDev=개발 버전을 사용하고 있습니다.
+zombiesaddon.update.newDev=새로운 개발 버전이 출시되었습니다.
 zombiesaddon.update.currentVer=현재 버전: %s
-zombiesaddon.update.latestVer=최신 버전: %s
+zombiesaddon.update.devVer=개발 버전: %s
+zombiesaddon.update.failed=§eZombies Addon:§c 업데이트 확인에 실패했습니다.
+
+zombiesaddon.update.alpha=§c알파 버전은 비공개 테스트 버전입니다. 공유하지 마세요.
+zombiesaddon.update.beta=§c베타 버전은 테스트 버전입니다. 심각한 문제가 있을 수 있습니다.
+zombiesaddon.update.pre=§c프리 릴리스 버전은 사소한 버그가 있을 수 있습니다.
+zombiesaddon.update.rc=§c릴리즈 후보 버전은 최종 테스트 버전입니다.
 
 
 zombiesaddon.config.category.general=일반

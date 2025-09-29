@@ -4,6 +4,7 @@ import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.gui.hudposition.ConfigGui
+import kr.hahaha98757.zombiesaddon.update.UpdateChecker
 import kr.hahaha98757.zombiesaddon.utils.DelayedTask
 import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
@@ -14,11 +15,10 @@ import net.minecraft.util.BlockPos
 
 class CommandZombiesAddon: CustomCommandBase() {
     override fun getCommandName() = MODID
-    override fun getCommandUsage(sender: ICommandSender?) = "/zombiesaddon <hud|difficulty>"
+    override fun getCommandUsage(sender: ICommandSender?) = "/zombiesaddon <difficulty|hud|checkUpdate>"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {
         if (args.isEmpty()) throw WrongUsageException(getCommandUsage(null))
         when (args[0]) {
-            "hud" -> DelayedTask { mc.displayGuiScreen(ConfigGui()) }
             "difficulty" -> {
                 if (args.size < 2) throw WrongUsageException("/zombiesaddon difficulty <normal|hard|rip>")
                 if (isNotPlayZombies()) {
@@ -43,12 +43,14 @@ class CommandZombiesAddon: CustomCommandBase() {
                 }
                 addTranslationChat("zombiesaddon.commands.zombiesaddon.difficulty", difficulty)
             }
+            "hud" -> DelayedTask { mc.displayGuiScreen(ConfigGui()) }
+            "checkUpdate" -> UpdateChecker.initAndCheck()
             else -> throw WrongUsageException(getCommandUsage(null))
         }
     }
 
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? =
-        if (args.size == 1) getListOfStringsMatchingLastWord(args, "hud", "difficulty")
+        if (args.size == 1) getListOfStringsMatchingLastWord(args, "difficulty", "hud", "checkUpdate")
         else if (args.size == 2 && args[0] == "difficulty") getListOfStringsMatchingLastWord(args, "normal", "hard", "rip")
         else null
 }

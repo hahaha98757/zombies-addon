@@ -10,13 +10,13 @@ import org.lwjgl.input.Keyboard
 import java.awt.Desktop
 import java.net.URI
 
-class GuiUpdateScreen(private val mandatory: Boolean): GuiScreen() {
+class GuiUpdateScreen(private val requiredUpdates: Boolean): GuiScreen() {
 
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
-        val str = getTranslatedString(if (mandatory) "zombiesaddon.gui.updateScreen.title.mandatory" else "zombiesaddon.gui.updateScreen.title.normal")
+        val str = getTranslatedString(if (requiredUpdates) "zombiesaddon.gui.updateScreen.title.mandatory" else "zombiesaddon.gui.updateScreen.title.normal")
         drawDefaultBackground()
         drawCenteredString(fontRendererObj, str, width / 2, height / 2 - 40, 0xffffff)
-        if (mandatory) drawCenteredString(fontRendererObj, getTranslatedString("zombiesaddon.gui.updateScreen.message.mandatory"), width/2, height / 2 - 31, 0xff5555)
+        if (requiredUpdates) drawCenteredString(fontRendererObj, getTranslatedString("zombiesaddon.gui.updateScreen.message.mandatory"), width/2, height / 2 - 31, 0xff5555)
         super.drawScreen(mouseX, mouseY, partialTicks)
     }
 
@@ -25,8 +25,8 @@ class GuiUpdateScreen(private val mandatory: Boolean): GuiScreen() {
         buttonList.clear()
         buttonList.add(GuiButton(0, width / 2 - 100, height / 2, getTranslatedString("zombiesaddon.gui.updateScreen.button.autoupdate")))
         buttonList.add(GuiButton(1, width / 2 - 100, height / 2 + 30, getTranslatedString("zombiesaddon.gui.updateScreen.button.url")))
-        if (!mandatory) buttonList.add(GuiButton(2, width / 2 - 100, height / 2 + 60, getTranslatedString("zombiesaddon.gui.updateScreen.button.continue")))
-        buttonList.add(GuiButton(3, width / 2 - 100, height / 2 + if (mandatory) 60 else 90, getTranslatedString("menu.quit")))
+        if (!requiredUpdates) buttonList.add(GuiButton(2, width / 2 - 100, height / 2 + 60, getTranslatedString("zombiesaddon.gui.updateScreen.button.continue")))
+        buttonList.add(GuiButton(3, width / 2 - 100, height / 2 + if (requiredUpdates) 60 else 90, getTranslatedString("menu.quit")))
     }
 
     override fun actionPerformed(button: GuiButton) {

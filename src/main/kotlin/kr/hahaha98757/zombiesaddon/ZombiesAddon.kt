@@ -92,7 +92,6 @@ class ZombiesAddon {
             logger.info("Zombies Utils 모드가 감지되었습니다. 1.3.7 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
         }
 
-        UpdateChecker.setVersion()
         logger.info("$NAME v${VERSION}이 로드되었습니다.")
     }
 
@@ -103,7 +102,7 @@ class ZombiesAddon {
         MinecraftForge.EVENT_BUS.unregister(this)
 
         if (hasUnlegitMod) mc.displayGuiScreen(GuiDetectedUnlegitMods())
-        else UpdateChecker.checkUpdate()
+        else UpdateChecker.initAndCheck()
     }
 
     private fun writeFile(file: File) {

@@ -3,12 +3,13 @@ package kr.hahaha98757.zombiesaddon.update
 import kr.hahaha98757.zombiesaddon.update.VersionType.*
 
 data class Version(val x: Int, val y: Int, val z: Int, val versionType: VersionType, val w: Int): Comparable<Version> {
-
     constructor(x: Int, y: Int, z: Int): this(x, y, z, RELEASE, 9999)
-    constructor(): this(0, 0, 0)
+    private constructor(): this(0, 0, 0)
 
     companion object {
-        fun toVersion(str: String): Version {
+        val ZERO = Version()
+
+        fun fromString(str: String): Version {
             try {
                 if ("-" !in str) {
                     val strArray = str.split(".")
@@ -25,15 +26,13 @@ data class Version(val x: Int, val y: Int, val z: Int, val versionType: VersionT
                 val strArray = str.split("-")[0].split(".")
                 return Version(strArray[0].toInt(), strArray[1].toInt(), strArray[2].toInt(), versionType, w)
             } catch (_: Exception) {
-                return Version()
+                return ZERO
             }
         }
     }
 
-    override fun toString(): String {
-        if (versionType == RELEASE) return "$x.$y.$z"
-        return "$x.$y.$z-${versionType.str}$w"
-    }
+    override fun toString() = if (versionType == RELEASE) "$x.$y.$z"
+    else "$x.$y.$z-${versionType.str}$w"
 
     override fun compareTo(other: Version): Int {
         if (this.x > other.x) return 1
@@ -62,7 +61,6 @@ data class Version(val x: Int, val y: Int, val z: Int, val versionType: VersionT
         if (this.w < other.w) return -1
         return 0
     }
-
 }
 
 enum class VersionType(val str: String) {
