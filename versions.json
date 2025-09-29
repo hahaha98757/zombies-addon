@@ -1,4 +1,4 @@
 {
-  "version": "4.4.0",
-  "log": "Bugfix: Empty slots in skills are not displayed in Last Weapons.\nThe current version no longer contains the latest update information."
+  "version": "4.5.0",
+  "log": "The current version no longer contains the latest update information."
 }
