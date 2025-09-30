@@ -2,7 +2,7 @@
   {
     "modid": "${modid}",
     "name": "Zombies Addon",
-    "description": "여러 좀비즈 모드를 통합하고 자잘한 버그 수정, 새로운 기능을 가진 모드입니다.",
+    "description": "여러 Zombies 모드를 통합하고, 새로운 기능을 추가하는 모드입니다.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "https://github.com/hahaha98757/zombies-addon",
@@ -10,7 +10,7 @@
     "authorList": [
       "hahaha98757"
     ],
-    "credits": "https://github.com/hahaha98757/zombies-addon/blob/master/README.md 에서 크레딧을 확인할 수 있습니다.",
+    "credits": "https://github.com/hahaha98757/zombies-addon/blob/main/README.md 를 확인해주세요.",
     "logoFile": "logo.png",
     "screenshots": [],
     "dependencies": []
