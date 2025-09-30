@@ -105,7 +105,7 @@ zombiesaddon.update.failed=§eZombiesAddon:§c Failed to check the update.
 
 zombiesaddon.update.alpha=§cThe alpha version is private. Do not share.
 zombiesaddon.update.beta=§cThe beta version is test version. There may be serious problem.
-zombiesaddon.update.pre=§cThe pre-release version is test version. There may be minor bugs.
+zombiesaddon.update.pre=§cThe pre-release version is tested version. There may be minor bugs.
 zombiesaddon.update.rc=§cThe release candidate version is final test version.
 
 
