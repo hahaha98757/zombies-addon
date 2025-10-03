@@ -178,7 +178,7 @@
 
 ### 히든(컨피그 파일에서만 보임)
 - blockUnlegitMods: 언레짓 모드를 차단합니다.
-- blockUnlegitSST: SST의 언레짓 기능을 차단합니다.
+- blockUnlegitSst: SST의 언레짓 기능을 차단합니다.
 
 
 ## 디버그 모드

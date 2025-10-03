@@ -189,7 +189,7 @@ public class MixinMainConfiguration {
         logger.info("Finished loading config. ");
         logger.info("The unlegit features of SST have been blocked by Zombies Addon.");
         try {
-            Tools.addTranslationChat("zombiesaddon.messages.blockUnlegitSST");
+            Tools.addTranslationChat("zombiesaddon.messages.blockUnlegitSst");
         } catch (Throwable ignored) {}
     }
 }

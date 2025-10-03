@@ -19,8 +19,8 @@ zombiesaddon.key.autoTimer=자동 타이머
 
 
 zombiesaddon.messages.offBlockUnlegitMods=언레짓 모드 차단이 꺼져 있습니다.
-zombiesaddon.messages.offBlockUnlegitSST=SST 언레짓 기능 차단이 꺼져 있습니다.
-zombiesaddon.messages.blockUnlegitSST=SST의 언레짓 기능이 Zombies Addon에 의해 차단되었습니다.
+zombiesaddon.messages.offBlockUnlegitSst=SST 언레짓 기능 차단이 꺼져 있습니다.
+zombiesaddon.messages.blockUnlegitSst=SST의 언레짓 기능이 Zombies Addon에 의해 차단되었습니다.
 zombiesaddon.messages.sstDiffVer=SST의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: 2.1.1
 zombiesaddon.messages.zuDiffVer=Zombies Utils의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: 1.3.7
 

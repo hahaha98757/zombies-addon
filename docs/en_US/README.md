@@ -173,7 +173,7 @@ A mod that integrates several Zombies mods and provides them as modules.
 
 ### Hidden(Visible only in config file)
 - blockUnlegitMods: Blocks unlegit Mods.
-- blockUnlegitSST: Blocks the unlegit feature of SST.
+- blockUnlegitSst: Blocks the unlegit feature of SST.
 
 
 ## Debug mode
