@@ -31,7 +31,7 @@ const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
 const val VERSION = "4.5.0"
 
-@Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory")
+@Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory", clientSideOnly = true)
 class ZombiesAddon {
     companion object {
         @JvmStatic
