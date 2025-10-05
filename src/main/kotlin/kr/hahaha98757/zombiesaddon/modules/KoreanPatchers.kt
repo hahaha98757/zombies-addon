@@ -55,7 +55,6 @@ object KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
         val message = getText(event.message.unformattedText) // 왜인지 모르겠지만 색깔 코드가 제거가 안된다.
         if ("<" in message) return
         if (ZombiesAddon.instance.config.koreanPatchersSst) sst(event, message)
-//        if (ZombiesAddon.instance.config.koreanPatchersZombiesUtils) zombiesutils(event, message)
     }
 
     private fun sst(event: ClientChatPrintedEvent, message: String) {
@@ -69,8 +68,4 @@ object KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
             event.isCanceled = true
         }
     }
-
-//    private fun zombiesutils(event: ClientChatPrintedEvent, message: String) {
-//
-//    }
 }

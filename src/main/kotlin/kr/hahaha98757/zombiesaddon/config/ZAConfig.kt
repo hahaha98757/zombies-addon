@@ -75,7 +75,7 @@ class ZAConfig(val config: Configuration) {
     var koreanPatchersIngame = false
     var koreanPatchersZombiesOverlay = false
     var koreanPatchersSst = false
-//    var koreanPatchersZombiesUtils = false
+    var koreanPatchersZombiesUtils = false
 
     var disableSpawnTimeOfSst = true
     var disableTimerOfZombiesUtils = true
@@ -422,13 +422,13 @@ class ZAConfig(val config: Configuration) {
             "$koreanPatchersSstKey.description"
         )).boolean
 
-//        val koreanPatchersZombiesUtilsKey = "zombiesaddon.config.koreanPatchersZombiesUtils"
-//        koreanPatchersZombiesUtils = addOption(categoryKoreanPatchers.list, koreanPatchersZombiesUtilsKey, config.get(
-//            categoryKoreanPatchers.name,
-//            "koreanPatchersZombiesUtils",
-//            false,
-//            "$koreanPatchersZombiesUtilsKey.description"
-//        )).boolean
+        val koreanPatchersZombiesUtilsKey = "zombiesaddon.config.koreanPatchersZombiesUtils"
+        koreanPatchersZombiesUtils = addOption(categoryKoreanPatchers.list, koreanPatchersZombiesUtilsKey, config.get(
+            categoryKoreanPatchers.name,
+            "koreanPatchersZombiesUtils",
+            false,
+            "$koreanPatchersZombiesUtilsKey.description"
+        )).boolean
 
 
         // 다른 모드
