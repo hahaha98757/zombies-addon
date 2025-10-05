@@ -1,5 +1,13 @@
 # Change log
 
+## 4.5.1
+10-05-2025
+- Added
+  - Korean Patcher: Korean translation for Zombies Utils.
+- 수정
+  - Client-only Mod: Fixed the mod being loaded on servers.
+- Code Fix: Fixed translation keys.
+
 ## 4.5.0
 09-30-2025
 - Change:
