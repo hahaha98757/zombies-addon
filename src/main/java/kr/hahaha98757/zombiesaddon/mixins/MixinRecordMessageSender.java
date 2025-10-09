@@ -51,7 +51,7 @@ public abstract class MixinRecordMessageSender {
         this.recordMessage.append(announcement)
                 .append("\n§c라운드 ")
                 .append(round)
-                .append("§e을(를)§a")
+                .append("§e을(를)§a ")
                 .append(timeString)
                 .append("§9")
                 .append(deltaString)
