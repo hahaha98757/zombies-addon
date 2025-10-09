@@ -5,11 +5,11 @@ import net.minecraftforge.fml.common.eventhandler.Event
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 
-class LastClientTickEvent: Event()
-
-class LastClientTickEventListener {
-    @SubscribeEvent
-    fun onTick(event: TickEvent.ClientTickEvent) {
-        if (event.phase == TickEvent.Phase.END) MinecraftForge.EVENT_BUS.post(LastClientTickEvent())
+class LastClientTickEvent: Event() {
+    class EventBridge {
+        @SubscribeEvent
+        fun onTick(event: TickEvent.ClientTickEvent) {
+            if (event.phase == TickEvent.Phase.END) MinecraftForge.EVENT_BUS.post(LastClientTickEvent())
+        }
     }
 }

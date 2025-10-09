@@ -6,7 +6,7 @@ import kr.hahaha98757.zombiesaddon.commands.Commands
 import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySound
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
-import kr.hahaha98757.zombiesaddon.events.LastClientTickEventListener
+import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.gui.GuiDetectedUnlegitMods
 import kr.hahaha98757.zombiesaddon.modules.*
@@ -151,7 +151,7 @@ class ZombiesAddon {
         MinecraftForge.EVENT_BUS.register(this)
         MinecraftForge.EVENT_BUS.register(config)
         MinecraftForge.EVENT_BUS.register(UpdateCheckerHandler())
-        MinecraftForge.EVENT_BUS.register(LastClientTickEventListener())
+        MinecraftForge.EVENT_BUS.register(LastClientTickEvent.EventBridge())
         MinecraftForge.EVENT_BUS.register(ModuleListener())
         MinecraftForge.EVENT_BUS.register(ThePlayerJoinHandler())
 
