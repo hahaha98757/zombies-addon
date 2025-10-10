@@ -93,7 +93,7 @@ class ZAConfig(val config: Configuration) {
 
         // 일반
         val enableModKey = "zombiesaddon.config.enableMod"
-        enableMod = addOption(categoryGeneral.list, enableModKey, config.get(
+        enableMod = addOption(categoryGeneral.map, enableModKey, config.get(
             categoryGeneral.name,
             "enableMod",
             true,
@@ -101,7 +101,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val languageKey = "zombiesaddon.config.language"
-        language = Language.fromText(addOption(categoryGeneral.list, languageKey, config.get(
+        language = Language.fromText(addOption(categoryGeneral.map, languageKey, config.get(
             categoryGeneral.name,
             "language",
             Language.AUTO.toString(),
@@ -112,7 +112,7 @@ class ZAConfig(val config: Configuration) {
 
         // 모듈
         val toggleNotLastKey = "zombiesaddon.config.toggleNotLast"
-        toggleNotLast = addOption(categoryModules.list, toggleNotLastKey, config.get(
+        toggleNotLast = addOption(categoryModules.map, toggleNotLastKey, config.get(
             categoryModules.name,
             "toggleNotLast",
             false,
@@ -120,7 +120,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val toggleInternalTimerKey = "zombiesaddon.config.toggleInternalTimer"
-        toggleInternalTimer = addOption(categoryModules.list, toggleInternalTimerKey, config.get(
+        toggleInternalTimer = addOption(categoryModules.map, toggleInternalTimerKey, config.get(
             categoryModules.name,
             "toggleInternalTimer",
             true,
@@ -128,7 +128,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val togglePowerupPatternsKey = "zombiesaddon.config.togglePowerupPatterns"
-        togglePowerupPatterns = addOption(categoryModules.list, togglePowerupPatternsKey, config.get(
+        togglePowerupPatterns = addOption(categoryModules.map, togglePowerupPatternsKey, config.get(
             categoryModules.name,
             "togglePowerupPatterns",
             true,
@@ -136,7 +136,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val textMacroKey = "zombiesaddon.config.textMacro"
-        textMacro = addOption(categoryModules.list, textMacroKey, config.get(
+        textMacro = addOption(categoryModules.map, textMacroKey, config.get(
             categoryModules.name,
             "textMacro",
             "T",
@@ -146,7 +146,7 @@ class ZAConfig(val config: Configuration) {
 
         // Player Visibility
         val pvDefaultKey = "zombiesaddon.config.pvDefault"
-        pvDefault = addOption(categoryPv.list, pvDefaultKey, config.get(
+        pvDefault = addOption(categoryPv.map, pvDefaultKey, config.get(
             categoryPv.name,
             "pvDefault",
             true,
@@ -154,7 +154,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val pvTextKey = "zombiesaddon.config.pvText"
-        pvText = addOption(categoryPv.list, pvTextKey, config.get(
+        pvText = addOption(categoryPv.map, pvTextKey, config.get(
             categoryPv.name,
             "pvText",
             true,
@@ -162,7 +162,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val pvRangeKey = "zombiesaddon.config.pvRange"
-        pvRange = addOption(categoryPv.list, pvRangeKey, config.get(
+        pvRange = addOption(categoryPv.map, pvRangeKey, config.get(
             categoryPv.name,
             "pvRange",
             2.5,
@@ -171,7 +171,7 @@ class ZAConfig(val config: Configuration) {
         )).double
 
         val pvToggleSemiPvKey = "zombiesaddon.config.pvToggleSemiPv"
-        pvToggleSemiPv = addOption(categoryPv.list, pvToggleSemiPvKey, config.get(
+        pvToggleSemiPv = addOption(categoryPv.map, pvToggleSemiPvKey, config.get(
             categoryPv.name,
             "pvToggleSemiPv",
             true,
@@ -179,7 +179,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val pvSemiPvRangeKey = "zombiesaddon.config.pvSemiPvRange"
-        pvSemiPvRange = addOption(categoryPv.list, pvSemiPvRangeKey, config.get(
+        pvSemiPvRange = addOption(categoryPv.map, pvSemiPvRangeKey, config.get(
             categoryPv.name,
             "pvSemiPvRange",
             5.0,
@@ -190,7 +190,7 @@ class ZAConfig(val config: Configuration) {
 
         // Block Alarm
         val blockAlarmDefaultKey = "zombiesaddon.config.defaultBlockAlarm"
-        blockAlarmDefault = addOption(categoryBlockAlarm.list, blockAlarmDefaultKey, config.get(
+        blockAlarmDefault = addOption(categoryBlockAlarm.map, blockAlarmDefaultKey, config.get(
             categoryBlockAlarm.name,
             "blockAlarmDefault",
             false,
@@ -198,7 +198,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val blockAlarmTextKey = "zombiesaddon.config.blockAlarmText"
-        blockAlarmText = addOption(categoryBlockAlarm.list, blockAlarmTextKey, config.get(
+        blockAlarmText = addOption(categoryBlockAlarm.map, blockAlarmTextKey, config.get(
             categoryBlockAlarm.name,
             "blockAlarmText",
             false,
@@ -208,7 +208,7 @@ class ZAConfig(val config: Configuration) {
 
         // Auto Splits
         val autoSplitsToggleKey = "zombiesaddon.config.autoSplitsToggle"
-        autoSplitsToggle = addOption(categoryAutoSplits.list, autoSplitsToggleKey, config.get(
+        autoSplitsToggle = addOption(categoryAutoSplits.map, autoSplitsToggleKey, config.get(
             categoryAutoSplits.name,
             "autoSplitsToggle",
             false,
@@ -216,7 +216,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val autoSplitsHostKey = "zombiesaddon.config.autoSplitsHost"
-        autoSplitsHost = addOption(categoryAutoSplits.list, autoSplitsHostKey, config.get(
+        autoSplitsHost = addOption(categoryAutoSplits.map, autoSplitsHostKey, config.get(
             categoryAutoSplits.name,
             "autoSplitsHost",
             "127.0.0.1",
@@ -224,7 +224,7 @@ class ZAConfig(val config: Configuration) {
         )).string
 
         val autoSplitsPortKey = "zombiesaddon.config.autoSplitsPort"
-        autoSplitsPort = addOption(categoryAutoSplits.list, autoSplitsPortKey, config.get(
+        autoSplitsPort = addOption(categoryAutoSplits.map, autoSplitsPortKey, config.get(
             categoryAutoSplits.name,
             "autoSplitsPort",
             16834,
@@ -235,7 +235,7 @@ class ZAConfig(val config: Configuration) {
 
         // Wave Delays
         val waveDelaysToggleKey = "zombiesaddon.config.waveDelaysToggle"
-        waveDelaysToggle = addOption(categoryWaveDelays.list, waveDelaysToggleKey, config.get(
+        waveDelaysToggle = addOption(categoryWaveDelays.map, waveDelaysToggleKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysToggle",
             true,
@@ -243,7 +243,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val waveDelaysPlaySoundsKey = "zombiesaddon.config.waveDelaysPlaySounds"
-        waveDelaysPlaySounds = addOption(categoryWaveDelays.list, waveDelaysPlaySoundsKey, config.get(
+        waveDelaysPlaySounds = addOption(categoryWaveDelays.map, waveDelaysPlaySoundsKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysPlaySounds",
             intArrayOf(-40, -20, 0),
@@ -252,7 +252,7 @@ class ZAConfig(val config: Configuration) {
         )).intList
 
         val waveDelaysCustomPlaySoundKey = "zombiesaddon.config.waveDelaysCustomPlaySound"
-        waveDelaysCustomPlaySound = addOption(categoryWaveDelays.list, waveDelaysCustomPlaySoundKey, config.get(
+        waveDelaysCustomPlaySound = addOption(categoryWaveDelays.map, waveDelaysCustomPlaySoundKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysCustomPlaySound",
             false,
@@ -260,7 +260,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val waveDelaysPrefixKey = "zombiesaddon.config.waveDelaysPrefix"
-        waveDelaysPrefix = addOption(categoryWaveDelays.list, waveDelaysPrefixKey, config.get(
+        waveDelaysPrefix = addOption(categoryWaveDelays.map, waveDelaysPrefixKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysPrefix",
             true,
@@ -268,7 +268,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val waveDelaysBossColorKey = "zombiesaddon.config.waveDelaysBossColor"
-        waveDelaysBossColor = addOption(categoryWaveDelays.list, waveDelaysBossColorKey, config.get(
+        waveDelaysBossColor = addOption(categoryWaveDelays.map, waveDelaysBossColorKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysBossColor",
             true,
@@ -276,7 +276,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val waveDelaysTextStyleKey = "zombiesaddon.config.waveDelaysTextStyle"
-        waveDelaysTextStyle = TextStyle.fromText(addOption(categoryWaveDelays.list, waveDelaysTextStyleKey, config.get(
+        waveDelaysTextStyle = TextStyle.fromText(addOption(categoryWaveDelays.map, waveDelaysTextStyleKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysTextStyle",
             TextStyle.NEW_COLON.toString(),
@@ -285,7 +285,7 @@ class ZAConfig(val config: Configuration) {
         )).string)
 
         val waveDelaysHighlightStyleKey = "zombiesaddon.config.waveDelaysHighlightStyle"
-        waveDelaysHighlightStyle = HighlightStyle.fromText(addOption(categoryWaveDelays.list, waveDelaysHighlightStyleKey, config.get(
+        waveDelaysHighlightStyle = HighlightStyle.fromText(addOption(categoryWaveDelays.map, waveDelaysHighlightStyleKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysHighlightStyle",
             HighlightStyle.ZOMBIES_ADDON.toString(),
@@ -294,7 +294,7 @@ class ZAConfig(val config: Configuration) {
         )).string)
 
         val waveDelaysHidePassedWaveKey = "zombiesaddon.config.waveDelaysHidePassedWave"
-        waveDelaysHidePassedWave = addOption(categoryWaveDelays.list, waveDelaysHidePassedWaveKey, config.get(
+        waveDelaysHidePassedWave = addOption(categoryWaveDelays.map, waveDelaysHidePassedWaveKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysHidePassedWave",
             false,
@@ -302,7 +302,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val waveDelaysRlModeOffsetKey = "zombiesaddon.config.waveDelaysRlModeOffset"
-        waveDelaysRlModeOffset = addOption(categoryWaveDelays.list, waveDelaysRlModeOffsetKey, config.get(
+        waveDelaysRlModeOffset = addOption(categoryWaveDelays.map, waveDelaysRlModeOffsetKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysRlModeOffset",
             -28,
@@ -313,7 +313,7 @@ class ZAConfig(val config: Configuration) {
 
         // SLA
         val slaAutoSlaKey = "zombiesaddon.config.slaAutoSla"
-        slaAutoSla = addOption(categorySla.list, slaAutoSlaKey, config.get(
+        slaAutoSla = addOption(categorySla.map, slaAutoSlaKey, config.get(
             categorySla.name,
             "slaAutoSla",
             false,
@@ -321,7 +321,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val slaTextColorKey = "zombiesaddon.config.slaTextColor"
-        slaTextColor = addOption(categorySla.list, slaTextColorKey, config.get(
+        slaTextColor = addOption(categorySla.map, slaTextColorKey, config.get(
             categorySla.name,
             "slaTextColor",
             true,
@@ -329,7 +329,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val slaActivatedWindowsKey = "zombiesaddon.config.slaActivatedWindows"
-        slaActivatedWindows = addOption(categorySla.list, slaActivatedWindowsKey, config.get(
+        slaActivatedWindows = addOption(categorySla.map, slaActivatedWindowsKey, config.get(
             categorySla.name,
             "slaActivatedWindows",
             true,
@@ -337,7 +337,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val slaUnactivatedWindowsKey = "zombiesaddon.config.slaUnactivatedWindows"
-        slaUnactivatedWindows = addOption(categorySla.list, slaUnactivatedWindowsKey, config.get(
+        slaUnactivatedWindows = addOption(categorySla.map, slaUnactivatedWindowsKey, config.get(
             categorySla.name,
             "slaUnactivatedWindows",
             false,
@@ -347,7 +347,7 @@ class ZAConfig(val config: Configuration) {
 
         // Auto Rejoin
         val autoRejoinDefaultKey = "zombiesaddon.config.defaultAutoRejoin"
-        autoRejoinDefault = addOption(categoryAutoRejoin.list, autoRejoinDefaultKey, config.get(
+        autoRejoinDefault = addOption(categoryAutoRejoin.map, autoRejoinDefaultKey, config.get(
             categoryAutoRejoin.name,
             "autoRejoinDefault",
             false,
@@ -355,7 +355,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val autoRejoinTextKey = "zombiesaddon.config.autoRejoinText"
-        autoRejoinText = addOption(categoryAutoRejoin.list, autoRejoinTextKey, config.get(
+        autoRejoinText = addOption(categoryAutoRejoin.map, autoRejoinTextKey, config.get(
             categoryAutoRejoin.name,
             "autoRejoinText",
             false,
@@ -365,7 +365,7 @@ class ZAConfig(val config: Configuration) {
 
         // Last Weapons
         val lwToggleKey = "zombiesaddon.config.lwToggle"
-        lwToggle = addOption(categoryLastWeapons.list, lwToggleKey, config.get(
+        lwToggle = addOption(categoryLastWeapons.map, lwToggleKey, config.get(
             categoryLastWeapons.name,
             "lwToggle",
             true,
@@ -373,7 +373,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val lwDisplayArmorsKey = "zombiesaddon.config.lwDisplayArmors"
-        lwDisplayArmors = addOption(categoryLastWeapons.list, lwDisplayArmorsKey, config.get(
+        lwDisplayArmors = addOption(categoryLastWeapons.map, lwDisplayArmorsKey, config.get(
             categoryLastWeapons.name,
             "lwDisplayArmors",
             true,
@@ -381,7 +381,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val lwDisplayWeaponsLevelKey = "zombiesaddon.config.lwDisplayWeaponsLevel"
-        lwDisplayWeaponsLevel = addOption(categoryLastWeapons.list, lwDisplayWeaponsLevelKey, config.get(
+        lwDisplayWeaponsLevel = addOption(categoryLastWeapons.map, lwDisplayWeaponsLevelKey, config.get(
             categoryLastWeapons.name,
             "lwDisplayWeaponsLevel",
             true,
@@ -389,7 +389,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val lwDisplayCooledDownSkillKey = "zombiesaddon.config.lwDisplayCooledDownSkill"
-        lwDisplayCooledDownSkill = addOption(categoryLastWeapons.list, lwDisplayCooledDownSkillKey, config.get(
+        lwDisplayCooledDownSkill = addOption(categoryLastWeapons.map, lwDisplayCooledDownSkillKey, config.get(
             categoryLastWeapons.name,
             "lwDisplayCooledDownSkill",
             true,
@@ -399,7 +399,7 @@ class ZAConfig(val config: Configuration) {
 
         // 한글 패치
         val koreanPatchersIngameKey = "zombiesaddon.config.koreanPatchersIngame"
-        koreanPatchersIngame = addOption(categoryKoreanPatchers.list, koreanPatchersIngameKey, config.get(
+        koreanPatchersIngame = addOption(categoryKoreanPatchers.map, koreanPatchersIngameKey, config.get(
             categoryKoreanPatchers.name,
             "koreanPatchersIngame",
             false,
@@ -407,7 +407,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val koreanPatchersZombiesOverlayKey = "zombiesaddon.config.koreanPatchersZombiesOverlay"
-        koreanPatchersZombiesOverlay = addOption(categoryKoreanPatchers.list, koreanPatchersZombiesOverlayKey, config.get(
+        koreanPatchersZombiesOverlay = addOption(categoryKoreanPatchers.map, koreanPatchersZombiesOverlayKey, config.get(
             categoryKoreanPatchers.name,
             "koreanPatchersZombiesOverlay",
             false,
@@ -415,7 +415,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val koreanPatchersSstKey = "zombiesaddon.config.koreanPatchersSst"
-        koreanPatchersSst = addOption(categoryKoreanPatchers.list, koreanPatchersSstKey, config.get(
+        koreanPatchersSst = addOption(categoryKoreanPatchers.map, koreanPatchersSstKey, config.get(
             categoryKoreanPatchers.name,
             "koreanPatchersSst",
             false,
@@ -423,7 +423,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val koreanPatchersZombiesUtilsKey = "zombiesaddon.config.koreanPatchersZombiesUtils"
-        koreanPatchersZombiesUtils = addOption(categoryKoreanPatchers.list, koreanPatchersZombiesUtilsKey, config.get(
+        koreanPatchersZombiesUtils = addOption(categoryKoreanPatchers.map, koreanPatchersZombiesUtilsKey, config.get(
             categoryKoreanPatchers.name,
             "koreanPatchersZombiesUtils",
             false,
@@ -433,7 +433,7 @@ class ZAConfig(val config: Configuration) {
 
         // 다른 모드
         val disableSpawnTimeOfSstKey = "zombiesaddon.config.disableSpawnTimeOfSst"
-        disableSpawnTimeOfSst = addOption(categoryOtherMods.list, disableSpawnTimeOfSstKey, config.get(
+        disableSpawnTimeOfSst = addOption(categoryOtherMods.map, disableSpawnTimeOfSstKey, config.get(
             categoryOtherMods.name,
             "disableSpawnTimeOfSst",
             true,
@@ -441,7 +441,7 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val disableTimerOfZombiesUtilsKey = "zombiesaddon.config.disableTimerOfZombiesUtils"
-        disableTimerOfZombiesUtils = addOption(categoryOtherMods.list, disableTimerOfZombiesUtilsKey, config.get(
+        disableTimerOfZombiesUtils = addOption(categoryOtherMods.map, disableTimerOfZombiesUtilsKey, config.get(
             categoryOtherMods.name,
             "disableTimerOfZombiesUtils",
             true,
@@ -450,14 +450,14 @@ class ZAConfig(val config: Configuration) {
 
 
         // 숨겨짐
-        blockUnlegitMods = addOption(categoryHidden.list, "zombiesaddon.config.blockUnlegitMods", config.get(
+        blockUnlegitMods = addOption(categoryHidden.map, "zombiesaddon.config.blockUnlegitMods", config.get(
             categoryHidden.name,
             "blockUnlegitMods",
             true,
             "언레짓 모드를 차단합니다."
         )).boolean
 
-        blockUnlegitSst = addOption(categoryHidden.list, "zombiesaddon.config.blockUnlegitSst", config.get(
+        blockUnlegitSst = addOption(categoryHidden.map, "zombiesaddon.config.blockUnlegitSst", config.get(
             categoryHidden.name,
             "blockUnlegitSst",
             true,
@@ -478,25 +478,24 @@ class ZAConfig(val config: Configuration) {
         logger.info("컨피그 로딩 완료.")
     }
 
-    private fun addOption(category: MutableList<IConfigElement>, langKey: String, prop: Property): Property {
+    private fun addOption(category: MutableMap<String, IConfigElement>, langKey: String, prop: Property): Property {
         prop.languageKey = langKey
-        category.removeIf { it.name == prop.name }
-        category += ConfigElement(prop)
+        category[prop.name] = ConfigElement(prop)
         return prop
     }
 
     fun getElements() = listOf(
-        DummyCategoryElement(categoryGeneral.name, "zombiesaddon.config.category.general", categoryGeneral.list),
-        DummyCategoryElement(categoryModules.name, "zombiesaddon.config.category.modules", categoryModules.list),
-        DummyCategoryElement(categoryPv.name, "zombiesaddon.config.category.pv", categoryPv.list),
-        DummyCategoryElement(categoryBlockAlarm.name, "zombiesaddon.config.category.blockAlarm", categoryBlockAlarm.list),
-        DummyCategoryElement(categoryAutoSplits.name, "zombiesaddon.config.category.autoSplits", categoryAutoSplits.list),
-        DummyCategoryElement(categoryWaveDelays.name, "zombiesaddon.config.category.waveDelays", categoryWaveDelays.list),
-        DummyCategoryElement(categoryAutoRejoin.name, "zombiesaddon.config.category.autoRejoin", categoryAutoRejoin.list),
-        DummyCategoryElement(categorySla.name, "zombiesaddon.config.category.sla", categorySla.list),
-        DummyCategoryElement(categoryLastWeapons.name, "zombiesaddon.config.category.lw", categoryLastWeapons.list),
-        DummyCategoryElement(categoryKoreanPatchers.name, "zombiesaddon.config.category.koreanPatchers", categoryKoreanPatchers.list),
-        DummyCategoryElement(categoryOtherMods.name, "zombiesaddon.config.category.otherMods", categoryOtherMods.list)
+        DummyCategoryElement(categoryGeneral.name, "zombiesaddon.config.category.general", categoryGeneral.map.values.toList()),
+        DummyCategoryElement(categoryModules.name, "zombiesaddon.config.category.modules", categoryModules.map.values.toList()),
+        DummyCategoryElement(categoryPv.name, "zombiesaddon.config.category.pv", categoryPv.map.values.toList()),
+        DummyCategoryElement(categoryBlockAlarm.name, "zombiesaddon.config.category.blockAlarm", categoryBlockAlarm.map.values.toList()),
+        DummyCategoryElement(categoryAutoSplits.name, "zombiesaddon.config.category.autoSplits", categoryAutoSplits.map.values.toList()),
+        DummyCategoryElement(categoryWaveDelays.name, "zombiesaddon.config.category.waveDelays", categoryWaveDelays.map.values.toList()),
+        DummyCategoryElement(categoryAutoRejoin.name, "zombiesaddon.config.category.autoRejoin", categoryAutoRejoin.map.values.toList()),
+        DummyCategoryElement(categorySla.name, "zombiesaddon.config.category.sla", categorySla.map.values.toList()),
+        DummyCategoryElement(categoryLastWeapons.name, "zombiesaddon.config.category.lw", categoryLastWeapons.map.values.toList()),
+        DummyCategoryElement(categoryKoreanPatchers.name, "zombiesaddon.config.category.koreanPatchers", categoryKoreanPatchers.map.values.toList()),
+        DummyCategoryElement(categoryOtherMods.name, "zombiesaddon.config.category.otherMods", categoryOtherMods.map.values.toList())
     )
 
     private fun save() {
@@ -513,5 +512,5 @@ class ZAConfig(val config: Configuration) {
 }
 
 private data class Category(val name: String) {
-    val list = mutableListOf<IConfigElement>()
+    val map = mutableMapOf<String, IConfigElement>()
 }
