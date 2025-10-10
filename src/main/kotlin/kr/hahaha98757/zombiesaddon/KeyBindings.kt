@@ -40,4 +40,21 @@ class KeyBindings {
         ClientRegistry.registerKeyBinding(bgTimer)
         ClientRegistry.registerKeyBinding(autoTimer)
     }
+
+    fun resetAll() {
+        togglePv.isPressed
+        toggleBlockAlarm.isPressed
+        toggleAutoRejoin.isPressed
+        zsvScrollUp.isPressed
+        zsvScrollDown.isPressed
+        toggleRlMode.isPressed
+        textMacro.isPressed
+        insTimer.isPressed
+        maxTimer.isPressed
+        ssTimer.isPressed
+        dgTimer.isPressed
+        carTimer.isPressed
+        bgTimer.isPressed
+        autoTimer.isPressed
+    }
 }

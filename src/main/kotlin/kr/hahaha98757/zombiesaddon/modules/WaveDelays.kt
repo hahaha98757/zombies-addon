@@ -17,12 +17,9 @@ object WaveDelays: Module("Wave Delays") {
 
     override fun onKeyInput(event: KeyInputEvent) {
         if (!ZombiesAddon.instance.keyBindings.toggleRlMode.isPressed) return
-        if (isDisable()) return
-        if (!isEnable()) return
-        if (isNotPlayZombies()) return
         rlMode = !rlMode
         offset = if (rlMode) ZombiesAddon.instance.config.waveDelaysRlModeOffset else 0
-        addTranslationChat("zombiesaddon.modules.general.toggled", "§eRL Mode", if (rlMode) "§aon" else "§coff")
+        addChat("§eWave Delays: " + getTranslatedString("zombiesaddon.modules.general.toggled", true, "§eRL Mode", if (rlMode) "§aon" else "§coff"))
     }
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {

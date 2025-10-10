@@ -1,5 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
+import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
@@ -14,9 +15,13 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 abstract class Module(val name: String) {
     abstract fun isEnable(): Boolean
 
-    internal fun occurEvent(event: Event) {
-        if (!isEnable()) return
+    internal open fun occurEvent(event: Event) {
+        if (!isEnable()) {
+            if (event is KeyInputEvent) ZombiesAddon.instance.keyBindings.resetAll()
+            return
+        }
         when (event) {
+            is KeyInputEvent -> onKeyInput(event)
             is LastClientTickEvent -> onLastTick(event)
             is RenderGameOverlayEvent.Text -> onRender(event)
             is RoundStartEvent -> onRoundStart(event)
@@ -26,14 +31,13 @@ abstract class Module(val name: String) {
         }
     }
 
+    protected open fun onKeyInput(event: KeyInputEvent) {}
     protected open fun onLastTick(event: LastClientTickEvent) {}
     protected open fun onRender(event: RenderGameOverlayEvent.Text) {}
     protected open fun onRoundStart(event: RoundStartEvent) {}
     protected open fun onGameEnd(event: GameEndEvent) {}
     protected open fun onChat(event: ClientChatReceivedEvent) {}
     protected open fun onEvent(event: Event) {}
-
-    internal open fun onKeyInput(event: KeyInputEvent) {}
 }
 
 abstract class ToggleableModule(name: String, private var enabled: Boolean): Module(name) {
@@ -42,13 +46,17 @@ abstract class ToggleableModule(name: String, private var enabled: Boolean): Mod
 
     final override fun onKeyInput(event: KeyInputEvent) {
         if (getKeyBinding().isPressed) {
-            if (isDisable()) return
             enabled = !enabled
             addToggleText(enabled)
         }
     }
 
     final override fun isEnable() = enabled
+
+    final override fun occurEvent(event: Event) {
+        if (event is KeyInputEvent) onKeyInput(event)
+        else if (isEnable()) super.occurEvent(event)
+    }
 }
 
 open class AlwaysEnableModule(name: String): Module(name) {
@@ -66,8 +74,10 @@ class ModuleListener {
 
     @SubscribeEvent
     fun onEvent(event: Event) {
-        if (event is KeyInputEvent) for (module in modules) module.onKeyInput(event)
-        if (isDisable()) return
+        if (isDisable()) {
+            if (event is KeyInputEvent) ZombiesAddon.instance.keyBindings.resetAll()
+            return
+        }
         for (module in modules) module.occurEvent(event)
     }
 }
