@@ -501,8 +501,6 @@ class ZAConfig(val config: Configuration) {
     private fun save() {
         config.save()
         loadConfig()
-        if (enableMod) logger.info("Enable Mod가 true로 설정되었습니다.")
-        else logger.info("Enable Mod가 false로 설정되었습니다.")
     }
 
     @SubscribeEvent
