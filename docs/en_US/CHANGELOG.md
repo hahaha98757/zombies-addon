@@ -1,5 +1,15 @@
 # Change log
 
+## 4.5.2
+2025-10-12
+- Code Fix:
+  - Changed the class that triggers LastClientTickEvent.
+  - Performance Improvement: Changed the collection of config category objects.
+  - Removed logs related to mod activation options.
+  - Changed the way key input detection function is called.
+- Bug Fix:
+  - Typo Fix: Fixed a typo in the Korean translation of Zombies Utils.
+
 ## 4.5.1
 10-05-2025
 - Added
