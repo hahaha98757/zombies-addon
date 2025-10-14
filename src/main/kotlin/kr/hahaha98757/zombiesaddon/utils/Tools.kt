@@ -61,6 +61,11 @@ fun getX(text: String): Float = getX() - fr.getStringWidth(text) - 1
 fun getY(): Float = ScaledResolution(mc).scaledHeight.toFloat()
 fun getYFont(): Float = getY() - fr.FONT_HEIGHT - 1
 
+fun isHypixel(): Boolean {
+    val ip = mc.currentServerData?.serverIP ?: return false
+    return ip.matches(Regex("(.+\\.)?(hypixel\\.net)(:25565)?"))
+}
+
 fun isNotPlayZombies(): Boolean {
     if (mc.thePlayer == null || mc.theWorld == null) return true
     if (Scoreboard.isNotZombies) return true

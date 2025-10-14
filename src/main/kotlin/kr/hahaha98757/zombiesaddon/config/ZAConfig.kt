@@ -24,6 +24,7 @@ class ZAConfig(val config: Configuration) {
     private val categorySla = Category("SLA")
     private val categoryAutoRejoin = Category("Auto Rejoin")
     private val categoryLastWeapons = Category("Last Weapons")
+    private val categoryRecorder = Category("Recorder")
     private val categoryKoreanPatchers = Category("Korean Patchers")
     private val categoryOtherMods = Category("Other Mods")
     private val categoryHidden = Category("Hidden")
@@ -71,6 +72,10 @@ class ZAConfig(val config: Configuration) {
     var lwDisplayArmors = true
     var lwDisplayWeaponsLevel = true
     var lwDisplayCooledDownSkill = true
+
+    var recorderToggle = true
+    var recorderDefaultCategory = "General"
+    var recorderPbNotice = true
 
     var koreanPatchersIngame = false
     var koreanPatchersZombiesOverlay = false
@@ -394,6 +399,32 @@ class ZAConfig(val config: Configuration) {
             "lwDisplayCooledDownSkill",
             true,
             "$lwDisplayCooledDownSkillKey.description"
+        )).boolean
+
+
+        // Recorder
+        val recorderToggleKey = "zombiesaddon.config.recorderToggle"
+        recorderToggle = addOption(categoryRecorder.map, recorderToggleKey, config.get(
+            categoryRecorder.name,
+            "recorderToggle",
+            true,
+            "$recorderToggleKey.description"
+        )).boolean
+
+        val recorderDefaultCategoryKey = "zombiesaddon.config.recorderDefaultCategory"
+        recorderDefaultCategory = addOption(categoryRecorder.map, recorderDefaultCategoryKey, config.get(
+            categoryRecorder.name,
+            "recorderDefaultCategory",
+            "General",
+            "$recorderDefaultCategoryKey.description"
+        )).string
+
+        val recorderPbNoticeKey = "zombiesaddon.config.recorderPbNotice"
+        recorderPbNotice = addOption(categoryRecorder.map, recorderPbNoticeKey, config.get(
+            categoryRecorder.name,
+            "recorderPbNotice",
+            true,
+            "$recorderPbNoticeKey.description"
         )).boolean
 
 
