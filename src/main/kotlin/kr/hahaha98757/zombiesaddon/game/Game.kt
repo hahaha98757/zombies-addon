@@ -6,6 +6,10 @@ import kr.hahaha98757.zombiesaddon.enums.GameMode
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.modules.AutoSplits
+import kr.hahaha98757.zombiesaddon.modules.recorder.Recorder
+import kr.hahaha98757.zombiesaddon.modules.recorder.files.GameFile
+import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraftforge.common.MinecraftForge
 
@@ -15,8 +19,10 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
     var gameEnd = false
     var isWin = false
         get() = if (gameEnd) field else throw IllegalStateException("게임이 아직 종료되지 않았습니다.")
-//    private val recorder = Recorder(this)
-    private var escape = false
+    var escape = false
+    val isFullRecorded = (round == 1)
+    val gameFile = GameFile(serverNumber, gameMode.map)
+    private val recorder = Recorder(this)
 
     init {
         if (!doNotCorrectTimer) MinecraftForge.EVENT_BUS.register(TimerCorrector(this))
@@ -32,10 +38,10 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
         if (round == 0) return
         if (!byCommand && this.round == round + 1) return // 중복 호출 방지
         if (round > gameMode.rounds.size) return
-//        recorder.runCatching { record() }.onFailure {
-//            logger.error("게임 기록을 실패했습니다.", it)
-//            addTranslationChat("zombiesaddon.recorder.failed")
-//        }
+        recorder.runCatching { record() }.onFailure {
+            logger.error("게임 기록을 실패했습니다.", it)
+            addTranslationChat("zombiesaddon.modules.recorder.failed")
+        }
         if (gameEnd) return
         timer.split()
         this.round = round + 1

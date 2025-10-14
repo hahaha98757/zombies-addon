@@ -66,6 +66,14 @@ zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer
 zombiesaddon.modules.powerupPatterns.autoTimer.failed=§ePowerup Patterns: §cFailed to find powerup
 
 zombiesaddon.modules.recorder.failed=§eRecorder: §cFailed to record
+zombiesaddon.modules.recorder.failed.save.bestSegment=§eRecorder: §cFailed to save best segment
+zombiesaddon.modules.recorder.failed.save.pb=§eRecorder: §cFailed to save personal best
+zombiesaddon.modules.recorder.category=§e Category: %s
+zombiesaddon.modules.recorder.newPb=§e§l***§6§l NEW PERSONAL BEST! §e§l***
+zombiesaddon.modules.recorder.pb=§cRound %s§e finished at %s§e!
+zombiesaddon.modules.recorder.newBestSegment=§e§l***§6§l NEW BEST SEGMENT! §e§l***
+zombiesaddon.modules.recorder.bestSegment=§cRound %s§e took %s§e!
+zombiesaddon.modules.recorder.helicopter=§8§lHelicopter§r§e called at %s§e!
 
 zombiesaddon.gui.reset=Reset
 zombiesaddon.gui.comment=Click "Done" to save your current HUD position settings.

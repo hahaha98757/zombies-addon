@@ -66,6 +66,14 @@ zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: %s§e의 수동 
 zombiesaddon.modules.powerupPatterns.autoTimer.failed=§ePowerup Patterns: §c파워업을 찾는데 실패했습니다
 
 zombiesaddon.modules.recorder.failed=§eRecorder:§c 기록을 실패했습니다
+zombiesaddon.modules.recorder.failed.save.bestSegment=§eRecorder:§c 구간 기록 저장에 실패했습니다
+zombiesaddon.modules.recorder.failed.save.pb=§eRecorder:§c 개인 최고 기록 저장에 실패했습니다
+zombiesaddon.modules.recorder.category=§e 카테고리: %s
+zombiesaddon.modules.recorder.newPb=§e§l***§6§l 새로운 개인 최고 기록! §e§l***
+zombiesaddon.modules.recorder.pb=§c라운드 %s§e을(를) %s§e에 완료했습니다!
+zombiesaddon.modules.recorder.newBestSegment=§e§l***§6§l 새로운 구간 최고 기록! §e§l***
+zombiesaddon.modules.recorder.bestSegment=§c라운드 %s§e을(를) 넘기는 데 %s§e가 걸렸습니다!
+zombiesaddon.modules.recorder.helicopter=§8§l헬리콥터§r§e가 %s§e에 호출되었습니다!
 
 zombiesaddon.gui.reset=재설정
 zombiesaddon.gui.comment=현재 HUD 위치 설정을 저장하려면 "완료"를 클릭하세요
