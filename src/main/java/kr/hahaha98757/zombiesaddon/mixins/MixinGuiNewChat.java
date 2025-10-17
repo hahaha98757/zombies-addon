@@ -14,7 +14,6 @@ public class MixinGuiNewChat {
     @Inject(method = "printChatMessage", at = @At("HEAD"), cancellable = true)
     public void printChatMessage(IChatComponent chatComponent, CallbackInfo ci) {
         final ClientChatPrintedEvent event = new ClientChatPrintedEvent(chatComponent);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled()) ci.cancel();
+        if (MinecraftForge.EVENT_BUS.post(event)) ci.cancel();
     }
 }
