@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(NetHandlerPlayClient.class)
+@Mixin(value = NetHandlerPlayClient.class, priority = 900)
 public class MixinNetHandlerPlayClient {
     @Inject(method = "handleSoundEffect", at = @At("HEAD"))
     private void handleSoundEffect(S29PacketSoundEffect packetIn, CallbackInfo ci) {
