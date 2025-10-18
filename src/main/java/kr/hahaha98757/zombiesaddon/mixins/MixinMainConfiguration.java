@@ -2,7 +2,7 @@ package kr.hahaha98757.zombiesaddon.mixins;
 
 import com.seosean.showspawntime.config.MainConfiguration;
 import kr.hahaha98757.zombiesaddon.ZombiesAddon;
-import kr.hahaha98757.zombiesaddon.utils.Tools;
+import kr.hahaha98757.zombiesaddon.utils.ToolsKt;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
@@ -189,7 +189,7 @@ public class MixinMainConfiguration {
         logger.info("Finished loading config. ");
         logger.info("The unlegit features of SST have been blocked by Zombies Addon.");
         try {
-            Tools.addTranslationChat("zombiesaddon.messages.blockUnlegitSst");
+            ToolsKt.addTranslatedChat("zombiesaddon.messages.blockUnlegitSst");
         } catch (Throwable ignored) {}
     }
 }

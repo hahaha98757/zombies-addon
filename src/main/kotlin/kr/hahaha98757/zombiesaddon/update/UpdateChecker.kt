@@ -61,7 +61,7 @@ object UpdateChecker {
 
     fun check(displayGui: Boolean = true) {
         if (dev == Version.ZERO) {
-            addTranslationChat("zombiesaddon.update.failed")
+            addTranslatedChat("zombiesaddon.update.failed")
             return
         }
 
@@ -69,8 +69,8 @@ object UpdateChecker {
         if (current > dev) { // 미공개 버전 사용 중
             if (current.versionType == VersionType.ALPHA) {
                 addLine()
-                addTranslationChat("zombiesaddon.update.usingDev")
-                addTranslationChat(getDevWarningKey(current.versionType))
+                addTranslatedChat("zombiesaddon.update.usingDev")
+                addTranslatedChat(getDevWarningKey(current.versionType))
                 addLine()
             }
             return
@@ -92,16 +92,16 @@ object UpdateChecker {
     private fun usingDev() {
         if (current.versionType == VersionType.RELEASE) return
         addLine()
-        addTranslationChat("zombiesaddon.update.usingDev")
-        addTranslationChat(getDevWarningKey(current.versionType))
+        addTranslatedChat("zombiesaddon.update.usingDev")
+        addTranslatedChat(getDevWarningKey(current.versionType))
         addLine()
     }
 
     private fun newDev() {
         if (dev.versionType == VersionType.RELEASE) return
-        val url = ChatComponentText(getTranslatedString("zombiesaddon.update.downloadText", true)).apply {
+        val url = ChatComponentText(getTranslatedString("zombiesaddon.update.downloadText")).apply {
             chatStyle.chatClickEvent = ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/hahaha98757/zombies-addon/releases")
-            chatStyle.chatHoverEvent = HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponentText(getTranslatedString("zombiesaddon.update.downloadHover", true)))
+            chatStyle.chatHoverEvent = HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponentText(getTranslatedString("zombiesaddon.update.downloadHover")))
         }
         addLine()
         ChatComponentText("").run {
@@ -124,7 +124,7 @@ object UpdateChecker {
         VersionType.BETA -> "zombiesaddon.update.beta"
         VersionType.PRE_RELEASE -> "zombiesaddon.update.pre"
         VersionType.RELEASE_CANDIDATE -> "zombiesaddon.update.rc"
-        VersionType.RELEASE -> throw Error("도달 불가능한 코드.")
+        VersionType.RELEASE -> ""
     }
 
     fun autoUpdate() = Thread {

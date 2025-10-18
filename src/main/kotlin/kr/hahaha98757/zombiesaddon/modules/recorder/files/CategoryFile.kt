@@ -4,7 +4,7 @@ import kr.hahaha98757.zombiesaddon.enums.GameMode
 import kr.hahaha98757.zombiesaddon.modules.recorder.Indexable
 import kr.hahaha98757.zombiesaddon.modules.recorder.readOrCreate
 import kr.hahaha98757.zombiesaddon.modules.recorder.writeData
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import java.io.File
 
@@ -18,7 +18,7 @@ class CategoryFile(category: File, val gameMode: GameMode): File(category, "$gam
 
             runCatching { writeData(data) }.onFailure {
                 logger.error("구간 최고 기록을 저장하는데 실패했습니다.", it)
-                addTranslationChat("zombiesaddon.modules.recorder.failed.save.bestSegment")
+                addTranslatedChat("zombiesaddon.modules.recorder.failed.save.bestSegment")
             }
         }
     }
@@ -30,7 +30,7 @@ class CategoryFile(category: File, val gameMode: GameMode): File(category, "$gam
 
             runCatching { writeData(data) }.onFailure {
                 logger.error("개인 최고 기록을 저장하는데 실패했습니다.", it)
-                addTranslationChat("zombiesaddon.modules.recorder.failed.save.pb")
+                addTranslatedChat("zombiesaddon.modules.recorder.failed.save.pb")
             }
         }
     }

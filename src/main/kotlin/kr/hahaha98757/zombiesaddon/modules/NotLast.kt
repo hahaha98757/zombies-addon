@@ -25,9 +25,7 @@ object NotLast: Module("Not Last") {
         for (score in scoreboard.getSortedScores(scoreObjective))
             scoreMap[score.playerName] = score.scorePoints
 
-        RepeatedTask(endTask = {
-            addTranslationChat("zombiesaddon.modules.notLast.failed")
-        }) {
+        RepeatedTask(endTask = { addTranslatedChat("zombiesaddon.modules.notLast.failed") }) {
             val players = mutableListOf<String>()
             for (score in scoreboard.getSortedScores(scoreObjective)) {
                 val kills = scoreMap[score.playerName] ?: continue
@@ -41,13 +39,13 @@ object NotLast: Module("Not Last") {
         }
     }
 
-    private fun printLast(players: List<String>) = StringBuilder("§e").run {
-        append(players[0])
+    private fun printLast(players: List<String>) = StringBuilder().run {
+        append(players[0].withNameColor())
 
-        for (i in 1..players.lastIndex) if (i != players.lastIndex) append(", ${players[i]}")
-        else append(", ${getTranslatedString("zombiesaddon.modules.notLast.or")}§e ${players[i]}")
+        for (i in 1..players.lastIndex) if (i != players.lastIndex) append("§e, ${players[i].withNameColor()}")
+        else append("§e, ${getTranslatedString("zombiesaddon.modules.notLast.or")} ${players[i].withNameColor()}")
 
-        addTranslationChat("zombiesaddon.modules.notLast.printLast", toString())
+        addTranslatedChat("zombiesaddon.modules.notLast.printLast", toString())
     }
 
     override fun isEnable() = ZombiesAddon.instance.config.toggleNotLast

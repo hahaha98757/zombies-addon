@@ -21,7 +21,7 @@ object WaveDelays: Module("Wave Delays") {
         if (!isEnable()) return
         rlMode = !rlMode
         offset = if (rlMode) ZombiesAddon.instance.config.waveDelaysRlModeOffset else 0
-        addChat("§eWave Delays: " + getTranslatedString("zombiesaddon.modules.general.toggled", true, "§eRL Mode", if (rlMode) "§aon" else "§coff"))
+        addChat("§eWave Delays: " + getTranslatedString("zombiesaddon.modules.general.toggled", true, "RL Mode", if (rlMode) "§aon" else "§coff"))
     }
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {

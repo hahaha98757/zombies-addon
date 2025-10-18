@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.mixins;
 
-import kr.hahaha98757.zombiesaddon.utils.Tools;
+import kr.hahaha98757.zombiesaddon.utils.ToolsKt;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Property;
@@ -22,6 +22,6 @@ public class MixinConfigElement {
     @Inject(method = "getComment", at = @At("HEAD"), cancellable = true)
     private void getComment(CallbackInfoReturnable<String> cir) {
         if (!isProperty) cir.setReturnValue(ctgy.getComment());
-        cir.setReturnValue(prop.comment.startsWith("zombiesaddon") ? Tools.getTranslatedString(prop.comment) : prop.comment);
+        cir.setReturnValue(prop.comment.startsWith("zombiesaddon") ? ToolsKt.getTranslatedString(prop.comment) : prop.comment);
     }
 }

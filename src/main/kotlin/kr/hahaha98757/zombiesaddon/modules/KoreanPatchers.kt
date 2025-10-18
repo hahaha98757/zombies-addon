@@ -3,8 +3,8 @@ package kr.hahaha98757.zombiesaddon.modules
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.ClientChatPrintedEvent
 import kr.hahaha98757.zombiesaddon.utils.addChat
-import kr.hahaha98757.zombiesaddon.utils.getText
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
+import kr.hahaha98757.zombiesaddon.utils.withoutColor
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 
@@ -52,7 +52,7 @@ object KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
     override fun onEvent(event: Event) {
         if (event !is ClientChatPrintedEvent) return
         if (isNotPlayZombies()) return
-        val message = getText(event.message.unformattedText) // 왜인지 모르겠지만 색깔 코드가 제거가 안된다.
+        val message = event.message.unformattedText.withoutColor() // 왜인지 모르겠지만 색깔 코드가 제거가 안된다.
         if ("<" in message) return
         if (ZombiesAddon.instance.config.koreanPatchersSst) sst(event, message)
     }

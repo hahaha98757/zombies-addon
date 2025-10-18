@@ -6,7 +6,7 @@ import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.gui.hudposition.ConfigGui
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker
 import kr.hahaha98757.zombiesaddon.utils.DelayedTask
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
 import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraft.command.ICommandSender
@@ -22,7 +22,7 @@ class CommandZombiesAddon: CustomCommandBase() {
             "difficulty" -> {
                 if (args.size < 2) throw WrongUsageException("/zombiesaddon difficulty <normal|hard|rip>")
                 if (isNotPlayZombies()) {
-                    addTranslationChat("zombiesaddon.commands.zombiesaddon.difficulty.failed")
+                    addTranslatedChat("zombiesaddon.commands.zombiesaddon.difficulty.failed")
                     return
                 }
                 val gameManager = ZombiesAddon.instance.gameManager
@@ -41,7 +41,7 @@ class CommandZombiesAddon: CustomCommandBase() {
                     }
                     else -> throw WrongUsageException("/zombiesaddon difficulty <normal|hard|rip>")
                 }
-                addTranslationChat("zombiesaddon.commands.zombiesaddon.difficulty", difficulty)
+                addTranslatedChat("zombiesaddon.commands.zombiesaddon.difficulty", difficulty)
             }
             "hud" -> DelayedTask { mc.displayGuiScreen(ConfigGui()) }
             "checkUpdate" -> UpdateChecker.initAndCheck()

@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
 import java.net.Socket
@@ -28,7 +28,7 @@ object AutoSplits {
             }
         } catch (e: Exception) {
             logger.warn("LiveSplit에 명령어를 전달하는데 실패했습니다: $command", e)
-            mc.addScheduledTask { addTranslationChat("zombiesaddon.modules.autoSplits.failed", "§a$command") }
+            mc.addScheduledTask { addTranslatedChat("zombiesaddon.modules.autoSplits.failed", command) }
         }
     }.start()
 }

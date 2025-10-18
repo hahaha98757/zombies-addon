@@ -6,7 +6,7 @@ import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.JsonLoader
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.fr
 import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraftforge.client.event.RenderGameOverlayEvent
@@ -43,12 +43,12 @@ class Sla(map: ZombiesMap) {
 
         fun off() {
             sla = null
-            addTranslationChat("zombiesaddon.commands.sla.setMap", "§coff")
+            addTranslatedChat("zombiesaddon.commands.sla.setMap", "§coff")
         }
 
         fun on(map: ZombiesMap) {
             sla = Sla(map)
-            addTranslationChat("zombiesaddon.commands.sla.setMap", "§a$map")
+            addTranslatedChat("zombiesaddon.commands.sla.setMap", "§a$map")
         }
     }
 
@@ -58,13 +58,13 @@ class Sla(map: ZombiesMap) {
         ZombiesMap.ALIEN_ARCADIUM -> JsonLoader.loadJsonFromResource("data/sla/AA.json", Array<Room>::class.java)
         else -> throw IllegalArgumentException("맵 ${map}은(는) SLA를 지원하지 않습니다.")
     }
-    private var offset = IntArray(3)
+    private val offset = IntArray(3)
     private var rotations = 0
     private var mirroring = booleanArrayOf(false, false)
 
     fun resetRotate() {
         rotate(4 - rotations, true)
-        addTranslationChat("zombiesaddon.commands.sla.resetRotations")
+        addTranslatedChat("zombiesaddon.commands.sla.resetRotations")
     }
 
     fun rotate(rotations: Int, reset: Boolean = false) {
@@ -74,45 +74,37 @@ class Sla(map: ZombiesMap) {
             this.rotations = (this.rotations + newRotations) % 4
             for (room in rooms) for (window in room.windows) window.rotate(newRotations)
             if (reset) return
-            when (newRotations) {
-                0 -> addTranslationChat("zombiesaddon.commands.sla.rotates", "§a0°")
-                1 -> addTranslationChat("zombiesaddon.commands.sla.rotates", "§a90°")
-                2 -> addTranslationChat("zombiesaddon.commands.sla.rotates", "§a180°")
-                3 -> addTranslationChat("zombiesaddon.commands.sla.rotates", "§a270°")
-            }
+            addTranslatedChat("zombiesaddon.commands.sla.rotates", newRotations * 90)
         }
     }
 
     fun resetMirroring() {
         if (mirroring[0]) mirrorX(true)
         if (mirroring[1]) mirrorZ(true)
-        addTranslationChat("zombiesaddon.commands.sla.resetMirroring")
+        addTranslatedChat("zombiesaddon.commands.sla.resetMirroring")
     }
 
     fun mirrorX(reset: Boolean = false) {
         mirroring[0] = !mirroring[0]
         for (room in rooms) for (window in room.windows) window.mirrorX()
         if (reset) return
-        addTranslationChat("zombiesaddon.commands.sla.mirror", "§a0 y z")
+        addTranslatedChat("zombiesaddon.commands.sla.mirror", "0 y z")
     }
 
     fun mirrorZ(reset: Boolean = false) {
         mirroring[1] = !mirroring[1]
         for (room in rooms) for (window in room.windows) window.mirrorZ()
         if (reset) return
-        addTranslationChat("zombiesaddon.commands.sla.mirror", "§a0 x z")
+        addTranslatedChat("zombiesaddon.commands.sla.mirror", "0 x z")
     }
 
-    fun resetOffset() {
-        offset = IntArray(3)
-        addTranslationChat("zombiesaddon.commands.sla.setOffset", "§coff")
-    }
+    fun resetOffset() = setOffset(0, 0, 0)
 
     fun setOffset(x: Int, y: Int, z: Int) {
         offset[0] = x
         offset[1] = y
         offset[2] = z
-        addTranslationChat("zombiesaddon.commands.sla.setOffset", "§a$x $y $z")
+        addTranslatedChat("zombiesaddon.commands.sla.setOffset", "$x $y $z")
     }
 
     fun refresh() {

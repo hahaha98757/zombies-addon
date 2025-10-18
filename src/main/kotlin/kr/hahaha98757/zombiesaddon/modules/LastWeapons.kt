@@ -42,7 +42,7 @@ object LastWeapons: Module("Last Weapons") {
                         }
                     }
 
-                    val level = getLevel(getText(it.displayName))
+                    val level = getLevel(it.displayName.withoutColor())
 
                     renderItem.renderItemAndEffectIntoGUI(it, x + 20 * i, y)
 

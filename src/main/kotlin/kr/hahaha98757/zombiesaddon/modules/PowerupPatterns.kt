@@ -207,7 +207,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
             if (entity in fields.spawnedEntities) continue
 
 
-            val name = getText(entity.name)
+            val name = entity.name.withoutColor()
 
             when (name) {
                 "INSTA KILL", "즉시 처치" -> {
@@ -257,19 +257,19 @@ object PowerupPatterns: Module("Powerup Patterns") {
 
     private fun drawIns(fields: FieldsStorage, pattern: Int) {
         if (fields.insTimer) return
-        val str = "${getTranslatedString("zombiesaddon.game.ins")}: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
+        val str = "${getTranslatedString("zombiesaddon.game.ins")}§f: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
         fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(1), 0xffffff)
     }
 
     private fun drawMax(fields: FieldsStorage, pattern: Int) {
         if (fields.maxTimer) return
-        val str = "${getTranslatedString("zombiesaddon.game.max")}: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
+        val str = "${getTranslatedString("zombiesaddon.game.max")}§f: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
         fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(2), 0xffffff)
     }
 
     private fun drawSs(fields: FieldsStorage, pattern: Int) {
         if (fields.ssTimer) return
-        val str = "${getTranslatedString("zombiesaddon.game.ss")}: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
+        val str = "${getTranslatedString("zombiesaddon.game.ss")}§f: ${getTranslatedString("zombiesaddon.game.round", true, pattern)}"
         fr.drawStringWithShadow(str, HudUtils.getPowerupPatternsStrX(str), HudUtils.getPowerupPatternsStrY(3), 0xffffff)
     }
 
@@ -314,14 +314,14 @@ object PowerupPatterns: Module("Powerup Patterns") {
     private fun autoTimer(fields: FieldsStorage) {
         val entities = mc.thePlayer.rayTraceEntity()
         if (entities.isEmpty()) {
-            addTranslationChat("zombiesaddon.modules.powerupPatterns.autoTimer.failed")
+            addTranslatedChat("zombiesaddon.modules.powerupPatterns.autoTimer.failed")
             return
         }
         var findEntity = false
 
         for (entity in entities) {
             if (entity !in fields.spawnedEntities) continue
-            val name = getText(entity.name)
+            val name = entity.name.withoutColor()
             when (name) {
                 "INSTA KILL", "즉시 처치" -> {
                     fields.insTimer = true
@@ -349,13 +349,13 @@ object PowerupPatterns: Module("Powerup Patterns") {
                 }
             }
         }
-        if (!findEntity) addTranslationChat("zombiesaddon.modules.powerupPatterns.autoTimer.failed")
+        if (!findEntity) addTranslatedChat("zombiesaddon.modules.powerupPatterns.autoTimer.failed")
     }
 
     override fun onChat(event: ClientChatReceivedEvent) {
         if (isNotPlayZombies()) return
         val fields = fieldsStorage[ZombiesAddon.instance.gameManager.game?.serverNumber] ?: return
-        val message = getText(event.message.unformattedText)
+        val message = event.message.unformattedText.withoutColor()
         if (">" in message) return
 
         if ("Insta Kill" in message || "즉시 처치" in message) fields.insTimer = false
@@ -387,7 +387,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.ins.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.ins"))
+                    addTranslatedChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.ins"))
                 }
             }
         var maxTimer = false
@@ -395,7 +395,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.max.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.max"))
+                    addTranslatedChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.max"))
                 }
             }
         var ssTimer = false
@@ -403,7 +403,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.ss.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.ss"))
+                    addTranslatedChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.ss"))
                 }
             }
         var dgTimer = false
@@ -411,7 +411,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.dg.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.dg"))
+                    addTranslatedChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.dg"))
                 }
             }
         var carTimer = false
@@ -419,7 +419,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.car.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.car"))
+                    addTranslatedChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.car"))
                 }
             }
         var bgTimer = false
@@ -427,7 +427,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                 field = b
                 if (field) {
                     ManualTimer.bg.runTimer()
-                    addTranslationChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.bg"))
+                    addTranslatedChat("zombiesaddon.modules.powerupPatterns.timer", getTranslatedString("zombiesaddon.game.bg"))
                 }
             }
     }

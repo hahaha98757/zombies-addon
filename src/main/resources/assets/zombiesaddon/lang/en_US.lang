@@ -29,14 +29,14 @@ zombiesaddon.commands.autosplits.usage=/autosplits <command>
 
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|number|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: §cReset %s§e pattern
-zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e pattern to %s
+zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e pattern to §a%s
 
 zombiesaddon.commands.sla.setMap=§eSLA: Set SLA to %s
-zombiesaddon.commands.sla.setOffset=§eSLA: Set offset to %s
+zombiesaddon.commands.sla.setOffset=§eSLA: Set offset to §a%s
 zombiesaddon.commands.sla.resetRotations=§eSLA: §cReset§e rotations
-zombiesaddon.commands.sla.rotates=§eSLA: Rotates all windows %s§e counterclockwise around axis§a 0 y 0
+zombiesaddon.commands.sla.rotates=§eSLA: Rotates all windows §a%s°§e counterclockwise around axis§a (0 y 0)
 zombiesaddon.commands.sla.resetMirroring=§eSLA: §cReset§e mirroring
-zombiesaddon.commands.sla.mirror=§eSLA: Mirrors all windows along the plane %s
+zombiesaddon.commands.sla.mirror=§eSLA: Mirrors all windows along the plane §a%s
 
 zombiesaddon.commands.zombiesaddon.difficulty.failed=§eZombies Addon: §cThis command can only be used in-game
 zombiesaddon.commands.zombiesaddon.difficulty=§eZombies Addon: Set difficulty to %s
@@ -46,16 +46,16 @@ zombiesaddon.commands.zsv.wrongUrl=The URL must start with "https://pastebin.com
 zombiesaddon.commands.zsv.failed=§eZSV: §cFailed to set ZSV
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <number>
-zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to %s
+zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to §a%s
 
 
-zombiesaddon.modules.general.toggled=§eToggled %s§e to %s
+zombiesaddon.modules.general.toggled=§eToggled §a%s§e to %s
 
 zombiesaddon.modules.notLast.failed=§eNot Last: §cFailed to find the last
-zombiesaddon.modules.notLast.or=§eor
+zombiesaddon.modules.notLast.or=or
 zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e was last
 
-zombiesaddon.modules.autoSplits.failed=§eAuto Splits: §cFailed to send %s§c command
+zombiesaddon.modules.autoSplits.failed=§eAuto Splits: §cFailed to send §a%s§c command
 
 zombiesaddon.modules.sla.auto.wrongMap=§eAuto SLA: §cWrong map
 zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: Set SLA to %s
@@ -94,7 +94,7 @@ zombiesaddon.gui.updateScreen.button.continue=Continue
 zombiesaddon.gui.updateScreen.button.quit=Quit the game
 
 
-zombiesaddon.game.round=§fRound %s
+zombiesaddon.game.round=Round %s
 zombiesaddon.game.ins=§cInsta Kill
 zombiesaddon.game.max=§9Max Ammo
 zombiesaddon.game.ss=§5Shopping Spree

@@ -15,13 +15,13 @@ object Scoreboard {
         val scoreboard = mc.theWorld.scoreboard
         val objective = scoreboard.getObjectiveInDisplaySlot(1) ?: return
 
-        title = getText(objective.displayName)
+        title = objective.displayName.withoutColor()
         val scores = scoreboard.getSortedScores(objective)?.filter { it.playerName != null && !it.playerName.startsWith("#") }?.takeLast(15)?.asReversed() ?: return
 
         lines.clear()
         for (score in scores) {
             val team = scoreboard.getPlayersTeam(score.playerName)
-            lines += getText(ScorePlayerTeam.formatPlayerName(team, score.playerName).trim().replace(emojiPattern, "")).trim()
+            lines += ScorePlayerTeam.formatPlayerName(team, score.playerName).trim().replace(emojiPattern, "").withoutColor().trim()
         }
     }
 

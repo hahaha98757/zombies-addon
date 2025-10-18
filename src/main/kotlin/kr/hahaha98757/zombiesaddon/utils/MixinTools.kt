@@ -44,7 +44,7 @@ fun onSound(packet: S29PacketSoundEffect) {
 fun onTitle(packet: S45PacketTitle) {
     if (packet.type != S45PacketTitle.Type.TITLE) return
     if (Scoreboard.isNotZombies) return
-    val title = getText(packet.message.unformattedText.trim())
+    val title = packet.message.unformattedText.trim().withoutColor()
     val serverNumber = getServerNumber() ?: return
     val isWin = when (title) {
         "You Win!", "승리했습니다!" -> true

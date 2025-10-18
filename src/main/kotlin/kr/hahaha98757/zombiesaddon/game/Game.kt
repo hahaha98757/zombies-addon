@@ -8,7 +8,7 @@ import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.modules.AutoSplits
 import kr.hahaha98757.zombiesaddon.modules.recorder.Recorder
 import kr.hahaha98757.zombiesaddon.modules.recorder.files.GameFile
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraftforge.common.MinecraftForge
@@ -40,7 +40,7 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
         if (round > gameMode.rounds.size) return
         recorder.runCatching { record() }.onFailure {
             logger.error("게임 기록을 실패했습니다.", it)
-            addTranslationChat("zombiesaddon.modules.recorder.failed")
+            addTranslatedChat("zombiesaddon.modules.recorder.failed")
         }
         if (gameEnd) return
         timer.split()
