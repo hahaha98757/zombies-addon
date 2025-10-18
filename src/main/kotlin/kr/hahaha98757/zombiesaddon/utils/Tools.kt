@@ -1,5 +1,3 @@
-@file:JvmName("Tools")
-
 package kr.hahaha98757.zombiesaddon.utils
 
 import kr.hahaha98757.zombiesaddon.MODID
@@ -11,6 +9,8 @@ import kr.hahaha98757.zombiesaddon.enums.Status
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.ScaledResolution
+import net.minecraft.client.resources.I18n
+import net.minecraft.scoreboard.ScorePlayerTeam
 import net.minecraft.util.*
 import net.minecraftforge.fml.common.Loader
 import java.io.File
@@ -18,8 +18,13 @@ import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.util.*
 
+// private 필드
 private val serverNumberPattern = Regex(".*([mLM][0-9A-Z]+)")
+
+// 상수
 const val LINE = "§e-----------------------------------------------------"
+
+// public 필드
 val mc get() = Minecraft.getMinecraft()!!
 val fr get() = mc.fontRendererObj!!
 val modFile: File by lazy {
@@ -30,11 +35,7 @@ val modFile: File by lazy {
 val unlegitMods = arrayOf("zombiesatellite", "zombiesexplorer", "TeammatesOutline", "zombieshelper")
 val logger get() = ZombiesAddon.instance.logger
 
-
-fun isDisable() = !ZombiesAddon.instance.config.enableMod
-
-fun getText(text: String): String = EnumChatFormatting.getTextWithoutFormattingCodes(text)
-
+// 출력 관련 함수
 fun addLine() = mc.thePlayer?.addChatMessage(ChatComponentText(LINE)) ?: logger.info("[addLine] $LINE")
 
 @Suppress("LoggingSimilarMessage")
@@ -43,23 +44,30 @@ fun addChat(chatComponent: IChatComponent) = mc.thePlayer?.addChatMessage(chatCo
 
 fun addChatLine(text: String) = mc.thePlayer?.addChatMessage(ChatComponentText("$LINE\n$text\n$LINE")) ?: logger.info("[addChatLine] $LINE\n$text\n$LINE")
 
-fun addTranslationChat(key: String, vararg any: Any) = addChat(getTranslatedString(key, any = any))
+fun addTranslatedChat(key: String, vararg any: Any) = addChat(getTranslatedString(key, any = any))
 
-fun addTranslationChatLine(key: String, vararg any: Any) = addChatLine(getTranslatedString(key, any = any))
+fun addTranslatedChatLine(key: String, vararg any: Any) = addChatLine(getTranslatedString(key, any = any))
 
 fun sendChat(text: String) = mc.thePlayer?.sendChatMessage(text) ?: logger.info("[sendChat] $text")
 
+// 문자열 관련 함수
+fun String.withoutColor() = EnumChatFormatting.getTextWithoutFormattingCodes(this)!!
+
 @JvmOverloads
 fun getTranslatedString(key: String, withColor: Boolean = true, vararg any: Any): String {
-    val chatComponentTranslation = ChatComponentTranslation(getTranslateKey(key), *any)
-    return if (withColor) chatComponentTranslation.formattedText else chatComponentTranslation.unformattedText // 맨날 까먹네 formattedText는 색상 유지, 다른거는 색상 제거
+    val text = key.translate(*any)
+    return if (withColor) text else text.withoutColor()
 }
 
+// 화면 관련 함수
 fun getX(): Float = ScaledResolution(mc).scaledWidth.toFloat()
 fun getX(text: String): Float = getX() - fr.getStringWidth(text) - 1
 
 fun getY(): Float = ScaledResolution(mc).scaledHeight.toFloat()
 fun getYFont(): Float = getY() - fr.FONT_HEIGHT - 1
+
+// 상태 관련 함수
+fun isDisable() = !ZombiesAddon.instance.config.enableMod
 
 fun isHypixel(): Boolean {
     val ip = mc.currentServerData?.serverIP ?: return false
@@ -95,7 +103,7 @@ fun getMap(): ZombiesMap? {
 }
 
 fun getPlayerStatus(): Array<Status> {
-    val playerState = arrayOfNulls<Status>(4)
+    val playerState = arrayOf(Status.SURVIVE, Status.SURVIVE, Status.SURVIVE, Status.SURVIVE)
 
     val lines = Scoreboard.lines
 
@@ -109,21 +117,39 @@ fun getPlayerStatus(): Array<Status> {
             else -> Status.SURVIVE
         }
     }
-    @Suppress("UNCHECKED_CAST")
-    return playerState as Array<Status>
+    return playerState
+}
+
+// 기타 함수
+fun String.withNameColor(): String {
+    val default = "§f$this"
+    if (isNotPlayZombies()) return default
+    val scoreboard = mc.theWorld.scoreboard
+    val objective = scoreboard.getObjectiveInDisplaySlot(1) ?: return default
+
+    (scoreboard.getSortedScores(objective) ?: return default).forEach {
+        val team = scoreboard.getPlayersTeam(it.playerName)
+        val line = ScorePlayerTeam.formatPlayerName(team, it.playerName).trim().replace(Regex("[^§A-Za-z0-9_:]"), "")
+        if (this in line) {
+            val color = line.substring(0..1)
+            return "$color$this"
+        }
+    }
+    return default
 }
 
 internal fun runBatchFileAndQuit(file: File, commands: String) {
-    file.writeText(commands.replace("\n", "\r\n"))
+    file.writeText(commands.replace(Regex("\r?\n"), "\r\n"))
     Runtime.getRuntime().exec("cmd /c start ${file.absolutePath}")
     logger.info("게임을 종료합니다.")
     mc.shutdown()
 }
 
-private fun getTranslateKey(key: String): String {
+// private 함수
+private fun String.translate(vararg any: Any): String {
     val lang = ZombiesAddon.instance.config.language
     val langCode = when (lang) {
-        Language.AUTO -> return key
+        Language.AUTO -> return I18n.format(this, *any)
         Language.KO_KR -> "ko_KR"
         Language.EN_US -> "en_US"
     }
@@ -131,6 +157,6 @@ private fun getTranslateKey(key: String): String {
     val resourceLocation = ResourceLocation(MODID, "lang/$langCode.lang")
     mc.resourceManager.runCatching {
         InputStreamReader(getResource(resourceLocation).inputStream, StandardCharsets.UTF_8).use { langFile.load(it) }
-    }.getOrElse { key }
-    return langFile.getProperty(key, key)
+    }.getOrElse { return I18n.format(this) }
+    return langFile.getProperty(this, this)
 }

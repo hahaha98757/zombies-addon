@@ -6,7 +6,7 @@ import kr.hahaha98757.zombiesaddon.modules.recorder.Indexable
 import kr.hahaha98757.zombiesaddon.modules.recorder.createData
 import kr.hahaha98757.zombiesaddon.modules.recorder.data.GameData
 import kr.hahaha98757.zombiesaddon.modules.recorder.writeData
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import java.io.File
 import java.time.LocalDateTime
@@ -27,7 +27,7 @@ class GameFile(serverNumber: ServerNumber, map: ZombiesMap): File("zombies/runs"
 
             runCatching { writeData(data) }.onFailure {
                 logger.error("구간 기록을 저장하는데 실패했습니다.", it)
-                addTranslationChat("zombiesaddon.modules.recorder.failed.save.segment")
+                addTranslatedChat("zombiesaddon.modules.recorder.failed.save.segment")
             }
         }
     }

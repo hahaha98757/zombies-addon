@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.isDisable
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
 import kr.hahaha98757.zombiesaddon.utils.mc
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.Event
 object PlayerVisibility: ToggleableModule("Player Visibility", ZombiesAddon.instance.config.pvDefault) {
     override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.togglePv
     override fun addToggleText(enabled: Boolean) =
-        addTranslationChat("zombiesaddon.modules.general.toggled", "§ePlayer Visibility", if (enabled) "§aon" else "§coff")
+        addTranslatedChat("zombiesaddon.modules.general.toggled", "Player Visibility", if (enabled) "§aon" else "§coff")
 
     override fun onEvent(event: Event) {
         if (event !is RenderPlayerEvent.Pre) return

@@ -61,16 +61,16 @@ class ThePlayerJoinHandler {
 
         val za = ZombiesAddon.instance
 
-        if (!za.config.blockUnlegitMods) addTranslationChatLine("zombiesaddon.messages.offBlockUnlegitMods")
-        if (za.hasSST && !za.config.blockUnlegitSst) addTranslationChatLine("zombiesaddon.messages.offBlockUnlegitSST")
+        if (!za.config.blockUnlegitMods) addTranslatedChatLine("zombiesaddon.messages.offBlockUnlegitMods")
+        if (za.hasSST && !za.config.blockUnlegitSst) addTranslatedChatLine("zombiesaddon.messages.offBlockUnlegitSST")
 
         if (za.hasSST) {
             val sstVer = runCatching { Loader.instance().indexedModList["showspawntime"]!!.metadata.version }.getOrNull() ?: "Unknown"
-            if (sstVer != "2.1.1") addTranslationChatLine("zombiesaddon.messages.sstDiffVer", sstVer)
+            if (sstVer != "2.1.1") addTranslatedChatLine("zombiesaddon.messages.sstDiffVer", sstVer)
         }
         if (za.hasZombiesUtils) {
             val zuVer = runCatching { Loader.instance().indexedModList["zombiesutils"]!!.metadata.version }.getOrNull() ?: "Unknown"
-            if (zuVer != "1.3.7") addTranslationChatLine("zombiesaddon.messages.zuDiffVer", zuVer)
+            if (zuVer != "1.3.7") addTranslatedChatLine("zombiesaddon.messages.zuDiffVer", zuVer)
         }
     }
 }

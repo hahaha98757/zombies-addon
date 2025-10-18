@@ -29,14 +29,14 @@ zombiesaddon.commands.autosplits.usage=/autosplits <명령어>
 
 zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|숫자|on|off]
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: %s§e의 패턴을§c 재설정§e했습니다
-zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: %s§e의 패턴을 %s§e(으)로 설정했습니다
+zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: %s§e의 패턴을 §a%s§e(으)로 설정했습니다
 
 zombiesaddon.commands.sla.setMap=§eSLA: SLA를 %s§e(으)로 설정했습니다
-zombiesaddon.commands.sla.setOffset=§eSLA: 오프셋을 %s§e(으)로 설정했습니다
+zombiesaddon.commands.sla.setOffset=§eSLA: 오프셋을 §a%s§e(으)로 설정했습니다
 zombiesaddon.commands.sla.resetRotations=§eSLA: 회전을§c 재설정§e했습니다
-zombiesaddon.commands.sla.rotates=§eSLA: 모든 창문을 축 0 y 0을 따라 시계 반대 방향으로 %s§e 만큼 회전했습니다
+zombiesaddon.commands.sla.rotates=§eSLA: 모든 창문을 축 §a(0 y 0)§e을 따라 시계 반대 방향으로 §a%s°§e 만큼 회전했습니다
 zombiesaddon.commands.sla.resetMirroring=§eSLA: 미러링을§c 재설정§e했습니다
-zombiesaddon.commands.sla.mirror=§eSLA: 모든 창문을 평면 %s§e을(를) 따라 미러링했습니다
+zombiesaddon.commands.sla.mirror=§eSLA: 모든 창문을 평면 §a%s§e을(를) 따라 미러링했습니다
 
 zombiesaddon.commands.zombiesaddon.difficulty.failed=§eZombies Addon: §c이 명령어는 인게임에서만 사용할 수 있습니다
 zombiesaddon.commands.zombiesaddon.difficulty=§eZombies Addon: 난이도를 %s§e(으)로 설정했습니다
@@ -46,16 +46,16 @@ zombiesaddon.commands.zsv.wrongUrl=URL은 "https://pastebin.com/raw/"로 시작�
 zombiesaddon.commands.zsv.failed=§eZSV: §cZSV를 설정하는데 실패했습니다
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
-zombiesaddon.commands.zsvlines.success=§eZSV: 표시 라인을 %s§e줄 설정했습니다
+zombiesaddon.commands.zsvlines.success=§eZSV: 표시할 라인을 §a%s§e줄로 설정했습니다
 
 
-zombiesaddon.modules.general.toggled=%s§e을(를) %s§e(으)로 토글했습니다
+zombiesaddon.modules.general.toggled=§a%s§e을(를) %s§e(으)로 토글했습니다
 
 zombiesaddon.modules.notLast.failed=§eNot Last: §c마지막을 찾는데 실패했습니다
-zombiesaddon.modules.notLast.or=§e또는
+zombiesaddon.modules.notLast.or=또는
 zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e이(가) 마지막입니다
 
-zombiesaddon.modules.autoSplits.failed=§eAuto Splits: %s§c 명령어를 전달하는데 실패했습니다
+zombiesaddon.modules.autoSplits.failed=§eAuto Splits: §a%s§c 명령어를 전달하는데 실패했습니다
 
 zombiesaddon.modules.sla.auto.wrongMap=§eAuto SLA: §c잘못된 맵
 zombiesaddon.modules.sla.auto.setMap=§eAuto SLA: SLA를 %s§e(으)로 설정했습니다
@@ -93,7 +93,7 @@ zombiesaddon.gui.updateScreen.button.url=다운로드 URL 열기
 zombiesaddon.gui.updateScreen.button.continue=계속
 zombiesaddon.gui.updateScreen.button.quit=게임 종료
 
-zombiesaddon.game.round=§f라운드 %s
+zombiesaddon.game.round=라운드 %s
 zombiesaddon.game.ins=§c즉시 처치
 zombiesaddon.game.max=§9탄약 충전
 zombiesaddon.game.ss=§5지름신 강림

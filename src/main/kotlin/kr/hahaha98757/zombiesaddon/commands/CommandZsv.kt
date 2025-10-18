@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.commands
 
 import kr.hahaha98757.zombiesaddon.modules.ZombiesStratViewer
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.mc
 import net.minecraft.command.CommandException
 import net.minecraft.command.ICommandSender
@@ -23,7 +23,7 @@ class CommandZsv: CustomCommandBase() {
             ZombiesStratViewer.stratLines.clear()
             ZombiesStratViewer.stratLines += ""
             ZombiesStratViewer.currentLine = 0
-            addTranslationChat("zombiesaddon.commands.zsv.success", "§coff")
+            addTranslatedChat("zombiesaddon.commands.zsv.success", "§coff")
             ZombiesStratViewer.enabled = false
             return
         }
@@ -46,10 +46,10 @@ class CommandZsv: CustomCommandBase() {
                     ZombiesStratViewer.stratLines += list
                     ZombiesStratViewer.enabled = true
                     ZombiesStratViewer.refreshActualLines()
-                    addTranslationChat("zombiesaddon.commands.zsv.success", "§aon")
+                    addTranslatedChat("zombiesaddon.commands.zsv.success", "§aon")
                 }
             } catch (_: Exception) {
-                mc.addScheduledTask { addTranslationChat("zombiesaddon.commands.zsv.failed") }
+                mc.addScheduledTask { addTranslatedChat("zombiesaddon.commands.zsv.failed") }
             }
         }.start()
     }

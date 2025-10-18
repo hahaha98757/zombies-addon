@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.commands
 
 import kr.hahaha98757.zombiesaddon.modules.PowerupPatterns
-import kr.hahaha98757.zombiesaddon.utils.addTranslationChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import net.minecraft.command.ICommandSender
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
@@ -19,11 +19,11 @@ class CommandPowerupPatterns: CustomCommandBase() {
                 else {
                     when (args[1]) {
                         "reset" -> {
-                            addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§cInsta Kill")
+                            addTranslatedChat("zombiesaddon.commands.poweruppatterns.success.reset", "§cInsta Kill")
                             PowerupPatterns.fields?.queuedInsPattern = 0
                         }
                         "2", "3" -> {
-                            addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", "§a${args[1]}")
+                            addTranslatedChat("zombiesaddon.commands.poweruppatterns.success.set", "§cInsta Kill", args[1])
                             PowerupPatterns.fields?.queuedInsPattern = args[1].toInt()
                         }
                         else -> throw WrongUsageException("/poweruppatterns ins [reset|2|3]")
@@ -35,11 +35,11 @@ class CommandPowerupPatterns: CustomCommandBase() {
                 else {
                     when (args[1]) {
                         "reset" -> {
-                            addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§9Max Ammo")
+                            addTranslatedChat("zombiesaddon.commands.poweruppatterns.success.reset", "§9Max Ammo")
                             PowerupPatterns.fields?.queuedMaxPattern = 0
                         }
                         "2", "3" -> {
-                            addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§9Max Ammo", "§a${args[1]}")
+                            addTranslatedChat("zombiesaddon.commands.poweruppatterns.success.set", "§9Max Ammo", args[1])
                             PowerupPatterns.fields?.queuedMaxPattern = args[1].toInt()
                         }
                         else -> throw WrongUsageException("/poweruppatterns max [reset|2|3]")
@@ -51,11 +51,11 @@ class CommandPowerupPatterns: CustomCommandBase() {
                 else {
                     when (args[1]) {
                         "reset" -> {
-                            addTranslationChat("zombiesaddon.commands.poweruppatterns.success.reset", "§5Shopping Spree")
+                            addTranslatedChat("zombiesaddon.commands.poweruppatterns.success.reset", "§5Shopping Spree")
                             PowerupPatterns.fields?.queuedSsPattern = 0
                         }
                         "5", "6", "7" -> {
-                            addTranslationChat("zombiesaddon.commands.poweruppatterns.success.set", "§5Shopping Spree", "§a${args[1]}")
+                            addTranslatedChat("zombiesaddon.commands.poweruppatterns.success.set", "§5Shopping Spree", args[1])
                             PowerupPatterns.fields?.queuedSsPattern = args[1].toInt()
                         }
                         else -> throw WrongUsageException("/poweruppatterns ss [reset|5|6|7]")

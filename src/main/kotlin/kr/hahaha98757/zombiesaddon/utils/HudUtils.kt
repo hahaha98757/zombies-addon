@@ -86,7 +86,7 @@ object HudUtils {
     fun getAutoSplitsStrY(): Float = if (rawAutoSplitsY < 0) getYFont() else autoSplitsY.toFloat() * getY()
 
     fun getWaveDelaysStrX(str: String): Float {
-        val noColor = getText(str)
+        val noColor = str.withoutColor()
         if (noColor.matches(regex1) || noColor.matches(regex2))
             return if (rawWaveDelaysX < 0) getX(noColor) else waveDelaysX.toFloat() * getX() + fr.getStringWidth("➤ ")
         return if (rawWaveDelaysX < 0) getX(noColor) else waveDelaysX.toFloat() * getX()
