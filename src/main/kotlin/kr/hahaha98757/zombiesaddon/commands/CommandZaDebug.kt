@@ -11,7 +11,10 @@ import net.minecraft.command.NumberInvalidException
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 
-class CommandZaDebug: CustomCommandBase() {
+object CommandZaDebug: CustomCommandBase() {
+    var debugIsNotZombies = true
+    var debugServerNumber: ServerNumber? = null
+
     private var addMessage = false
     override fun getCommandName() = "za_debug"
 
@@ -136,10 +139,5 @@ class CommandZaDebug: CustomCommandBase() {
             }
             else -> null
         }
-    }
-
-    companion object {
-        var debugIsNotZombies = true
-        var debugServerNumber: ServerNumber? = null
     }
 }

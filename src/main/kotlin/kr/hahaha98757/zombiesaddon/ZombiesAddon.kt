@@ -45,7 +45,7 @@ class ZombiesAddon {
         private set
     lateinit var logger: Logger
         private set
-    val keyBindings = KeyBindings()
+    val keyBindings = KeyBindings
     val gameManager = GameManager()
 
     private var hasUnlegitMod = false

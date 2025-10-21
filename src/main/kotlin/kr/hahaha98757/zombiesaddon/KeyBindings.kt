@@ -4,7 +4,7 @@ import net.minecraft.client.settings.KeyBinding
 import net.minecraftforge.fml.client.registry.ClientRegistry
 import org.lwjgl.input.Keyboard
 
-class KeyBindings {
+object KeyBindings {
     val togglePv = KeyBinding("zombiesaddon.key.togglePlayerVisibility", Keyboard.KEY_Z, NAME)
     val toggleBlockAlarm = KeyBinding("zombiesaddon.key.toggleBlockAlarm", Keyboard.KEY_P, NAME)
     val toggleAutoRejoin = KeyBinding("zombiesaddon.key.toggleAutoRejoin", Keyboard.KEY_O, NAME)
@@ -39,22 +39,5 @@ class KeyBindings {
         ClientRegistry.registerKeyBinding(carTimer)
         ClientRegistry.registerKeyBinding(bgTimer)
         ClientRegistry.registerKeyBinding(autoTimer)
-    }
-
-    fun resetAll() {
-        togglePv.isPressed
-        toggleBlockAlarm.isPressed
-        toggleAutoRejoin.isPressed
-        zsvScrollUp.isPressed
-        zsvScrollDown.isPressed
-        toggleRlMode.isPressed
-        textMacro.isPressed
-        insTimer.isPressed
-        maxTimer.isPressed
-        ssTimer.isPressed
-        dgTimer.isPressed
-        carTimer.isPressed
-        bgTimer.isPressed
-        autoTimer.isPressed
     }
 }

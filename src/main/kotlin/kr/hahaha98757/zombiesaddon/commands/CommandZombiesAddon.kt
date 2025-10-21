@@ -13,7 +13,7 @@ import net.minecraft.command.ICommandSender
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 
-class CommandZombiesAddon: CustomCommandBase() {
+object CommandZombiesAddon: CustomCommandBase() {
     override fun getCommandName() = MODID
     override fun getCommandUsage(sender: ICommandSender?) = "/zombiesaddon <difficulty|hud|checkUpdate>"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {

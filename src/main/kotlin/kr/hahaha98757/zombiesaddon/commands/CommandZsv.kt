@@ -12,7 +12,7 @@ import java.io.InputStreamReader
 import java.net.URL
 import java.nio.charset.StandardCharsets
 
-class CommandZsv: CustomCommandBase() {
+object CommandZsv: CustomCommandBase() {
     override fun getCommandName() = "zsv"
     override fun getCommandUsage(sender: ICommandSender?) = "/zsv <off|URL>"
 
