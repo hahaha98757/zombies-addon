@@ -74,7 +74,7 @@ class ZAConfig(val config: Configuration) {
     var lwDisplayCooledDownSkill = true
 
     var recorderToggle = true
-    var recorderDefaultCategory = "General"
+    var recorderDefaultCategory = "general"
     var recorderPbNotice = true
 
     var koreanPatchersIngame = false
@@ -415,7 +415,7 @@ class ZAConfig(val config: Configuration) {
         recorderDefaultCategory = addOption(categoryRecorder.map, recorderDefaultCategoryKey, config.get(
             categoryRecorder.name,
             "recorderDefaultCategory",
-            "General",
+            "general",
             "$recorderDefaultCategoryKey.description"
         )).string
 
@@ -525,6 +525,7 @@ class ZAConfig(val config: Configuration) {
         DummyCategoryElement(categoryAutoRejoin.name, "zombiesaddon.config.category.autoRejoin", categoryAutoRejoin.map.values.toList()),
         DummyCategoryElement(categorySla.name, "zombiesaddon.config.category.sla", categorySla.map.values.toList()),
         DummyCategoryElement(categoryLastWeapons.name, "zombiesaddon.config.category.lw", categoryLastWeapons.map.values.toList()),
+        DummyCategoryElement(categoryRecorder.name, "zombiesaddon.config.category.recorder", categoryRecorder.map.values.toList()),
         DummyCategoryElement(categoryKoreanPatchers.name, "zombiesaddon.config.category.koreanPatchers", categoryKoreanPatchers.map.values.toList()),
         DummyCategoryElement(categoryOtherMods.name, "zombiesaddon.config.category.otherMods", categoryOtherMods.map.values.toList())
     )
