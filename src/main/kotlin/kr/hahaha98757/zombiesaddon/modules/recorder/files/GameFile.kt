@@ -20,7 +20,7 @@ class GameFile(serverNumber: ServerNumber, map: ZombiesMap): File("zombies/runs"
     }
 
     val segments = object: Indexable<Int> {
-        override fun get(round: Int) = data.segments[round - 1].toInt()
+        override operator fun get(round: Int) = data.segments[round - 1].toInt()
 
         override operator fun set(round: Int, ticks: Int) {
             data.segments[round - 1] = ticks.toShort()
@@ -31,8 +31,6 @@ class GameFile(serverNumber: ServerNumber, map: ZombiesMap): File("zombies/runs"
             }
         }
     }
-
-
 }
 
 private val formattedTime get() = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)

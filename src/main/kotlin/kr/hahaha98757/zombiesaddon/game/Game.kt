@@ -7,7 +7,6 @@ import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.modules.AutoSplits
 import kr.hahaha98757.zombiesaddon.modules.recorder.Recorder
-import kr.hahaha98757.zombiesaddon.modules.recorder.files.GameFile
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
@@ -20,8 +19,6 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
     var isWin = false
         get() = if (gameEnd) field else throw IllegalStateException("게임이 아직 종료되지 않았습니다.")
     var escape = false
-    val isFullRecorded = (round == 1)
-    val gameFile = GameFile(serverNumber, gameMode.map)
     private val recorder = Recorder(this)
 
     init {
