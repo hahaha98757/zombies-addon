@@ -86,7 +86,7 @@ private class MessageSender(categoryName: String, private val round: Int, privat
     }
 
     private fun formattedDelta(newTime: Int, oldTime: Int): String {
-        val delta = newTime - oldTime / 20.0
+        val delta = (newTime - oldTime) / 20.0
         return "%+.2f".format(delta)
     }
 }

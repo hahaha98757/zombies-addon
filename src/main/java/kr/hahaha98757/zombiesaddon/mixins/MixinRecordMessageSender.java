@@ -69,8 +69,6 @@ public abstract class MixinRecordMessageSender {
 
         final String announcement = newTime < oldTime && ZombiesUtils.getInstance().getConfig().getAnnouncePB() ?
                 "\n§e§l***§6§l 새로운 구간 최고 기록! §e§l***" : "";
-        final String timeString = formattedTime(newTime);
-        final String deltaString = oldTime != 0 ? formattedDelta(newTime, oldTime) : "";
         this.recordMessage.append(announcement)
                 .append("\n§c라운드 ")
                 .append(round)

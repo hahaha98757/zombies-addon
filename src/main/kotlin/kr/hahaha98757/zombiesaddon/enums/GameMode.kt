@@ -50,7 +50,18 @@ enum class GameMode(val map: ZombiesMap, val difficulty: Difficulty, val rounds:
         PRISON_RIP -> "Prison RIP"
     }
 
-
+    fun toStringForRecorder() = when (this) {
+        DEAD_END_NORMAL -> "DEAD_END"
+        DEAD_END_HARD -> "DEAD_END_HARD"
+        DEAD_END_RIP -> "DEAD_END_RIP"
+        BAD_BLOOD_NORMAL -> "BAD_BLOOD"
+        BAD_BLOOD_HARD -> "BAD_BLOOD_HARD"
+        BAD_BLOOD_RIP -> "BAD_BLOOD_RIP"
+        ALIEN_ARCADIUM -> "ALIEN_ARCADIUM"
+        PRISON_NORMAL -> "PRISON"
+        PRISON_HARD -> "PRISON_HARD"
+        PRISON_RIP -> "PRISON_RIP"
+    }
 }
 
 private fun readFromFile(resourcePath: String): Array<Round> =
