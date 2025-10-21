@@ -8,7 +8,7 @@ import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import java.io.File
 
-class CategoryFile(category: File, val gameMode: GameMode): File(category, "$gameMode.times") {
+class CategoryFile(category: File, val gameMode: GameMode): File(category, "${gameMode.toStringForRecorder()}.times") {
     private val data = readOrCreate()
 
     val bestSegments = object: Indexable<Int> {
