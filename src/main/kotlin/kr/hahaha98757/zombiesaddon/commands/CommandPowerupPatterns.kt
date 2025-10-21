@@ -6,7 +6,7 @@ import net.minecraft.command.ICommandSender
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 
-class CommandPowerupPatterns: CustomCommandBase() {
+object CommandPowerupPatterns: CustomCommandBase() {
     override fun getCommandName() = "poweruppatterns"
     override fun getCommandUsage(sender: ICommandSender?) = "zombiesaddon.commands.poweruppatterns.usage"
     override fun getCommandAliases() = listOf("pow")

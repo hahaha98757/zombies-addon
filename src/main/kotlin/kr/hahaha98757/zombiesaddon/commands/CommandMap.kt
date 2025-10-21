@@ -9,22 +9,22 @@ abstract class CommandMap: CustomCommandBase() {
     final override fun runCommand(sender: ICommandSender, args: Array<String>) = sendChat("/play arcade_zombies_${getMap()}")
 }
 
-class CommandDE: CommandMap() {
+object CommandDE: CommandMap() {
     override fun getCommandName() = "de"
     override fun getMap() = "dead_end"
 }
 
-class CommandBB: CommandMap() {
+object CommandBB: CommandMap() {
     override fun getCommandName() = "bb"
     override fun getMap() = "bad_blood"
 }
 
-class CommandAA: CommandMap() {
+object CommandAA: CommandMap() {
     override fun getCommandName() = "aa"
     override fun getMap() = "alien_arcadium"
 }
 
-class CommandPR: CommandMap() {
+object CommandPR: CommandMap() {
     override fun getCommandName() = "pr"
     override fun getMap() = "prison"
 }

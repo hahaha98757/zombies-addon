@@ -5,7 +5,7 @@ import net.minecraft.command.ICommandSender
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 
-class CommandAutoSplits: CustomCommandBase() {
+object CommandAutoSplits: CustomCommandBase() {
     override fun getCommandName() = "autosplits"
     override fun getCommandUsage(sender: ICommandSender?) = "zombiesaddon.commands.autosplits.usage"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {

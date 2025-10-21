@@ -7,7 +7,7 @@ import net.minecraft.command.ICommandSender
 import net.minecraft.command.NumberInvalidException
 import net.minecraft.command.WrongUsageException
 
-class CommandZsvLines: CustomCommandBase() {
+object CommandZsvLines: CustomCommandBase() {
     override fun getCommandName() = "zsvlines"
     override fun getCommandUsage(sender: ICommandSender?) = "zombiesaddon.commands.zsvlines.usage"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {
