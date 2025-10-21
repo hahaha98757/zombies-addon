@@ -26,5 +26,4 @@ class CategoryData(map: ZombiesMap): ISplitData {
     }
 
     override fun toJson() = Gson().toJson(this, CategoryData::class.java)!!
-
 }

@@ -2,6 +2,7 @@ package kr.hahaha98757.zombiesaddon.modules.recorder
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.game.Game
+import kr.hahaha98757.zombiesaddon.modules.recorder.files.GameFile
 import kr.hahaha98757.zombiesaddon.utils.addChat
 import kr.hahaha98757.zombiesaddon.utils.getTranslatedString
 import net.minecraft.event.ClickEvent
@@ -10,11 +11,13 @@ import net.minecraft.util.ChatStyle
 
 class Recorder(val game: Game) {
     private val category = Category()
+    private val gameFile = GameFile(game.serverNumber, game.gameMode.map)
+    private val isFullRecorded = (game.round == 1)
 
     fun record() {
         compareSegment()
-        if (game.isFullRecorded) comparePb()
-        game.gameFile.segments[game.round] = game.timer.roundTick
+        if (isFullRecorded) comparePb()
+        gameFile.segments[game.round] = game.timer.roundTick
     }
 
     private fun compareSegment() {
