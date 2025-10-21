@@ -28,12 +28,6 @@ public abstract class MixinRecordMessageSender {
     @Shadow
     private String copyString;
 
-    @Shadow
-    protected abstract String formattedTime(int time);
-    @Shadow
-    protected abstract String formattedDelta(int newTime, int oldTime);
-
-
     @Inject(method = "<init>", at = @At("RETURN"))
     private void init(String categoryName, int round, int newTime, int oldTime, CallbackInfo ci) {
         if (ZombiesAddon.getInstance().getConfig().getKoreanPatchersZombiesUtils())
