@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Game.class)
+@Mixin(value = Game.class, remap = false)
 public class MixinGame {
     @Inject(method = "record", at = @At("HEAD"), cancellable = true)
     private void record(CallbackInfo ci) {

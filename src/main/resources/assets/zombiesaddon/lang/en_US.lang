@@ -48,6 +48,10 @@ zombiesaddon.commands.zsv.failed=§eZSV: §cFailed to set ZSV
 zombiesaddon.commands.zsvlines.usage=/zsvlines <number>
 zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to §a%s
 
+zombiesaddon.commands.recorder.usage=/recorder category [category name]
+zombiesaddon.commands.recorder.get=§eRecorder: Current category is §a%s
+zombiesaddon.commands.recorder.set=§eRecorder: Set category to §a%s
+
 
 zombiesaddon.modules.general.toggled=§eToggled §a%s§e to %s
 
@@ -220,6 +224,13 @@ zombiesaddon.config.lwDisplayWeaponsLevel=Display Weapons Level
 zombiesaddon.config.lwDisplayWeaponsLevel.description=Displays weapons level in Last Weapons.
 zombiesaddon.config.lwDisplayCooledDownSkill=Display Cooled Down Skills
 zombiesaddon.config.lwDisplayCooledDownSkill.description=Displays a cooled down skill in Last Weapons.
+
+zombiesaddon.config.recorderToggle=Toggle Recorder
+zombiesaddon.config.recorderToggle.description=Enable or disable Recorder.
+zombiesaddon.config.recorderDefaultCategory=Default Category
+zombiesaddon.config.recorderDefaultCategory.description=Category to use when not specified using the command.
+zombiesaddon.config.recorderPbNotice=PB Notice
+zombiesaddon.config.recorderPbNotice.description=Notifies when a new personal best or best segment is achieved.
 
 zombiesaddon.config.koreanPatchersIngame=Ingame
 zombiesaddon.config.koreanPatchersIngame.description=Enable or disable Korean Patchers for ingame.
