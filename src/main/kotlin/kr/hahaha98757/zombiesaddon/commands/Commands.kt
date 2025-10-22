@@ -15,5 +15,6 @@ object Commands {
         ClientCommandHandler.instance.registerCommand(CommandZsvLines)
         ClientCommandHandler.instance.registerCommand(CommandAutoSplits)
         ClientCommandHandler.instance.registerCommand(CommandZaDebug)
+        ClientCommandHandler.instance.registerCommand(CommandRecorder)
     }
 }

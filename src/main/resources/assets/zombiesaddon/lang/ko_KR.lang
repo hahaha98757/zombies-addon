@@ -48,6 +48,10 @@ zombiesaddon.commands.zsv.failed=§eZSV: §cZSV를 설정하는데 실패했습�
 zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
 zombiesaddon.commands.zsvlines.success=§eZSV: 표시할 라인을 §a%s§e줄로 설정했습니다
 
+zombiesaddon.commands.recorder.usage=/recorder category [카테고리 이름]
+zombiesaddon.commands.recorder.get=§eRecorder: 현재 카테고리는 §a%s§e 입니다
+zombiesaddon.commands.recorder.set=§eRecorder: 카테고리를 §a%s§e(으)로 설정했습니다
+
 
 zombiesaddon.modules.general.toggled=§a%s§e을(를) %s§e(으)로 토글했습니다
 
@@ -219,6 +223,13 @@ zombiesaddon.config.lwDisplayWeaponsLevel=무기 레벨 표시
 zombiesaddon.config.lwDisplayWeaponsLevel.description=Last Weapons에서 무기 레벨을 표시합니다.
 zombiesaddon.config.lwDisplayCooledDownSkill=쿨다운된 스킬 표시
 zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weapons에서 쿨다운된 스킬을 표시합니다.
+
+zombiesaddon.config.recorderToggle=토글 Recorder
+zombiesaddon.config.recorderToggle.description=Recorder를 활성화 또는 비활성화합니다.
+zombiesaddon.config.recorderDefaultCategory=기본 카테고리
+zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다.
+zombiesaddon.config.recorderPbNotice=PB 알림
+zombiesaddon.config.recorderPbNotice.description=새로운 개인 최고 기록이나 구간 최고 기록가 달성되면 알려줍니다.
 
 zombiesaddon.config.koreanPatchersIngame=인게임
 zombiesaddon.config.koreanPatchersIngame.description=인게임에 대한 한글 패치를 활성화 또는 비활성화합니다.
