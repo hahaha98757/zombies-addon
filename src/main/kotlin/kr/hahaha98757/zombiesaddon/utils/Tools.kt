@@ -146,6 +146,8 @@ internal fun runBatchFileAndQuit(file: File, commands: String) {
 }
 
 // private 함수
+private val cachedLang = mutableMapOf<String, Properties>()
+
 private fun String.translate(vararg any: Any): String {
     val lang = ZombiesAddon.instance.config.language
     val langCode = when (lang) {
@@ -153,10 +155,15 @@ private fun String.translate(vararg any: Any): String {
         Language.KO_KR -> "ko_KR"
         Language.EN_US -> "en_US"
     }
-    val langFile = Properties()
-    val resourceLocation = ResourceLocation(MODID, "lang/$langCode.lang")
-    mc.resourceManager.runCatching {
-        InputStreamReader(getResource(resourceLocation).inputStream, StandardCharsets.UTF_8).use { langFile.load(it) }
-    }.getOrElse { return I18n.format(this) }
-    return langFile.getProperty(this, this)
+
+    val prop = cachedLang.getOrPut(langCode) {
+        val prop = Properties()
+        val res = ResourceLocation(MODID, "lang/$langCode.lang")
+        mc.resourceManager.getResource(res).inputStream.use {
+            InputStreamReader(it, StandardCharsets.UTF_8).use(prop::load)
+        }
+        prop
+    }
+
+    return prop.getProperty(this, this).format(*any)
 }
