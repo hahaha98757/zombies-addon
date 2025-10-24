@@ -3,7 +3,6 @@ package kr.hahaha98757.zombiesaddon.modules
 import kr.hahaha98757.zombiesaddon.NAME
 import kr.hahaha98757.zombiesaddon.VERSION
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
-import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.ClientChatReceivedEvent
@@ -42,9 +41,7 @@ object General: AlwaysEnableModule("General") {
         if (">" in message) return
         val gameManager = ZombiesAddon.instance.gameManager
 
-        if ("Hard Difficulty" in message || "Hard 난이도" in message) gameManager.setDifficulty(Difficulty.HARD)
-        else if ("RIP Difficulty" in message || "RIP 난이도" in message) gameManager.setDifficulty(Difficulty.RIP)
-        else if ("The Helicopter is on its way! Hold out for 120 more seconds!" in message) gameManager.game?.helicopter()
+        if ("The Helicopter is on its way! Hold out for 120 more seconds!" in message) gameManager.game?.helicopter()
     }
 
     override fun onLastTick(event: LastClientTickEvent) {

@@ -27,7 +27,7 @@ class GameFile(serverNumber: ServerNumber, map: ZombiesMap): File("zombies/runs"
 
             runCatching { writeData(data) }.onFailure {
                 logger.error("구간 기록을 저장하는데 실패했습니다.", it)
-                addTranslatedChat("zombiesaddon.modules.recorder.failed.save.segment")
+                addTranslatedChat("zombiesaddon.modules.recorder.failed.save.segment", it.message ?: "알 수 없음(Unknown)")
             }
         }
     }

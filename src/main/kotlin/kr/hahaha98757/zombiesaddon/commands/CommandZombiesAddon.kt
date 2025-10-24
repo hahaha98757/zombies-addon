@@ -25,18 +25,18 @@ object CommandZombiesAddon: CustomCommandBase() {
                     addTranslatedChat("zombiesaddon.commands.zombiesaddon.difficulty.failed")
                     return
                 }
-                val gameManager = ZombiesAddon.instance.gameManager
+                val game = ZombiesAddon.instance.gameManager.game ?: return
                 val difficulty = when (args[1]) {
                     "normal" -> {
-                        gameManager.setDifficulty(Difficulty.NORMAL)
+                        game.changeDifficulty(Difficulty.NORMAL)
                         "§aNormal"
                     }
                     "hard" -> {
-                        gameManager.setDifficulty(Difficulty.HARD)
+                        game.changeDifficulty(Difficulty.HARD)
                         "§cHard"
                     }
                     "rip" -> {
-                        gameManager.setDifficulty(Difficulty.RIP)
+                        game.changeDifficulty(Difficulty.RIP)
                         "§4RIP"
                     }
                     else -> throw WrongUsageException("/zombiesaddon difficulty <normal|hard|rip>")

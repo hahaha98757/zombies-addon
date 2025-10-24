@@ -24,6 +24,8 @@ zombiesaddon.messages.blockUnlegitSst=SST의 언레짓 기능이 Zombies Addon�
 zombiesaddon.messages.sstDiffVer=SST의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: 2.1.1
 zombiesaddon.messages.zuDiffVer=Zombies Utils의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: 1.3.7
 
+zombiesaddon.message.failed.splitOrNew=§eZombies Addon:§c 라운드 또는 게임을 시작하는데 실패했습니다: %s
+
 
 zombiesaddon.commands.autosplits.usage=/autosplits <명령어>
 
@@ -69,9 +71,10 @@ zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: 재접속 중...
 zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: %s§e의 수동 타이머를 실행했습니다
 zombiesaddon.modules.powerupPatterns.autoTimer.failed=§ePowerup Patterns: §c파워업을 찾는데 실패했습니다
 
-zombiesaddon.modules.recorder.failed=§eRecorder:§c 기록을 실패했습니다
-zombiesaddon.modules.recorder.failed.save.bestSegment=§eRecorder:§c 구간 기록 저장에 실패했습니다
-zombiesaddon.modules.recorder.failed.save.pb=§eRecorder:§c 개인 최고 기록 저장에 실패했습니다
+zombiesaddon.modules.recorder.failed=§eRecorder:§c 기록을 실패했습니다: %s
+zombiesaddon.modules.recorder.failed.save.bestSegment=§eRecorder:§c 구간 최고 기록을 저장하는데 실패했습니다: %s
+zombiesaddon.modules.recorder.failed.save.pb=§eRecorder:§c 개인 최고 기록을 저장하는데 실패했습니다: %s
+zombiesaddon.modules.recorder.failed.save.segment=§eRecorder:§c 구간 기록을 저장하는데 실패했습니다: %s
 zombiesaddon.modules.recorder.category=§e 카테고리: %s
 zombiesaddon.modules.recorder.newPb=§e§l***§6§l 새로운 개인 최고 기록! §e§l***
 zombiesaddon.modules.recorder.pb=§c라운드 %s§e을(를) %s§e에 완료했습니다!
