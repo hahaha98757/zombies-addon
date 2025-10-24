@@ -31,10 +31,7 @@ class GameManager {
         val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("알 수 없는 맵(Unknown Map)"), serverNumber, if (round == 0) 1 else round, doNotCorrectTimer)
         games[serverNumber] = game
         AutoSplits.startOrSplit()
-        RepeatedTask(10) {
-            game.changeDifficulty(getDifficulty() ?: return@RepeatedTask)
-            RepeatedTask.stop()
-        }
+        DelayedTask(20) { game.changeDifficulty(getDifficulty()!!) }
         MinecraftForge.EVENT_BUS.post(RoundStartEvent(game))
     }
 
