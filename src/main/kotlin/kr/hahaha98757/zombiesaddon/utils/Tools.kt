@@ -4,6 +4,7 @@ import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.commands.CommandZaDebug
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
+import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.Language
 import kr.hahaha98757.zombiesaddon.enums.Status
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
@@ -98,6 +99,17 @@ fun getMap(): ZombiesMap? {
         "tile.cloth" -> ZombiesMap.BAD_BLOOD
         "tile.stoneSlab" -> ZombiesMap.ALIEN_ARCADIUM
         "tile.woodSlab" -> ZombiesMap.PRISON
+        else -> null
+    }
+}
+
+fun getDifficulty(): Difficulty? {
+    if (isNotPlayZombies()) return null
+    val line = Scoreboard.lines[10]
+    return when {
+        "Normal" in line -> Difficulty.NORMAL
+        "Hard" in line -> Difficulty.HARD
+        "RIP" in line -> Difficulty.RIP
         else -> null
     }
 }

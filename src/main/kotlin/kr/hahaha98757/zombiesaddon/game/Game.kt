@@ -37,7 +37,7 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
         if (round > gameMode.rounds.size) return
         recorder.runCatching { record() }.onFailure {
             logger.error("게임 기록을 실패했습니다.", it)
-            addTranslatedChat("zombiesaddon.modules.recorder.failed")
+            addTranslatedChat("zombiesaddon.modules.recorder.failed", it.message ?: "알 수 없음(Unknown)")
         }
         if (gameEnd) return
         timer.split()

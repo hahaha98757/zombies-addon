@@ -38,6 +38,7 @@ fun onSound(packet: S29PacketSoundEffect) {
         }
     }.onFailure {
         logger.error("게임 또는 라운드 시작에 실패했습니다.", it)
+        addTranslatedChat("zombiesaddon.game.failed.splitOrNew", it.message ?: "알 수 없음(Unknown)")
     }
 }
 

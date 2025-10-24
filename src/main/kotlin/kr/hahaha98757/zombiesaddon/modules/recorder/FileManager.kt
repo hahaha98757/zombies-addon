@@ -7,6 +7,7 @@ import kr.hahaha98757.zombiesaddon.modules.recorder.files.CategoryFile
 import org.apache.commons.io.FileUtils
 import java.io.File
 import java.io.FileNotFoundException
+import java.io.IOException
 
 fun CategoryFile.readOrCreate() = runCatching { readData() }.getOrElse {
     val data = CategoryData(gameMode.map)
@@ -20,6 +21,7 @@ fun File.createData(data: ISplitData) {
     writeData(data)
 }
 
+@Throws(IOException::class)
 fun File.writeData(data: ISplitData) = FileUtils.writeStringToFile(this, data.toJson(), Charsets.UTF_16)
 
 private fun File.readData(): CategoryData {

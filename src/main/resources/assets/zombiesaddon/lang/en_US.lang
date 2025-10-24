@@ -24,6 +24,8 @@ zombiesaddon.messages.blockUnlegitSst=The unlegit features of SST have been bloc
 zombiesaddon.messages.sstDiffVer=SST version is incorrect. Current version: %s, required version: 2.1.1
 zombiesaddon.messages.zuDiffVer=Zombies Utils version is incorrect. Current version: %s, required version: 1.3.7
 
+zombiesaddon.message.failed.splitOrNew=§eZombies Addon: §cFailed to start game or round: %s
+
 
 zombiesaddon.commands.autosplits.usage=/autosplits <command>
 
@@ -69,9 +71,10 @@ zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin: Rejoining...
 zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns: Ran Manual Timer of %s
 zombiesaddon.modules.powerupPatterns.autoTimer.failed=§ePowerup Patterns: §cFailed to find powerup
 
-zombiesaddon.modules.recorder.failed=§eRecorder: §cFailed to record
-zombiesaddon.modules.recorder.failed.save.bestSegment=§eRecorder: §cFailed to save best segment
-zombiesaddon.modules.recorder.failed.save.pb=§eRecorder: §cFailed to save personal best
+zombiesaddon.modules.recorder.failed=§eRecorder: §cFailed to record: %s
+zombiesaddon.modules.recorder.failed.save.bestSegment=§eRecorder: §cFailed to save best segment: %s
+zombiesaddon.modules.recorder.failed.save.pb=§eRecorder: §cFailed to save personal best: %s
+zombiesaddon.modules.recorder.failed.save.segment=§eRecorder: §cFailed to save segment time: %s
 zombiesaddon.modules.recorder.category=§e Category: %s
 zombiesaddon.modules.recorder.newPb=§e§l***§6§l NEW PERSONAL BEST! §e§l***
 zombiesaddon.modules.recorder.pb=§cRound %s§e finished at %s§e!
