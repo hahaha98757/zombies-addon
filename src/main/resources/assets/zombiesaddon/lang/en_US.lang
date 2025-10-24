@@ -54,6 +54,8 @@ zombiesaddon.commands.recorder.usage=/recorder category [category name]
 zombiesaddon.commands.recorder.get=§eRecorder: Current category is §a%s
 zombiesaddon.commands.recorder.set=§eRecorder: Set category to §a%s
 
+zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <round>
+
 
 zombiesaddon.modules.general.toggled=§eToggled §a%s§e to %s
 
@@ -248,3 +250,20 @@ zombiesaddon.config.disableSpawnTimeOfSst=Disable Spawn Time of SST
 zombiesaddon.config.disableSpawnTimeOfSst.description=Disable the spawn time of SST.
 zombiesaddon.config.disableTimerOfZombiesUtils=Disable Timer of Zombies Utils
 zombiesaddon.config.disableTimerOfZombiesUtils.description=Disable the timer of Zombies Utils.
+
+
+zombiesaddon.debug.toggle=§aDebug:§e Toggled to %s
+zombiesaddon.debug.info=Debug mode allows you to start and control games without joining Hypixel. §cMay cause crashes or other issues.
+zombiesaddon.debug.disabled=§aDebug:§c It is disabled
+zombiesaddon.debug.isNotZombies.info=isNotZombies means you are not in the game or lobby.
+zombiesaddon.debug.setFlag=§aDebug:§e Set §a%s§e to %s
+zombiesaddon.debug.serverNumber=Server Number
+zombiesaddon.debug.serverNumber.info=Server Number is used to identify the game. "null" means you are not in any server.
+zombiesaddon.debug.gameMode=Game Mode
+zombiesaddon.debug.new=§aDebug:§e Started a new game(Game Mode: §a%s§r, Server Number: §a%s)
+zombiesaddon.debug.noGame=§aDebug:§c There is no active game
+zombiesaddon.debug.pass=§aDebug:§e Passed to§c round %s
+zombiesaddon.debug.helicopter.notPrison=§aDebug:§c Helicopter escape is allowed only §6Prison
+zombiesaddon.debug.helicopter.called=§aDebug:§e Helicopter called
+zombiesaddon.debug.end=§aDebug:§e Ended the game with %s
+zombiesaddon.debug.remove=§aDebug:§e Removed ended games

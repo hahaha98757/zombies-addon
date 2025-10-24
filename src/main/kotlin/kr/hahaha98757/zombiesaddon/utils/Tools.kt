@@ -82,13 +82,13 @@ fun isNotPlayZombies(): Boolean {
 }
 
 fun getServerNumber(): ServerNumber? {
-    if (ZombiesAddon.instance.debug) return CommandZaDebug.debugServerNumber
+    if (ZombiesAddon.instance.debug) return CommandZaDebug.serverNumber
     if (Scoreboard.isNotZombies) return null
     return runCatching { ServerNumber(Scoreboard.lines[0].replace(serverNumberPattern, "$1")) }.getOrNull()
 }
 
 fun getMap(): ZombiesMap? {
-    if (ZombiesAddon.instance.debug) return ZombiesMap.DEAD_END
+    if (ZombiesAddon.instance.debug) return CommandZaDebug.gameMode.map
     val world = mc.theWorld ?: return null
     if (Scoreboard.isNotZombies) return null
     val pos = BlockPos(44, 71, 0)
@@ -104,6 +104,7 @@ fun getMap(): ZombiesMap? {
 }
 
 fun getDifficulty(): Difficulty? {
+    if (ZombiesAddon.instance.debug) return CommandZaDebug.gameMode.difficulty
     if (isNotPlayZombies()) return null
     val line = Scoreboard.lines[10]
     return when {
