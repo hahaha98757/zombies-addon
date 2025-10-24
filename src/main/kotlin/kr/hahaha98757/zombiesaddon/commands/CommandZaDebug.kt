@@ -2,126 +2,131 @@ package kr.hahaha98757.zombiesaddon.commands
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
+import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.GameMode
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.utils.addChat
-import kr.hahaha98757.zombiesaddon.utils.addChatLine
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChatLine
+import kr.hahaha98757.zombiesaddon.utils.getTranslatedString
 import net.minecraft.command.ICommandSender
 import net.minecraft.command.NumberInvalidException
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 
 object CommandZaDebug: CustomCommandBase() {
-    var debugIsNotZombies = true
-    var debugServerNumber: ServerNumber? = null
+    var isNotZombies = true
+    var serverNumber: ServerNumber? = null
+    var gameMode = GameMode.DEAD_END_NORMAL
+
 
     private var addMessage = false
     override fun getCommandName() = "za_debug"
 
-    override fun getCommandUsage(sender: ICommandSender?) = "/za_debug [isNotZombies|serverNumber|new|map|pass|helicopter|end|remove]"
+    override fun getCommandUsage(sender: ICommandSender?) = "/za_debug [isNotZombies|serverNumber|gameMode|new|pass|helicopter|end|remove]"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {
         if (args.isEmpty()) {
             ZombiesAddon.instance.debug = !ZombiesAddon.instance.debug
-            addChat("디버그 모드를 ${if (ZombiesAddon.instance.debug) "활성화" else "비활성화"}했습니다.")
-            if (!addMessage) addChatLine("디버그 모드 관련 메시지는 번역되어있지 않습니다.\n게임이 종료되는 등 문제가 발생할 수 있습니다.")
+            addTranslatedChat("zombiesaddon.debug.toggle", if (ZombiesAddon.instance.debug) "§aon" else "§coff")
+            if (!addMessage) addTranslatedChatLine("zombiesaddon.debug.info")
             addMessage = true
             return
         }
         if (!ZombiesAddon.instance.debug) {
-            addChat("디버그 모드가 비활성화되어있습니다.")
+            addTranslatedChat("zombiesaddon.debug.disabled")
             return
         }
         when (args[0]) {
             "isNotZombies" -> {
                 if (args.size < 2) {
-                    addChat("isNotZombies: $debugIsNotZombies")
+                    addTranslatedChatLine("zombiesaddon.debug.isNotZombies.info")
+                    addChat("isNotZombies: ${isNotZombies.withColor()}")
                     return
                 }
-                debugIsNotZombies = when (args[1]) {
-                    "true" -> true
+                isNotZombies = when (args[1]) {
                     "false" -> false
+                    "true" -> true
                     else -> throw WrongUsageException("/za_debug isNotZombies [false|true]")
                 }
-                addChat("isNotZombies를 $debugIsNotZombies(으)로 설정했습니다.")
+                addTranslatedChat("zombiesaddon.debug.setFlag", "isNotZombies", isNotZombies.withColor())
             }
             "serverNumber" -> {
                 if (args.size < 2) {
-                    addChat("서버 번호: $debugServerNumber")
+                    addTranslatedChatLine("zombiesaddon.debug.serverNumber.info")
+                    addChat("${getTranslatedString("zombiesaddon.debug.serverNumber")}: ${serverNumber.withColor()}")
                     return
                 }
-                debugServerNumber = if (args[1] == "null") null else ServerNumber(args[1])
-                addChat("서버 번호를 $debugServerNumber(으)로 설정했습니다.")
+                serverNumber = if (args[1] == "null") null else ServerNumber(args[1])
+                addTranslatedChat("zombiesaddon.debug.setFlag", getTranslatedString("zombiesaddon.debug.serverNumber"), serverNumber.withColor())
+            }
+            "gameMode" -> {
+                if (args.size < 2) {
+                    addChat("${getTranslatedString("zombiesaddon.debug.gameMode")}: $gameMode")
+                    return
+                }
+                val map = when (args[1]) {
+                    "de" -> ZombiesMap.DEAD_END
+                    "bb" -> ZombiesMap.BAD_BLOOD
+                    "aa" -> ZombiesMap.ALIEN_ARCADIUM
+                    "pr" -> ZombiesMap.PRISON
+                    else -> throw WrongUsageException("/za_debug gameMode [de|bb|aa|pr] [normal|hard|rip]")
+                }
+                val difficulty = if (args.size < 3) Difficulty.NORMAL else when (args[2]) {
+                    "normal" -> Difficulty.NORMAL
+                    "hard" -> Difficulty.HARD
+                    "rip" -> Difficulty.RIP
+                    else -> throw WrongUsageException("/za_debug gameMode [de|bb|aa|pr] [normal|hard|rip]")
+                }
+                gameMode = map.getNormalGameMode().appliedDifficulty(difficulty)
+                addTranslatedChat("zombiesaddon.debug.setFlag", getTranslatedString("zombiesaddon.debug.gameMode"), "§a${gameMode}")
+                val game = ZombiesAddon.instance.gameManager.game ?: return
+                game.gameMode = gameMode
             }
             "new" -> {
-                runCatching { ZombiesAddon.instance.gameManager.splitOrNew(0, true) }.onFailure {
-                    addChat("게임을 시작하는데 실패했습니다: ${it.message ?: "알 수 없음"}")
-                }.onSuccess {
-                    addChat("새 게임을 시작했습니다.")
-                    addChat("서버 번호: $debugServerNumber, 게임모드: Dead End Normal")
-                }
-            }
-            "map" -> {
-                val game = ZombiesAddon.instance.gameManager.game ?: run {
-                    addChat("게임이 시작되지 않았습니다.")
-                    return
-                }
-                if (args.size == 1) {
-                    addChat("게임모드: ${game.gameMode}")
-                    return
-                }
-                when (args[1]) {
-                    "de" -> ZombiesAddon.instance.gameManager.game?.gameMode = GameMode.DEAD_END_NORMAL
-                    "bb" -> ZombiesAddon.instance.gameManager.game?.gameMode = GameMode.BAD_BLOOD_NORMAL
-                    "aa" -> ZombiesAddon.instance.gameManager.game?.gameMode = GameMode.ALIEN_ARCADIUM
-                    "pr" -> ZombiesAddon.instance.gameManager.game?.gameMode = GameMode.PRISON_NORMAL
-                    else -> throw WrongUsageException("/za_debug map [de|bb|aa|pr]")
-                }
-                addChat("게임모드를 ${game.gameMode}(으)로 변경했습니다.")
+                runCatching { ZombiesAddon.instance.gameManager.splitOrNew(0, true) }.onSuccess {
+                    addTranslatedChat("zombiesaddon.debug.new", gameMode, serverNumber!!)
+                }.onFailure { addTranslatedChat("zombiesaddon.message.failed.splitOrNew", it.message ?: "알 수 없음(Unknown)") }
             }
             "pass" -> {
                 val game = ZombiesAddon.instance.gameManager.game ?: run {
-                    addChat("게임이 시작되지 않았습니다.")
+                    addTranslatedChat("zombiesaddon.debug.noGame")
                     return
                 }
-                if (args.size < 2) throw WrongUsageException("/za_debug pass <라운드>")
+                if (args.size < 2) throw WrongUsageException(getTranslatedString("zombiesaddon.debug.usage.pass"))
                 val round = args[1].toIntOrNull() ?: throw NumberInvalidException("commands.generic.num.invalid", args[1])
                 if (round <= 0) throw NumberInvalidException("commands.generic.num.tooSmall", args[1], 1)
                 game.pass(round, true)
-                addChat("라운드 ${round}을(를) 통과했습니다.")
+                addTranslatedChat("zombiesaddon.debug.pass", round)
             }
             "helicopter" -> {
                 val game = ZombiesAddon.instance.gameManager.game ?: run {
-                    addChat("게임이 시작되지 않았습니다.")
+                    addTranslatedChat("zombiesaddon.debug.noGame")
                     return
                 }
                 if (game.gameMode.map != ZombiesMap.PRISON) {
-                    addChat("헬리콥터 탈출은 Prison 맵에서만 가능합니다.")
+                    addTranslatedChat("zombiesaddon.debug.helicopter.notPrison")
                     return
                 }
                 game.helicopter()
-                addChat("헬리콥터 탈출을 시작합니다.")
+                addTranslatedChat("zombiesaddon.debug.helicopter.called")
             }
             "end" -> {
                 val game = ZombiesAddon.instance.gameManager.game ?: run {
-                    addChat("게임이 시작되지 않았습니다.")
+                    addTranslatedChat("zombiesaddon.debug.noGame")
                     return
                 }
                 if (args.size < 2) throw WrongUsageException("/za_debug end <win|lose>")
-                when (args[1]) {
-                    "win" -> {
-                        ZombiesAddon.instance.gameManager.endGame(game.serverNumber, true)
-                        addChat("게임을 승리로 종료했습니다.")
-                    }
-                    "lose" -> {
-                        ZombiesAddon.instance.gameManager.endGame(game.serverNumber, false)
-                        addChat("게임을 패배로 종료했습니다.")
-                    }
+                val isWin = when (args[1]) {
+                    "win" -> true
+                    "lose" -> false
                     else -> throw WrongUsageException("/za_debug end <win|lose>")
                 }
+                ZombiesAddon.instance.gameManager.endGame(game.serverNumber, isWin)
+                addTranslatedChat("zombiesaddon.debug.end", if (isWin) "§awin" else "§close")
             }
             "remove" -> {
                 ZombiesAddon.instance.gameManager.removeGame()
-                addChat("종료된 게임을 제거했습니다.")
+                addTranslatedChat("zombiesaddon.debug.remove")
             }
             else -> throw WrongUsageException(getCommandUsage(null))
         }
@@ -129,15 +134,23 @@ object CommandZaDebug: CustomCommandBase() {
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? {
         if (!ZombiesAddon.instance.debug) return null
         return when (args.size) {
-            1 -> getListOfStringsMatchingLastWord(args, "isNotZombies", "serverNumber", "new", "map", "pass", "helicopter", "end", "remove")
+            1 -> getListOfStringsMatchingLastWord(args, "isNotZombies", "serverNumber", "gameMode", "new", "pass", "helicopter", "end", "remove")
             2 -> when (args[0]) {
                 "isNotZombies" -> getListOfStringsMatchingLastWord(args, "false", "true")
                 "serverNumber" -> getListOfStringsMatchingLastWord(args, "null")
-                "map" -> getListOfStringsMatchingLastWord(args, "de", "bb", "aa", "pr")
+                "gameMode" -> getListOfStringsMatchingLastWord(args, "de", "bb", "aa", "pr")
                 "end" -> getListOfStringsMatchingLastWord(args, "win", "lose")
+                else -> null
+            }
+            3 -> when (args[0]) {
+                "gameMode" -> getListOfStringsMatchingLastWord(args, "normal", "hard", "rip")
                 else -> null
             }
             else -> null
         }
     }
 }
+
+private fun Boolean.withColor() = if (this) "§atrue" else "§cfalse"
+
+private fun ServerNumber?.withColor() = this?.let { return "§a$it" } ?: "§cnull"

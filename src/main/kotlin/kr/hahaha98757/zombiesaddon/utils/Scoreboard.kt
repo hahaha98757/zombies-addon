@@ -25,10 +25,9 @@ object Scoreboard {
         }
     }
 
-    val isNotZombies get() = if (ZombiesAddon.instance.debug) CommandZaDebug.debugIsNotZombies else title != "ZOMBIES"
+    val isNotZombies get() = if (ZombiesAddon.instance.debug) CommandZaDebug.isNotZombies else title != "ZOMBIES"
 
     val round: Int get() {
-        if (ZombiesAddon.instance.debug) return 1
         if (isNotZombies) return 0
         val line = lines.getOrNull(2) ?: return 0
         val round = line.replace(Regex("[^0-9]"), "").toIntOrNull() ?: return 0

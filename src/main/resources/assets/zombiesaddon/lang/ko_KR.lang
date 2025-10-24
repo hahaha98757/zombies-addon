@@ -54,6 +54,8 @@ zombiesaddon.commands.recorder.usage=/recorder category [카테고리 이름]
 zombiesaddon.commands.recorder.get=§eRecorder: 현재 카테고리는 §a%s§e 입니다
 zombiesaddon.commands.recorder.set=§eRecorder: 카테고리를 §a%s§e(으)로 설정했습니다
 
+zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <라운드>
+
 
 zombiesaddon.modules.general.toggled=§a%s§e을(를) %s§e(으)로 토글했습니다
 
@@ -247,3 +249,20 @@ zombiesaddon.config.disableSpawnTimeOfSst=SST의 스폰 시간 비활성화
 zombiesaddon.config.disableSpawnTimeOfSst.description=SST의 스폰 시간을 비활성화합니다.
 zombiesaddon.config.disableTimerOfZombiesUtils=Zombies Utils의 타이머 비활성화
 zombiesaddon.config.disableTimerOfZombiesUtils.description=Zombies Utils의 타이머를 비활성화합니다.
+
+
+zombiesaddon.debug.toggle=§a디버그: %s§e(으)로 토글했습니다
+zombiesaddon.debug.info=디버그 모드는 하이픽셀에 접속하지 않고 게임을 시작하거나 제어할 수 있습니다. §c충돌이나 다른 문제가 발생할 수 있습니다.
+zombiesaddon.debug.disabled=§a디버그:§c 비활성화 되어있습니다
+zombiesaddon.debug.isNotZombies.info=isNotZombies는 게임이나 로비에 접속해 있지 않음을 의미합니다.
+zombiesaddon.debug.setFlag=§a디버그:§a %s§e을(를) %s§e(으)로 설정했습니다
+zombiesaddon.debug.serverNumber=서버 번호
+zombiesaddon.debug.serverNumber.info=서버 번호는 게임을 식별하는데 사용됩니다. "null"은 어떤 서버에도 접속하지 않음을 의미합니다.
+zombiesaddon.debug.gameMode=게임모드
+zombiesaddon.debug.new=§a디버그:§e 새 게임을 시작했습니다(게임모드: §a%s§r, 서버 번호: §a%s)
+zombiesaddon.debug.noGame=§a디버그:§c 활성화된 게임이 없습니다
+zombiesaddon.debug.pass=§a디버그:§c 라운드 %s§e을(를) 통과했습니다
+zombiesaddon.debug.helicopter.notPrison=§a디버그:§c 헬리콥터 탈출은 §6Prison§c에서만 허용됩니다
+zombiesaddon.debug.helicopter.called=§a디버그:§e 헬리콥터가 호출되었습니다
+zombiesaddon.debug.end=§a디버그:§e 게임을 %s§e(으)로 종료했습니다
+zombiesaddon.debug.remove=§a디버그:§e 종료된 게임을 제거했습니다
