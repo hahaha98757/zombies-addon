@@ -106,7 +106,7 @@ fun getMap(): ZombiesMap? {
 fun getDifficulty(): Difficulty? {
     if (ZombiesAddon.instance.debug) return CommandZaDebug.gameMode.difficulty
     if (isNotPlayZombies()) return null
-    val line = Scoreboard.lines[10]
+    val line = Scoreboard.lines.getOrNull(10) ?: return null
     return when {
         "Normal" in line -> Difficulty.NORMAL
         "Hard" in line -> Difficulty.HARD
