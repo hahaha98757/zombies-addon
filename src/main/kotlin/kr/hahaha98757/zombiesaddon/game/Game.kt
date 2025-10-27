@@ -19,7 +19,7 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
     var isWin = false
         get() = if (gameEnd) field else throw IllegalStateException("게임이 아직 종료되지 않았습니다.")
     var escape = false
-    private val recorder = Recorder(this)
+    val recorder = Recorder(this)
 
     init {
         if (!doNotCorrectTimer) MinecraftForge.EVENT_BUS.register(TimerCorrector(this))
