@@ -44,7 +44,7 @@ zombiesaddon.commands.zombiesaddon.difficulty.failed=§eZombies Addon: §c이 �
 zombiesaddon.commands.zombiesaddon.difficulty=§eZombies Addon: 난이도를 %s§e(으)로 설정했습니다
 
 zombiesaddon.commands.zsv.success=§eZSV: ZSV를 %s§e(으)로 설정했습니다
-zombiesaddon.commands.zsv.wrongUrl=URL은 "https://pastebin.com/raw/"로 시작해야 합니다
+zombiesaddon.commands.zsv.error=URL은 "https://pastebin.com/raw/"로 시작해야 합니다
 zombiesaddon.commands.zsv.failed=§eZSV: §cZSV를 설정하는데 실패했습니다
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <숫자>
@@ -53,7 +53,7 @@ zombiesaddon.commands.zsvlines.success=§eZSV: 표시할 라인을 §a%s§e줄�
 zombiesaddon.commands.recorder.usage=/recorder category [카테고리 이름]
 zombiesaddon.commands.recorder.get=§eRecorder: 현재 카테고리는 §a%s§e 입니다
 zombiesaddon.commands.recorder.set=§eRecorder: 카테고리를 §a%s§e(으)로 설정했습니다
-zombiesaddon.commands.recorder.error.category=카테고리 이름에는 '/'나 '\'가 포함될 수 없습니다
+zombiesaddon.commands.recorder.error.category=카테고리 이름에는 '/' 또는 '\'가 포함될 수 없습니다
 
 zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <라운드>
 
@@ -233,7 +233,7 @@ zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weapons에서 쿨�
 zombiesaddon.config.recorderToggle=토글 Recorder
 zombiesaddon.config.recorderToggle.description=Recorder를 활성화 또는 비활성화합니다.
 zombiesaddon.config.recorderDefaultCategory=기본 카테고리
-zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다. '/'나 '\'가 포함될 수 없습니다.
+zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다. '/' 또는 '\'가 포함될 수 없습니다.
 zombiesaddon.config.recorderPbNotice=PB 알림
 zombiesaddon.config.recorderPbNotice.description=새로운 개인 최고 기록이나 구간 최고 기록가 달성되면 알려줍니다.
 
@@ -260,7 +260,7 @@ zombiesaddon.debug.setFlag=§a디버그:§a %s§e을(를) %s§e(으)로 설정�
 zombiesaddon.debug.serverNumber=서버 번호
 zombiesaddon.debug.serverNumber.info=서버 번호는 게임을 식별하는데 사용됩니다. "null"은 어떤 서버에도 접속하지 않음을 의미합니다.
 zombiesaddon.debug.gameMode=게임모드
-zombiesaddon.debug.new=§a디버그:§e 새 게임을 시작했습니다(게임모드: §a%s§r, 서버 번호: §a%s)
+zombiesaddon.debug.new=§a디버그:§e 새 게임을 시작했습니다(게임모드: §a%s§e, 서버 번호: §a%s)
 zombiesaddon.debug.noGame=§a디버그:§c 활성화된 게임이 없습니다
 zombiesaddon.debug.pass=§a디버그:§c 라운드 %s§e을(를) 통과했습니다
 zombiesaddon.debug.helicopter.notPrison=§a디버그:§c 헬리콥터 탈출은 §6Prison§c에서만 허용됩니다
