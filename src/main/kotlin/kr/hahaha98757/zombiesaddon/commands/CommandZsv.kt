@@ -3,8 +3,8 @@ package kr.hahaha98757.zombiesaddon.commands
 import kr.hahaha98757.zombiesaddon.modules.ZombiesStratViewer
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.mc
-import net.minecraft.command.CommandException
 import net.minecraft.command.ICommandSender
+import net.minecraft.command.SyntaxErrorException
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 import java.io.BufferedReader
@@ -27,7 +27,7 @@ object CommandZsv: CustomCommandBase() {
             ZombiesStratViewer.enabled = false
             return
         }
-        if (!args[0].startsWith("https://pastebin.com/raw/")) throw CommandException("zombiesaddon.commands.zsv.wrongUrl")
+        if (!args[0].startsWith("https://pastebin.com/raw/")) throw SyntaxErrorException("zombiesaddon.commands.zsv.error")
 
         Thread {
             try {

@@ -44,7 +44,7 @@ zombiesaddon.commands.zombiesaddon.difficulty.failed=§eZombies Addon: §cThis c
 zombiesaddon.commands.zombiesaddon.difficulty=§eZombies Addon: Set difficulty to %s
 
 zombiesaddon.commands.zsv.success=§eZSV: Set ZSV to %s
-zombiesaddon.commands.zsv.wrongUrl=The URL must start with "https://pastebin.com/raw/"
+zombiesaddon.commands.zsv.error=The URL must start with "https://pastebin.com/raw/"
 zombiesaddon.commands.zsv.failed=§eZSV: §cFailed to set ZSV
 
 zombiesaddon.commands.zsvlines.usage=/zsvlines <number>
@@ -261,7 +261,7 @@ zombiesaddon.debug.setFlag=§aDebug:§e Set §a%s§e to %s
 zombiesaddon.debug.serverNumber=Server Number
 zombiesaddon.debug.serverNumber.info=Server Number is used to identify the game. "null" means you are not in any server.
 zombiesaddon.debug.gameMode=Game Mode
-zombiesaddon.debug.new=§aDebug:§e Started a new game(Game Mode: §a%s§r, Server Number: §a%s)
+zombiesaddon.debug.new=§aDebug:§e Started a new game(Game Mode: §a%s§e, Server Number: §a%s)
 zombiesaddon.debug.noGame=§aDebug:§c There is no active game
 zombiesaddon.debug.pass=§aDebug:§e Passed to§c round %s
 zombiesaddon.debug.helicopter.notPrison=§aDebug:§c Helicopter escape is allowed only §6Prison
