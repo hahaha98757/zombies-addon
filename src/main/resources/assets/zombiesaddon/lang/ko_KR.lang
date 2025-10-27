@@ -53,6 +53,7 @@ zombiesaddon.commands.zsvlines.success=§eZSV: 표시할 라인을 §a%s§e줄�
 zombiesaddon.commands.recorder.usage=/recorder category [카테고리 이름]
 zombiesaddon.commands.recorder.get=§eRecorder: 현재 카테고리는 §a%s§e 입니다
 zombiesaddon.commands.recorder.set=§eRecorder: 카테고리를 §a%s§e(으)로 설정했습니다
+zombiesaddon.commands.recorder.error.category=카테고리 이름에는 '/'나 '\'가 포함될 수 없습니다
 
 zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <라운드>
 
@@ -232,7 +233,7 @@ zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weapons에서 쿨�
 zombiesaddon.config.recorderToggle=토글 Recorder
 zombiesaddon.config.recorderToggle.description=Recorder를 활성화 또는 비활성화합니다.
 zombiesaddon.config.recorderDefaultCategory=기본 카테고리
-zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다.
+zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다. '/'나 '\'가 포함될 수 없습니다.
 zombiesaddon.config.recorderPbNotice=PB 알림
 zombiesaddon.config.recorderPbNotice.description=새로운 개인 최고 기록이나 구간 최고 기록가 달성되면 알려줍니다.
 

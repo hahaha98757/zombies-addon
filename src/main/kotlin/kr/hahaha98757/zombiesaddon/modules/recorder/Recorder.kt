@@ -10,9 +10,13 @@ import net.minecraft.util.ChatComponentText
 import net.minecraft.util.ChatStyle
 
 class Recorder(val game: Game) {
-    private val category = Category()
+    private var category = Category()
     private val gameFile = GameFile(game.serverNumber, game.gameMode.map)
     private val isFullRecorded = (game.round == 1)
+
+    fun reloadCategory() {
+        category = Category()
+    }
 
     fun record() {
         compareSegment()

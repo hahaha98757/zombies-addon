@@ -53,6 +53,7 @@ zombiesaddon.commands.zsvlines.success=§eZSV: Set lines of view to §a%s
 zombiesaddon.commands.recorder.usage=/recorder category [category name]
 zombiesaddon.commands.recorder.get=§eRecorder: Current category is §a%s
 zombiesaddon.commands.recorder.set=§eRecorder: Set category to §a%s
+zombiesaddon.commands.recorder.error.category=Category name must not contain '/' or '\'
 
 zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <round>
 
@@ -233,7 +234,7 @@ zombiesaddon.config.lwDisplayCooledDownSkill.description=Displays a cooled down 
 zombiesaddon.config.recorderToggle=Toggle Recorder
 zombiesaddon.config.recorderToggle.description=Enable or disable Recorder.
 zombiesaddon.config.recorderDefaultCategory=Default Category
-zombiesaddon.config.recorderDefaultCategory.description=Category to use when not specified using the command.
+zombiesaddon.config.recorderDefaultCategory.description=Category to use when not specified using the command. Must not contain '/' or '\'.
 zombiesaddon.config.recorderPbNotice=PB Notice
 zombiesaddon.config.recorderPbNotice.description=Notifies when a new personal best or best segment is achieved.
 

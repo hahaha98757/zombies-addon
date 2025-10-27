@@ -75,6 +75,7 @@ class ZAConfig(val config: Configuration) {
 
     var recorderToggle = true
     var recorderDefaultCategory = "general"
+        get() = if ("/" in field || "\\" in field) "general" else field
     var recorderPbNotice = true
 
     var koreanPatchersIngame = false
