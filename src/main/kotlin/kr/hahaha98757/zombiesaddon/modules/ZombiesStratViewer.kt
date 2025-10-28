@@ -2,6 +2,7 @@ package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.utils.fr
+import kr.hahaha98757.zombiesaddon.utils.isDisable
 import net.minecraft.client.gui.Gui
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
@@ -46,10 +47,12 @@ object ZombiesStratViewer: Module("Zombies Strat Viewer") {
     override fun onKeyInput(event: KeyInputEvent) {
         val keys = ZombiesAddon.instance.keyBindings
         if (keys.zsvScrollDown.isPressed) {
+            if (isDisable() || !isEnable()) return
             if (currentLine + 1 < stratLines.size) currentLine++
             refreshActualLines()
         }
         if (keys.zsvScrollUp.isPressed) {
+            if (isDisable() || !isEnable()) return
             if (currentLine > 0) currentLine--
             refreshActualLines()
         }

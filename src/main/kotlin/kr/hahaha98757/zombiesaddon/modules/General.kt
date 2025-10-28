@@ -25,7 +25,7 @@ object General: AlwaysEnableModule("General") {
             else -> 0xffff55
         }
         var str = "$NAME v$VERSION"
-        fr.drawStringWithShadow(str, HudUtils.getModNameStrX(str), HudUtils.getModNameStrY(),  color)
+        fr.drawStringWithShadow(str, HudUtils.getModNameStrX(str), HudUtils.getModNameStrY(), color)
 
         str = "Player Visibility: ${if (PlayerVisibility.isEnable()) "§aon" else "§coff"}"
         if (ZombiesAddon.instance.config.pvText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i++), 0xffff55)

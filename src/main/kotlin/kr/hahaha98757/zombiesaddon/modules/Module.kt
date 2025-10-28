@@ -1,6 +1,5 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
@@ -16,8 +15,8 @@ abstract class Module(val name: String) {
     abstract fun isEnable(): Boolean
 
     internal open fun occurEvent(event: Event) {
-        if (!isEnable()) {
-            if (event is KeyInputEvent) ZombiesAddon.instance.keyBindings.resetAll()
+        if (isDisable() || !isEnable()) {
+            if (event is KeyInputEvent) onKeyInput(event)
             return
         }
         when (event) {
@@ -31,6 +30,7 @@ abstract class Module(val name: String) {
         }
     }
 
+    /** 활성화 여부와 상관 없이 호출됨. */
     protected open fun onKeyInput(event: KeyInputEvent) {}
     protected open fun onLastTick(event: LastClientTickEvent) {}
     protected open fun onRender(event: RenderGameOverlayEvent.Text) {}
@@ -46,17 +46,13 @@ abstract class ToggleableModule(name: String, private var enabled: Boolean): Mod
 
     final override fun onKeyInput(event: KeyInputEvent) {
         if (getKeyBinding().isPressed) {
+            if (isDisable()) return
             enabled = !enabled
             addToggleText(enabled)
         }
     }
 
     final override fun isEnable() = enabled
-
-    final override fun occurEvent(event: Event) {
-        if (event is KeyInputEvent) onKeyInput(event)
-        else if (isEnable()) super.occurEvent(event)
-    }
 }
 
 open class AlwaysEnableModule(name: String): Module(name) {
@@ -74,10 +70,6 @@ class ModuleListener {
 
     @SubscribeEvent
     fun onEvent(event: Event) {
-        if (isDisable()) {
-            if (event is KeyInputEvent) ZombiesAddon.instance.keyBindings.resetAll()
-            return
-        }
         for (module in modules) module.occurEvent(event)
     }
 }
