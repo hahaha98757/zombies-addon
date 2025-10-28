@@ -1,5 +1,9 @@
 # Change log
 
+## 4.5.3
+2025-10-28
+- Bug fix: Key input was ignored
+
 ## 4.5.2
 2025-10-12
 - Code Fix:

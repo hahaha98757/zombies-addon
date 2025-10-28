@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 abstract class Module(val name: String) {
     abstract fun isEnable(): Boolean
 
-    internal open fun occurEvent(event: Event) {
+    internal fun occurEvent(event: Event) {
         if (isDisable() || !isEnable()) {
             if (event is KeyInputEvent) onKeyInput(event)
             return
