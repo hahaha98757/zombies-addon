@@ -235,7 +235,7 @@ zombiesaddon.config.recorderToggle.description=Recorder를 활성화 또는 비�
 zombiesaddon.config.recorderDefaultCategory=기본 카테고리
 zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다. '/' 또는 '\'가 포함될 수 없습니다.
 zombiesaddon.config.recorderPbNotice=PB 알림
-zombiesaddon.config.recorderPbNotice.description=새로운 개인 최고 기록이나 구간 최고 기록가 달성되면 알려줍니다.
+zombiesaddon.config.recorderPbNotice.description=새로운 개인 최고 기록이나 구간 최고 기록이 달성되면 알려줍니다.
 
 zombiesaddon.config.koreanPatchersIngame=인게임
 zombiesaddon.config.koreanPatchersIngame.description=인게임에 대한 한글 패치를 활성화 또는 비활성화합니다.
