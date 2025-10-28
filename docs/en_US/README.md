@@ -146,6 +146,26 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Display Cooled Down Skills: Displays a cooled down skill in Last Weapons.
 
 ----
+### Recorder
+- Saves and compares PB (personal best) and best segment for each round.
+- Records are saved by category, which can be specified by config or command.
+- When you pass a round, compares it to your previous best record.
+- PB and best segment are saved as UTF-16 encoded .times files in the .minecraft/zombies/splits/(category) folder.
+  If not in Hypixel or in debug mode, they are saved in the practice-splits folder.
+- For each game, segments are saved in the format of YYYY-MM-DD_HH-MM-SS_(Server Number).seg
+ as UTF-16 encoded files in the .minecraft/zombies/runs folder.
+- There may be a 1 tick difference from the records of Zombies Utils, and the records of Zombies Utils are disabled.
+- Saved records can be used in Zombies Utils, and vice versa.
+
+#### Config
+- Toggle Recorder: Enable or disable Recorder.
+- Default Category: Category to use when not specified using the command. Must not contain '/' or '\'.
+- PB Notice: Notifies when a new personal best or best segment is achieved.
+
+#### Commands
+- recorder category [Category]: Check or set the current category. Must not contain '/' or '\'.
+
+----
 ### Text Macro
 - Press the hotkey (default Q) to send text to chat.
 
