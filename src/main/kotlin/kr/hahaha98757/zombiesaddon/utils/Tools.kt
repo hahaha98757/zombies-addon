@@ -82,8 +82,8 @@ fun isNotPlayZombies(): Boolean {
 }
 
 fun getServerNumber(): ServerNumber? {
-    if (ZombiesAddon.instance.debug) return CommandZaDebug.serverNumber
     if (Scoreboard.isNotZombies) return null
+    if (ZombiesAddon.instance.debug) return CommandZaDebug.serverNumber
     return runCatching { ServerNumber(Scoreboard.lines[0].replace(serverNumberPattern, "$1")) }.getOrNull()
 }
 
