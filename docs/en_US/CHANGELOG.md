@@ -1,11 +1,28 @@
 # Change log
 
+## 4.6.0-beta1
+10-28-2025
+- Added
+  - Recorder
+  - Exception Messages: Added exception messages when starting a game or round, recording, or saving in the Recorder.
+- Changed
+  - Difficulty Detection
+    - Detection via the scoreboard (Hypixel update)
+    - Added difficulty detection behavior for game objects created mid-game.
+  - Debug Mode: Added details to translations, text animation, and output.
+- Removed: Ability to change difficulty using the /zombiesaddon command.
+- Fixed
+  - Not Last: Matches player name color to rank color.
+  - Changed language file loading to run only once.
+- Code Fixes: Tools.kt Reorganization
+
+
 ## 4.5.3
 2025-10-28
 - Bug fix: Key input was ignored
 
 ## 4.5.2
-2025-10-12
+10-12-2025
 - Code Fix:
   - Changed the class that triggers LastClientTickEvent.
   - Performance Improvement: Changed the collection of config category objects.
