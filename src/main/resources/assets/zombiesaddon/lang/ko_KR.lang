@@ -33,6 +33,7 @@ zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: %s§e의 패턴을§c 재설정§e했습니다
 zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: %s§e의 패턴을 §a%s§e(으)로 설정했습니다
 
+zombiesaddon.commands.sla.custom.noSla=§eSLA: §cSLA가 활성화되지 않습니다
 zombiesaddon.commands.sla.setMap=§eSLA: SLA를 %s§e(으)로 설정했습니다
 zombiesaddon.commands.sla.setOffset=§eSLA: 오프셋을 §a%s§e(으)로 설정했습니다
 zombiesaddon.commands.sla.resetRotations=§eSLA: 회전을§c 재설정§e했습니다
