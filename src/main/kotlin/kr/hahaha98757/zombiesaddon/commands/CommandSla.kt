@@ -2,12 +2,13 @@ package kr.hahaha98757.zombiesaddon.commands
 
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.modules.Sla
+import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import net.minecraft.command.ICommandSender
 import net.minecraft.command.NumberInvalidException
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 
-object CommandSla: CustomCommandBase() {
+class CommandSla: CustomCommandBase() {
     override fun getCommandName() = "sla"
     override fun getCommandUsage(sender: ICommandSender?) = "/sla <de|bb|aa|off|quick|custom>"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {
@@ -19,13 +20,8 @@ object CommandSla: CustomCommandBase() {
             "bb" -> Sla.on(ZombiesMap.BAD_BLOOD)
             "aa" -> Sla.on(ZombiesMap.ALIEN_ARCADIUM)
             "quick" -> {
-                if (args.size == 1) throw WrongUsageException("/sla quick <mogi_a|ghxula|ghxula-garden>")
+                if (args.size == 1) throw WrongUsageException("/sla quick <ghxula|ghxula-garden|loliepop5>")
                 when (args[1]) {
-                    "mogi_a" -> {
-                        Sla.on(ZombiesMap.BAD_BLOOD)
-                        Sla.sla?.rotate(3)
-                        Sla.sla?.setOffset(-3, 35, -9)
-                    }
                     "ghxula" -> {
                         Sla.on(ZombiesMap.DEAD_END)
                         Sla.sla?.rotate(1)
@@ -36,10 +32,18 @@ object CommandSla: CustomCommandBase() {
                         Sla.sla?.rotate(1)
                         Sla.sla?.setOffset(13, 53, -8)
                     }
-                    else -> throw WrongUsageException("/sla quick <mogi_a|ghxula|ghxula-garden>")
+                    "loliepop5" -> {
+                        Sla.on(ZombiesMap.ALIEN_ARCADIUM)
+                        Sla.sla?.setOffset(-3, 32, -22)
+                    }
+                    else -> throw WrongUsageException("/sla quick <ghxula|ghxula-garden|loliepop5>")
                 }
             }
             "custom" -> {
+                if (Sla.sla == null) {
+                    addTranslatedChat("zombiesaddon.commands.sla.custom.noSla")
+                    return
+                }
                 if (args.size == 1) throw WrongUsageException("/sla custom <offset|rotate|mirror>")
                 when (args[1]) {
                     "offset" -> {
@@ -72,7 +76,7 @@ object CommandSla: CustomCommandBase() {
         if (args.isEmpty()) return null
         if (args.size == 1) return getListOfStringsMatchingLastWord(args, "de", "bb", "aa", "off", "quick", "custom")
         return when (args[0]) {
-            "quick" -> getListOfStringsMatchingLastWord(args, "mogi_a", "ghxula", "ghxula-garden")
+            "quick" -> getListOfStringsMatchingLastWord(args, "ghxula", "ghxula-garden", "loliepop5")
             "custom" -> {
                 if (args.size == 2) getListOfStringsMatchingLastWord(args, "offset", "rotate", "mirror")
                 else when (args[1]) {

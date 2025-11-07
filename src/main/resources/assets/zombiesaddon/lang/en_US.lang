@@ -33,6 +33,7 @@ zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|
 zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns: §cReset %s§e pattern
 zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns: Set %s§e pattern to §a%s
 
+zombiesaddon.commands.sla.custom.noSla=§eSLA: §cSLA is not active
 zombiesaddon.commands.sla.setMap=§eSLA: Set SLA to %s
 zombiesaddon.commands.sla.setOffset=§eSLA: Set offset to §a%s
 zombiesaddon.commands.sla.resetRotations=§eSLA: §cReset§e rotations
