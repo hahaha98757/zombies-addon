@@ -62,3 +62,14 @@ enum class Language(val text: String) {
         val arrays get() = entries.map { it.text }.toTypedArray()
     }
 }
+
+enum class SemiPvMode(val text: String) {
+    LINEAR("Linear"), FIXED("Fixed"), SMOOTH("Smooth"), SHARP("Sharp");
+
+    override fun toString() = text
+
+    companion object {
+        fun fromText(text: String) = entries.firstOrNull { it.text == text } ?: LINEAR
+        val arrays get() = entries.map { it.text }.toTypedArray()
+    }
+}

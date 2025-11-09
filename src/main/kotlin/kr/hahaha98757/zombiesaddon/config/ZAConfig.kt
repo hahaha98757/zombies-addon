@@ -3,6 +3,7 @@ package kr.hahaha98757.zombiesaddon.config
 import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.enums.HighlightStyle
 import kr.hahaha98757.zombiesaddon.enums.Language
+import kr.hahaha98757.zombiesaddon.enums.SemiPvMode
 import kr.hahaha98757.zombiesaddon.enums.TextStyle
 import kr.hahaha98757.zombiesaddon.utils.HudUtils
 import kr.hahaha98757.zombiesaddon.utils.logger
@@ -42,6 +43,10 @@ class ZAConfig(val config: Configuration) {
     var pvRange = 2.5
     var pvToggleSemiPv = true
     var pvSemiPvRange = 5.0
+    var pvSemiPvMinAlpha = 0.0
+    var pvSemiPvMaxAlpha = 1.0
+        get() = if (field < pvSemiPvMinAlpha) pvSemiPvMinAlpha else field
+    var pvSemiPvMode = SemiPvMode.LINEAR
 
     var blockAlarmDefault = false
     var blockAlarmText = false
@@ -190,8 +195,35 @@ class ZAConfig(val config: Configuration) {
             "pvSemiPvRange",
             5.0,
             "$pvSemiPvRangeKey.description",
-            0.0, 5.0
+            0.0, 10.0
         )).double
+
+        val pvSemiPvMinAlphaKey = "zombiesaddon.config.pvSemiPvMinAlpha"
+        pvSemiPvMinAlpha = addOption(categoryPv.map, pvSemiPvMinAlphaKey, config.get(
+            categoryPv.name,
+            "pvSemiPvMinAlpha",
+            0.0,
+            "$pvSemiPvMinAlphaKey.description",
+            0.0, 1.0
+        )).double
+
+        val pvSemiPvMaxAlphaKey = "zombiesaddon.config.pvSemiPvMaxAlpha"
+        pvSemiPvMaxAlpha = addOption(categoryPv.map, pvSemiPvMaxAlphaKey, config.get(
+            categoryPv.name,
+            "pvSemiPvMaxAlpha",
+            1.0,
+            "$pvSemiPvMaxAlphaKey.description",
+            0.0, 1.0
+        )).double
+
+        val pvSemiPvModeKey = "zombiesaddon.config.pvSemiPvMode"
+        pvSemiPvMode = SemiPvMode.fromText(addOption(categoryPv.map, pvSemiPvModeKey, config.get(
+            categoryPv.name,
+            "pvSemiPvMode",
+            SemiPvMode.LINEAR.toString(),
+            "$pvSemiPvModeKey.description",
+            SemiPvMode.arrays
+        )).string)
 
 
         // Block Alarm

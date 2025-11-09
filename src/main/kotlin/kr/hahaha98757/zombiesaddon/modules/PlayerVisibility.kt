@@ -1,6 +1,7 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.enums.SemiPvMode
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.isDisable
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
@@ -9,6 +10,7 @@ import net.minecraft.entity.Entity
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraftforge.client.event.RenderPlayerEvent
 import net.minecraftforge.fml.common.eventhandler.Event
+import kotlin.math.sqrt
 
 object PlayerVisibility: ToggleableModule("Player Visibility", ZombiesAddon.instance.config.pvDefault) {
     override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.togglePv
@@ -42,23 +44,28 @@ object PVUtils {
         return true
     }
 
+    /** isSemiPv가 true인 경우에만 호출해야 함. */
     fun getAlpha(other: Entity): Float {
+        if (!isSemiPv(other)) return 1.0f // 보험. 원래는 호출 전에 isSemiPv로 걸러야 함.
+        val mode = ZombiesAddon.instance.config.pvSemiPvMode
+        if (mode == SemiPvMode.FIXED)
+            return ZombiesAddon.instance.config.pvSemiPvMinAlpha.toFloat()
+
         val distance = mc.thePlayer.getDistanceToEntity(other)
         val pvRange = ZombiesAddon.instance.config.pvRange
         val semiPvRange = ZombiesAddon.instance.config.pvSemiPvRange
+        val minAlpha = ZombiesAddon.instance.config.pvSemiPvMinAlpha
+        val maxAlpha = ZombiesAddon.instance.config.pvSemiPvMaxAlpha
 
-        return ((pvRange - distance) / (pvRange - semiPvRange)).toFloat()
-        /*
-        이게 뭔 뜻이냐.
-        pvRange를 a, semiPvRange를 b, distance를 x, 반환값을 y라고 하면.
-        y = (a - x) / (a - b)인데, 이걸 변형하면.
-        y = 1/(b-a) (x-a)가 된다.
-        이는 기울기가 1/(b-a)이고 항상 (0, a)를 지나는 직선이다.
-        x가 b와 a의 거리만큼 증가하면 y가 1만큼 증가한다. 즉, pvRange와 semiPvRange사이의 범위에서 투명도가 일정하게 변화한다.
-        (0, a)를 지나므로 pvRange에서 투명도가 0이 된다.
-        지랄랄레로 지랄랄라
-        이래서 수학을 모르면 이해하기 힘들다. 사람살려
-         */
+        val ratio = (pvRange - distance) / (pvRange - semiPvRange)
+        val factor = when (mode) {
+            SemiPvMode.LINEAR -> ratio
+            SemiPvMode.SMOOTH -> ratio * ratio
+            SemiPvMode.SHARP -> sqrt(ratio)
+            SemiPvMode.FIXED -> return minAlpha.toFloat() // 도달할 수 없는 구간
+        }
+
+        return (minAlpha + (maxAlpha - minAlpha) * factor).toFloat()
     }
 
     fun withoutRange(other: EntityPlayer) = mc.thePlayer.getDistanceToEntity(other) > ZombiesAddon.instance.config.pvRange
