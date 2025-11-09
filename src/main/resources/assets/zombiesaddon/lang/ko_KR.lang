@@ -176,6 +176,12 @@ zombiesaddon.config.pvToggleSemiPv=토글 Semi PV
 zombiesaddon.config.pvToggleSemiPv.description=Semi Player Visibility를 활성화 또는 비활성화합니다.
 zombiesaddon.config.pvSemiPvRange=Semi PV 범위
 zombiesaddon.config.pvSemiPvRange.description=Semi Player Visibility의 범위(블록 단위)입니다.
+zombiesaddon.config.pvSemiPvMinAlpha=Semi PV 알파 최소값
+zombiesaddon.config.pvSemiPvMinAlpha.description=Semi Player Visibility의 알파 최소값입니다.
+zombiesaddon.config.pvSemiPvMaxAlpha=Semi PV 알파 최대값
+zombiesaddon.config.pvSemiPvMaxAlpha.description=Semi Player Visibility의 알파 최대값입니다.
+zombiesaddon.config.pvSemiPvMode=Semi PV 모드
+zombiesaddon.config.pvSemiPvMode.description=Semi Player Visibility의 모드입니다.
 
 zombiesaddon.config.defaultBlockAlarm=토글 기본값
 zombiesaddon.config.defaultBlockAlarm.description=Block Alarm의 토글 기본값입니다.

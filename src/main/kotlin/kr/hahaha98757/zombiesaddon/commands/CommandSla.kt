@@ -8,7 +8,7 @@ import net.minecraft.command.NumberInvalidException
 import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 
-class CommandSla: CustomCommandBase() {
+object CommandSla: CustomCommandBase() {
     override fun getCommandName() = "sla"
     override fun getCommandUsage(sender: ICommandSender?) = "/sla <de|bb|aa|off|quick|custom>"
     override fun runCommand(sender: ICommandSender, args: Array<String>) {

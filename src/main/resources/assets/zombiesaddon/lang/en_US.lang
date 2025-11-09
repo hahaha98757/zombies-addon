@@ -177,6 +177,12 @@ zombiesaddon.config.pvToggleSemiPv=Toggle Semi PV
 zombiesaddon.config.pvToggleSemiPv.description=Enable or disable Semi Player Visibility.
 zombiesaddon.config.pvSemiPvRange=Semi PV Range
 zombiesaddon.config.pvSemiPvRange.description=The range for Semi Player Visibility in blocks.
+zombiesaddon.config.pvSemiPvMinAlpha=Semi PV Minimum Alpha
+zombiesaddon.config.pvSemiPvMinAlpha.description=The minimum alpha for Semi Player Visibility.
+zombiesaddon.config.pvSemiPvMaxAlpha=Semi PV Maximum Alpha
+zombiesaddon.config.pvSemiPvMaxAlpha.description=The maximum alpha for Semi Player Visibility.
+zombiesaddon.config.pvSemiPvMode=Semi PV Mode
+zombiesaddon.config.pvSemiPvMode.description=The mode for Semi Player Visibility.
 
 zombiesaddon.config.defaultBlockAlarm=Default Toggle State
 zombiesaddon.config.defaultBlockAlarm.description=Toggle state when the game starts.
