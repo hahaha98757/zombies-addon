@@ -212,8 +212,8 @@
 - /za_debug: 디버그 모드 토글합니다.
 - isNotZombies [false|true]: 대기실 또는 인게임이 아닌지 확인하는 플래그를 확인하거나 설정합니다.
 - serverNumber: 현재 접속한 서버 번호를 확인하거나 설정합니다. null은 없음을 의미합니다.
-- new: Dead End Normal 게임모드로 새 게임을 시작합니다.
-- map [de|bb|aa|pr]: 현재 게임의 맵을 확인하거나 설정합니다.
+- gameMode [de|bb|aa|pr] \[normal|hard|rip]: 현재 게임 모드를 확인하거나 설정합니다.
+- new: 새 게임을 시작합니다.
 - pass <라운드>: 현재 게임에서 <라운드>를 통과합니다.
 - helicopter: Prison 맵에서 헬리콥터를 탈출을 시작합니다.
 - end <win|lose>: 현재 게임을 승리나 패배로 종료합니다.

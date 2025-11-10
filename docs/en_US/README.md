@@ -209,8 +209,8 @@ You can test the mod without connecting to an actual game. The commands below mu
 - /za_debug: Toggles debug mode.
 - isNotZombies [false|true]: Checks or sets a flag to determine if you are not in a lobby or in-game.
 - serverNumber: Checks or sets the current server number. null means none.
-- new: Starts a new game in Dead End Normal game mode.
-- map [de|bb|aa|pr]: Checks or sets the map for the current game.
+- gameMode [de|bb|aa|pr] \[normal|hard|rip]: Checks or sets the current game mode.
+- new: Starts a new game.
 - pass <round>: Pass <round> in the current game.
 - helicopter: Starts a helicopter escape from the Prison map.
 - end <win|lose>: Ends the current game with a win or loss.
