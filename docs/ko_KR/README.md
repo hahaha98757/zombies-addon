@@ -16,6 +16,11 @@
 - Semi PV는 플레이어를 반투명하게 표시합니다.
 - Semi PV는 SST의 Player Invisible의 플레이어 반투명보다
  높은 우선 순위를 가집니다.
+- Semi PV 모드는 다음과 같습니다:
+  - Linear: 거리에 비례하여 투명도가 변합니다.
+  - Fixed: 거리에 상관없이 고정된 투명도(최솟값)를 가집니다.
+  - Smooth: 가까워질수록 천천히 투명도가 증가합니다.
+  - Sharp: 가까워질수록 빠르게 투명도가 증가합니다.
 
 #### 컨피그
 - 토글 기본값: Player Visibility의 토글 기본값입니다.
@@ -23,6 +28,9 @@
 - 범위: Player Visibility의 범위입니다.
 - 토글 Semi PV: Semi Player Visibility를 활성화 또는 비활성화합니다.
 - Semi PV 범위: Semi Player Visibility의 범위입니다.
+- Semi PV 알파 최소값: Semi Player Visibility의 알파 최소값입니다.
+- Semi PV 알파 최대값: Semi Player Visibility의 알파 최대값입니다.
+- Semi PV 모드: Semi Player Visibility의 모드입니다.
 
 ----
 ### Block Alarm
@@ -107,7 +115,7 @@
 #### 명령어
 - sla <de|bb|aa|off>: 맵을 설정하거나 끕니다.
 - sla custom <offset|rotate|mirror>: 하우징과 같은 자작 맵에서 사용하기 위해 SLA의 위치와 방향을 조정합니다.
-- sla quick <mogi_a|ghxula|ghxula-garden>: 각 유저의 하우징에 맞도록 SLA를 조정합니다.
+- sla quick <ghxula|ghxula-garden|loliepop5>: 각 유저의 하우징에 맞도록 SLA를 조정합니다.
 
 ----
 ### Auto Rejoin

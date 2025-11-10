@@ -1,5 +1,19 @@
 # 업데이트 로그
 
+## 4.6.0-beta2
+2025-11-10
+- 변경
+  - /sla quick 명령어: ZMP에 서술된 하우징 맵 적용.
+    - 제거: mogi_a(Bad Blood)
+    - 추가: loliepop5(Alien Arcadium)
+  - Semi Player Visibility
+    - 투명도의 최솟값, 최댓값 설정 추가.
+    - 투명도 변화 속도 설정 추가.
+      - Linear: 일정한 속도로 변화(기존 방식)
+      - Fixed: 최솟값으로 고정
+      - Smooth: 부드럽게 변화(이차함수 곡선)
+      - Sharp: 빠르게 변화(무리함수 곡선)
+
 ## 4.6.0-beta1
 2025-10-28
 - 추가
