@@ -18,7 +18,12 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Hides nearby players from view.
 - Toggle with hotkey (default Z).
 - Semi PV displays players as semi-transparent.
-- Semi PV has a higher priority than SST's Player Invisible
+- Semi PV has a higher priority than SST's Player Invisible.
+- Semi PV modes are as follows:
+  - Linear: Transparency varies proportionally with distance.
+  - Fixed: Transparency remains constant (minimum value) regardless of distance.
+  - Smooth: Transparency increases slowly as the object gets closer.
+  - Sharp: Transparency increases rapidly as the object gets closer.
 
 #### Config
 - Default Toggle State: Toggle state when the game starts.
@@ -26,6 +31,9 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Range: The range for Player Visibility in blocks.
 - Toggle Semi PV: Enable or disable Semi Player Visibility.
 - Semi PV Range: The range for Semi Player Visibility in blocks.
+- Semi PV Minimum Alpha: The minimum alpha for Semi Player Visibility.
+- Semi PV Maximum Alpha: The maximum alpha for Semi Player Visibility.
+- Semi PV Mode: The mode for Semi Player Visibility.
 
 ----
 ### Block Alarm
@@ -109,7 +117,7 @@ A mod that integrates several Zombies mods and provides them as modules.
 #### Commands
 - sla <de|bb|aa|off>: Turn the map on or off.
 - sla custom <offset|rotate|mirror>: Adjust the position and orientation of the SLA for use in custom maps such as housing.
-- sla quick <mogi_a|ghxula|ghxula-garden>: Adjust SLA to fit each user's housing.
+- sla quick <ghxula|ghxula-garden|loliepop5>: Adjust SLA to fit each user's housing.
 
 ----
 ### Auto Rejoin

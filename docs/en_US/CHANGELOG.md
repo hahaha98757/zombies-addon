@@ -1,5 +1,19 @@
 # Change log
 
+## 4.6.0-beta2
+11-10-2025
+- Changes
+  - /sla quick command: Apply the housing map described in ZMP.
+    - Removed: mogi_a (Bad Blood)
+    - Added: loliepop5 (Alien Arcadium)
+  - Semi Player Visibility
+    - Added minimum and maximum transparency settings.
+    - Added transparency change speed settings.
+      - Linear: Changes at a constant rate (previous method)
+      - Fixed: Fixed at minimum value
+      - Smooth: Changes smoothly (quadratic curve)
+      - Sharp: Changes quickly (irrational curve)
+
 ## 4.6.0-beta1
 10-28-2025
 - Added
