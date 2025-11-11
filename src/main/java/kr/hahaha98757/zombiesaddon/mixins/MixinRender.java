@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.mixins;
 
-import kr.hahaha98757.zombiesaddon.modules.PVUtils;
+import kr.hahaha98757.zombiesaddon.modules.PvUtils;
 import kr.hahaha98757.zombiesaddon.modules.PlayerVisibility;
 import kr.hahaha98757.zombiesaddon.utils.ToolsKt;
 import net.minecraft.client.renderer.GlStateManager;
@@ -18,7 +18,7 @@ public class MixinRender {
     private void renderEntityOnFire(Entity entity, double x, double y, double z, float partialTicks, CallbackInfo ci) {
         if (!ToolsKt.isDisable() && !ToolsKt.isNotPlayZombies() && PlayerVisibility.INSTANCE.isEnable()
                 && entity instanceof EntityPlayer && entity != ToolsKt.getMc().thePlayer) {
-            final boolean b = !PVUtils.INSTANCE.withoutRange((EntityPlayer) entity);
+            final boolean b = !PvUtils.INSTANCE.withoutRange((EntityPlayer) entity);
             GlStateManager.color(1.0F, 1.0F, 1.0F, b ? 0 : 1.0F);
         }
     }

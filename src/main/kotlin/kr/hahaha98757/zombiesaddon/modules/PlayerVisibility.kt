@@ -24,12 +24,12 @@ object PlayerVisibility: ToggleableModule("Player Visibility", ZombiesAddon.inst
         val player = event.entityPlayer
         if (player == mc.thePlayer) return
         if (player.isPlayerSleeping) return
-        if (PVUtils.withoutRange(player)) return
+        if (PvUtils.withoutRange(player)) return
         event.isCanceled = true
     }
 }
 
-object PVUtils {
+object PvUtils {
     fun isSemiPv(other: Entity): Boolean {
         if (isDisable()) return false
         if (!PlayerVisibility.isEnable()) return false
