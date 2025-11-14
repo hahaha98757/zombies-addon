@@ -1,5 +1,9 @@
 # Change log
 
+## 4.6.0-pre1
+11-14-2025
+- Fix: Increased the auto timer range for Powerup Patterns.
+
 ## 4.6.0-beta2
 11-10-2025
 - Changes
