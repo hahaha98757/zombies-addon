@@ -464,7 +464,7 @@ private fun EntityPlayer.rayTraceEntity(): List<EntityArmorStand> {
 
     val aabb = this.entityBoundingBox.addCoord(lookVec.xCoord * maxDistance, lookVec.yCoord * maxDistance, lookVec.zCoord * maxDistance).expand(1.0, 1.0, 1.0)
 
-    val entities = mc.theWorld.getEntitiesWithinAABB(EntityArmorStand::class.java, aabb) ?: emptyList<EntityArmorStand>()
+    val entities = mc.theWorld.getEntitiesWithinAABB(EntityArmorStand::class.java, aabb)
 
-    return entities.filter { it.entityBoundingBox.expand(0.625, 0.625, 0.625).calculateIntercept(startVec, endVec) != null }
+    return entities.filter { it.entityBoundingBox.expand(0.8, 0.8, 0.8).calculateIntercept(startVec, endVec) != null }
 }
