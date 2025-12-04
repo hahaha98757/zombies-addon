@@ -1,0 +1,276 @@
+zombiesaddon.key.togglePlayerVisibility=Player Visibility切り替え
+zombiesaddon.key.toggleBlockAlarm=Block Alarm切り替え
+zombiesaddon.key.toggleAutoRejoin=Auto Rejoin切り替え
+
+zombiesaddon.key.zsvScrollUp=ZSVを上にスクロール
+zombiesaddon.key.zsvScrollDown=ZSVを下にスクロール
+
+zombiesaddon.key.toggleRlMode=RL Mode切り替え
+
+zombiesaddon.key.textMacro=Text Macro
+
+zombiesaddon.key.insTimer=インスタキルのタイマー
+zombiesaddon.key.maxTimer=マックスアモのタイマー
+zombiesaddon.key.ssTimer=ショッピングスプリーのタイマー
+zombiesaddon.key.dgTimer=ダブルゴールドのタイマー
+zombiesaddon.key.carTimer=カーペンターのタイマー
+zombiesaddon.key.bgTimer=ボーナスゴールドのタイマー
+zombiesaddon.key.autoTimer=自動タイマー
+
+
+zombiesaddon.messages.offBlockUnlegitMods=Unlegit Modをブロックはオフになっています。
+zombiesaddon.messages.offBlockUnlegitSst=Unlegit SSTをブロックはオフになっています。
+zombiesaddon.messages.blockUnlegitSst=SSTのUnlegit機能はZombies Addonによってブロックされました。
+zombiesaddon.messages.sstDiffVer=SSTバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：2.1.1
+zombiesaddon.messages.zuDiffVer=Zombies Utilsバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：1.3.7
+
+zombiesaddon.message.failed.splitOrNew=§eZombies Addon：§cラウンドまたはゲームの開始に失敗しました：%s
+
+
+zombiesaddon.commands.autosplits.usage=/autosplits <コマンド>
+
+zombiesaddon.commands.poweruppatterns.usage=/poweruppatterns <ins|max|ss|dg|car|bg> [reset|番号|on|off]
+zombiesaddon.commands.poweruppatterns.success.reset=§ePowerup Patterns：%s§eのパターンを§cリセット§eしました
+zombiesaddon.commands.poweruppatterns.success.set=§ePowerup Patterns：%s§eのパターンを§a%s§eに設定しました
+
+zombiesaddon.commands.sla.custom.noSla=§eSLA：§cSLAはアクティブではありません
+zombiesaddon.commands.sla.setMap=§eSLA：SLAを§a%s§eに設定しました
+zombiesaddon.commands.sla.setOffset=§eSLA：オフセットを§a%s§eに設定しました
+zombiesaddon.commands.sla.resetRotations=§eSLA：回転を§cリセット§eしました
+zombiesaddon.commands.sla.rotates=§eSLA：すべてのウィンドウを軸§a(0 y 0)§eに沿って§a%s°§e反時計回りに回転しました
+zombiesaddon.commands.sla.resetMirroring=§eSLA：ミラーリングを§cリセット§eしました
+zombiesaddon.commands.sla.mirror=§eSLA：すべてのウィンドウを平面§a%s§eに沿ってミラーリングしました
+
+zombiesaddon.commands.zombiesaddon.difficulty.failed=§eZombies Addon：§cこのコマンドはゲーム内でのみ使用できます
+zombiesaddon.commands.zombiesaddon.difficulty=§eZombies Addon：難易度を%s§eに設定しました
+
+zombiesaddon.commands.zsv.success=§eZSV：ZSVを%s§eに設定しました
+zombiesaddon.commands.zsv.error=URLは"https://pastebin.com/raw/"で始まる必要があります
+zombiesaddon.commands.zsv.failed=§eZSV：§cZSVの設定に失敗しました
+
+zombiesaddon.commands.zsvlines.usage=/zsvlines <番号>
+zombiesaddon.commands.zsvlines.success=§eZSV：表示する行数を§a%s§eに設定しました
+
+zombiesaddon.commands.recorder.usage=/recorder category [カテゴリ名]
+zombiesaddon.commands.recorder.get=§eRecorder：現在のカテゴリは§a%s§eです
+zombiesaddon.commands.recorder.set=§eRecorder：カテゴリを§a%s§eに設定しました
+zombiesaddon.commands.recorder.error.category=カテゴリ名には「/」または「\」を含めることはできません
+
+zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <ラウンド>
+
+
+zombiesaddon.modules.general.toggled=§a%s§eを%s§eに切り替えました
+
+zombiesaddon.modules.notLast.failed=§eNot Last：§c最後を見つけるのに失敗しました
+zombiesaddon.modules.notLast.or=または
+zombiesaddon.modules.notLast.printLast=§eNot Last：%s§eが最後です
+
+zombiesaddon.modules.autoSplits.failed=§eAuto Splits：§a%s§cコマンドの送信に失敗しました
+
+zombiesaddon.modules.sla.auto.wrongMap=§eAuto SLA：§c間違ったマップ
+zombiesaddon.modules.sla.auto.setMap=§eAuto SLA：SLAを§a%s§eに設定しました
+
+zombiesaddon.modules.autoRejoin.rejoining=§eAuto Rejoin：再接続中…
+
+zombiesaddon.modules.powerupPatterns.timer=§ePowerup Patterns：%s§eの手動タイマーを実行しました
+zombiesaddon.modules.powerupPatterns.autoTimer.failed=§ePowerup Patterns：§cパワーアップを見つけるのに失敗しました
+
+zombiesaddon.modules.recorder.failed=§eRecorder：§c記録に失敗しました：%s
+zombiesaddon.modules.recorder.failed.save.bestSegment=§eRecorder：§c区間新記録の保存に失敗しました：%s
+zombiesaddon.modules.recorder.failed.save.pb=§eRecorder：§c個人新記録の保存に失敗しました：%s
+zombiesaddon.modules.recorder.failed.save.segment=§eRecorder：§c区間記録の保存に失敗しました：%s
+zombiesaddon.modules.recorder.category=§e カテゴリ：%s
+zombiesaddon.modules.recorder.newPb=§e§l***§6§l 個人新記録です！ §e§l***
+zombiesaddon.modules.recorder.pb=§cラウンド %s§e を %s§e で突破しました！
+zombiesaddon.modules.recorder.newBestSegment=§e§l***§6§l 区間新記録です！ §e§l***
+zombiesaddon.modules.recorder.bestSegment=§cラウンド %s§e を %s§eで通過しました！
+zombiesaddon.modules.recorder.helicopter=§8§lヘリコプター§r§eが%s§eに呼ばれました！
+
+zombiesaddon.gui.reset=リセット
+zombiesaddon.gui.comment=現在のHUD位置設定を保存するには「完了」をクリックしてください。
+
+zombiesaddon.gui.detectedUnlegitMods.title=Unlegit Mod を検出しました
+zombiesaddon.gui.detectedUnlegitMods.list=Unlegit Mod:
+zombiesaddon.gui.detectedUnlegitMods.button.remove=Unlegit Modを削除(Windows 限定)
+
+zombiesaddon.gui.downloadWaiting.title=ダウンロード中…
+zombiesaddon.gui.downloadWaiting.failed=アップデートのダウンロードに失敗しました。
+
+zombiesaddon.gui.updateScreen.title.normal=新しい最新版がリリースされました。
+zombiesaddon.gui.updateScreen.title.mandatory=§c必須アップデートがリリースされました。
+zombiesaddon.gui.updateScreen.message.mandatory=このmodをアップデートしないとゲームをプレイできません。
+zombiesaddon.gui.updateScreen.button.autoupdate=自動アップデート(Windows 限定)
+zombiesaddon.gui.updateScreen.button.url=ダウンロードURLを開く
+zombiesaddon.gui.updateScreen.button.continue=続く
+
+
+zombiesaddon.game.round=ラウンド %s
+zombiesaddon.game.ins=§cインスタキル
+zombiesaddon.game.max=§9マックスアモ
+zombiesaddon.game.ss=§5ショッピングスプリー
+zombiesaddon.game.dg=§6ダブルゴールド
+zombiesaddon.game.car=§9カーペンター
+zombiesaddon.game.bg=§6ボーナスゴールド
+
+
+zombiesaddon.update.downloadText=§9ここをクリックしてダウンロードします。
+zombiesaddon.update.downloadHover=ダウンロードURLを開く。
+zombiesaddon.update.usingDev=開発バージョンを使用しています。
+zombiesaddon.update.newDev=新しい開発バージョンがリリースされました。
+zombiesaddon.update.currentVer=現在のバージョン：%s
+zombiesaddon.update.devVer=開発バージョン：%s
+zombiesaddon.update.failed=§eZombies Addon：§cアップデートの確認に失敗しました。
+
+zombiesaddon.update.alpha=§cアルファバージョンは非公開です。共有しないでください。
+zombiesaddon.update.beta=§cベータバージョンはテストバージョンです。重大な問題が発生する可能性があります。
+zombiesaddon.update.pre=§cプレリリースバージョンは小さなバグがある可能性があります。
+zombiesaddon.update.rc=§cリリース候補バージョンは最終テストバージョンです。
+
+
+zombiesaddon.config.category.general=一般的な
+zombiesaddon.config.category.general.tooltip=一般設定
+zombiesaddon.config.category.modules=モジュール
+zombiesaddon.config.category.modules.tooltip=その他のモジュールの設定。
+zombiesaddon.config.category.pv=Player Visibility
+zombiesaddon.config.category.pv.tooltip=PV 設定.
+zombiesaddon.config.category.blockAlarm=Block Alarm
+zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm 設定.
+zombiesaddon.config.category.autoSplits=Auto Splits
+zombiesaddon.config.category.autoSplits.tooltip=Auto Splits 設定.
+zombiesaddon.config.category.waveDelays=Wave Delays
+zombiesaddon.config.category.waveDelays.tooltip=Wave Delays 設定.
+zombiesaddon.config.category.autoRejoin=Auto Rejoin
+zombiesaddon.config.category.autoRejoin.tooltip=Auto Rejoin 設定.
+zombiesaddon.config.category.sla=SLA
+zombiesaddon.config.category.sla.tooltip=SLA 設定.
+zombiesaddon.config.category.lw=Last Weapons
+zombiesaddon.config.category.lw.tooltip=Last Weapons 設定.
+zombiesaddon.config.category.recorder=Recorder
+zombiesaddon.config.category.recorder.tooltip=Recorder 設定.
+zombiesaddon.config.category.koreanPatchers=韓国語パッチ
+zombiesaddon.config.category.koreanPatchers.tooltip=ハングルパッチ 設定.
+zombiesaddon.config.category.otherMods=その他のmod
+zombiesaddon.config.category.otherMods.tooltip=Zombies Utils、 SST 設定.
+
+zombiesaddon.config.enableMod=modを有効化
+zombiesaddon.config.enableMod.description=Zombie Addon modを有効化または無効化します。
+zombiesaddon.config.language=言語
+zombiesaddon.config.language.description=このmodの言語
+
+zombiesaddon.config.toggleNotLast=Not Lastを有効化
+zombiesaddon.config.toggleNotLast.description=Not Lastを有効または無効にします。
+zombiesaddon.config.toggleInternalTimer=Internal Timerを有効化
+zombiesaddon.config.toggleInternalTimer.description=Internal Timerを有効または無効にします。
+zombiesaddon.config.togglePowerupPatterns=Powerup Patternsを有効化
+zombiesaddon.config.togglePowerupPatterns.description=Powerup Patternsを有効または無効にします。
+zombiesaddon.config.textMacro=Text Macro
+zombiesaddon.config.textMacro.description=Text Macroのテキストです。
+
+zombiesaddon.config.pvDefault=デフォルトの切り替え状態
+zombiesaddon.config.pvDefault.description=ゲーム開始時の切り替え状態です。
+zombiesaddon.config.pvText=テキストを表示
+zombiesaddon.config.pvText.description=Player Visibilityの状態を表示するテキストです。
+zombiesaddon.config.pvRange=範囲
+zombiesaddon.config.pvRange.description=Player Visibilityの範囲(ブロック単位)です。
+zombiesaddon.config.pvToggleSemiPv=Semi PVを有効化
+zombiesaddon.config.pvToggleSemiPv.description=Semi Player Visibilityを有効または無効にします。
+zombiesaddon.config.pvSemiPvRange=Semi PVの範囲
+zombiesaddon.config.pvSemiPvRange.description=Semi Player Visibilityの範囲(ブロック単位)です。
+zombiesaddon.config.pvSemiPvMinAlpha=Semi PVの最小透明度値
+zombiesaddon.config.pvSemiPvMinAlpha.description=Semi Player Visibilityの透明度の最小値です。
+zombiesaddon.config.pvSemiPvMaxAlpha=Semi PVの透明度の最大値
+zombiesaddon.config.pvSemiPvMaxAlpha.description=Semi Player Visibilityの透明度の最大値です。
+zombiesaddon.config.pvSemiPvMode=Semi PVモード
+zombiesaddon.config.pvSemiPvMode.description=Semi Player Visibilityのモードです。
+
+zombiesaddon.config.blockAlarmDefault=デフォルトの切り替え状態
+zombiesaddon.config.blockAlarmDefault.description=ゲーム開始時の切り替え状態です。
+zombiesaddon.config.blockAlarmText=テキストを表示
+zombiesaddon.config.blockAlarmText.description=Block Alarmの状態を表示するテキストです。
+
+zombiesaddon.config.autoSplitsToggle=Auto Splitsを有効化
+zombiesaddon.config.autoSplitsToggle.description=Auto Splitsを有効または無効にします。
+zombiesaddon.config.autoSplitsHost=ホスト
+zombiesaddon.config.autoSplitsHost.description=LiveSplitサーバーのホスト。
+zombiesaddon.config.autoSplitsPort=ポート
+zombiesaddon.config.autoSplitsPort.description=LiveSplitサーバーのポート。
+
+zombiesaddon.config.waveDelaysToggle=Wave Delaysを有効化
+zombiesaddon.config.waveDelaysToggle.description=Wave Delaysを有効または無効にします。
+zombiesaddon.config.waveDelaysPlaySounds=サウンドを再生する
+zombiesaddon.config.waveDelaysPlaySounds.description=ウェイヴ開始nティック後にサウンドを再生します。
+zombiesaddon.config.waveDelaysCustomPlaySound=カスタムサウンド再生
+zombiesaddon.config.waveDelaysCustomPlaySound.description=JSONファイルで設定したサウンド名、ピッチ、タイミングでサウンドを再生します。
+zombiesaddon.config.waveDelaysPrefix=接頭辞
+zombiesaddon.config.waveDelaysPrefix.description=接頭辞を有効または無効にします。
+zombiesaddon.config.waveDelaysBossColor=ボス色
+zombiesaddon.config.waveDelaysBossColor.description=ボスが出現するウェイヴの色を有効または無効にします。
+zombiesaddon.config.waveDelaysTextStyle=テキストスタイル
+zombiesaddon.config.waveDelaysTextStyle.description=画面に表示されるテキストのスタイルです。
+zombiesaddon.config.waveDelaysHighlightStyle=ハイライトスタイル
+zombiesaddon.config.waveDelaysHighlightStyle.description=現在のウェイヴ、過去のウェイヴ、次のウェイヴのハイライト方法です。
+zombiesaddon.config.waveDelaysHidePassedWave=過去のウェイヴを非表示
+zombiesaddon.config.waveDelaysHidePassedWave.description=画面から過去のウェイヴを非表示にします。
+zombiesaddon.config.waveDelaysRlModeOffset=RLモードオフセット
+zombiesaddon.config.waveDelaysRlModeOffset.description=RLモードでウェイヴ遅延にオフセットを追加します。
+
+zombiesaddon.config.slaAutoSla=自動SLA
+zombiesaddon.config.slaAutoSla.description=ゲーム開始時にSLAを自動でオンにします。
+zombiesaddon.config.slaTextColor=テキストの色
+zombiesaddon.config.slaTextColor.description=SLAのテキストの色を有効または無効にします。
+zombiesaddon.config.slaActivatedWindows=アクティブなウィンドウ
+zombiesaddon.config.slaActivatedWindows.description=SLAでアクティブなウィンドウを表示します。
+zombiesaddon.config.slaUnactivatedWindows=非アクティブなウィンドウ
+zombiesaddon.config.slaUnactivatedWindows.description=SLAで非アクティブなウィンドウを表示します。
+
+zombiesaddon.config.autoRejoinDefault=デフォルトの切り替え状態
+zombiesaddon.config.autoRejoinDefault.description=ゲーム開始時の切り替え状態です。
+zombiesaddon.config.autoRejoinText=テキストを表示
+zombiesaddon.config.autoRejoinText.description=Auto Rejoinの状態を表示するテキストです。
+
+zombiesaddon.config.lwToggle=Last Weaponsを有効化
+zombiesaddon.config.lwToggle.description=Last Weaponsを有効または無効にします。
+zombiesaddon.config.lwDisplayArmors=アーマーを表示
+zombiesaddon.config.lwDisplayArmors.description=Last Weaponsでアーマーを表示します。
+zombiesaddon.config.lwDisplayWeaponsLevel=武器レベルを表示
+zombiesaddon.config.lwDisplayWeaponsLevel.description=Last Weaponsで武器のレベルを表示します。
+zombiesaddon.config.lwDisplayCooledDownSkill=クールダウン済みスキルを表示
+zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weaponsでクールダウン済みスキルを表示します。
+
+zombiesaddon.config.recorderToggle=Recorderを有効化
+zombiesaddon.config.recorderToggle.description=Recorderを有効または無効にします。
+zombiesaddon.config.recorderDefaultCategory=デフォルトカテゴリー
+zombiesaddon.config.recorderDefaultCategory.description=コマンドで指定しない場合に使用するカテゴリーです。「/」または「\」を含めることはできません
+zombiesaddon.config.recorderPbNotice=PB通知
+zombiesaddon.config.recorderPbNotice.description=新しい個人新記録や区間新記録が達成されたときに通知します。
+
+zombiesaddon.config.koreanPatchersIngame=ゲーム内
+zombiesaddon.config.koreanPatchersIngame.description=ゲーム内にKorean Patchersを有効または無効にします。
+zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
+zombiesaddon.config.koreanPatchersZombiesOverlay.description=Zombies OverlayにKorean Patchersを有効または無効にします。
+zombiesaddon.config.koreanPatchersSst=SST
+zombiesaddon.config.koreanPatchersSst.description=SSTにKorean Patchersを有効または無効にします。
+zombiesaddon.config.koreanPatchersZombiesUtils=Zombies Utils
+zombiesaddon.config.koreanPatchersZombiesUtils.description=Zombies UtilsにKorean Patchersを有効または無効にします。
+
+zombiesaddon.config.disableSpawnTimeOfSst=SSTのスポーン時間を無効化
+zombiesaddon.config.disableSpawnTimeOfSst.description=SSTのスポーン時間を無効化します。
+zombiesaddon.config.disableTimerOfZombiesUtils=Zombies Utilsのタイマーを無効化
+zombiesaddon.config.disableTimerOfZombiesUtils.description=Zombies Utilsのタイマーを無効化します。
+
+
+zombiesaddon.debug.toggle=§aデバッグ：%s§eに切り替えました
+zombiesaddon.debug.info=デバッグモードでは、Hypixelに接続せずにゲームを開始・操作できます。§cクラッシュやその他の問題が発生する可能性があります。
+zombiesaddon.debug.disabled=§aデバッグ：§c無効になっています
+zombiesaddon.debug.isNotZombies.info=isNotZombiesは、ゲームやロビーに接続していないことを意味します。
+zombiesaddon.debug.setFlag=§aデバッグ：§a%s§eを%s§eに設定しました
+zombiesaddon.debug.serverNumber=サーバー番号
+zombiesaddon.debug.serverNumber.info=サーバー番号はゲームを識別するために使用されます。「null」はどのサーバーにも接続していないことを意味します。
+zombiesaddon.debug.gameMode=ゲームモード
+zombiesaddon.debug.new=§aデバッグ：§e新しいゲームを開始しました(ゲームモード：§a%s§e、サーバー番号：§a%s§e)
+zombiesaddon.debug.noGame=§aデバッグ：§cアクティブなゲームはありません
+zombiesaddon.debug.pass=§aデバッグ：§cラウンド %s§eを通過しました
+zombiesaddon.debug.helicopter.notPrison=§aデバッグ：§cヘリコプター脱出は§6Prison§cでのみ許可されています
+zombiesaddon.debug.helicopter.called=§aデバッグ：§eヘリコプターが呼ばれました
+zombiesaddon.debug.end=§aデバッグ：§eゲームを%s§eで終了しました
+zombiesaddon.debug.remove=§aデバッグ：§e終了したゲームを削除しました

@@ -210,7 +210,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
             val name = entity.name.withoutColor()
 
             when (name) {
-                "INSTA KILL", "즉시 처치" -> {
+                in ins -> {
                     @Suppress("DuplicatedCode")
                     fields.spawnedEntities += entity
                     for (i in insPatternArr1) if (i == round) {
@@ -222,7 +222,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                         break
                     }
                 }
-                "MAX AMMO", "탄약 충전" -> {
+                in max -> {
                     fields.spawnedEntities += entity
                     for (i in maxPatternArr1) if (i == round) {
                         fields.queuedMaxPattern = 2
@@ -233,7 +233,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
                         break
                     }
                 }
-                "SHOPPING SPREE", "지름신 강림" -> {
+                in ss -> {
                     fields.spawnedEntities += entity
                     for (i in ssPatternArr1) if (i == round) {
                         fields.queuedSsPattern = 5
@@ -248,9 +248,9 @@ object PowerupPatterns: Module("Powerup Patterns") {
                         break
                     }
                 }
-                "DOUBLE GOLD", "더블 골드" -> fields.spawnedEntities += entity
-                "CARPENTER", "카펜터" -> fields.spawnedEntities += entity
-                "BONUS GOLD", "보너스 골드" -> fields.spawnedEntities += entity
+                in dg -> fields.spawnedEntities += entity
+                in car -> fields.spawnedEntities += entity
+                in bg -> fields.spawnedEntities += entity
             }
         }
     }
@@ -323,27 +323,27 @@ object PowerupPatterns: Module("Powerup Patterns") {
             if (entity !in fields.spawnedEntities) continue
             val name = entity.name.withoutColor()
             when (name) {
-                "INSTA KILL", "즉시 처치" -> {
+                in ins -> {
                     fields.insTimer = true
                     findEntity = true
                 }
-                "MAX AMMO", "탄약 충전" -> {
+                in max -> {
                     fields.maxTimer = true
                     findEntity = true
                 }
-                "SHOPPING SPREE", "지름신 강림" -> {
+                in ss -> {
                     fields.ssTimer = true
                     findEntity = true
                 }
-                "DOUBLE GOLD", "더블 골드" -> {
+                in dg -> {
                     fields.dgTimer = true
                     findEntity = true
                 }
-                "CARPENTER", "카펜터" -> {
+                in car -> {
                     fields.carTimer = true
                     findEntity = true
                 }
-                "BONUS GOLD", "보너스 골드" -> {
+                in bg -> {
                     fields.bgTimer = true
                     findEntity = true
                 }
@@ -358,12 +358,14 @@ object PowerupPatterns: Module("Powerup Patterns") {
         val message = event.message.unformattedText.withoutColor()
         if (">" in message) return
 
-        if ("Insta Kill" in message || "즉시 처치" in message) fields.insTimer = false
-        if ("Max Ammo" in message || "탄약 보급" in message) fields.maxTimer = false
-        if ("Shopping Spree" in message || "지름신 강림" in message) fields.ssTimer = false
-        if ("Double Gold" in message || "더블 골드" in message) fields.dgTimer = false
-        if ("Carpenter" in message || "목수" in message) fields.carTimer = false
-        if ("Bonus Gold" in message || "보너스 골드" in message) fields.bgTimer = false
+        when {
+            message inContains ins -> fields.insTimer = false
+            message inContains max -> fields.maxTimer = false
+            message inContains ss -> fields.ssTimer = false
+            message inContains dg -> fields.dgTimer = false
+            message inContains car -> fields.carTimer = false
+            message inContains bg -> fields.bgTimer = false
+        }
     }
 
     override fun onEvent(event: Event) {

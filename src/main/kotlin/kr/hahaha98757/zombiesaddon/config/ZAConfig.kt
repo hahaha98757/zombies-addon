@@ -227,7 +227,7 @@ class ZAConfig(val config: Configuration) {
 
 
         // Block Alarm
-        val blockAlarmDefaultKey = "zombiesaddon.config.defaultBlockAlarm"
+        val blockAlarmDefaultKey = "zombiesaddon.config.blockAlarmDefault"
         blockAlarmDefault = addOption(categoryBlockAlarm.map, blockAlarmDefaultKey, config.get(
             categoryBlockAlarm.name,
             "blockAlarmDefault",
@@ -384,7 +384,7 @@ class ZAConfig(val config: Configuration) {
 
 
         // Auto Rejoin
-        val autoRejoinDefaultKey = "zombiesaddon.config.defaultAutoRejoin"
+        val autoRejoinDefaultKey = "zombiesaddon.config.autoRejoinDefault"
         autoRejoinDefault = addOption(categoryAutoRejoin.map, autoRejoinDefaultKey, config.get(
             categoryAutoRejoin.name,
             "autoRejoinDefault",

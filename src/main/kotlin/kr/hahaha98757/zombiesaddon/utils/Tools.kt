@@ -124,9 +124,9 @@ fun getPlayerStatus(): Array<Status> {
         val status = runCatching { lines[i].split(":")[1].trim() }.getOrNull() ?: run { playerState[i - 5] = Status.QUIT }
 
         playerState[i - 5] = when (status) {
-            "REVIVE", "부활" -> Status.REVIVE
-            "DEAD", "사망" ->  Status.DEAD
-            "QUIT", "떠남" ->  Status.QUIT
+            in rev -> Status.REVIVE
+            in dead ->  Status.DEAD
+            in quit ->  Status.QUIT
             else -> Status.SURVIVE
         }
     }
@@ -143,7 +143,7 @@ fun String.withNameColor(): String {
     (scoreboard.getSortedScores(objective) ?: return default).forEach {
         val team = scoreboard.getPlayersTeam(it.playerName)
         val line = ScorePlayerTeam.formatPlayerName(team, it.playerName).trim().replace(Regex("[^§A-Za-z0-9_:]"), "")
-        if (this in line) {
+        if (this in line.withoutColor()) {
             val color = line.substring(0..1)
             return "$color$this"
         }
@@ -167,6 +167,7 @@ private fun String.translate(vararg any: Any): String {
         Language.AUTO -> return I18n.format(this, *any)
         Language.KO_KR -> "ko_KR"
         Language.EN_US -> "en_US"
+        Language.JA_JP -> "ja_JP"
     }
 
     val prop = cachedLang.getOrPut(langCode) {
