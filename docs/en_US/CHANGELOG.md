@@ -1,5 +1,10 @@
 # Change log
 
+## 4.6.0-rc1
+12-04-2025
+- Added: Japanese translation
+- Fixed: English and Korean translations
+
 ## 4.6.0-pre1
 11-14-2025
 - Fix: Increased the auto timer range for Powerup Patterns.
