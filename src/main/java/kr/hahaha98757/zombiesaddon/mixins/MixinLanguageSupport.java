@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 @Mixin(value = LanguageSupport.class, remap = false)
 public class MixinLanguageSupport {
     @Unique
-    private static final String[] NEW_LANGUAGES = { "EN", "FR", "DE", "KO" };
+    private static final String[] NEW_LANGUAGES = { "EN", "FR", "DE", "KO", "JA" };
 
     /**
      * @author hahaha98757
@@ -25,7 +25,8 @@ public class MixinLanguageSupport {
                 "§cGame Over!",
                 "§cPartie terminée!",
                 "§cDas Spiel ist vorbei!",
-                "§c게임 끝!"
+                "§c게임 끝!",
+                "§cゲームオーバー！"
         };
         return Arrays.asList(words).contains(input);
     }
@@ -40,7 +41,8 @@ public class MixinLanguageSupport {
                 "§aYou Win!",
                 "§aVous avez gagné!",
                 "§aDu gewinnst!",
-                "§a승리했습니다!"
+                "§a승리했습니다!",
+                "§a勝利！"
         };
         return Arrays.asList(words).contains(input);
     }
@@ -56,6 +58,7 @@ public class MixinLanguageSupport {
                 "Difficulté Hard",
                 "Hard Schwierigkeitsgrad",
                 "Hard 난이도",
+                "難易度 Hard",
                 "困难",
                 "困難"
         };
@@ -73,6 +76,7 @@ public class MixinLanguageSupport {
                 "Difficulté RIP",
                 "RIP Schwierigkeitsgrad",
                 "RIP 난이도",
+                "難易度 RIP",
                 "安息"
         };
         return Arrays.stream(words).anyMatch(input::contains);
@@ -93,6 +97,8 @@ public class MixinLanguageSupport {
                 return Pattern.compile("Runde ([0-9]{1,3})");
             case "KO":
                 return Pattern.compile("라운드 ([0-9]{1,3})");
+            case "JA":
+                return Pattern.compile("ラウンド ([0-9]{1,3})");
             default:
                 throw new IllegalStateException("Unexpected value: " + language);
         }

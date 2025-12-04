@@ -53,7 +53,8 @@ enum class HighlightStyle(val text: String) {
 enum class Language(val text: String) {
     AUTO("Auto"),
     KO_KR("한국어 (한국)"),
-    EN_US("English (US)");
+    EN_US("English (US)"),
+    JA_JP("日本語 (日本)");
 
     override fun toString() = text
 

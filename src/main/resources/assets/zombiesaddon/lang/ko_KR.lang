@@ -1,11 +1,11 @@
-zombiesaddon.key.togglePlayerVisibility=토글 Player Visibility
-zombiesaddon.key.toggleBlockAlarm=토글 Block Alarm
-zombiesaddon.key.toggleAutoRejoin=토글 Auto Rejoin
+zombiesaddon.key.togglePlayerVisibility=Player Visibility 전환
+zombiesaddon.key.toggleBlockAlarm=Block Alarm 전환
+zombiesaddon.key.toggleAutoRejoin=Auto Rejoin 전환
 
-zombiesaddon.key.zsvScrollUp=ZSV 스크롤 업
-zombiesaddon.key.zsvScrollDown=ZSV 스크롤 다운
+zombiesaddon.key.zsvScrollUp=ZSV 글 올리기
+zombiesaddon.key.zsvScrollDown=ZSV 글 내리기
 
-zombiesaddon.key.toggleRlMode=토글 RL Mode
+zombiesaddon.key.toggleRlMode=RL Mode 전환
 
 zombiesaddon.key.textMacro=Text Macro
 
@@ -59,7 +59,7 @@ zombiesaddon.commands.recorder.error.category=카테고리 이름에는 '/' 또�
 zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <라운드>
 
 
-zombiesaddon.modules.general.toggled=§a%s§e을(를) %s§e(으)로 토글했습니다
+zombiesaddon.modules.general.toggled=§a%s§e을(를) %s§e(으)로 전환했습니다
 
 zombiesaddon.modules.notLast.failed=§eNot Last: §c마지막을 찾는데 실패했습니다
 zombiesaddon.modules.notLast.or=또는
@@ -96,13 +96,12 @@ zombiesaddon.gui.detectedUnlegitMods.button.remove=언레짓 모드 삭제(윈�
 zombiesaddon.gui.downloadWaiting.title=다운로드 중...
 zombiesaddon.gui.downloadWaiting.failed=업데이트를 다운로드하는데 실패했습니다.
 
-zombiesaddon.gui.updateScreen.title.normal=새로운 추천 버전이 출시되었습니다.
+zombiesaddon.gui.updateScreen.title.normal=새로운 최신 버전이 출시되었습니다.
 zombiesaddon.gui.updateScreen.title.mandatory=§c필수 업데이트가 출시되었습니다.
 zombiesaddon.gui.updateScreen.message.mandatory=모드를 업데이트하지 않으면 게임을 플레이할 수 없습니다.
 zombiesaddon.gui.updateScreen.button.autoupdate=자동 업데이트(윈도우 전용)
 zombiesaddon.gui.updateScreen.button.url=다운로드 URL 열기
 zombiesaddon.gui.updateScreen.button.continue=계속
-zombiesaddon.gui.updateScreen.button.quit=게임 종료
 
 zombiesaddon.game.round=라운드 %s
 zombiesaddon.game.ins=§c즉시 처치
@@ -128,79 +127,79 @@ zombiesaddon.update.rc=§c릴리즈 후보 버전은 최종 테스트 버전입�
 
 
 zombiesaddon.config.category.general=일반
-zombiesaddon.config.category.general.tooltip=일반 옵션
+zombiesaddon.config.category.general.tooltip=일반 설정
 zombiesaddon.config.category.modules=모듈
-zombiesaddon.config.category.modules.tooltip=다른 모듈 옵션
+zombiesaddon.config.category.modules.tooltip=다른 모듈 설정
 zombiesaddon.config.category.pv=Player Visibility
-zombiesaddon.config.category.pv.tooltip=PV 옵션
+zombiesaddon.config.category.pv.tooltip=PV 설정
 zombiesaddon.config.category.blockAlarm=Block Alarm
-zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm 옵션
+zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm 설정
 zombiesaddon.config.category.autoSplits=Auto Splits
-zombiesaddon.config.category.autoSplits.tooltip=Auto Splits 옵션
+zombiesaddon.config.category.autoSplits.tooltip=Auto Splits 설정
 zombiesaddon.config.category.waveDelays=Wave Delays
-zombiesaddon.config.category.waveDelays.tooltip=Wave Delays 옵션
+zombiesaddon.config.category.waveDelays.tooltip=Wave Delays 설정
 zombiesaddon.config.category.autoRejoin=Auto Rejoin
-zombiesaddon.config.category.autoRejoin.tooltip=Auto Rejoin 옵션
+zombiesaddon.config.category.autoRejoin.tooltip=Auto Rejoin 설정
 zombiesaddon.config.category.sla=SLA
-zombiesaddon.config.category.sla.tooltip=SLA 옵션
+zombiesaddon.config.category.sla.tooltip=SLA 설정
 zombiesaddon.config.category.lw=Last Weapons
-zombiesaddon.config.category.lw.tooltip=Last Weapons 옵션
+zombiesaddon.config.category.lw.tooltip=Last Weapons 설정
 zombiesaddon.config.category.recorder=Recorder
-zombiesaddon.config.category.recorder.tooltip=Recorder 옵션
+zombiesaddon.config.category.recorder.tooltip=Recorder 설정
 zombiesaddon.config.category.koreanPatchers=한글 패치
-zombiesaddon.config.category.koreanPatchers.tooltip=한글 패치 옵션
+zombiesaddon.config.category.koreanPatchers.tooltip=한글 패치 설정
 zombiesaddon.config.category.otherMods=다른 모드
-zombiesaddon.config.category.otherMods.tooltip=Zombies Utils, SST 옵션
+zombiesaddon.config.category.otherMods.tooltip=Zombies Utils, SST 설정
 
 zombiesaddon.config.enableMod=모드 활성화
 zombiesaddon.config.enableMod.description=Zombies Addon 모드를 활성화 또는 비활성화합니다.
 zombiesaddon.config.language=언어
 zombiesaddon.config.language.description=모드에 사용할 언어입니다.
 
-zombiesaddon.config.toggleNotLast=토글 Not Last
+zombiesaddon.config.toggleNotLast=Not Last 활성화
 zombiesaddon.config.toggleNotLast.description=Not Last를 활성화 또는 비활성화합니다.
-zombiesaddon.config.toggleInternalTimer=토글 Internal Timer
+zombiesaddon.config.toggleInternalTimer=Internal Timer 활성화
 zombiesaddon.config.toggleInternalTimer.description=Internal Timer를 활성화 또는 비활성화합니다.
-zombiesaddon.config.togglePowerupPatterns=토글 Powerup Patterns
+zombiesaddon.config.togglePowerupPatterns=Powerup Patterns 활성화
 zombiesaddon.config.togglePowerupPatterns.description=Powerup Patterns를 활성화 또는 비활성화합니다.
 zombiesaddon.config.textMacro=Text Macro
 zombiesaddon.config.textMacro.description=Text Macro의 텍스트입니다.
 
-zombiesaddon.config.pvDefault=토글 기본값
-zombiesaddon.config.pvDefault.description=Player Visibility의 토글 기본값입니다.
+zombiesaddon.config.pvDefault=전환 기본값
+zombiesaddon.config.pvDefault.description=게임을 시작할 때 전환 기본값입니다.
 zombiesaddon.config.pvText=텍스트 표시
 zombiesaddon.config.pvText.description=Player Visibility 상태를 표시하는 텍스트입니다.
 zombiesaddon.config.pvRange=범위
 zombiesaddon.config.pvRange.description=Player Visibility의 범위(블록 단위)입니다.
-zombiesaddon.config.pvToggleSemiPv=토글 Semi PV
+zombiesaddon.config.pvToggleSemiPv=Semi PV 활성화
 zombiesaddon.config.pvToggleSemiPv.description=Semi Player Visibility를 활성화 또는 비활성화합니다.
 zombiesaddon.config.pvSemiPvRange=Semi PV 범위
 zombiesaddon.config.pvSemiPvRange.description=Semi Player Visibility의 범위(블록 단위)입니다.
-zombiesaddon.config.pvSemiPvMinAlpha=Semi PV 알파 최소값
-zombiesaddon.config.pvSemiPvMinAlpha.description=Semi Player Visibility의 알파 최소값입니다.
-zombiesaddon.config.pvSemiPvMaxAlpha=Semi PV 알파 최대값
-zombiesaddon.config.pvSemiPvMaxAlpha.description=Semi Player Visibility의 알파 최대값입니다.
+zombiesaddon.config.pvSemiPvMinAlpha=Semi PV 투명도 최소값
+zombiesaddon.config.pvSemiPvMinAlpha.description=Semi Player Visibility의 투명도 최소값입니다.
+zombiesaddon.config.pvSemiPvMaxAlpha=Semi PV 투명도 최대값
+zombiesaddon.config.pvSemiPvMaxAlpha.description=Semi Player Visibility의 투명도 최대값입니다.
 zombiesaddon.config.pvSemiPvMode=Semi PV 모드
 zombiesaddon.config.pvSemiPvMode.description=Semi Player Visibility의 모드입니다.
 
-zombiesaddon.config.defaultBlockAlarm=토글 기본값
-zombiesaddon.config.defaultBlockAlarm.description=Block Alarm의 토글 기본값입니다.
+zombiesaddon.config.blockAlarmDefault=전환 기본값
+zombiesaddon.config.blockAlarmDefault.description=Block Alarm의 전환 기본값입니다.
 zombiesaddon.config.blockAlarmText=텍스트 표시
 zombiesaddon.config.blockAlarmText.description=Block Alarm 상태를 표시하는 텍스트입니다.
 
-zombiesaddon.config.autoSplitsToggle=토글 Auto Splits
+zombiesaddon.config.autoSplitsToggle=Auto Splits 활성화
 zombiesaddon.config.autoSplitsToggle.description=Auto Splits를 활성화 또는 비활성화합니다.
 zombiesaddon.config.autoSplitsHost=호스트
 zombiesaddon.config.autoSplitsHost.description=LiveSplit 서버의 호스트입니다.
 zombiesaddon.config.autoSplitsPort=포트
 zombiesaddon.config.autoSplitsPort.description=LiveSplit 서버의 포트입니다.
 
-zombiesaddon.config.waveDelaysToggle=토글 Wave Delays
+zombiesaddon.config.waveDelaysToggle=Wave Delays 활성화
 zombiesaddon.config.waveDelaysToggle.description=Wave Delays를 활성화 또는 비활성화합니다.
 zombiesaddon.config.waveDelaysPlaySounds=소리 재생
 zombiesaddon.config.waveDelaysPlaySounds.description=웨이브 시작 n 틱 후 소리를 재생합니다.
 zombiesaddon.config.waveDelaysCustomPlaySound=커스텀 소리 재생
-zombiesaddon.config.waveDelaysCustomPlaySound.description=Json 파일에서 설정한 소리 이름, 피치, 플레이 타입으로 소리를 재생합니다.
+zombiesaddon.config.waveDelaysCustomPlaySound.description=Json 파일에서 설정한 소리 이름, 피치, 타이밍으로 소리를 재생합니다.
 zombiesaddon.config.waveDelaysPrefix=접두사
 zombiesaddon.config.waveDelaysPrefix.description=접두사를 활성화 또는 비활성화합니다.
 zombiesaddon.config.waveDelaysBossColor=보스 색상
@@ -210,9 +209,9 @@ zombiesaddon.config.waveDelaysTextStyle.description=화면에 표시되는 텍�
 zombiesaddon.config.waveDelaysHighlightStyle=하이라이트 스타일
 zombiesaddon.config.waveDelaysHighlightStyle.description=현재 웨이브, 지난 웨이브, 다음 웨이브에 대한 하이라이트 방식입니다.
 zombiesaddon.config.waveDelaysHidePassedWave=지난 웨이브 숨기기
-zombiesaddon.config.waveDelaysHidePassedWave.description=지난 웨이브를 숨길지 여부를 설정합니다.
+zombiesaddon.config.waveDelaysHidePassedWave.description=화면에서 지나간 웨이브를 숨깁니다.
 zombiesaddon.config.waveDelaysRlModeOffset=RL 모드 오프셋
-zombiesaddon.config.waveDelaysRlModeOffset.description=RL 모드의 오프셋입니다.
+zombiesaddon.config.waveDelaysRlModeOffset.description=RL 모드에서 웨이브 딜레이에 오프셋을 추가합니다.
 
 zombiesaddon.config.slaAutoSla=자동 SLA
 zombiesaddon.config.slaAutoSla.description=게임 시작 시 SLA를 자동으로 켭니다.
@@ -223,12 +222,12 @@ zombiesaddon.config.slaActivatedWindows.description=SLA에서 활성화된 창�
 zombiesaddon.config.slaUnactivatedWindows=비활성화된 창문
 zombiesaddon.config.slaUnactivatedWindows.description=SLA에서 비활성화된 창문을 표시합니다.
 
-zombiesaddon.config.defaultAutoRejoin=토글 기본값
-zombiesaddon.config.defaultAutoRejoin.description=게임 시작 시 Auto Rejoin의 토글 기본값입니다.
+zombiesaddon.config.autoRejoinDefault=전환 기본값
+zombiesaddon.config.autoRejoinDefault.description=게임 시작 시 Auto Rejoin의 전환 기본값입니다.
 zombiesaddon.config.autoRejoinText=텍스트 표시
 zombiesaddon.config.autoRejoinText.description=Auto Rejoin 상태를 표시하는 텍스트입니다.
 
-zombiesaddon.config.lwToggle=토글 Last Weapons
+zombiesaddon.config.lwToggle=Last Weapons 활성화
 zombiesaddon.config.lwToggle.description=Last Weapons를 활성화 또는 비활성화합니다.
 zombiesaddon.config.lwDisplayArmors=갑옷 표시
 zombiesaddon.config.lwDisplayArmors.description=Last Weapons에서 갑옷을 표시합니다.
@@ -237,7 +236,7 @@ zombiesaddon.config.lwDisplayWeaponsLevel.description=Last Weapons에서 무기 
 zombiesaddon.config.lwDisplayCooledDownSkill=쿨다운된 스킬 표시
 zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weapons에서 쿨다운된 스킬을 표시합니다.
 
-zombiesaddon.config.recorderToggle=토글 Recorder
+zombiesaddon.config.recorderToggle=Recorder 활성화
 zombiesaddon.config.recorderToggle.description=Recorder를 활성화 또는 비활성화합니다.
 zombiesaddon.config.recorderDefaultCategory=기본 카테고리
 zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다. '/' 또는 '\'가 포함될 수 없습니다.
@@ -259,7 +258,7 @@ zombiesaddon.config.disableTimerOfZombiesUtils=Zombies Utils의 타이머 비활
 zombiesaddon.config.disableTimerOfZombiesUtils.description=Zombies Utils의 타이머를 비활성화합니다.
 
 
-zombiesaddon.debug.toggle=§a디버그: %s§e(으)로 토글했습니다
+zombiesaddon.debug.toggle=§a디버그: %s§e(으)로 전환했습니다
 zombiesaddon.debug.info=디버그 모드는 하이픽셀에 접속하지 않고 게임을 시작하거나 제어할 수 있습니다. §c충돌이나 다른 문제가 발생할 수 있습니다.
 zombiesaddon.debug.disabled=§a디버그:§c 비활성화 되어있습니다
 zombiesaddon.debug.isNotZombies.info=isNotZombies는 게임이나 로비에 접속해 있지 않음을 의미합니다.
@@ -267,7 +266,7 @@ zombiesaddon.debug.setFlag=§a디버그:§a %s§e을(를) %s§e(으)로 설정�
 zombiesaddon.debug.serverNumber=서버 번호
 zombiesaddon.debug.serverNumber.info=서버 번호는 게임을 식별하는데 사용됩니다. "null"은 어떤 서버에도 접속하지 않음을 의미합니다.
 zombiesaddon.debug.gameMode=게임모드
-zombiesaddon.debug.new=§a디버그:§e 새 게임을 시작했습니다(게임모드: §a%s§e, 서버 번호: §a%s)
+zombiesaddon.debug.new=§a디버그:§e 새 게임을 시작했습니다(게임모드: §a%s§e, 서버 번호: §a%s§e)
 zombiesaddon.debug.noGame=§a디버그:§c 활성화된 게임이 없습니다
 zombiesaddon.debug.pass=§a디버그:§c 라운드 %s§e을(를) 통과했습니다
 zombiesaddon.debug.helicopter.notPrison=§a디버그:§c 헬리콥터 탈출은 §6Prison§c에서만 허용됩니다
