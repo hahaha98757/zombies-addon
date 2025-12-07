@@ -56,12 +56,13 @@ zombiesaddon.commands.recorder.get=§eRecorder：現在のカテゴリは§a%s§
 zombiesaddon.commands.recorder.set=§eRecorder：カテゴリを§a%s§eに設定しました
 zombiesaddon.commands.recorder.error.category=カテゴリ名には「/」または「\」を含めることはできません
 
-zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <ラウンド>
+zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <ラウンド> [Not Last プレイヤー...]
 
 
 zombiesaddon.modules.general.toggled=§a%s§eを%s§eに切り替えました
 
 zombiesaddon.modules.notLast.failed=§eNot Last：§c最後を見つけるのに失敗しました
+zombiesaddon.modules.notLast.comma=、
 zombiesaddon.modules.notLast.or=または
 zombiesaddon.modules.notLast.printLast=§eNot Last：%s§eが最後です
 

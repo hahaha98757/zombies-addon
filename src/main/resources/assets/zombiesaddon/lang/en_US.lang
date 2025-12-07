@@ -56,12 +56,13 @@ zombiesaddon.commands.recorder.get=§eRecorder: Current category is §a%s
 zombiesaddon.commands.recorder.set=§eRecorder: Set category to §a%s
 zombiesaddon.commands.recorder.error.category=Category name must not contain '/' or '\'
 
-zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <round>
+zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <round> [Not Last players...]
 
 
 zombiesaddon.modules.general.toggled=§eToggled §a%s§e to %s
 
 zombiesaddon.modules.notLast.failed=§eNot Last: §cFailed to find the last
+zombiesaddon.modules.notLast.comma=,{space}
 zombiesaddon.modules.notLast.or=or
 zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e was last
 

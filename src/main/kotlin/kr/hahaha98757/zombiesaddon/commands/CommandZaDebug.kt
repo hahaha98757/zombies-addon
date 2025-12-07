@@ -5,10 +5,8 @@ import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.GameMode
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
-import kr.hahaha98757.zombiesaddon.utils.addChat
-import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
-import kr.hahaha98757.zombiesaddon.utils.addTranslatedChatLine
-import kr.hahaha98757.zombiesaddon.utils.getTranslatedString
+import kr.hahaha98757.zombiesaddon.modules.NotLast
+import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.command.ICommandSender
 import net.minecraft.command.NumberInvalidException
 import net.minecraft.command.WrongUsageException
@@ -97,6 +95,12 @@ object CommandZaDebug: CustomCommandBase() {
                 if (round <= 0) throw NumberInvalidException("commands.generic.num.tooSmall", args[1], 1)
                 game.pass(round, true)
                 addTranslatedChat("zombiesaddon.debug.pass", round)
+                DelayedTask(10) {
+                    if (args.size >= 3) for (i in 2 until args.size) {
+                        val player = args[i]
+                        NotLast.debugPlayerList += player
+                    }
+                }
             }
             "helicopter" -> {
                 val game = ZombiesAddon.instance.gameManager.game ?: run {
@@ -144,6 +148,10 @@ object CommandZaDebug: CustomCommandBase() {
             }
             3 -> when (args[0]) {
                 "gameMode" -> getListOfStringsMatchingLastWord(args, "normal", "hard", "rip")
+                "pass" -> {
+                    val players = mc.theWorld.playerEntities.map { it.name!! }
+                    getListOfStringsMatchingLastWord(args, *players.toTypedArray())
+                }
                 else -> null
             }
             else -> null

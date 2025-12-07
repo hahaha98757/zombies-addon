@@ -56,12 +56,13 @@ zombiesaddon.commands.recorder.get=§eRecorder: 현재 카테고리는 §a%s§e 
 zombiesaddon.commands.recorder.set=§eRecorder: 카테고리를 §a%s§e(으)로 설정했습니다
 zombiesaddon.commands.recorder.error.category=카테고리 이름에는 '/' 또는 '\'가 포함될 수 없습니다
 
-zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <라운드>
+zombiesaddon.commands.za_debug.usage.pass=/za_debug pass <라운드> [Not Last 플레이어...]
 
 
 zombiesaddon.modules.general.toggled=§a%s§e을(를) %s§e(으)로 전환했습니다
 
 zombiesaddon.modules.notLast.failed=§eNot Last: §c마지막을 찾는데 실패했습니다
+zombiesaddon.modules.notLast.comma=,{space}
 zombiesaddon.modules.notLast.or=또는
 zombiesaddon.modules.notLast.printLast=§eNot Last: %s§e이(가) 마지막입니다
 
