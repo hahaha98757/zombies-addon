@@ -211,7 +211,7 @@ You can test the mod without connecting to an actual game. The commands below mu
 - serverNumber: Checks or sets the current server number. null means none.
 - gameMode [de|bb|aa|pr] \[normal|hard|rip]: Checks or sets the current game mode.
 - new: Starts a new game.
-- pass <round>: Pass <round> in the current game.
+- pass <round> [Not Last players...]: Pass <round> in the current game. Add player names to activate Not Last.
 - helicopter: Starts a helicopter escape from the Prison map.
 - end <win|lose>: Ends the current game with a win or loss.
 - remove: Removes an already completed game.

@@ -214,7 +214,7 @@
 - serverNumber: 현재 접속한 서버 번호를 확인하거나 설정합니다. null은 없음을 의미합니다.
 - gameMode [de|bb|aa|pr] \[normal|hard|rip]: 현재 게임 모드를 확인하거나 설정합니다.
 - new: 새 게임을 시작합니다.
-- pass <라운드>: 현재 게임에서 <라운드>를 통과합니다.
+- pass <라운드> [Not Last 플레이어...]: 현재 게임에서 <라운드>를 통과합니다. 플레이어 이름을 추가해서 Not Last를 작동시킵니다.
 - helicopter: Prison 맵에서 헬리콥터를 탈출을 시작합니다.
 - end <win|lose>: 현재 게임을 승리나 패배로 종료합니다.
 - remove: 종료된 게임을 제거합니다.
