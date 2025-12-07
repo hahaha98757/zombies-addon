@@ -1,5 +1,12 @@
 # Change log
 
+## 4.6.0
+12-07-2025
+- Fix
+  - Not Last: Different commas apply for each language. Removed commas when there are two players
+- Added
+  - Debug Mode: Not Last can be used when passing a round
+
 ## 4.6.0-rc1
 12-04-2025
 - Added: Japanese translation
