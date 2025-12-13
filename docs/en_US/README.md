@@ -5,6 +5,7 @@ Download: [Latest version](https://github.com/hahaha98757/zombies-addon/releases
 ## Supported languages
 - English (US)
 - 한국어 (대한민국): [이 파일](../ko_KR/README.md)을 참고하세요.
+- 日本語 (日本): [このファイル](../ja_JP/README.md)を参照してください。
 
 ## Translation info
 Translated by Google Translate and GitHub Copilot.
@@ -53,7 +54,7 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Sends the pause command to LiveSplit when the game is over.
 
 #### Config
-- Toggle Auto Splits: Enable or disable Auto Splits.
+- Enable Auto Splits: Enable or disable Auto Splits.
 - Host: The host of LiveSplit server.
 - Port: The port of LiveSplit server.
 
@@ -84,15 +85,15 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Toggle RL mode with the hotkey (default Up). Wave delay will be displayed with the specified number of ticks added.
 
 #### Config
-- Toggle Wave Delays: Enable or disable Wave Delays.
+- Enable Wave Delays: Enable or disable Wave Delays.
 - Play Sounds: Plays a sound after n ticks of wave start.
-- Custom Play Sound: Plays sounds with a sound name, pitch, and playType that you set in a json file.
+- Custom Play Sound: Plays sounds with a sound name, pitch, and timing that you set in a json file.
 - Prefix: Enable or disable the prefix.
 - Boss Color: Enable or disable colors of waves where a boss spawns.
 - Text Style: The style of texts that are displayed on the screen.
 - Highlight Style: The Highlight method for a current wave, passed waves, and next waves.
-- Hide Passed Wave: Enable or disable hiding passed waves.
-- RL Mode Offset: The offset for RL Mode.
+- Hide Passed Wave: Hides passed waves from the screen.
+- RL Mode Offset: Adds an offset to the wave delay in RL Mode.
 
 ----
 ### Zombies Strat Viewer
@@ -148,7 +149,7 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Shows the weapons and armor you had when you won the game.
 
 #### Config
-- Toggle Last Weapons: Enable or disable Last Weapons.
+- Enable Last Weapons: Enable or disable Last Weapons.
 - Display Armors: Displays armors in Last Weapons.
 - Display Weapons Level: Displays weapons level in Last Weapons.
 - Display Cooled Down Skills: Displays a cooled down skill in Last Weapons.
@@ -166,12 +167,12 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Saved records can be used in Zombies Utils, and vice versa.
 
 #### Config
-- Toggle Recorder: Enable or disable Recorder.
+- Enable Recorder: Enable or disable Recorder.
 - Default Category: Category to use when not specified using the command. Must not contain '/' or '\'.
 - PB Notice: Notifies when a new personal best or best segment is achieved.
 
 #### Commands
-- recorder category [Category]: Check or set the current category. Must not contain '/' or '\'.
+- recorder category \[Category]: Check or set the current category. Must not contain '/' or '\'.
 
 ----
 ### Text Macro
@@ -207,11 +208,11 @@ A mod that integrates several Zombies mods and provides them as modules.
 ## Debug mode
 You can test the mod without connecting to an actual game. The commands below must be started with the /za_debug command.
 - /za_debug: Toggles debug mode.
-- isNotZombies [false|true]: Checks or sets a flag to determine if you are not in a lobby or in-game.
+- isNotZombies \[false|true]: Checks or sets a flag to determine if you are not in a lobby or in-game.
 - serverNumber: Checks or sets the current server number. null means none.
-- gameMode [de|bb|aa|pr] \[normal|hard|rip]: Checks or sets the current game mode.
+- gameMode \[de|bb|aa|pr] \[normal|hard|rip]: Checks or sets the current game mode.
 - new: Starts a new game.
-- pass <round> [Not Last players...]: Pass <round> in the current game. Add player names to activate Not Last.
+- pass <round> \[Not Last players...]: Pass <round> in the current game. Add player names to activate Not Last.
 - helicopter: Starts a helicopter escape from the Prison map.
 - end <win|lose>: Ends the current game with a win or loss.
 - remove: Removes an already completed game.
@@ -228,7 +229,7 @@ You can test the mod without connecting to an actual game. The commands below mu
 - Version types are, from lowest to highest, Alpha, Beta, Pre-Release(pre), and Release Candidate(rc).
 - The alpha version is private. Do not share.
 - The beta version is test version. There may be serious problem.
-- The pre-release version is tested version. There may be minor bugs.
+- The pre-release version may have minor bugs.
 - The release candidate version is final test version.
 
 

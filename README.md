@@ -5,6 +5,7 @@
 ## 지원 언어 및 설명(Supported Languages and Description)
 - 한국어 (대한민국): [이 파일](docs/ko_KR/README.md)을 참고하세요.
 - English (US): Please refer to [this file](docs/en_US/README.md).
+- 日本語 (日本): [このファイル](docs/ja_JP/README.md)を参照してください。
 
 ## 라이선스(License)
 이 프로젝트는 [LICENSE](LICENSE) 파일의 전문에 따라 MIT 허가서가 적용됩니다.<br>

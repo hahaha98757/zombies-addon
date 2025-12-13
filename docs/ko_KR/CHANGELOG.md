@@ -405,10 +405,10 @@
 - 버그 수정.
 - Lrod Order 제거.
 - Auto Splits 용 RL 모드 추가.
-- 업데이트 채크 수정.
+- 업데이트 체크 수정.
 - Extra Setting 추가.
 - 웨이브 딜레이 수정.
-- Powerup Alarm 용 컨피그 제서.
+- Powerup Alarm 용 컨피그 제거.
 
 
 ## 1.15.1
@@ -504,7 +504,7 @@
 ## 1.9.0
 - 버그 수정.
 - Boss Alarm 추가.
-- forge 명령어 버그 수정.
+- Forge 명령어 버그 수정.
   <br>모드의 명령어가 / 없이 실행되는 버그를 수정했습니다.
 
 
@@ -578,7 +578,7 @@
 - Auto Splits 수정.
 - /ZSV, /SLA 명령어 수정.
 - Auto Rejoin 수정.
-- 컨피그에 Auto Splits 관련 설정 ㅊ가.
+- 컨피그에 Auto Splits 관련 설정 추가.
   <br>웨이브 딜레이를 추가했습니다.
 
 

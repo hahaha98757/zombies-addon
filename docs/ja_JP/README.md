@@ -1,0 +1,249 @@
+![Zombies Addon Logo](../../src/main/resources/logo.png)
+# Zombies Addon
+ダウンロード：[最新バージョン](https://github.com/hahaha98757/zombies-addon/releases/latest), [すべてのバージョン](https://github.com/hahaha98757/zombies-addon/releases)
+
+## 지원 언어
+- 日本語 (日本)
+- 한국어 (대한민국)：[이 파일](../ko_KR/README.md)을 참고하세요.
+- English (US)：Please refer to [this file](../en_US/README.md).
+
+## はじめに
+複数のZombies modを統合し、モジュールとして提供するモードです。
+
+## モジュール
+### Player Visibility
+- 周囲のプレイヤーを視野から隠します。
+- ショートカットキー（デフォルトZ）で切り替えます。
+- Semi PVはプレイヤーを半透明に表示します。
+- Semi PVはSSTのPlayer Invisibleのプレイヤー半透明より
+  高い優先順位を持ちます。
+- Semi PVモードは次のとおりです。
+  - Linear：距離に比例して透明度が変化します。
+  - Fixed：距離に関係なく、固定された透明度（最小値）を持ちます。
+  - Smooth：近づくほどゆっくりと透明度が増加します。
+  - Sharp：近づくほど速く透明度が増加します。
+
+#### コンフィグ
+- デフォルトの切り替え状態：ゲーム開始時の切り替え状態です。
+- テキストを表示：Player Visibilityの状態を表示するテキストです。
+- 範囲：Player Visibilityの範囲(ブロック単位)です。
+- Semi PVを有効化：Semi Player Visibilityを有効または無効にします。
+- Semi PVの範囲：Semi Player Visibilityの範囲(ブロック単位)です。
+- Semi PVの最小透明度値：Semi Player Visibilityの透明度の最小値です。
+- Semi PVの透明度の最大値：Semi Player Visibilityの透明度の最大値です。
+- Semi PVモード：Semi Player Visibilityのモードです。
+
+----
+### Block Alarm
+- ホットキー（デフォルト値P）で切り替えます。
+- 一人で生きていて生かせるプレイヤーがいる場合は、画面に「BLOCK」と表示されます。
+
+#### コンフィグ
+- デフォルトの切り替え状態：ゲーム開始時の切り替え状態です。
+- テキストを表示：Block Alarmの状態を表示するテキストです。
+
+----
+### Not Last
+- 最後の敵を殺したプレイヤーを表示します。
+
+----
+### Auto Splits
+- ラウンド開始またはゲームの勝利時にLiveSplitにstartorsplitコマンドを渡します。
+- ゲームオーバー時にLiveSplitにpauseコマンドを渡します。
+
+#### コンフィグ
+- Auto Splitsを有効化：Auto Splitsを有効または無効にします。
+- ホスト：LiveSplitサーバーのホスト。
+- ポート：LiveSplitサーバーのポート。
+
+#### コマンド
+- autosplits <コマンド>：LiveSplitにコマンドを渡します。
+
+#### 사용법
+1. [ここ](https://livesplit.org/downloads/)からLiveSplitをダウンロードしてください。
+2. LiveSplitを実行し、右クリック→SettingsでServer Portを0〜65535の間で目的の数字（デフォルトは16834）で入力します。
+3. Minecraftの実行→Mods→Zombies Addon→Config→Auto Splitsで、手順2で入力したポート番号（デフォルトは16834）をそのまま入力します。
+4. LiveSplit右クリック→Control→Start TCP ServerでLiveSplitサーバーを起動します。
+5. インゲームでAuto Splitsをキーにしたり、コマンドを使用したりすると、LiveSplitにコマンドが渡されます。
+
+----
+### Internal Timer
+- ラウンド開始時に初期化される内部タイマーを表示します。
+
+----
+### Wave Delays
+- ウェーブディレイを表示します。
+- プレフィックスは波の特徴を表示します。ボスの場合、波の色でも区別できます。
+- テキストスタイルは、デフォルトの「W1：0.10.0」、「W1 0.10.0」、「W1：00:10」、「W1 00:10」です。
+- Wave Delayのハイライトスタイルは次のとおりです。
+  - デフォルトの「Zombies Addon」は、3秒後に開始する波は黄色、始まった波は緑、
+  始まっていない波は濃い灰色で表示され、現在の波は紫色の矢印で表示されます。
+  - 「Zombies Utils」はZombies Utilsのウェーブディレイと同じです。
+- ホットキー（デフォルトUp）でRLモードを切り替えます。ウェーブディレイが設定されたティックだけ追加されて表示されます。
+
+#### コンフィグ
+- Wave Delaysを有効化：Wave Delaysを有効または無効にします。
+- サウンドを再生する：ウェイヴ開始nティック後にサウンドを再生します。
+- カスタムサウンド再生：JSONファイルで設定したサウンド名、ピッチ、タイミングでサウンドを再生します。
+- 接頭辞：接頭辞を有効または無効にします。
+- ボス色：ボスが出現するウェイヴの色を有効または無効にします。
+- テキストスタイル：画面に表示されるテキストのスタイルです。
+- ハイライトスタイル：現在のウェイヴ、過去のウェイヴ、次のウェイヴのハイライト方法です。
+- 過去のウェイヴを非表示：画面から過去のウェイヴを非表示にします。
+- RLモードオフセット：RLモードでウェイヴ遅延にオフセットを追加します。
+
+----
+### Zombies Strat Viewer
+- https://pastebin.com/ の記事を画面に表示します。
+- キーボード（デフォルト値の左角かっこ、右角かっこ）で表示される行を回したり参加したりできます。
+- Unicode（ハングル）を含むサポート。
+
+#### コマンド
+- zsv <URL|off>：投稿を表示またはオフにします。 URLは"https://pastebin.com/raw/" で始まる必要があります。
+- zsvlines <番号>：一度に表示する行を設定します。
+
+----
+### Spawn Limit Action
+- 敵がスポーンできるウィンドウの数を表示します。
+
+#### コンフィグ
+- 自動SLA：ゲーム開始時にSLAを自動でオンにします。
+- テキストの色：SLAのテキストの色を有効または無効にします。
+- アクティブなウィンドウ：SLAでアクティブなウィンドウを表示します。
+- 非アクティブなウィンドウ：SLAで非アクティブなウィンドウを表示します。
+
+#### コマンド
+- sla <de|bb|aa|off>：マップを設定またはオフにします。
+- sla custom <offset|rotate|mirror>：ハウジングなどの自作マップで使用するために、SLAの位置と方向を調整します。
+- sla quick <ghxula|ghxula-garden|loliepop5>：各ユーザーのハウジングに合うようにSLAを調整します。
+
+----
+### Auto Rejoin
+- ホットキー（デフォルト値O）で切り替えます。
+- ラウンド開始時に自動的に再接続します。
+- 再接続試行は5秒まで続きます。
+
+#### コンフィグ
+- デフォルトの切り替え状態：ゲーム開始時の切り替え状態です。
+- テキストを表示：Auto Rejoinの状態を表示するテキストです。
+
+----
+### Powerup Patterns
+- パワーアップがスポーンするパターンを表示します。
+- 変更、検出されたパターンは次のラウンドで反映されます。
+- 例えば、ラウンド2に直ちに処置がスポーンした場合、ラウンド3が開始されてこそ画面に直ちに処置のパターンが表示されます。
+- ショートカットキー（デフォルトはナンバーパッド数字）で各パワーアップのタイマーを作動させます。
+- ショートカットキー（デフォルト値F）で見ている30ブロック以内のパワーアップのタイマーを作動させます。
+
+#### コマンド
+- pow：poweruppatternsの短縮命令です。
+- poweruppatterns <insta|max|ss> \[reset|番号]：パターンをリセットするか、直接設定します。
+- poweruppatterns <insta|max|ss|dg|carpenter|bg>：タイマーを作動させます。
+
+----
+### Last Weapons
+- ゲームで勝利したときに持っていた武器と鎧を示しています。
+
+#### コンフィグ
+- Last Weaponsを有効化：Last Weaponsを有効または無効にします。
+- アーマーを表示：Last Weaponsでアーマーを表示します。
+- 武器レベルを表示：Last Weaponsで武器のレベルを表示します。
+- クールダウン済みスキルを表示：Last Weaponsでクールダウン済みスキルを表示します。
+
+----
+### Recorder
+- ラウンドごとにPB（個人最高記録）と区間最高記録を保存して比較します。
+- カテゴリ別に履歴を保存し、コンフィグやコマンドでカテゴリを指定できます。
+- ラウンド通過時の既存最高記録と比較します。
+- PBとセクションのトップレコードは、.minecraft/zombies/splits/（カテゴリ）フォルダにUTF-16エンコードされた.timesファイルとして保存されます。
+  ハイピクセルでない場合、またはデバッグモードでは、practise-splitsフォルダに保存されます。
+- 各ゲームごとに区間履歴が.minecraft/zombies/runsフォルダにUTF-16エンコードされたYYYY-MM-DD_HH-MM-SS_(サーバー番号).segファイルとして保存されます。
+- Zombies Utilsの記録と1ティックの差がある場合があり、Zombies Utilsの記録が無効になります。
+- 保存された履歴はZombies Utilsで使用することができ、逆も可能です。
+
+#### コンフィグ
+- Recorderを有効化：Recorderを有効または無効にします。
+- デフォルトカテゴリー：コマンドで指定しない場合に使用するカテゴリーです。「/」または「\」を含めることはできません
+- PB通知：新しい個人新記録や区間新記録が達成されたときに通知します。
+
+#### コマンド
+- recorder category \[カテゴリー]：現在のカテゴリを確認または設定します。「/」または「\」を含めることはできません
+
+----
+### Text Macro
+- ショートカット（デフォルトQ）を押してチャットにテキストを送信します。
+
+----
+### Korean Patchers
+- いくつかのフレーズを韓国語に翻訳します。
+
+#### コンフィグ
+- ゲーム内：ゲーム内にKorean Patchersを有効または無効にします。
+- Zombies Overlay：[Zombies Overlay](https://github.com/TheExploration/zombies-overlay)にKorean Patchersを有効または無効にします。
+- SST：SSTにKorean Patchersを有効または無効にします。
+- Zombies Utils：Zombies UtilsにKorean Patchersを有効または無効にします。
+
+----
+## コマンド
+- zombiesaddon hud：Internal Timer、Wave Delays、Powerup Patternsの位置を移動します。
+- zombiesaddon checkUpdate：modの更新を確認してください。
+- /de, /bb, /aa, /pr：各マップに接続します。
+- za_debug：デバッグモード関連命令です。
+
+
+## コンフィグ
+### 一般的な
+- modを有効化：Zombie Addon modを有効化または無効化します。
+- 言語：このmodの言語
+
+### モジュール
+- その他のモジュールの設定。
+
+### その他のmod
+- SSTのスポーン時間を無効化：SSTのスポーン時間を無効化します。
+- Zombies Utilsのタイマーを無効化：Zombies Utilsのタイマーを無効化します。
+
+### Hidden（コンフィグファイルでのみ表示）
+- blockUnlegitMods：unlegit modをブロックします。
+- blockUnlegitSst：SSTのunlegit機能をブロックします。
+
+
+## デバッグモード
+- 実際のゲームに接続せずにモードをテストできます。以下の命令は/za_debug命令で始まる必要があります。
+- /za_debug：デバッグモードを切り替えます。
+- isNotZombies \[false|true]：待合室またはゲーム内でないことを確認するフラグを確認または設定します。
+- serverNumber：現在接続しているサーバー番号を確認または設定します。nullはないことを意味します。
+- gameMode \[de|bb|aa|pr] \[normal|hard|rip]：現在のゲームモードを確認または設定します。
+- new：新しいゲームを始めます。
+- pass <ラウンド> \[Not Last Player...]：現在のゲームで<ラウンド>を通過します。プレーヤー名を追加してNot Lastを操作します。
+- helicopter：Prison マップからヘリコプターの脱出を開始します。
+- end <win|lose>：現在のゲームを勝利や敗北で終了します。
+- remove：終了したゲームを削除します。
+
+
+## その他
+- Zombies Utilsの/sla コマンドが/sla_zombiesutilsに変わります。
+- 最新バージョンに限り、Windowsのみの自動更新をサポートします。
+
+
+## バージョンシステム
+- バージョンはx.y.z（最新バージョン）またはx.y.zタイプw（開発バージョン）で構成されています。
+- x は必須の更新を意味します。たとえば、2.0.0 バージョンが最新バージョンの場合、その下のバージョンは使用できません。
+- バージョンタイプは低いバージョンから順にアルファ（alpha）、ベータ（beta）、プリリリース（pre）、リリース候補（rc）があります。
+- アルファバージョンは非公開です。共有しないでください。
+- ベータバージョンはテストバージョンです。重大な問題が発生する可能性があります。
+- プレリリースバージョンは小さなバグがある可能性があります。
+- リリース候補バージョンは最終テストバージョンです。
+
+
+## ライセンス
+このプロジェクトは、[LICENSE](../../LICENSE)ファイルの専門に基づいてMITライセンスが適用されます。<br>
+ライセンスおよび著作権通知の下で個人的な使用、修正、配布、商業利用が可能であり、保証および責任を負いません。
+
+
+## クレジット
+[このファイル](CREDITS.md)を参照してください。
+
+
+## 更新ログ
+[このファイル](CHANGELOG.md)を参照してください。

@@ -5,6 +5,7 @@
 ## 지원 언어
 - 한국어 (대한민국)
 - English (US): Please refer to [this file](../en_US/README.md).
+- 日本語 (日本): [このファイル](../ja_JP/README.md)を参照してください。
 
 ## 소개
 여러 Zombies 모드를 통합하여, 모듈로 제공하는 모드입니다.
@@ -12,7 +13,7 @@
 ## 모듈
 ### Player Visibility
 - 주변 플레이어를 시야에서 숨깁니다.
-- 단축키(기본값 Z)로 토글합니다.
+- 단축키(기본값 Z)로 전환합니다.
 - Semi PV는 플레이어를 반투명하게 표시합니다.
 - Semi PV는 SST의 Player Invisible의 플레이어 반투명보다
  높은 우선 순위를 가집니다.
@@ -23,22 +24,22 @@
   - Sharp: 가까워질수록 빠르게 투명도가 증가합니다.
 
 #### 컨피그
-- 토글 기본값: Player Visibility의 토글 기본값입니다.
+- 전환 기본값: 게임을 시작할 때 전환 기본값입니다.
 - 텍스트 표시: Player Visibility 상태를 표시하는 텍스트입니다.
-- 범위: Player Visibility의 범위입니다.
-- 토글 Semi PV: Semi Player Visibility를 활성화 또는 비활성화합니다.
-- Semi PV 범위: Semi Player Visibility의 범위입니다.
-- Semi PV 알파 최소값: Semi Player Visibility의 알파 최소값입니다.
-- Semi PV 알파 최대값: Semi Player Visibility의 알파 최대값입니다.
+- 범위: Player Visibility의 범위(블록 단위)입니다.
+- Semi PV 활성화: Semi Player Visibility를 활성화 또는 비활성화합니다.
+- Semi PV 범위: Semi Player Visibility의 범위(블록 단위)입니다.
+- Semi PV 투명도 최소값: Semi Player Visibility의 투명도 최소값입니다.
+- Semi PV 투명도 최대값: Semi Player Visibility의 투명도 최대값입니다.
 - Semi PV 모드: Semi Player Visibility의 모드입니다.
 
 ----
 ### Block Alarm
-- 단축키(기본값 P)로 토글합니다.
+- 단축키(기본값 P)로 전환합니다.
 - 혼자 살아있고 살릴 수 있는 플레이어가 있다면, 화면에 "BLOCK"이 표시됩니다.
 
 #### 컨피그
-- 토글 기본값: Block Alarm의 토글 기본값입니다.
+- 전환 기본값: Block Alarm의 전환 기본값입니다.
 - 텍스트 표시: Block Alarm 상태를 표시하는 텍스트입니다.
 
 ----
@@ -51,7 +52,7 @@
 - 게임 오버 시 LiveSplit에 pause 명령어를 전달합니다.
 
 #### 컨피그
-- 토글 Auto Splits: Auto Splits를 활성화 또는 비활성화합니다.
+- Auto Splits 활성화: Auto Splits를 활성화 또는 비활성화합니다.
 - 호스트: LiveSplit 서버의 호스트입니다.
 - 포트: LiveSplit 서버의 포트입니다.
 
@@ -64,7 +65,7 @@
 3. 마인크래프트 실행 → 모드 → Zombies Addon → Config → Auto Splits에서 포트 값을
  2단계에서 입력한 숫자(기본값 16834)를 그대로 입력합니다.
 4. LiveSplit 우클릭 → Control → Start TCP Server로 LiveSplit 서버를 시작합니다.
-5. 인게임에서 Auto Splits를 키거나 명령어를 사용하면  LiveSplit에 명령어가 전달됩니다.
+5. 인게임에서 Auto Splits를 키거나 명령어를 사용하면 LiveSplit에 명령어가 전달됩니다.
 
 ----
 ### Internal Timer
@@ -79,18 +80,18 @@
   - 기본값인 "Zombies Addon"은 3초 후 시작할 웨이브는 노란색, 시작한 웨이브는 녹색,
  시작되지 않은 웨이브는 진한 회색으로 표시되며 현재 웨이브는 보라색 화살표로 표시됩니다.
   - "Zombies Utils"는 Zombies Utils의 웨이브 딜레이와 동일합니다.
-- 단축키(기본값 Up)으로 RL 모드를 토글합니다. 웨이브 딜레이가 설정된 틱 만큼 추가되어 표시됩니다.
+- 단축키(기본값 Up)으로 RL 모드를 전환합니다. 웨이브 딜레이가 설정된 틱 만큼 추가되어 표시됩니다.
 
 #### 컨피그
-- 토글 Wave Delays: Wave Delays를 활성화 또는 비활성화합니다.
+- Wave Delays 활성화: Wave Delays를 활성화 또는 비활성화합니다.
 - 소리 재생: 웨이브 시작 n 틱 후 소리를 재생합니다.
-- 커스텀 소리 재생: Json 파일에서 설정한 소리 이름, 피치, 플레이 타입으로 소리를 재생합니다.
+- 커스텀 소리 재생: Json 파일에서 설정한 소리 이름, 피치, 타이밍으로 소리를 재생합니다.
 - 접두사: 접두사를 활성화 또는 비활성화합니다.
 - 보스 색상: 보스가 등장하는 웨이브의 색상을 활성화 또는 비활성화합니다.
 - 텍스트 스타일: 화면에 표시되는 텍스트의 스타일입니다.
 - 하이라이트 스타일: 현재 웨이브, 지난 웨이브, 다음 웨이브에 대한 하이라이트 방식입니다.
-- 지난 웨이브 숨기기: 지난 웨이브를 숨길지 여부를 설정합니다.
-- RL 모드 오프셋: RL 모드의 오프셋입니다.
+- 지난 웨이브 숨기기: 화면에서 지나간 웨이브를 숨깁니다.
+- RL 모드 오프셋: RL 모드에서 웨이브 딜레이에 오프셋을 추가합니다.
 
 ----
 ### Zombies Strat Viewer
@@ -119,12 +120,12 @@
 
 ----
 ### Auto Rejoin
-- 단축키(기본값 O)로 토글합니다.
+- 단축키(기본값 O)로 전환합니다.
 - 라운드가 시작할 때 자동으로 재접속합니다.
 - 재접속 시도는 5초까지 지속됩니다.
 
 #### 컨피그
-- 토글 기본값: 게임 시작 시 Auto Rejoin의 토글 기본값입니다.
+- 전환 기본값: 게임 시작 시 Auto Rejoin의 전환 기본값입니다.
 - 텍스트 표시: Auto Rejoin 상태를 표시하는 텍스트입니다.
 
 ----
@@ -137,7 +138,7 @@
 
 #### 명령어
 - pow: poweruppatterns의 단축 명령어입니다.
-- poweruppatterns <insta|max|ss> <reset|숫자>: 패턴을 리셋하거나, 직접 설정합니다.
+- poweruppatterns <insta|max|ss> \[reset|숫자]: 패턴을 리셋하거나, 직접 설정합니다.
 - poweruppatterns <insta|max|ss|dg|carpenter|bg>: 타이머를 작동시킵니다.
 
 ----
@@ -145,7 +146,7 @@
 - 게임에서 승리했을 때 가지고 있던 무기와 갑옷을 보여줍니다.
 
 #### 컨피그
-- 토글 Last Weapons: Last Weapons를 활성화 또는 비활성화합니다.
+- Last Weapons 활성화: Last Weapons를 활성화 또는 비활성화합니다.
 - 갑옷 표시: Last Weapons에서 갑옷을 표시합니다.
 - 무기 레벨 표시: Last Weapons에서 무기 레벨을 표시합니다.
 - 쿨다운된 스킬 표시: Last Weapons에서 쿨다운된 스킬을 표시합니다.
@@ -162,12 +163,12 @@
 - 저장된 기록은 Zombies Utils에서 사용될 수 있으며, 반대도 가능합니다.
 
 #### 컨피그
-- 토글 Recorder: Recorder를 활성화 또는 비활성화합니다.
+- Recorder 활성화: Recorder를 활성화 또는 비활성화합니다.
 - 기본 카테고리: 명령어를 사용하여 지정하지 않을 때 사용할 카테고리입니다. '/' 또는 '\'가 포함될 수 없습니다.
 - PB 알림: 새로운 PB이나 구간 최고 기록이 달성되면 알려줍니다.
 
 #### 명령어
-- recorder category [카테고리]: 현재 카테고리를 확인하거나 설정합니다. '/' 또는 '\'가 포함될 수 없습니다.
+- recorder category \[카테고리]: 현재 카테고리를 확인하거나 설정합니다. '/' 또는 '\'가 포함될 수 없습니다.
 
 ----
 ### Text Macro
@@ -209,12 +210,12 @@
 
 ## 디버그 모드
 - 실제 게임에 접속하지 않고 모드를 테스트할 수 있습니다. 아래 명령어들은 /za_debug 명령어로 시작해야 합니다.
-- /za_debug: 디버그 모드 토글합니다.
-- isNotZombies [false|true]: 대기실 또는 인게임이 아닌지 확인하는 플래그를 확인하거나 설정합니다.
+- /za_debug: 디버그 모드를 전환합니다.
+- isNotZombies \[false|true]: 대기실 또는 인게임이 아닌지 확인하는 플래그를 확인하거나 설정합니다.
 - serverNumber: 현재 접속한 서버 번호를 확인하거나 설정합니다. null은 없음을 의미합니다.
-- gameMode [de|bb|aa|pr] \[normal|hard|rip]: 현재 게임 모드를 확인하거나 설정합니다.
+- gameMode \[de|bb|aa|pr] \[normal|hard|rip]: 현재 게임 모드를 확인하거나 설정합니다.
 - new: 새 게임을 시작합니다.
-- pass <라운드> [Not Last 플레이어...]: 현재 게임에서 <라운드>를 통과합니다. 플레이어 이름을 추가해서 Not Last를 작동시킵니다.
+- pass <라운드> \[Not Last 플레이어...]: 현재 게임에서 <라운드>를 통과합니다. 플레이어 이름을 추가해서 Not Last를 작동시킵니다.
 - helicopter: Prison 맵에서 헬리콥터를 탈출을 시작합니다.
 - end <win|lose>: 현재 게임을 승리나 패배로 종료합니다.
 - remove: 종료된 게임을 제거합니다.
