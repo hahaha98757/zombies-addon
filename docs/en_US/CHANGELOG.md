@@ -1,5 +1,10 @@
 # Change log
 
+## 4.6.1
+12-23-2025
+- Added: Integrity check for mods downloaded via auto-update.
+- Code fix: Changed GUI class to object.
+
 ## 4.6.0
 12-07-2025
 - Fix
