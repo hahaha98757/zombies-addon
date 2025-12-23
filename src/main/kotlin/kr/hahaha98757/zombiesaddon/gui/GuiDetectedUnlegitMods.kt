@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Loader
 import org.lwjgl.input.Keyboard
 import java.io.File
 
-class GuiDetectedUnlegitMods: GuiScreen() {
+object GuiDetectedUnlegitMods: GuiScreen() {
 
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
         drawDefaultBackground()

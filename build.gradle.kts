@@ -1,6 +1,7 @@
 @file:Suppress("SpellCheckingInspection")
 
 import org.apache.commons.lang3.SystemUtils
+import java.security.MessageDigest
 
 plugins {
     idea
@@ -159,3 +160,29 @@ tasks.shadowJar {
 }
 
 tasks.assemble.get().dependsOn(tasks.remapJar)
+
+tasks.register("buildAndGenerateSha256") {
+    group = "build"
+    description = "Builds the mod and generates a SHA-256 hash of the resulting jar file."
+
+    dependsOn("build")
+
+    doLast {
+        val jarFile = file("${layout.buildDirectory.get()}/libs/$archiveName-$version.jar")
+        if (!jarFile.exists()) throw GradleException("Jar file not found: ${jarFile.absolutePath}")
+
+        val digest = MessageDigest.getInstance("SHA-256")
+        jarFile.inputStream().use { input ->
+            val buffer = ByteArray(8192)
+            var read: Int
+            while (input.read(buffer).also { read = it } > 0) digest.update(buffer, 0, read)
+        }
+
+        val hash = digest.digest().joinToString("") { "%02x".format(it) }
+
+        val shaFile = file("${jarFile.absolutePath}.sha256")
+        shaFile.writeText(hash)
+
+        println("SHA-256 hash generated: $hash")
+    }
+}

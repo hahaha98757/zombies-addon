@@ -10,7 +10,13 @@ import org.lwjgl.input.Keyboard
 import java.awt.Desktop
 import java.net.URI
 
-class GuiUpdateScreen(private val requiredUpdates: Boolean): GuiScreen() {
+object GuiUpdateScreen: GuiScreen() {
+    private var requiredUpdates = false
+
+    fun getInstance(required: Boolean): GuiUpdateScreen {
+        requiredUpdates = required
+        return this
+    }
 
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
         val str = getTranslatedString(if (requiredUpdates) "zombiesaddon.gui.updateScreen.title.mandatory" else "zombiesaddon.gui.updateScreen.title.normal")
@@ -36,7 +42,7 @@ class GuiUpdateScreen(private val requiredUpdates: Boolean): GuiScreen() {
                     logger.warn("자동 업데이트는 Windows에서만 지원됩니다.")
                     return
                 }
-                mc.displayGuiScreen(GuiDownloadWaiting())
+                mc.displayGuiScreen(GuiDownloadWaiting)
                 UpdateChecker.autoUpdate()
             }
             1 -> mc.displayGuiScreen(GuiConfirmOpenLink(this, "https://github.com/hahaha98757/zombies-addon/releases", 0, true))

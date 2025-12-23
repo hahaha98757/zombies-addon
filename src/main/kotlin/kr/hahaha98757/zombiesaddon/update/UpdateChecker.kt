@@ -8,6 +8,7 @@ import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.event.ClickEvent
 import net.minecraft.event.HoverEvent
 import net.minecraft.util.ChatComponentText
+import net.minecraft.util.ChatComponentTranslation
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.EntityJoinWorldEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -29,6 +30,9 @@ object UpdateChecker {
     private val current = Version.fromString(VERSION)
     private var latest = Version.ZERO
     private var dev = Version.ZERO
+
+    private val downloadUrl
+        get() = "https://github.com/hahaha98757/zombies-addon/releases/download/$latest/ZombiesAddon1.8.9-$latest.jar"
 
     private var ctx: SSLContext?
     init {
@@ -56,6 +60,7 @@ object UpdateChecker {
             logger.warn("개발 버전 가져오는데 실패했습니다.", it)
             latest
         }
+        logger.info("현재 버전: $current, 최신 버전: $latest, 개발 버전: $dev")
         mc.addScheduledTask { check() }
     }.start()
 
@@ -77,12 +82,12 @@ object UpdateChecker {
         }
 
         if (current.x < latest.x) {
-            mc.displayGuiScreen(GuiUpdateScreen(true)) // 필수 업데이트
+            mc.displayGuiScreen(GuiUpdateScreen.getInstance(true)) // 필수 업데이트
             return
         }
 
         if (latest == dev) {
-            if (current != latest && displayGui) mc.displayGuiScreen(GuiUpdateScreen(false)) // 새로운 최신 버전
+            if (current != latest && displayGui) mc.displayGuiScreen(GuiUpdateScreen.getInstance(false)) // 새로운 최신 버전
         } else {
             if (current == dev) usingDev() // 개발 버전 사용 중
             else newDev() // 새로운 개발 버전
@@ -100,8 +105,10 @@ object UpdateChecker {
     private fun newDev() {
         if (dev.versionType == VersionType.RELEASE) return
         val url = ChatComponentText(getTranslatedString("zombiesaddon.update.downloadText")).apply {
-            chatStyle.chatClickEvent = ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/hahaha98757/zombies-addon/releases")
-            chatStyle.chatHoverEvent = HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponentText(getTranslatedString("zombiesaddon.update.downloadHover")))
+            chatStyle.chatClickEvent =
+                ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/hahaha98757/zombies-addon/releases")
+            chatStyle.chatHoverEvent =
+                HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponentTranslation("zombiesaddon.update.downloadHover"))
         }
         addLine()
         ChatComponentText("").run {
@@ -128,15 +135,23 @@ object UpdateChecker {
     }
 
     fun autoUpdate() = Thread {
+        val tempMod = File(modFile.parentFile, ".temp/ZombiesAddon1.8.9-$latest.jar.temp")
         val newMod = File(modFile.parentFile, "ZombiesAddon1.8.9-$latest.jar")
         try {
-            val connection = URL("https://github.com/hahaha98757/zombies-addon/releases/download/$latest/ZombiesAddon1.8.9-$latest.jar").openConnection() as HttpsURLConnection?
+            tempMod.parentFile.mkdirs()
+            val connection = URL(downloadUrl).openConnection() as HttpsURLConnection?
             if (connection != null && ctx != null) connection.sslSocketFactory = ctx!!.socketFactory
 
             connection!!.requestMethod = "GET"
             connection.connect()
 
-            Files.copy(connection.inputStream, newMod.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            Files.copy(connection.inputStream, tempMod.toPath(), StandardCopyOption.REPLACE_EXISTING)
+
+            if (!verifyModFile(tempMod)) throw Exception("다운로드한 파일의 무결성 검사에 실패했습니다.")
+
+            Files.move(tempMod.toPath(), newMod.toPath(),
+                StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE)
+
             mc.addScheduledTask {
                 logger.info("배치 파일 실행 및 게임 종료를 시작합니다.")
                 runBatchFileAndQuit(File(mc.mcDataDir, "mods/deleter_zombiesaddon.bat"), """
@@ -157,8 +172,34 @@ object UpdateChecker {
             if (newMod.exists()) newMod.delete()
             logger.error("자동 업데이트 중 오류 발생.", e)
             GuiDownloadWaiting.failed = true
+        } finally {
+            if (tempMod.exists()) tempMod.delete()
+            tempMod.parentFile.delete()
         }
     }.start()
+
+    private fun verifyModFile(file: File): Boolean {
+        val connection = URL("$downloadUrl.sha256").openConnection() as HttpsURLConnection?
+        if (connection != null && ctx != null) connection.sslSocketFactory = ctx!!.socketFactory
+
+        connection!!.requestMethod = "GET"
+        connection.connect()
+
+        val expectedHash = IOUtils.toString(connection.inputStream, StandardCharsets.UTF_8).trim()
+        logger.info("예상되는 SHA-256: $expectedHash")
+        val actualHash = calculateSHA256(file)
+        return expectedHash.equals(actualHash, ignoreCase = true)
+    }
+
+    private fun calculateSHA256(file: File): String {
+        val digest = java.security.MessageDigest.getInstance("SHA-256")
+        file.inputStream().use { input ->
+            val buffer = ByteArray(8192)
+            var bytesRead: Int
+            while (input.read(buffer).also { bytesRead = it } > 0) digest.update(buffer, 0, bytesRead)
+        }
+        return digest.digest().joinToString("") { "%02x".format(it) }.also { logger.info("실제 SHA-256: $it") }
+    }
 
     private fun getVersion(url: String): Version {
         val url = URL(url)

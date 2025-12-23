@@ -15,7 +15,7 @@ object CommandZombiesAddon: CustomCommandBase() {
     override fun runCommand(sender: ICommandSender, args: Array<String>) {
         if (args.isEmpty()) throw WrongUsageException(getCommandUsage(null))
         when (args[0]) {
-            "hud" -> DelayedTask { mc.displayGuiScreen(ConfigGui()) }
+            "hud" -> DelayedTask { mc.displayGuiScreen(ConfigGui) }
             "checkUpdate" -> UpdateChecker.initAndCheck()
             else -> throw WrongUsageException(getCommandUsage(null))
         }

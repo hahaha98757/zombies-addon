@@ -10,7 +10,7 @@ import net.minecraftforge.client.event.GuiScreenEvent
 import net.minecraftforge.common.MinecraftForge
 import org.lwjgl.input.Mouse
 
-class ConfigGui: GuiScreen() {
+object ConfigGui: GuiScreen() {
     private val boxes = mutableListOf<HudCoordinate>()
 
     override fun handleMouseInput() {

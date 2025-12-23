@@ -101,7 +101,7 @@ class ZombiesAddon {
         logger.info("게임 시작.")
         MinecraftForge.EVENT_BUS.unregister(this)
 
-        if (hasUnlegitMod) mc.displayGuiScreen(GuiDetectedUnlegitMods())
+        if (hasUnlegitMod) mc.displayGuiScreen(GuiDetectedUnlegitMods)
         else UpdateChecker.initAndCheck()
     }
 
