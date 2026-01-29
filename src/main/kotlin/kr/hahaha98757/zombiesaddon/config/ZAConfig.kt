@@ -77,6 +77,7 @@ class ZAConfig(val config: Configuration) {
     var lwDisplayArmors = true
     var lwDisplayWeaponsLevel = true
     var lwDisplayCooledDownSkill = true
+    var lwWorkInGameOver = true
 
     var recorderToggle = true
     var recorderDefaultCategory = "general"
@@ -432,6 +433,14 @@ class ZAConfig(val config: Configuration) {
             "lwDisplayCooledDownSkill",
             true,
             "$lwDisplayCooledDownSkillKey.description"
+        )).boolean
+
+        val lwWorkInGameOverKey = "zombiesaddon.config.lwWorkInGameOver"
+        lwWorkInGameOver = addOption(categoryLastWeapons.map, lwWorkInGameOverKey, config.get(
+            categoryLastWeapons.name,
+            "lwWorkInGameOver",
+            true,
+            "$lwWorkInGameOverKey.description"
         )).boolean
 
 

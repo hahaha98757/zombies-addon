@@ -237,6 +237,8 @@ zombiesaddon.config.lwDisplayWeaponsLevel=武器レベルを表示
 zombiesaddon.config.lwDisplayWeaponsLevel.description=Last Weaponsで武器のレベルを表示します。
 zombiesaddon.config.lwDisplayCooledDownSkill=クールダウン済みスキルを表示
 zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weaponsでクールダウン済みスキルを表示します。
+zombiesaddon.config.lwWorkInGameOver=ゲームオーバー画面で動作
+zombiesaddon.config.lwWorkInGameOver.description=ゲームオーバー画面でもLast Weaponsを表示します。
 
 zombiesaddon.config.recorderToggle=Recorderを有効化
 zombiesaddon.config.recorderToggle.description=Recorderを有効または無効にします。

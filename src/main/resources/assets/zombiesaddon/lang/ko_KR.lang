@@ -236,6 +236,8 @@ zombiesaddon.config.lwDisplayWeaponsLevel=무기 레벨 표시
 zombiesaddon.config.lwDisplayWeaponsLevel.description=Last Weapons에서 무기 레벨을 표시합니다.
 zombiesaddon.config.lwDisplayCooledDownSkill=쿨다운된 스킬 표시
 zombiesaddon.config.lwDisplayCooledDownSkill.description=Last Weapons에서 쿨다운된 스킬을 표시합니다.
+zombiesaddon.config.lwWorkInGameOver=게임 오버 시 작동
+zombiesaddon.config.lwWorkInGameOver.description=게임 오버 시에도 Last Weapons가 작동합니다.
 
 zombiesaddon.config.recorderToggle=Recorder 활성화
 zombiesaddon.config.recorderToggle.description=Recorder를 활성화 또는 비활성화합니다.

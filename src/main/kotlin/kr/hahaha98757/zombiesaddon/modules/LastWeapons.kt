@@ -9,15 +9,25 @@ import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.event.RenderGameOverlayEvent
+import net.minecraftforge.fml.common.eventhandler.Event
 
 object LastWeapons: Module("Last Weapons") {
     private val weapons = arrayOfNulls<ItemStack>(9)
     private val armors = arrayOfNulls<ItemStack>(4)
 
-    override fun onRender(event: RenderGameOverlayEvent.Text) {
-        val game = ZombiesAddon.instance.gameManager.game ?: return
+    val isWork: Boolean get() {
+        if (!isEnable()) return false
+        val game = ZombiesAddon.instance.gameManager.game ?: return false
+        if (!game.gameEnd) return false
+        if (!game.isWin && !ZombiesAddon.instance.config.lwWorkInGameOver) return false
+        return true
+    }
 
-        if (game.gameEnd && game.isWin) {
+    override fun onEvent(event: Event) {
+        if (event !is RenderGameOverlayEvent.Post) return
+        if (event.type != RenderGameOverlayEvent.ElementType.HOTBAR) return
+
+        if (isWork) {
             val renderItem = mc.renderItem
             var x = (getX() / 2 - 88).toInt()
             var y = (getY() - 19).toInt()
@@ -30,13 +40,16 @@ object LastWeapons: Module("Last Weapons") {
                 weapon?.let {
                     if (i == 4 && ZombiesAddon.instance.config.lwDisplayCooledDownSkill && it.item == Items.dye && it.itemDamage == 8) {
                         val name = it.displayName.withoutColor()
-                        val cancel = when (name) {
+                        val replaced = when (name) {
                             in heal -> displayTexture("textures/items/heal_cool.png", x + 20 * i, y)
                             in lrod -> displayTexture("textures/items/lrod_cool.png", x + 20 * i, y)
                             in turret -> displayTexture("textures/items/turret_cool.png", x + 20 * i, y)
                             else -> false
                         }
-                        if (cancel) return@let
+                        if (replaced) {
+                            renderItem.renderItemOverlayIntoGUI(fr, it, x + 20 * i, y, null)
+                            return@let
+                        }
                     }
 
                     val level = getLevel(it.displayName.withoutColor())
@@ -52,7 +65,7 @@ object LastWeapons: Module("Last Weapons") {
             GlStateManager.popAttrib()
 
             if (ZombiesAddon.instance.config.lwDisplayArmors) {
-                x = (getX() / 2 +12).toInt()
+                x = (getX() / 2 + 12).toInt()
                 y = (getY() - 60).toInt()
 
                 for (i in 0..3) {
@@ -72,9 +85,16 @@ object LastWeapons: Module("Last Weapons") {
 
     private fun displayTexture(path: String, x: Int, y: Int): Boolean {
         mc.textureManager.bindTexture(ResourceLocation(MODID, path))
+        GlStateManager.pushMatrix()
         GlStateManager.disableDepth()
+        GlStateManager.enableBlend()
+        GlStateManager.color(1f, 1f, 1f, 1f)
+
         Gui.drawModalRectWithCustomSizedTexture(x, y, 0f, 0f, 16, 16, 16f, 16f)
+
+        GlStateManager.disableBlend()
         GlStateManager.enableDepth()
+        GlStateManager.popMatrix()
         return true
     }
 

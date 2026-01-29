@@ -237,6 +237,8 @@ zombiesaddon.config.lwDisplayWeaponsLevel=Display Weapons Level
 zombiesaddon.config.lwDisplayWeaponsLevel.description=Displays weapons level in Last Weapons.
 zombiesaddon.config.lwDisplayCooledDownSkill=Display Cooled Down Skills
 zombiesaddon.config.lwDisplayCooledDownSkill.description=Displays a cooled down skill in Last Weapons.
+zombiesaddon.config.lwWorkInGameOver=Work In Game Over
+zombiesaddon.config.lwWorkInGameOver.description=Enables Last Weapons even in the game over screen.
 
 zombiesaddon.config.recorderToggle=Enable Recorder
 zombiesaddon.config.recorderToggle.description=Enable or disable Recorder.
