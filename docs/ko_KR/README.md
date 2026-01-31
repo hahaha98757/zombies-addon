@@ -150,6 +150,7 @@
 - 갑옷 표시: Last Weapons에서 갑옷을 표시합니다.
 - 무기 레벨 표시: Last Weapons에서 무기 레벨을 표시합니다.
 - 쿨다운된 스킬 표시: Last Weapons에서 쿨다운된 스킬을 표시합니다.
+- 게임 오버 시 작동: 게임 오버 시에도 Last Weapons가 작동합니다.
 
 ----
 ### Recorder

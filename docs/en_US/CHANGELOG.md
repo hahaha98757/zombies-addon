@@ -1,5 +1,10 @@
 # Change log
 
+## 4.6.2
+01-29-2026
+- Added: Last Weapons now works even when the game is over.
+- Fixed: Last Weapons now displays the number of items in your skill set that are on cooldown.
+
 ## 4.6.1
 12-23-2025
 - Added: Integrity check for mods downloaded via auto-update.

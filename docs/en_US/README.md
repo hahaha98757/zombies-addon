@@ -153,6 +153,7 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Display Armors: Displays armors in Last Weapons.
 - Display Weapons Level: Displays weapons level in Last Weapons.
 - Display Cooled Down Skills: Displays a cooled down skill in Last Weapons.
+- Work In Game Over: Enables Last Weapons even in the game over screen.
 
 ----
 ### Recorder
