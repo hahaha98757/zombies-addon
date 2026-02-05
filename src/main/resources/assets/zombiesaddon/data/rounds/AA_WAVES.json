@@ -1,3715 +1,745 @@
 [
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 260,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 260,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 340,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 500,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 300,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 540,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 620,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 300,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 500,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 700,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 540,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 660,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 760,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 540,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 760,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 800,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 800,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 620,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 720,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 340,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 480,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 620,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 760,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 920,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 540,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 660,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 760,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 300,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 620,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 720,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 380,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "BOSS"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "BOSS"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 460,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 720,
-        "prefixes": [
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 480,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 760,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "BOSS"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 620,
-        "prefixes": [
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "SLIME",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "SLIME",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 740,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 900,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 260,
-        "prefixes": [
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 500,
-        "prefixes": [
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 740,
-        "prefixes": [
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 700,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 700,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 660,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 420,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 740,
-        "prefixes": [
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 660,
-        "prefixes": [
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "SLIME",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 740,
-        "prefixes": [
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 740,
-        "prefixes": [
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 700,
-        "prefixes": [
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 780,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 320,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 560,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 800,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "BOSS"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "BOSS"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 680,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 740,
-        "prefixes": [
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 760,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 400,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 660,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 540,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 540,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 640,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "BLAZES"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "SLIME"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "SLIME",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 200,
-        "prefixes": [
-          "WINDOW"
-        ]
-      },
-      {
-        "ticks": 280,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 360,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 440,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      },
-      {
-        "ticks": 520,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      },
-      {
-        "ticks": 600,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE",
-          "GIANT"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 100,
-        "prefixes": [
-          "BOSS"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 100,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 100,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 100,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  },
-  {
-    "waves": [
-      {
-        "ticks": 100,
-        "prefixes": [
-          "WINDOW",
-          "OLD_ONE"
-        ]
-      }
-    ]
-  }
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 260, "prefixes": ["WINDOW"]},
+    {"ticks": 320, "prefixes": ["WINDOW"]},
+    {"ticks": 380, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 260, "prefixes": ["WINDOW"]},
+    {"ticks": 320, "prefixes": ["WINDOW"]},
+    {"ticks": 380, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 340, "prefixes": ["WINDOW"]},
+    {"ticks": 420, "prefixes": ["WINDOW"]},
+    {"ticks": 500, "prefixes": ["WINDOW"]},
+    {"ticks": 560, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 380, "prefixes": ["WINDOW"]},
+    {"ticks": 460, "prefixes": ["WINDOW"]},
+    {"ticks": 560, "prefixes": ["WINDOW"]},
+    {"ticks": 640, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 300, "prefixes": ["WINDOW"]},
+    {"ticks": 380, "prefixes": ["WINDOW"]},
+    {"ticks": 460, "prefixes": ["WINDOW"]},
+    {"ticks": 540, "prefixes": ["WINDOW"]},
+    {"ticks": 620, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 300, "prefixes": ["WINDOW"]},
+    {"ticks": 400, "prefixes": ["WINDOW"]},
+    {"ticks": 500, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]},
+    {"ticks": 700, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 380, "prefixes": ["WINDOW"]},
+    {"ticks": 460, "prefixes": ["WINDOW"]},
+    {"ticks": 560, "prefixes": ["WINDOW"]},
+    {"ticks": 640, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 320, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 540, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 660, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 760, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 320, "prefixes": ["WINDOW"]},
+    {"ticks": 420, "prefixes": ["WINDOW"]},
+    {"ticks": 540, "prefixes": ["WINDOW"]},
+    {"ticks": 640, "prefixes": ["WINDOW"]},
+    {"ticks": 760, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 320, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 560, "prefixes": ["WINDOW"]},
+    {"ticks": 680, "prefixes": ["WINDOW"]},
+    {"ticks": 800, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 320, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 560, "prefixes": ["WINDOW"]},
+    {"ticks": 680, "prefixes": ["WINDOW"]},
+    {"ticks": 800, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 320, "prefixes": ["WINDOW"]},
+    {"ticks": 420, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 620, "prefixes": ["WINDOW"]},
+    {"ticks": 720, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 340, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 480, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 620, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 760, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 920, "prefixes": ["WINDOW", "SLIME", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 320, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 540, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 660, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 760, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 380, "prefixes": ["WINDOW"]},
+    {"ticks": 460, "prefixes": ["WINDOW"]},
+    {"ticks": 560, "prefixes": ["WINDOW"]},
+    {"ticks": 640, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 380, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 460, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 560, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 640, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 300, "prefixes": ["WINDOW"]},
+    {"ticks": 420, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 620, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 720, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 280, "prefixes": [
+        ]},
+    {"ticks": 380, "prefixes": [
+        ]},
+    {"ticks": 460, "prefixes": [
+        ]},
+    {"ticks": 560, "prefixes": [
+        ]},
+    {"ticks": 640, "prefixes": [
+        ]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 380, "prefixes": ["WINDOW"]},
+    {"ticks": 460, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 560, "prefixes": ["WINDOW"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 280, "prefixes": ["GIANT"]},
+    {"ticks": 380, "prefixes": [
+        ]},
+    {"ticks": 460, "prefixes": ["GIANT"]},
+    {"ticks": 560, "prefixes": [
+        ]},
+    {"ticks": 640, "prefixes": ["BOSS"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["BOSS"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 460, "prefixes": ["SLIME"]},
+    {"ticks": 720, "prefixes": ["SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 680, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 400, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 480, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 760, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 420, "prefixes": ["WINDOW"]},
+    {"ticks": 640, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["BOSS"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 400, "prefixes": ["GIANT"]},
+    {"ticks": 620, "prefixes": ["GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 440, "prefixes": ["SLIME", "GIANT"]},
+    {"ticks": 680, "prefixes": ["SLIME", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 740, "prefixes": ["WINDOW"]},
+    {"ticks": 900, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 420, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 640, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 260, "prefixes": ["GIANT"]},
+    {"ticks": 440, "prefixes": ["SLIME"]},
+    {"ticks": 500, "prefixes": ["GIANT"]},
+    {"ticks": 680, "prefixes": ["SLIME"]},
+    {"ticks": 740, "prefixes": ["GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 700, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 420, "prefixes": [
+        ]},
+    {"ticks": 640, "prefixes": [
+        ]},
+    {"ticks": 700, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 400, "prefixes": ["SLIME"]},
+    {"ticks": 600, "prefixes": ["GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 400, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]},
+    {"ticks": 660, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 420, "prefixes": ["WINDOW"]},
+    {"ticks": 640, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW"]},
+    {"ticks": 740, "prefixes": ["GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 400, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]},
+    {"ticks": 660, "prefixes": ["GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 440, "prefixes": ["SLIME", "GIANT"]},
+    {"ticks": 680, "prefixes": ["SLIME"]},
+    {"ticks": 740, "prefixes": ["GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW"]},
+    {"ticks": 740, "prefixes": ["GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 400, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 640, "prefixes": ["WINDOW"]},
+    {"ticks": 700, "prefixes": ["GIANT"]},
+    {"ticks": 780, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME", "GIANT"]},
+    {"ticks": 320, "prefixes": ["WINDOW", "SLIME", "GIANT"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME", "GIANT"]},
+    {"ticks": 560, "prefixes": ["WINDOW", "SLIME", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW", "SLIME", "OLD_ONE", "GIANT"]},
+    {"ticks": 800, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["BOSS"]},
+    {"ticks": 280, "prefixes": [
+        ]},
+    {"ticks": 360, "prefixes": [
+        ]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["BOSS"]},
+    {"ticks": 280, "prefixes": [
+        ]},
+    {"ticks": 360, "prefixes": [
+        ]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 440, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 680, "prefixes": ["WINDOW"]},
+    {"ticks": 740, "prefixes": ["GIANT"]},
+    {"ticks": 760, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 400, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 660, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 540, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 640, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 540, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 640, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW"]},
+    {"ticks": 600, "prefixes": ["WINDOW"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "BLAZES", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": [
+        ]},
+    {"ticks": 280, "prefixes": ["WINDOW", "BLAZES"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["SLIME"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "SLIME"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "SLIME", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW"]},
+    {"ticks": 360, "prefixes": ["WINDOW"]},
+    {"ticks": 440, "prefixes": ["WINDOW"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 200, "prefixes": ["WINDOW"]},
+    {"ticks": 280, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 360, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 440, "prefixes": ["WINDOW", "OLD_ONE"]},
+    {"ticks": 520, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]},
+    {"ticks": 600, "prefixes": ["WINDOW", "OLD_ONE", "GIANT"]}
+  ]},
+  {"waves": [
+    {"ticks": 100, "prefixes": ["BOSS"]}
+  ]},
+  {"waves": [
+    {"ticks": 100, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 100, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 100, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]},
+  {"waves": [
+    {"ticks": 100, "prefixes": ["WINDOW", "OLD_ONE"]}
+  ]}
 ]
