@@ -1,149 +1,149 @@
 [
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 4},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 5}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 5},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 6}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"], "mobCount": 9},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"], "mobCount": 7}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "SLIME"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 6},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 6},
+    {"ticks": 680, "prefixes": ["WINDOW", "SLIME"], "mobCount": 6}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 4},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 4},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 4}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 7},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 5},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 5}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 6},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 6},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 6}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 6},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 6},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 5}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "SLIME"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "SLIME"], "mobCount": 8},
+    {"ticks": 440, "prefixes": ["WINDOW", "SLIME"], "mobCount": 7},
+    {"ticks": 680, "prefixes": ["WINDOW", "SLIME"], "mobCount": 7}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "BOSS"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 8},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 8},
+    {"ticks": 680, "prefixes": ["WINDOW", "BOSS"], "mobCount": 9}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 9},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 9},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 9}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 9},
+    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 10},
+    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 10}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 9},
+    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 10},
+    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 10}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 11},
+    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 11},
+    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 11}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 11},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 11},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 11}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 11},
+    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 10},
+    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 10}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 11},
+    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 11},
+    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 11}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 10},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 10},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 10}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 12},
+    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 12},
+    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 12}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON", "BOSS"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 12},
+    {"ticks": 440, "prefixes": ["WINDOW", "WITHER_SKELETON", "BOSS"], "mobCount": 13},
+    {"ticks": 680, "prefixes": ["WINDOW", "WITHER_SKELETON"], "mobCount": 12}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 13},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 13},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 13}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 13},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 13},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 13}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 14},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 14},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 14}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "HBM"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "HBM"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "HBM"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "HBM"], "mobCount": 14},
+    {"ticks": 440, "prefixes": ["WINDOW", "HBM"], "mobCount": 14},
+    {"ticks": 680, "prefixes": ["WINDOW", "HBM"], "mobCount": 14}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 16},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 16},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 16}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["HBM"]},
-    {"ticks": 480, "prefixes": ["HBM"]},
-    {"ticks": 760, "prefixes": ["HBM"]}
+    {"ticks": 200, "prefixes": ["HBM"], "mobCount": 12},
+    {"ticks": 480, "prefixes": ["HBM"], "mobCount": 12},
+    {"ticks": 760, "prefixes": ["HBM"], "mobCount": 12}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "HBM"]},
-    {"ticks": 480, "prefixes": ["WINDOW", "HBM"]},
-    {"ticks": 760, "prefixes": ["WINDOW", "HBM"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "HBM"], "mobCount": 14},
+    {"ticks": 480, "prefixes": ["WINDOW", "HBM"], "mobCount": 14},
+    {"ticks": 760, "prefixes": ["WINDOW", "HBM"], "mobCount": 14}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"]},
-    {"ticks": 440, "prefixes": ["WINDOW"]},
-    {"ticks": 680, "prefixes": ["WINDOW"]}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 18},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 18},
+    {"ticks": 680, "prefixes": ["WINDOW"], "mobCount": 18}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "HBM"]},
-    {"ticks": 480, "prefixes": ["WINDOW", "HBM"]},
-    {"ticks": 760, "prefixes": ["WINDOW", "HBM"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "HBM"], "mobCount": 21},
+    {"ticks": 480, "prefixes": ["WINDOW", "HBM"], "mobCount": 21},
+    {"ticks": 760, "prefixes": ["WINDOW", "HBM"], "mobCount": 21}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "HBM"]},
-    {"ticks": 440, "prefixes": ["WINDOW", "HBM", "BOSS"]},
-    {"ticks": 680, "prefixes": ["WINDOW", "HBM"]}
+    {"ticks": 200, "prefixes": ["WINDOW", "HBM"], "mobCount": 23},
+    {"ticks": 440, "prefixes": ["WINDOW", "HBM", "BOSS"], "mobCount": 24},
+    {"ticks": 680, "prefixes": ["WINDOW", "HBM"], "mobCount": 23}
   ]}
 ]

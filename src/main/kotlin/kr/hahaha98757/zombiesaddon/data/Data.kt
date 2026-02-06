@@ -4,9 +4,9 @@ import kr.hahaha98757.zombiesaddon.enums.Prefix
 
 class Round(val waves: Array<Wave>)
 
-class Wave(val ticks: Int, val prefixes: Array<Prefix>) {
+class Wave(val ticks: Int, val prefixes: Array<Prefix>, val mobCount: Int) {
     @Suppress("unused")
-    constructor(ticks: Int) : this(ticks, emptyArray())
+    constructor(ticks: Int) : this(ticks, emptyArray(), 0)
 }
 
 @JvmInline
