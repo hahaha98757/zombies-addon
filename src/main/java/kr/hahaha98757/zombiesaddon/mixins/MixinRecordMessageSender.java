@@ -28,7 +28,7 @@ public abstract class MixinRecordMessageSender {
     @Shadow
     private String copyString;
 
-    @Inject(method = "<init>", at = @At("RETURN"))
+    @Inject(method = "<init>", at = @At("TAIL"))
     private void init(String categoryName, int round, int newTime, int oldTime, CallbackInfo ci) {
         if (ZombiesAddon.getInstance().getConfig().getKoreanPatchersZombiesUtils())
             this.recordMessage = new StringBuilder(

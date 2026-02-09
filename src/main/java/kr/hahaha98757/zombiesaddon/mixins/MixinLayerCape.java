@@ -15,9 +15,8 @@ public class MixinLayerCape {
         MixinToolsKt.renderPre(entitylivingbaseIn);
     }
 
-    @SuppressWarnings("DiscouragedShift")
-    @Inject(method = "doRenderLayer*", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;popMatrix()V", shift = At.Shift.BEFORE))
-    private void doRenderLayerPost (AbstractClientPlayer entitylivingbaseIn, float f, float g, float partialTicks, float h, float i, float j, float scale, CallbackInfo ci) {
+    @Inject(method = "doRenderLayer*", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;popMatrix()V"))
+    private void doRenderLayerPost(AbstractClientPlayer entitylivingbaseIn, float f, float g, float partialTicks, float h, float i, float j, float scale, CallbackInfo ci) {
         MixinToolsKt.renderPost(entitylivingbaseIn);
     }
 }
