@@ -171,6 +171,12 @@
 - recorder category \[カテゴリー]：現在のカテゴリを確認または設定します。「/」または「\」を含めることはできません
 
 ----
+### Better Zombies Left
+- 残りのゾンビ数が現在のウェーブまでの残りのゾンビと、その後ウェーブの残りのゾンビに分かれて表示されます。
+- 現在、Dead End Normal、Bad Blood（すべての難易度）、Alien Arcadiumマップでのみ機能します。
+- 動作中は、SSTのWave 3rd Left Noticeが無効になります。
+
+----
 ### Text Macro
 - ショートカット（デフォルトQ）を押してチャットにテキストを送信します。
 

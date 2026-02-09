@@ -18,7 +18,7 @@
 - [Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) by Stachelbeere1248 ([MIT License](https://github.com/Stachelbeere1248/zombies-utils/blob/master/LICENSE))
 
 ## Other Sources
-- [Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) by nea89o ([Unlicense](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))
+- [Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) by lineargraph ([Unlicense](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))
 
 
 ## Notes

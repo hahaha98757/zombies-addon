@@ -176,6 +176,12 @@ A mod that integrates several Zombies mods and provides them as modules.
 - recorder category \[Category]: Check or set the current category. Must not contain '/' or '\'.
 
 ----
+### Better Zombies Left
+- The number of remaining zombies is displayed divided into the remaining zombies from the current wave and the remaining zombies from subsequent waves.
+- Currently only works on Dead End Normal, Bad Blood (all difficulties), and Alien Arcadium maps.
+- While in operation, the SST's Wave 3rd Left Notice is disabled.
+
+----
 ### Text Macro
 - Press the hotkey (default Q) to send text to chat.
 

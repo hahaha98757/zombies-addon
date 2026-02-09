@@ -17,11 +17,11 @@
 - Stachelbeere1248의 [Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) ([MIT 라이선스](https://github.com/Stachelbeere1248/zombies-utils/blob/master/LICENSE))
 
 ## 기타 출처
-- nea89o의 [Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) ([Unlicense 라이선스](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))
+- lineargraph의 [Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) ([Unlicense 라이선스](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))
 
 
 ## 비고
 - Zombies Cornering Mod, Zombies Hologrambug Fixer, Zombies Strat Viewer는 원래
  GNU 약소 일반 공중 사용 라이선스 v2.1에 따라 라이선스가 부여되었으나, 저자의 허가를 받아 MIT 라이선스가 적용됩니다.
 - Show Spawn Time은 프로젝트 저장소에 라이선스 파일이 없으나,
- 1.15.0 버전의 모드 파일에 포함된 LICENSE.txt 파일에 MIT 라이선스가 포함되어 있습니다.
+ 1.15.0 버전 모드 파일에 포함된 LICENSE.txt 파일에 MIT 라이선스가 포함되어 있습니다.

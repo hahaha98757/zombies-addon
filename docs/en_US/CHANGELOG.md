@@ -1,5 +1,10 @@
 # Change log
 
+## 4.6.3-pre1
+02-09-2026
+- Added: Better Zombies Left.
+- Code fix: Refactored the Mixin class.
+
 ## 4.6.2
 01-29-2026
 - Added: Last Weapons now works even when the game is over.

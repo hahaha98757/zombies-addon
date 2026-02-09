@@ -17,7 +17,7 @@
 - Stachelbeere1248の[Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) ([MITライセンス](https://github.com/Stachelbeere1248/zombies-utils/blob/master/LICENSE))
 
 ## その他のソース
-- nea89oの[Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) ([Unlicenseライセンス](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))
+- lineargraphの[Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) ([Unlicenseライセンス](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))
 
 
 ## 備考

@@ -172,6 +172,12 @@
 - recorder category \[카테고리]: 현재 카테고리를 확인하거나 설정합니다. '/' 또는 '\'가 포함될 수 없습니다.
 
 ----
+### Better Zombies Left
+- 남은 좀비 수가 현재 웨이브까지의 남은 좀비와 이후 웨이브의 남은 좀비로 나뉘어 표시됩니다.
+- 현재 Dead End 일반, Bad Blood (모든 난이도), Alien Arcadium 맵에서만 작동합니다.
+- 작동 중에는 SST의 Wave 3rd Left Notice가 비활성화됩니다.
+
+----
 ### Text Macro
 - 단축키(기본값 Q)를 눌러 채팅에 텍스트를 보냅니다.
 
