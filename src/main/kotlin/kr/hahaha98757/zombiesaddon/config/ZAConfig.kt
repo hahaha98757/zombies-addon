@@ -1,6 +1,9 @@
 package kr.hahaha98757.zombiesaddon.config
 
+import com.seosean.showspawntime.ShowSpawnTime
+import com.seosean.showspawntime.config.MainConfiguration
 import kr.hahaha98757.zombiesaddon.MODID
+import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.enums.HighlightStyle
 import kr.hahaha98757.zombiesaddon.enums.Language
 import kr.hahaha98757.zombiesaddon.enums.SemiPvMode
@@ -36,6 +39,7 @@ class ZAConfig(val config: Configuration) {
     var toggleNotLast = false
     var toggleInternalTimer = true
     var togglePowerupPatterns = true
+    var toggleBetterZombiesLeft = true
     var textMacro = "T"
 
     var pvDefault = true
@@ -145,6 +149,14 @@ class ZAConfig(val config: Configuration) {
             "togglePowerupPatterns",
             true,
             "$togglePowerupPatternsKey.description"
+        )).boolean
+
+        val toggleBetterZombiesLeftKey = "zombiesaddon.config.toggleBetterZombiesLeft"
+        toggleBetterZombiesLeft = addOption(categoryModules.map, toggleBetterZombiesLeftKey, config.get(
+            categoryModules.name,
+            "toggleBetterZombiesLeft",
+            true,
+            "$toggleBetterZombiesLeftKey.description"
         )).boolean
 
         val textMacroKey = "zombiesaddon.config.textMacro"
@@ -575,6 +587,13 @@ class ZAConfig(val config: Configuration) {
     private fun save() {
         config.save()
         loadConfig()
+
+        if (!ZombiesAddon.instance.hasSST) return
+
+        runCatching {
+            MainConfiguration.config.save()
+            ShowSpawnTime.getMainConfiguration().ConfigLoad()
+        }
     }
 
     @SubscribeEvent

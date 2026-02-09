@@ -9,7 +9,7 @@ plugins {
     id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.2.20"
 }
 
 //Constants:

@@ -20,7 +20,8 @@ zombiesaddon.key.autoTimer=自動タイマー
 
 zombiesaddon.messages.offBlockUnlegitMods=Unlegit Modをブロックはオフになっています。
 zombiesaddon.messages.offBlockUnlegitSst=Unlegit SSTをブロックはオフになっています。
-zombiesaddon.messages.blockUnlegitSst=SSTのUnlegit機能はZombies Addonによってブロックされました。
+zombiesaddon.messages.blockUnlegitSst=SSTのUnlegit機能はZombies Addonによってブロックされました。(Block Unlegit SSTが有効になっています)
+zombiesaddon.messages.disableWave3LeftNotice=Wave 3rd Left NoticeはZombies Addonによって無効化されました。(Better Zombies Leftが有効になっています)
 zombiesaddon.messages.sstDiffVer=SSTバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：2.1.1
 zombiesaddon.messages.zuDiffVer=Zombies Utilsバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：1.3.7
 
@@ -164,6 +165,8 @@ zombiesaddon.config.toggleInternalTimer=Internal Timerを有効化
 zombiesaddon.config.toggleInternalTimer.description=Internal Timerを有効または無効にします。
 zombiesaddon.config.togglePowerupPatterns=Powerup Patternsを有効化
 zombiesaddon.config.togglePowerupPatterns.description=Powerup Patternsを有効または無効にします。
+zombiesaddon.config.toggleBetterZombiesLeft=Better Zombies Leftを有効化
+zombiesaddon.config.toggleBetterZombiesLeft.description=Better Zombies Leftを有効または無効にします。
 zombiesaddon.config.textMacro=Text Macro
 zombiesaddon.config.textMacro.description=Text Macroのテキストです。
 
