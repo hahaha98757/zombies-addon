@@ -174,7 +174,7 @@
 ----
 ### Better Zombies Left
 - 남은 좀비 수가 현재 웨이브까지의 남은 좀비와 이후 웨이브의 남은 좀비로 나뉘어 표시됩니다.
-- 현재 Dead End 일반, Bad Blood (모든 난이도), Alien Arcadium 맵에서만 작동합니다.
+- 현재 Dead End RIP, Prison에서는 작동하지 않습니다.
 - 작동 중에는 SST의 Wave 3rd Left Notice가 비활성화됩니다.
 
 ----

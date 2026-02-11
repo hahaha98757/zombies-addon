@@ -173,7 +173,7 @@
 ----
 ### Better Zombies Left
 - 残りのゾンビ数が現在のウェーブまでの残りのゾンビと、その後ウェーブの残りのゾンビに分かれて表示されます。
-- 現在、Dead End Normal、Bad Blood（すべての難易度）、Alien Arcadiumマップでのみ機能します。
+- 現在、Dead End RIP、Prisonでは動作しません。
 - 動作中は、SSTのWave 3rd Left Noticeが無効になります。
 
 ----

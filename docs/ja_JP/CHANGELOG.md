@@ -1,5 +1,9 @@
 # 更新ログ
 
+## 4.6.3-pr2
+2026-02-11
+- 追加: Better Zombies Left: DEH モブスポーン情報を追加。
+
 ## 4.6.3-pre1
 2026-02-09
 - 追加：Better Zombies Left。

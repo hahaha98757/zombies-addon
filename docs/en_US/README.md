@@ -178,7 +178,7 @@ A mod that integrates several Zombies mods and provides them as modules.
 ----
 ### Better Zombies Left
 - The number of remaining zombies is displayed divided into the remaining zombies from the current wave and the remaining zombies from subsequent waves.
-- Currently only works on Dead End Normal, Bad Blood (all difficulties), and Alien Arcadium maps.
+- Currently not working in Dead End RIP, Prison.
 - While in operation, the SST's Wave 3rd Left Notice is disabled.
 
 ----

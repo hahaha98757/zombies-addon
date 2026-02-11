@@ -1,5 +1,9 @@
 # 업데이트 로그
 
+## 4.6.3-pr2
+2026-02-11
+- 추가: Better Zombies Left: DEH 몹 스폰 정보 추가.
+
 ## 4.6.3-pre1
 2026-02-09
 - 추가: Better Zombies Left.
