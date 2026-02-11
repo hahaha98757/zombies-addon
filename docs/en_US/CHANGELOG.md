@@ -1,6 +1,6 @@
 # Change log
 
-## 4.6.3-pr2
+## 4.6.3-pre2
 02-11-2026
 - Added: Better Zombies Left: Added DEH mob spawn information.
 
