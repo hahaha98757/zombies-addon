@@ -25,8 +25,8 @@ data class Version(val x: Int, val y: Int, val z: Int, val versionType: VersionT
                 val w = str.split("-")[1].replace(Regex("[^0-9]"), "").toInt()
                 val strArray = str.split("-")[0].split(".")
                 return Version(strArray[0].toInt(), strArray[1].toInt(), strArray[2].toInt(), versionType, w)
-            } catch (_: Exception) {
-                return ZERO
+            } catch (e: Exception) {
+                throw VersionParseException(str, e)
             }
         }
     }
@@ -66,3 +66,5 @@ data class Version(val x: Int, val y: Int, val z: Int, val versionType: VersionT
 enum class VersionType(val str: String) {
     ALPHA("alpha"), BETA("beta"), PRE_RELEASE("pre"), RELEASE_CANDIDATE("rc"), RELEASE("");
 }
+
+class VersionParseException(message: String, cause: Throwable?): Exception(message, cause)

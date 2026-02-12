@@ -27,9 +27,19 @@ import javax.net.ssl.TrustManagerFactory
 object UpdateChecker {
     private const val LATEST_URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/main/update.json"
     private const val DEV_URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/dev/update.json"
-    private val current = Version.fromString(VERSION)
+    private val current: Version
     private var latest = Version.ZERO
     private var dev = Version.ZERO
+    private var isCorrect = false
+    init {
+        current = Version.runCatching {
+            fromString(VERSION).also { isCorrect = true }
+        }.getOrElse {
+            logger.error(it)
+            isCorrect = false
+            Version.ZERO
+        }
+    }
 
     private val downloadUrl
         get() = "https://github.com/hahaha98757/zombies-addon/releases/download/$latest/ZombiesAddon1.8.9-$latest.jar"
@@ -52,6 +62,7 @@ object UpdateChecker {
     }
 
     fun initAndCheck() = Thread {
+        if (!isCorrect) return@Thread
         latest = runCatching { getVersion(LATEST_URL) }.getOrElse {
             logger.warn("최신 버전 가져오는데 실패했습니다.", it)
             Version.ZERO
@@ -65,6 +76,7 @@ object UpdateChecker {
     }.start()
 
     fun check(displayGui: Boolean = true) {
+        if (!isCorrect) return
         if (dev == Version.ZERO) {
             addTranslatedChat("zombiesaddon.update.failed")
             return
