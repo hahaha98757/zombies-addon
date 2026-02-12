@@ -12,6 +12,7 @@ object Scoreboard {
 
     fun refresh() {
         if (mc.theWorld == null || mc.thePlayer == null) return
+        if (!ZombiesAddon.instance.debug && mc.isSingleplayer) return
         val scoreboard = mc.theWorld.scoreboard
         val objective = scoreboard.getObjectiveInDisplaySlot(1) ?: return
 
