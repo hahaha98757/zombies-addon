@@ -1,152 +1,152 @@
 [
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 5},
+    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 5}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 7},
+    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 7}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 700, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 8},
+    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 5},
+    {"ticks": 700, "prefixes": ["WINDOW"], "mobCount": 5}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 700, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 7},
+    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 6},
+    {"ticks": 700, "prefixes": ["WINDOW"], "mobCount": 6}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 740, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 8},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 8},
+    {"ticks": 740, "prefixes": ["WINDOW", "BOSS"], "mobCount": 10}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 880, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 10},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 10},
+    {"ticks": 880, "prefixes": ["WINDOW"], "mobCount": 12}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 10},
+    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 9},
+    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 8}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 1000, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 10},
+    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 8},
+    {"ticks": 1000, "prefixes": ["WINDOW"], "mobCount": 9}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 760, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 14},
+    {"ticks": 440, "prefixes": ["WINDOW"], "mobCount": 12},
+    {"ticks": 760, "prefixes": ["WINDOW"], "mobCount": 12}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 900, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 960, "prefixes": ["BOSS"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 12},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 12},
+    {"ticks": 900, "prefixes": ["WINDOW", "BOSS"], "mobCount": 9},
+    {"ticks": 960, "prefixes": ["BOSS"], "mobCount": 1}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 960, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 18},
+    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 14},
+    {"ticks": 960, "prefixes": ["WINDOW"], "mobCount": 10}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 1000, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 19},
+    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 11},
+    {"ticks": 1000, "prefixes": ["WINDOW"], "mobCount": 10}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 1000, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 24},
+    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 13},
+    {"ticks": 1000, "prefixes": ["WINDOW"], "mobCount": 12}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 900, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 23},
+    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 16},
+    {"ticks": 900, "prefixes": ["WINDOW"], "mobCount": 16}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "BLAZES"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 920, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW", "BLAZES"], "mobCount": 24},
+    {"ticks": 500, "prefixes": ["WINDOW", "BOSS"], "mobCount": 13},
+    {"ticks": 920, "prefixes": ["WINDOW", "BOSS"], "mobCount": 11}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 24},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 15},
+    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 15}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 24},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 17},
+    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 17}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW", "BLAZES"], "mobCount": 23},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 17},
+    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 15}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 25},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 25},
+    {"ticks": 940, "prefixes": ["WINDOW"], "mobCount": 25}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 980, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 1040, "prefixes": ["BOSS"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 23},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 23},
+    {"ticks": 980, "prefixes": ["WINDOW", "BOSS"], "mobCount": 21},
+    {"ticks": 1040, "prefixes": ["BOSS"], "mobCount": 1}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 880, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 28},
+    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 24},
+    {"ticks": 880, "prefixes": ["WINDOW"], "mobCount": 24}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 900, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 23},
+    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 23},
+    {"ticks": 900, "prefixes": ["WINDOW"], "mobCount": 23}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 840, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 27},
+    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 26},
+    {"ticks": 840, "prefixes": ["WINDOW"], "mobCount": 26}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 860, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 30},
+    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 26},
+    {"ticks": 860, "prefixes": ["WINDOW"], "mobCount": 26}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 460, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 860, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 26},
+    {"ticks": 460, "prefixes": ["WINDOW", "BOSS"], "mobCount": 26},
+    {"ticks": 860, "prefixes": ["WINDOW", "BOSS"], "mobCount": 26}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 720, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 34},
+    {"ticks": 460, "prefixes": ["WINDOW"], "mobCount": 33},
+    {"ticks": 720, "prefixes": ["WINDOW"], "mobCount": 33}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 880, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 32},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 31},
+    {"ticks": 880, "prefixes": ["WINDOW"], "mobCount": 31}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 840, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 39},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 34},
+    {"ticks": 840, "prefixes": ["WINDOW"], "mobCount": 34}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 840, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 38},
+    {"ticks": 480, "prefixes": ["WINDOW"], "mobCount": 37},
+    {"ticks": 840, "prefixes": ["WINDOW"], "mobCount": 36}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 480, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 900, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0}
+    {"ticks": 200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 39},
+    {"ticks": 480, "prefixes": ["WINDOW", "BOSS"], "mobCount": 36},
+    {"ticks": 900, "prefixes": ["WINDOW", "BOSS"], "mobCount": 36}
   ]}
 ]
