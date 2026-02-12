@@ -29,9 +29,7 @@ const val LINE = "§e-----------------------------------------------------"
 val mc get() = Minecraft.getMinecraft()!!
 val fr get() = mc.fontRendererObj!!
 val modFile: File by lazy {
-    var file = File("")
-    for (mod in Loader.instance().modList) if (mod.modId == MODID) file = mod.source
-    file
+    Loader.instance().activeModContainer().source
 }
 val unlegitMods = arrayOf("zombiesatellite", "zombiesexplorer", "TeammatesOutline", "zombieshelper")
 val logger get() = ZombiesAddon.instance.logger
