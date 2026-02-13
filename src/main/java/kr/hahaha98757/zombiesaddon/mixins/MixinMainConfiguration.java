@@ -43,14 +43,14 @@ public class MixinMainConfiguration {
             }
         } catch (Throwable ignored) {}
 
-//        try {
-//            if (ZombiesAddon.getInstance().getConfig().getToggleBetterZombiesLeft()) {
-//                Property propertyWave3LeftNotice = config.get(Configuration.CATEGORY_GENERAL, "Wave 3rd Left Notice", true, "Enhance the Sidebar which shows the amount of zombies in wave 3rd in DE/BB.");
-//                propertyWave3LeftNotice.set(false);
-//                MainConfiguration.Wave3LeftNotice = false;
-//                MainConfiguration.qolRelated.put(propertyWave3LeftNotice.getName(), new ConfigElement(propertyWave3LeftNotice));
-//            }
-//        } catch (Throwable ignored) {}
+        try {
+            if (ZombiesAddon.getInstance().getConfig().getToggleBetterZombiesLeft()) {
+                Property propertyWave3LeftNotice = config.get(Configuration.CATEGORY_GENERAL, "Wave 3rd Left Notice", true, "Enhance the Sidebar which shows the amount of zombies in wave 3rd in DE/BB.");
+                propertyWave3LeftNotice.set(false);
+                MainConfiguration.Wave3LeftNotice = false;
+                MainConfiguration.qolRelated.put(propertyWave3LeftNotice.getName(), new ConfigElement(propertyWave3LeftNotice));
+            }
+        } catch (Throwable ignored) {}
     }
 
     @Inject(method = "ConfigLoad", at = @At("TAIL"))
@@ -60,9 +60,9 @@ public class MixinMainConfiguration {
                 ToolsKt.addTranslatedChat("zombiesaddon.messages.blockUnlegitSst");
         } catch (Throwable ignored) {}
 
-//        try {
-//            if (ZombiesAddon.getInstance().getConfig().getToggleBetterZombiesLeft())
-//                ToolsKt.addTranslatedChat("zombiesaddon.messages.disableWave3LeftNotice");
-//        } catch (Throwable ignored) {}
+        try {
+            if (ZombiesAddon.getInstance().getConfig().getToggleBetterZombiesLeft())
+                ToolsKt.addTranslatedChat("zombiesaddon.messages.disableWave3LeftNotice");
+        } catch (Throwable ignored) {}
     }
 }
