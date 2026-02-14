@@ -32,7 +32,7 @@
   ]},
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW", "POLICE"], "mobCount": 0},
-    {"ticks": 400, "prefixes": ["WINDOW", "CELL"], "mobCount": 0},
+    {"ticks": 400, "prefixes": ["WINDOW"], "mobCount": 0},
     {"ticks": 600, "prefixes": ["WINDOW", "CELL"], "mobCount": 0}
   ]},
   {"waves": [
@@ -52,13 +52,13 @@
   ]},
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW", "POLICE"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 800, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 500, "prefixes": ["WINDOW", "POLICE"], "mobCount": 0},
+    {"ticks": 800, "prefixes": ["WINDOW", "POLICE"], "mobCount": 0}
   ]},
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW", "POLICE"], "mobCount": 0},
-    {"ticks": 500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 740, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 500, "prefixes": ["WINDOW", "POLICE"], "mobCount": 0},
+    {"ticks": 740, "prefixes": ["WINDOW", "POLICE"], "mobCount": 0}
   ]},
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
@@ -145,7 +145,7 @@
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
     {"ticks": 600, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 1100, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 1120, "prefixes": ["WINDOW"], "mobCount": 0}
   ]},
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0}
