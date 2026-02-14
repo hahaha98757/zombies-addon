@@ -31,6 +31,12 @@ object BetterZombiesLeft: Module("Better Zombies Left") {
             .drop(currentWaveIndex + 1)
             .sumOf { it.mobCount }
 
+        if (game.escape) {
+            leftOnCurrentWave = left
+            leftAfterWave = expectedLeft
+            isWork = true
+            return
+        }
         val currentWaveMobCount = left - expectedLeft
 
         if (currentWaveMobCount < 0) return
