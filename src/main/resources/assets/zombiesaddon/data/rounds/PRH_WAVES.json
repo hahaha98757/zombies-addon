@@ -151,13 +151,13 @@
     {"ticks": 200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0}
   ]},
   {"waves": [
-    {"ticks": 0, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 300, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 600, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 900, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 1200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0},
-    {"ticks": 1500, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 1800, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 2100, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 0, "prefixes": ["WINDOW"], "mobCount": 20},
+    {"ticks": 300, "prefixes": ["WINDOW"], "mobCount": 20},
+    {"ticks": 600, "prefixes": ["WINDOW"], "mobCount": 20},
+    {"ticks": 900, "prefixes": ["WINDOW"], "mobCount": 20},
+    {"ticks": 1200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 21},
+    {"ticks": 1500, "prefixes": ["WINDOW"], "mobCount": 20},
+    {"ticks": 1800, "prefixes": ["WINDOW"], "mobCount": 20},
+    {"ticks": 2100, "prefixes": ["WINDOW"], "mobCount": 20}
   ]}
 ]
