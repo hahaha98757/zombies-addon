@@ -145,7 +145,7 @@
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 0},
     {"ticks": 600, "prefixes": ["WINDOW"], "mobCount": 0},
-    {"ticks": 1120, "prefixes": ["WINDOW"], "mobCount": 0}
+    {"ticks": 1100, "prefixes": ["WINDOW"], "mobCount": 0}
   ]},
   {"waves": [
     {"ticks": 200, "prefixes": ["WINDOW", "BOSS"], "mobCount": 0}
