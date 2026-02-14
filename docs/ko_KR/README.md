@@ -174,8 +174,9 @@
 ----
 ### Better Zombies Left
 - 남은 좀비 수가 현재 웨이브까지의 남은 좀비와 이후 웨이브의 남은 좀비로 나뉘어 표시됩니다.
-- 현재 Dead End RIP, Prison에서는 작동하지 않습니다.
+- 현재 Prison 어려움, RIP 난이도에서는 작동하지 않습니다.
 - 작동 중에는 SST의 Wave 3rd Left Notice가 비활성화됩니다.
+- Feather Client 같이 스코어보드를 설정하는 대부분의 모드와 호환되지 않습니다.
 
 ----
 ### Text Macro

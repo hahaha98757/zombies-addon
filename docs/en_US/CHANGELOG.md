@@ -1,5 +1,17 @@
 # Change log
 
+## 4.6.3-rc1
+02-14-2026
+- Added: Better Zombies Left
+  - Added DER and PRN mob spawn information.
+  - Added PRH and PRR helicopter escape mob spawn information.
+- Fixes
+  - Fixed not checking for updates if the version is incorrect.
+  - Fixed not working in single player mode: requires debug mode to be enabled.
+- Code fixes
+  - Modified modFile object initialization method.
+  - How Better Zombies Left works.
+
 ## 4.6.3-pre2
 02-11-2026
 - Added: Better Zombies Left: Added DEH mob spawn information.

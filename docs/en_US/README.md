@@ -178,8 +178,9 @@ A mod that integrates several Zombies mods and provides them as modules.
 ----
 ### Better Zombies Left
 - The number of remaining zombies is displayed divided into the remaining zombies from the current wave and the remaining zombies from subsequent waves.
-- Currently not working in Dead End RIP, Prison.
+- Currently not working in Prison Hard and RIP.
 - While in operation, the SST's Wave 3rd Left Notice is disabled.
+- Not compatible with most mods that set up scoreboards, such as Feather Client.
 
 ----
 ### Text Macro

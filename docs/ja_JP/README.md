@@ -173,8 +173,9 @@
 ----
 ### Better Zombies Left
 - 残りのゾンビ数が現在のウェーブまでの残りのゾンビと、その後ウェーブの残りのゾンビに分かれて表示されます。
-- 現在、Dead End RIP、Prisonでは動作しません。
+- 現在、Prison Hard、RIPでは動作しません。
 - 動作中は、SSTのWave 3rd Left Noticeが無効になります。
+- Feather Clientなどのスコアボードを設定するほとんどのモードと互換性がありません。
 
 ----
 ### Text Macro
