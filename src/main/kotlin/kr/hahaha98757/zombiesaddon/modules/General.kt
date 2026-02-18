@@ -69,5 +69,7 @@ class ThePlayerJoinHandler {
             val zuVer = runCatching { Loader.instance().indexedModList["zombiesutils"]!!.metadata.version }.getOrNull() ?: "Unknown"
             if (zuVer != "1.3.7") addTranslatedChatLine("zombiesaddon.messages.zuDiffVer", zuVer)
         }
+
+        if (za.hasFeather) addTranslatedChatLine("zombiesaddon.messages.featherDetected")
     }
 }

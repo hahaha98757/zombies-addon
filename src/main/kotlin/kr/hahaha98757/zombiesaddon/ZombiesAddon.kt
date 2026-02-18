@@ -51,6 +51,7 @@ class ZombiesAddon {
     private var hasUnlegitMod = false
     var hasSST = false
     var hasZombiesUtils = false
+    var hasFeather = false
     var debug = false
         internal set
 
@@ -90,6 +91,10 @@ class ZombiesAddon {
         if (Loader.isModLoaded("zombiesutils")) {
             hasZombiesUtils = true
             logger.info("Zombies Utils 모드가 감지되었습니다. 1.3.7 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
+        }
+        if (Loader.isModLoaded("feather")) {
+            hasFeather = true
+            logger.info("Feather Client가 감지되었습니다. Better Zombies Left가 작동하지 않으며, 기타 호환성 문제가 발생할 수 있습니다.")
         }
 
         logger.info("$NAME v${VERSION}이 로드되었습니다.")

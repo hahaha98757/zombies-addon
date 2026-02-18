@@ -24,6 +24,7 @@ zombiesaddon.messages.blockUnlegitSst=SST의 언레짓 기능이 Zombies Addon�
 zombiesaddon.messages.disableWave3LeftNotice=Wave 3rd Left Notice가 Zombies Addon에 의해 비활성화되었습니다. (Better Zombies Left가 켜져 있음)
 zombiesaddon.messages.sstDiffVer=SST의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: 2.1.1
 zombiesaddon.messages.zuDiffVer=Zombies Utils의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: 1.3.7
+zombiesaddon.messages.featherDetected=Feather Client가 감지되었습니다. Better Zombies Left가 작동하지 않으며, 기타 호환성 문제가 발생할 수 있습니다.
 
 zombiesaddon.message.failed.splitOrNew=§eZombies Addon:§c 라운드 또는 게임을 시작하는데 실패했습니다: %s
 
