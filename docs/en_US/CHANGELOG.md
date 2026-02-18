@@ -1,5 +1,9 @@
 # Change log
 
+## 4.6.3
+02-18-2026
+- Added: Feather Client detection notification.
+
 ## 4.6.3-rc1
 02-14-2026
 - Added: Better Zombies Left

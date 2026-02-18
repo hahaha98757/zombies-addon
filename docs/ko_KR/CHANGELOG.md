@@ -1,5 +1,9 @@
 # 업데이트 로그
 
+## 4.6.3
+2026-02-18
+- 추가: Feather Client 감지 알림.
+
 ## 4.6.3-rc1
 2026-02-14
 - 추가: Better Zombies Left

@@ -1,5 +1,9 @@
 # 更新ログ
 
+## 4.6.3
+2026-02-18
+- 追加：Feather Client検出通知。
+
 ## 4.6.3-rc1
 2026-02-14
 - 追加: Better Zombies Left
