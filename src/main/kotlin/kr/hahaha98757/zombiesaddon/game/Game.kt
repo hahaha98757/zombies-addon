@@ -14,15 +14,16 @@ import net.minecraftforge.common.MinecraftForge
 
 class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: Int, doNotCorrectTimer: Boolean = false) {
 
-    val timer = Timer()
+    val timer = Timer(mc.theWorld).apply(MinecraftForge.EVENT_BUS::register)
     var gameEnd = false
     var isWin = false
         get() = if (gameEnd) field else throw IllegalStateException("게임이 아직 종료되지 않았습니다.")
     var escape = false
     val recorder = Recorder(this)
+    val timerCorrector = TimerCorrector(this)
 
     init {
-        if (!doNotCorrectTimer) MinecraftForge.EVENT_BUS.register(TimerCorrector(this))
+        if (!doNotCorrectTimer) MinecraftForge.EVENT_BUS.register(timerCorrector)
     }
 
     val roundData get() = gameMode.rounds[round - 1]
@@ -31,9 +32,8 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
         gameMode = gameMode.appliedDifficulty(difficulty)
     }
 
-    fun pass(round: Int, byCommand: Boolean = false) {
+    fun pass(round: Int) {
         if (round == 0) return
-        if (!byCommand && this.round == round + 1) return // 중복 호출 방지
         if (round > gameMode.rounds.size) return
         recorder.runCatching { record() }.onFailure {
             logger.error("게임 기록을 실패했습니다.", it)
@@ -43,13 +43,17 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
         timer.split()
         this.round = round + 1
         AutoSplits.startOrSplit()
-        if (mc.isCallingFromMinecraftThread) MinecraftForge.EVENT_BUS.post(RoundStartEvent(this))
-        else mc.addScheduledTask { MinecraftForge.EVENT_BUS.post(RoundStartEvent(this)) }
+        MinecraftForge.EVENT_BUS.post(RoundStartEvent(this))
     }
 
     fun helicopter() {
         if (gameMode.map != ZombiesMap.PRISON) return
         escape = true
         pass(30)
+    }
+
+    fun remove() {
+        MinecraftForge.EVENT_BUS.unregister(timerCorrector)
+        timer.unregister()
     }
 }

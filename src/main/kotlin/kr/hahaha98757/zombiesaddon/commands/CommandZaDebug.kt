@@ -93,7 +93,7 @@ object CommandZaDebug: CustomCommandBase() {
                 if (args.size < 2) throw WrongUsageException("zombiesaddon.commands.za_debug.usage.pass")
                 val round = args[1].toIntOrNull() ?: throw NumberInvalidException("commands.generic.num.invalid", args[1])
                 if (round <= 0) throw NumberInvalidException("commands.generic.num.tooSmall", args[1], 1)
-                game.pass(round, true)
+                game.pass(round)
                 addTranslatedChat("zombiesaddon.debug.pass", round)
                 DelayedTask(10) {
                     if (args.size >= 3) for (i in 2 until args.size) {

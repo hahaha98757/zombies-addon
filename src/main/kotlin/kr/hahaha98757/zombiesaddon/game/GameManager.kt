@@ -22,12 +22,11 @@ class GameManager {
         val serverNumber = getServerNumber() ?: throw IllegalStateException("알 수 없는 서버 번호(Unknown Server Number)")
         if (serverNumber in games.keys) {
             if (round == 0) newGame(serverNumber, doNotCorrectTimer = byCommand)
-            else games[serverNumber]?.pass(round, byCommand)
+            else games[serverNumber]?.pass(round)
         } else newGame(serverNumber, round, byCommand)
     }
 
     private fun newGame(serverNumber: ServerNumber, round: Int = 0, doNotCorrectTimer: Boolean = false) {
-        if (!mc.isCallingFromMinecraftThread) return
         val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("알 수 없는 맵(Unknown Map)"), serverNumber, if (round == 0) 1 else round, doNotCorrectTimer)
         games[serverNumber] = game
         AutoSplits.startOrSplit()
@@ -41,9 +40,8 @@ class GameManager {
 
     fun endGame(serverNumber: ServerNumber, isWin: Boolean) {
         val game = games[serverNumber] ?: return
-        if (game.gameEnd) return // 중복 호출 방지
         game.gameEnd = true
-        game.timer.stop = true
+        game.timer.stop()
         game.isWin = isWin
         if (isWin) {
             when (game.gameMode.map) {
@@ -61,6 +59,7 @@ class GameManager {
         if (!ZombiesAddon.instance.debug && !isNotPlayZombies()) return
         val queuedEndedGames = games.values.filter { it.gameEnd }
         for (game in queuedEndedGames) {
+            game.remove()
             games.remove(game.serverNumber)
             MinecraftForge.EVENT_BUS.post(GameRemoveEvent(game))
         }

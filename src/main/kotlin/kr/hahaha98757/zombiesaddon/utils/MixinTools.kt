@@ -1,11 +1,14 @@
 package kr.hahaha98757.zombiesaddon.utils
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.events.ServerTickEvent
 import kr.hahaha98757.zombiesaddon.modules.PvUtils
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.entity.Entity
+import net.minecraft.network.play.server.S03PacketTimeUpdate
 import net.minecraft.network.play.server.S29PacketSoundEffect
 import net.minecraft.network.play.server.S45PacketTitle
+import net.minecraftforge.common.MinecraftForge
 import org.lwjgl.opengl.GL11
 
 fun renderPre(entity: Entity) {
@@ -26,6 +29,7 @@ fun renderPost(entity: Entity) {
 
 private var aaR10 = false
 fun onSound(packet: S29PacketSoundEffect) {
+    if (!mc.isCallingFromMinecraftThread) return
     if (Scoreboard.isNotZombies) return
     val sound = packet.soundName
     ZombiesAddon.instance.gameManager.runCatching {
@@ -43,6 +47,7 @@ fun onSound(packet: S29PacketSoundEffect) {
 }
 
 fun onTitle(packet: S45PacketTitle) {
+    if (!mc.isCallingFromMinecraftThread) return
     if (packet.type != S45PacketTitle.Type.TITLE) return
     if (Scoreboard.isNotZombies) return
     val title = packet.message.unformattedText.trim().withoutColor()
@@ -53,4 +58,14 @@ fun onTitle(packet: S45PacketTitle) {
         else -> return
     }
     ZombiesAddon.instance.gameManager.endGame(serverNumber, isWin)
+}
+
+fun onXpPacket() {
+    if (!mc.isCallingFromMinecraftThread) return
+    MinecraftForge.EVENT_BUS.post(ServerTickEvent())
+}
+
+fun onTimeUpdate(packet: S03PacketTimeUpdate) {
+    if (!mc.isCallingFromMinecraftThread) return
+    ZombiesAddon.instance.gameManager.game?.timer?.onPacket(packet)
 }

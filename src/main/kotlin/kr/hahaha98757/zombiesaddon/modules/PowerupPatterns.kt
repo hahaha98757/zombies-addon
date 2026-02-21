@@ -7,6 +7,7 @@ import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.GameRemoveEvent
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
+import kr.hahaha98757.zombiesaddon.events.ServerTickEvent
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.entity.item.EntityArmorStand
 import net.minecraft.entity.player.EntityPlayer
@@ -453,7 +454,7 @@ private class ManualTimer {
     }
 
     @SubscribeEvent
-    fun onTick(@Suppress("unused") event: LastClientTickEvent) {
+    fun onTick(@Suppress("unused") event: ServerTickEvent) {
         if (--timer <= 0) MinecraftForge.EVENT_BUS.register(this)
     }
 }
