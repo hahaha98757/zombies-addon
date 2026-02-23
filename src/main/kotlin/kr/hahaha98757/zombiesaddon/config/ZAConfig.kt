@@ -4,10 +4,7 @@ import com.seosean.showspawntime.ShowSpawnTime
 import com.seosean.showspawntime.config.MainConfiguration
 import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
-import kr.hahaha98757.zombiesaddon.enums.HighlightStyle
-import kr.hahaha98757.zombiesaddon.enums.Language
-import kr.hahaha98757.zombiesaddon.enums.SemiPvMode
-import kr.hahaha98757.zombiesaddon.enums.TextStyle
+import kr.hahaha98757.zombiesaddon.enums.*
 import kr.hahaha98757.zombiesaddon.utils.HudUtils
 import kr.hahaha98757.zombiesaddon.utils.logger
 import net.minecraftforge.common.config.ConfigElement
@@ -24,6 +21,7 @@ class ZAConfig(val config: Configuration) {
     private val categoryPv = Category("Player Visibility")
     private val categoryBlockAlarm = Category("Block Alarm")
     private val categoryAutoSplits = Category("Auto Splits")
+    private val categoryInternalTimer = Category("Internal Timer")
     private val categoryWaveDelays = Category("Wave Delays")
     private val categorySla = Category("SLA")
     private val categoryAutoRejoin = Category("Auto Rejoin")
@@ -37,7 +35,6 @@ class ZAConfig(val config: Configuration) {
     var language = Language.AUTO
 
     var toggleNotLast = false
-    var toggleInternalTimer = true
     var togglePowerupPatterns = true
     var toggleBetterZombiesLeft = true
     var textMacro = "T"
@@ -58,6 +55,9 @@ class ZAConfig(val config: Configuration) {
     var autoSplitsToggle = false
     var autoSplitsHost = "127.0.0.1"
     var autoSplitsPort = 16384
+
+    var internalTimerToggle = true
+    var internalTimerMode = Mode.SERVER
 
     var waveDelaysToggle = true
     var waveDelaysPlaySounds = intArrayOf(-40, -20, 0)
@@ -133,14 +133,6 @@ class ZAConfig(val config: Configuration) {
             "toggleNotLast",
             false,
             "$toggleNotLastKey.description"
-        )).boolean
-
-        val toggleInternalTimerKey = "zombiesaddon.config.toggleInternalTimer"
-        toggleInternalTimer = addOption(categoryModules.map, toggleInternalTimerKey, config.get(
-            categoryModules.name,
-            "toggleInternalTimer",
-            true,
-            "$toggleInternalTimerKey.description"
         )).boolean
 
         val togglePowerupPatternsKey = "zombiesaddon.config.togglePowerupPatterns"
@@ -282,6 +274,25 @@ class ZAConfig(val config: Configuration) {
             "$autoSplitsPortKey.description",
             0, 65535
         )).int
+
+
+        // Internal Timer
+        val internalTimerToggleKey = "zombiesaddon.config.internalTimerToggle"
+        internalTimerToggle = addOption(categoryInternalTimer.map, internalTimerToggleKey, config.get(
+            categoryInternalTimer.name,
+            "internalTimerToggle",
+            true,
+            "$internalTimerToggleKey.description"
+        )).boolean
+
+        val internalTimerModeKey = "zombiesaddon.config.internalTimerMode"
+        internalTimerMode = Mode.fromText(addOption(categoryInternalTimer.map, internalTimerModeKey, config.get(
+            categoryInternalTimer.name,
+            "internalTimerMode",
+            Mode.SERVER.toString(),
+            "$internalTimerModeKey.description",
+            Mode.arrays
+        )).string)
 
 
         // Wave Delays
@@ -575,6 +586,7 @@ class ZAConfig(val config: Configuration) {
         DummyCategoryElement(categoryPv.name, "zombiesaddon.config.category.pv", categoryPv.map.values.toList()),
         DummyCategoryElement(categoryBlockAlarm.name, "zombiesaddon.config.category.blockAlarm", categoryBlockAlarm.map.values.toList()),
         DummyCategoryElement(categoryAutoSplits.name, "zombiesaddon.config.category.autoSplits", categoryAutoSplits.map.values.toList()),
+        DummyCategoryElement(categoryInternalTimer.name, "zombiesaddon.config.category.internalTimer", categoryInternalTimer.map.values.toList()),
         DummyCategoryElement(categoryWaveDelays.name, "zombiesaddon.config.category.waveDelays", categoryWaveDelays.map.values.toList()),
         DummyCategoryElement(categoryAutoRejoin.name, "zombiesaddon.config.category.autoRejoin", categoryAutoRejoin.map.values.toList()),
         DummyCategoryElement(categorySla.name, "zombiesaddon.config.category.sla", categorySla.map.values.toList()),

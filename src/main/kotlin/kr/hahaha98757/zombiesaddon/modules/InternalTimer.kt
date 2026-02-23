@@ -20,5 +20,5 @@ object InternalTimer: Module("Internal Timer") {
         fr.drawStringWithShadow(timer, HudUtils.getAutoSplitsStrX(timer), HudUtils.getAutoSplitsStrY(), 0xffffff)
     }
 
-    override fun isEnable() = ZombiesAddon.instance.config.toggleInternalTimer
+    override fun isEnable() = ZombiesAddon.instance.config.internalTimerToggle
 }

@@ -74,3 +74,14 @@ enum class SemiPvMode(val text: String) {
         val arrays get() = entries.map { it.text }.toTypedArray()
     }
 }
+
+enum class Mode(val text: String) {
+    SERVER("Server"), CLIENT("Client");
+
+    override fun toString() = text
+
+    companion object {
+        fun fromText(text: String) = entries.firstOrNull { it.text == text } ?: SERVER
+        val arrays get() = entries.map { it.text }.toTypedArray()
+    }
+}

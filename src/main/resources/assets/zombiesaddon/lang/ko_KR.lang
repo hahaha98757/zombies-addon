@@ -139,6 +139,8 @@ zombiesaddon.config.category.blockAlarm=Block Alarm
 zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm 설정
 zombiesaddon.config.category.autoSplits=Auto Splits
 zombiesaddon.config.category.autoSplits.tooltip=Auto Splits 설정
+zombiesaddon.config.category.internalTimer=Internal Timer
+zombiesaddon.config.category.internalTimer.tooltip=Internal Timer 설정
 zombiesaddon.config.category.waveDelays=Wave Delays
 zombiesaddon.config.category.waveDelays.tooltip=Wave Delays 설정
 zombiesaddon.config.category.autoRejoin=Auto Rejoin
@@ -161,8 +163,6 @@ zombiesaddon.config.language.description=모드에 사용할 언어입니다.
 
 zombiesaddon.config.toggleNotLast=Not Last 활성화
 zombiesaddon.config.toggleNotLast.description=Not Last를 활성화 또는 비활성화합니다.
-zombiesaddon.config.toggleInternalTimer=Internal Timer 활성화
-zombiesaddon.config.toggleInternalTimer.description=Internal Timer를 활성화 또는 비활성화합니다.
 zombiesaddon.config.togglePowerupPatterns=Powerup Patterns 활성화
 zombiesaddon.config.togglePowerupPatterns.description=Powerup Patterns를 활성화 또는 비활성화합니다.
 zombiesaddon.config.toggleBetterZombiesLeft=Better Zombies Left 활성화
@@ -198,6 +198,11 @@ zombiesaddon.config.autoSplitsHost=호스트
 zombiesaddon.config.autoSplitsHost.description=LiveSplit 서버의 호스트입니다.
 zombiesaddon.config.autoSplitsPort=포트
 zombiesaddon.config.autoSplitsPort.description=LiveSplit 서버의 포트입니다.
+
+zombiesaddon.config.internalTimerToggle=Internal Timer 활성화
+zombiesaddon.config.internalTimerToggle.description=Internal Timer를 활성화 또는 비활성화합니다.
+zombiesaddon.config.internalTimerMode=모드
+zombiesaddon.config.internalTimerMode.description=Server는 Hypixel 렉을 즉시 반영하지만, 쓰러짐, 사망 또는 재접속 시 영향을 받을 수 있습니다. Client는 영항을 받지 않습니다.
 
 zombiesaddon.config.waveDelaysToggle=Wave Delays 활성화
 zombiesaddon.config.waveDelaysToggle.description=Wave Delays를 활성화 또는 비활성화합니다.

@@ -1,5 +1,7 @@
 package kr.hahaha98757.zombiesaddon.game
 
+import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.enums.Mode
 import kr.hahaha98757.zombiesaddon.events.ServerTickEvent
 import kr.hahaha98757.zombiesaddon.modules.WaveDelays
 import kr.hahaha98757.zombiesaddon.utils.mc
@@ -13,6 +15,9 @@ class Timer(private val world: World) {
     private val serverTimer = ServerTimer()
     private val clientTimer = ClientTimer()
     private var source = TimerSource.SERVER
+        get() = if (!isClientMode) field else TimerSource.CLIENT
+
+    private val isClientMode get() = ZombiesAddon.instance.config.internalTimerMode == Mode.CLIENT
 
     val gameTick get() = if (source == TimerSource.SERVER) serverTimer.gameTick
     else clientTimer.gameTick
@@ -36,6 +41,7 @@ class Timer(private val world: World) {
     }
 
     fun onPacket(packet: S03PacketTimeUpdate) {
+        if (isClientMode) return
         refreshSource()
         if (source == TimerSource.WAITING_PACKET) {
             val delta = packet.totalWorldTime - clientTimer.lastCorrectedTick
@@ -50,6 +56,7 @@ class Timer(private val world: World) {
     @SubscribeEvent
     fun onClientTick(event: TickEvent.ClientTickEvent) {
         if (event.phase != TickEvent.Phase.START) return
+        if (isClientMode) return
         refreshSource()
     }
 

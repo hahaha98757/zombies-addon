@@ -140,6 +140,8 @@ zombiesaddon.config.category.blockAlarm=Block Alarm
 zombiesaddon.config.category.blockAlarm.tooltip=Block Alarm options.
 zombiesaddon.config.category.autoSplits=Auto Splits
 zombiesaddon.config.category.autoSplits.tooltip=Auto Splits options.
+zombiesaddon.config.category.internalTimer=Internal Timer
+zombiesaddon.config.category.internalTimer.tooltip=Internal Timer options.
 zombiesaddon.config.category.waveDelays=Wave Delays
 zombiesaddon.config.category.waveDelays.tooltip=Wave Delays options.
 zombiesaddon.config.category.autoRejoin=Auto Rejoin
@@ -162,8 +164,6 @@ zombiesaddon.config.language.description=The language for the mod.
 
 zombiesaddon.config.toggleNotLast=Enable Not Last
 zombiesaddon.config.toggleNotLast.description=Enable or disable Not Last.
-zombiesaddon.config.toggleInternalTimer=Enable Internal Timer
-zombiesaddon.config.toggleInternalTimer.description=Enable or disable Internal Timer.
 zombiesaddon.config.togglePowerupPatterns=Enable Powerup Patterns
 zombiesaddon.config.togglePowerupPatterns.description=Enable or disable Powerup Patterns.
 zombiesaddon.config.toggleBetterZombiesLeft=Enable Better Zombies Left
@@ -199,6 +199,11 @@ zombiesaddon.config.autoSplitsHost=Host
 zombiesaddon.config.autoSplitsHost.description=The host of LiveSplit server.
 zombiesaddon.config.autoSplitsPort=Port
 zombiesaddon.config.autoSplitsPort.description=The port of LiveSplit server.
+
+zombiesaddon.config.internalTimerToggle=Enable Internal Timer
+zombiesaddon.config.internalTimerToggle.description=Enable or disable Internal Timer.
+zombiesaddon.config.internalTimerMode=Mode
+zombiesaddon.config.internalTimerMode.description=ServerはHypixelのラグを即座に反映しますが、ノックダウン、死亡、再参加などの影響を受ける可能性があります。Clientは影響を受けません。
 
 zombiesaddon.config.waveDelaysToggle=Enable Wave Delays
 zombiesaddon.config.waveDelaysToggle.description=Enable or disable Wave Delays.
