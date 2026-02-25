@@ -113,7 +113,7 @@
     {"ticks": 800, "prefixes": ["WINDOW"], "mobCount": 30}
   ]},
   {"waves": [
-    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 11},
+    {"ticks": 200, "prefixes": ["WINDOW"], "mobCount": 13},
     {"ticks": 600, "prefixes": ["WINDOW"], "mobCount": 24},
     {"ticks": 1000, "prefixes": ["WINDOW"], "mobCount": 27}
   ]},
