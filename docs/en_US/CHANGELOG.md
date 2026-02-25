@@ -1,5 +1,10 @@
 # Change log
 
+## 4.6.4
+02-25-2026
+- Fixed: Fixed DEN and PRN mob spawn information.
+- Added: Added PRH mob spawn information.
+
 ## 4.6.3
 02-18-2026
 - Added: Feather Client detection notification.
