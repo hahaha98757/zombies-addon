@@ -189,10 +189,12 @@ private fun getBossColor1(gameMode: GameMode, round: Int, wave: Int): String {
                     else ""
                 }
                 25 -> {
-                    if (gameMode.difficulty == Difficulty.HARD && wave == 3) "§6"
-                    else if (gameMode.difficulty == Difficulty.RIP && (wave == 1 || wave == 2)) "§6"
-                    else if (gameMode.difficulty == Difficulty.RIP && wave == 3) "§5"
-                    else ""
+                    when (gameMode.difficulty) {
+                        Difficulty.HARD if wave == 3 -> "§6"
+                        Difficulty.RIP if (wave == 1 || wave == 2) -> "§6"
+                        Difficulty.RIP if wave == 3 -> "§5"
+                        else -> ""
+                    }
                 }
                 30 -> {
                     if (wave == 3) "§5"
