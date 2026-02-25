@@ -1,5 +1,14 @@
 # Change log
 
+## 4.7.0-beta1
+02-25-2026
+- Modified: Internal Timer
+  - Added a configuration option: Allows selecting between client and server timer calculations.
+    - Client: Existing method. Timers are calculated based on client TPS. They are synchronized with the server clock every 20 ticks.
+    - Server: Timers are calculated based on server TPS. The timer is paused upon downing, dying, or reconnecting, and is then merged with the client timer for compensation.
+  - Modified so that subsequent compensation is not performed if the timer compensation fails.
+
+
 ## 4.6.4
 02-25-2026
 - Fixed: Fixed DEN and PRN mob spawn information.

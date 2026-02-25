@@ -72,6 +72,15 @@ A mod that integrates several Zombies mods and provides them as modules.
 ----
 ### Internal Timer
 - Displays the elapsed time since the game started.
+- Client mode is identical to Zombies Addon v4.6.4 and Zombies Utils 1.3.7.
+Time is measured based on the client, regardless of server speed. It synchronizes with the server every 20 ticks.
+- Server mode is based on Zombies Utils 1.4.1. Time is measured based on the server speed.
+If you knocked down, die, or rejoin, the server speed becomes unknown, and you will switch to client mode.
+After the timer is adjusted, you will switch back to server mode.
+
+#### Config
+- Enable Internal Timer: Enable or disable Internal Timer.
+- Mode: Server reflects Hypixel lag immediately but is affected by knockdowns, death, or rejoining. Client is not.
 
 ----
 ### Wave Delays
