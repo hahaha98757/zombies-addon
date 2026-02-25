@@ -4,6 +4,8 @@ import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.data.Wave
 import kr.hahaha98757.zombiesaddon.enums.*
+import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
+import kr.hahaha98757.zombiesaddon.game.TimerSource
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
@@ -95,7 +97,13 @@ object WaveDelays: Module("Wave Delays") {
         }
     }
 
-    fun onTick() {
+    override fun onLastTick(event: LastClientTickEvent) {
+        if (isNotPlayZombies()) return
+        val source = ZombiesAddon.instance.gameManager.game?.timer?.source ?: return
+        if (source != TimerSource.SERVER) playSound()
+    }
+
+    fun playSound() {
         if (isNotPlayZombies()) return
         val game = ZombiesAddon.instance.gameManager.game ?: return
         if (game.gameEnd) return

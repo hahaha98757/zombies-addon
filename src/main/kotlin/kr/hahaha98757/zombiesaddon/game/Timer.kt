@@ -14,8 +14,9 @@ import net.minecraftforge.fml.common.gameevent.TickEvent
 class Timer(private val world: World) {
     private val serverTimer = ServerTimer()
     private val clientTimer = ClientTimer()
-    private var source = TimerSource.SERVER
+    var source = TimerSource.SERVER
         get() = if (!isClientMode) field else TimerSource.CLIENT
+        private set
 
     private val isClientMode get() = ZombiesAddon.instance.config.internalTimerMode == Mode.CLIENT
 
@@ -78,12 +79,12 @@ class Timer(private val world: World) {
         var serverTickCounter = 0L
             set(value) {
                 field = value
-                WaveDelays.onTick()
             }
 
         @SubscribeEvent
         fun onServerTick(@Suppress("unused") event: ServerTickEvent) {
             serverTickCounter++
+            WaveDelays.playSound()
         }
 
         init {
