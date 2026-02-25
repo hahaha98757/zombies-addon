@@ -203,7 +203,7 @@ zombiesaddon.config.autoSplitsPort.description=The port of LiveSplit server.
 zombiesaddon.config.internalTimerToggle=Enable Internal Timer
 zombiesaddon.config.internalTimerToggle.description=Enable or disable Internal Timer.
 zombiesaddon.config.internalTimerMode=Mode
-zombiesaddon.config.internalTimerMode.description=ServerはHypixelのラグを即座に反映しますが、ノックダウン、死亡、再参加などの影響を受ける可能性があります。Clientは影響を受けません。
+zombiesaddon.config.internalTimerMode.description=Server reflects Hypixel lag immediately but is affected by knockdowns, death, or rejoining. Client is not.
 
 zombiesaddon.config.waveDelaysToggle=Enable Wave Delays
 zombiesaddon.config.waveDelaysToggle.description=Enable or disable Wave Delays.
