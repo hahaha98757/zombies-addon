@@ -1,5 +1,11 @@
 # Change log
 
+## 4.7.0-beta2
+02-26-2026
+- Bug Fix: Internal Timer
+  - A bug where the Wave Delays sound would play twice in Client mode.
+  - A bug where the timer would display incorrect values when changing modes in-game.
+
 ## 4.7.0-beta1
 02-25-2026
 - Modified: Internal Timer
