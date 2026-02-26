@@ -98,6 +98,10 @@ object WaveDelays: Module("Wave Delays") {
     }
 
     override fun onLastTick(event: LastClientTickEvent) {
+        if (ZombiesAddon.instance.config.internalTimerMode == Mode.CLIENT) {
+            playSound()
+            return
+        }
         if (isNotPlayZombies()) return
         val source = ZombiesAddon.instance.gameManager.game?.timer?.source ?: return
         if (source != TimerSource.SERVER) playSound()

@@ -15,15 +15,14 @@ class Timer(private val world: World) {
     private val serverTimer = ServerTimer()
     private val clientTimer = ClientTimer()
     var source = TimerSource.SERVER
-        get() = if (!isClientMode) field else TimerSource.CLIENT
         private set
 
     private val isClientMode get() = ZombiesAddon.instance.config.internalTimerMode == Mode.CLIENT
 
-    val gameTick get() = if (source == TimerSource.SERVER) serverTimer.gameTick
+    val gameTick get() = if (!isClientMode && source == TimerSource.SERVER) serverTimer.gameTick
     else clientTimer.gameTick
 
-    val roundTick get() = if (source == TimerSource.SERVER) serverTimer.roundTick
+    val roundTick get() = if (!isClientMode && source == TimerSource.SERVER) serverTimer.roundTick
     else clientTimer.roundTick
 
     fun split() {
@@ -77,13 +76,11 @@ class Timer(private val world: World) {
 
     private inner class ServerTimer {
         var serverTickCounter = 0L
-            set(value) {
-                field = value
-            }
 
         @SubscribeEvent
         fun onServerTick(@Suppress("unused") event: ServerTickEvent) {
             serverTickCounter++
+            if (isClientMode) return
             WaveDelays.playSound()
         }
 
