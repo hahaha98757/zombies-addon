@@ -13,7 +13,7 @@ class TimerCorrector(private val game: Game) {
     @SubscribeEvent
     fun onWaveSpawn(event: EntityJoinWorldEvent) {
         if (event.entity == mc.thePlayer) {
-            logger.info("타이머 보정을 취소합니다. (플레이어가 보정 전에 게임을 떠남)")
+            logger.info("게임 ${game.serverNumber}의 타이머 보정을 취소합니다. (플레이어가 보정 전에 게임을 떠남)")
             MinecraftForge.EVENT_BUS.unregister(this)
             return
         }
@@ -22,6 +22,7 @@ class TimerCorrector(private val game: Game) {
         if (game.serverNumber == getServerNumber()) {
             val ticks = game.gameMode.rounds[0].waves[0].ticks
             game.timer.correctStartTick(ticks)
+            game.recorder.isCorrected = true
             logger.debug("타이머를 $ticks 틱으로 보정했습니다.")
         }
         MinecraftForge.EVENT_BUS.unregister(this)

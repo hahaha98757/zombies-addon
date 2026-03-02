@@ -13,14 +13,15 @@ class Recorder(val game: Game) {
     private var category = Category()
     private val gameFile = GameFile(game.serverNumber, game.gameMode.map)
     private val isFullRecorded = (game.round == 1)
+    var isCorrected = false
 
     fun reloadCategory() {
         category = Category()
     }
 
     fun record() {
-        compareSegment()
-        if (isFullRecorded) comparePb()
+        if (game.round != 1 || isCorrected) compareSegment()
+        if (isFullRecorded && isCorrected) comparePb()
         gameFile.segments[game.round] = game.timer.roundTick
     }
 
