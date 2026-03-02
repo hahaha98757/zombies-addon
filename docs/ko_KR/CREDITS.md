@@ -15,6 +15,7 @@
 - syeyoung의 [Zombies Hologrambug Fixer](https://github.com/cyoung06/ZombiesHologramFixer) ([MIT 라이선스](../../licenses/Zombies%20Hologrambug%20Fixer-LICENSE))
 - syeyoung의 [Zombies Strat Viewer](https://github.com/cyoung06/ZombiesStratViewer) ([MIT 라이선스](../../licenses/Zombies%20Strat%20Viewer-LICENSE))
 - Stachelbeere1248의 [Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) ([MIT 라이선스](https://github.com/Stachelbeere1248/zombies-utils/blob/master/LICENSE))
+- Stachelbeere1248의 [Game Constants](https://git.stachel.xyz/zombies/game-constants) ([Unlicense 라이선스](https://git.stachel.xyz/zombies/game-constants/src/branch/master/LICENSE.txt))
 
 ## 기타 출처
 - lineargraph의 [Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) ([Unlicense 라이선스](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))

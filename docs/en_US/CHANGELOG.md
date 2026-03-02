@@ -1,5 +1,11 @@
 # Change log
 
+## 4.7.0-rc1
+03-02-2026
+- Added: PRR mob spawn data.
+- Changed: Recorder
+  - If the timer calibration fails, only the first round of the game is recorded, not the overall record.
+
 ## 4.7.0-beta2
 02-26-2026
 - Bug Fix: Internal Timer

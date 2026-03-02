@@ -16,6 +16,7 @@
 - [Zombies Hologrambug Fixer](https://github.com/cyoung06/ZombiesHologramFixer) by syeyoung ([MIT License](../../licenses/Zombies%20Hologrambug%20Fixer-LICENSE))
 - [Zombies Strat Viewer](https://github.com/cyoung06/ZombiesStratViewer) by syeyoung ([MIT License](../../licenses/Zombies%20Strat%20Viewer-LICENSE))
 - [Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) by Stachelbeere1248 ([MIT License](https://github.com/Stachelbeere1248/zombies-utils/blob/master/LICENSE))
+- [Game Constants](https://git.stachel.xyz/zombies/game-constants) by Stachelbeere1248 ([Unlicense License](https://git.stachel.xyz/zombies/game-constants/src/branch/master/LICENSE.txt))
 
 ## Other Sources
 - [Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) by lineargraph ([Unlicense](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))

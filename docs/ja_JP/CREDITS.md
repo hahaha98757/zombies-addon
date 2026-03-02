@@ -15,6 +15,7 @@
 - syeyoungの[Zombies Hologrambug Fixer](https://github.com/cyoung06/ZombiesHologramFixer) ([MITライセンス](../../licenses/Zombies%20Hologrambug%20Fixer-LICENSE))
 - syeyoungの[Zombies Strat Viewer](https://github.com/cyoung06/ZombiesStratViewer) ([MITライセンス](../../licenses/Zombies%20Strat%20Viewer-LICENSE))
 - Stachelbeere1248の[Zombies Utils](https://github.com/Stachelbeere1248/zombies-utils) ([MITライセンス](https://github.com/Stachelbeere1248/zombies-utils/blob/master/LICENSE))
+- Stachelbeere1248の[Game Constants](https://git.stachel.xyz/zombies/game-constants) ([Unlicenseライセンス](https://git.stachel.xyz/zombies/game-constants/src/branch/master/LICENSE.txt))
 
 ## その他のソース
 - lineargraphの[Forge1.8.9Template](https://github.com/nea89o/Forge1.8.9Template) ([Unlicenseライセンス](https://github.com/nea89o/Forge1.8.9Template/blob/master/LICENSE))
