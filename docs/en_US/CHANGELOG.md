@@ -1,5 +1,9 @@
 # Change log
 
+## 4.7.0
+03-04-2026
+- No changes.
+
 ## 4.7.0-rc1
 03-02-2026
 - Added: PRR mob spawn data.
