@@ -1,8 +1,7 @@
 package kr.hahaha98757.zombiesaddon.gui
 
-import kr.hahaha98757.zombiesaddon.update.UpdateChecker
+import kr.hahaha98757.zombiesaddon.update.AutoUpdater
 import kr.hahaha98757.zombiesaddon.utils.getTranslatedString
-import kr.hahaha98757.zombiesaddon.utils.logger
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.gui.GuiConfirmOpenLink
 import net.minecraft.client.gui.GuiScreen
@@ -38,12 +37,8 @@ object GuiUpdateScreen: GuiScreen() {
     override fun actionPerformed(button: GuiButton) {
         when (button.id) {
             0 -> {
-                if ("win" !in System.getProperty("os.name").lowercase()) {
-                    logger.warn("자동 업데이트는 Windows에서만 지원됩니다.")
-                    return
-                }
                 mc.displayGuiScreen(GuiDownloadWaiting)
-                UpdateChecker.autoUpdate()
+                AutoUpdater.autoUpdate()
             }
             1 -> mc.displayGuiScreen(GuiConfirmOpenLink(this, "https://github.com/hahaha98757/zombies-addon/releases", 0, true))
             2 -> mc.displayGuiScreen(null)

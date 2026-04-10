@@ -149,13 +149,6 @@ fun String.withNameColor(): String {
     return default
 }
 
-internal fun runBatchFileAndQuit(file: File, commands: String) {
-    file.writeText(commands.replace(Regex("\r?\n"), "\r\n"))
-    Runtime.getRuntime().exec("cmd /c start ${file.absolutePath}")
-    logger.info("게임을 종료합니다.")
-    mc.shutdown()
-}
-
 // private 함수
 private val cachedLang = mutableMapOf<String, Properties>()
 

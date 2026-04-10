@@ -2,7 +2,6 @@ package kr.hahaha98757.zombiesaddon.update
 
 import com.google.gson.JsonParser
 import kr.hahaha98757.zombiesaddon.VERSION
-import kr.hahaha98757.zombiesaddon.gui.GuiDownloadWaiting
 import kr.hahaha98757.zombiesaddon.gui.GuiUpdateScreen
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.event.ClickEvent
@@ -13,11 +12,8 @@ import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.EntityJoinWorldEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import org.apache.commons.io.IOUtils
-import java.io.File
 import java.net.URL
 import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
 import java.security.KeyStore
 import javax.net.ssl.HttpsURLConnection
 import javax.net.ssl.KeyManagerFactory
@@ -28,7 +24,7 @@ object UpdateChecker {
     private const val LATEST_URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/main/update.json"
     private const val DEV_URL = "https://raw.githubusercontent.com/hahaha98757/zombies-addon/dev/update.json"
     private val current: Version
-    private var latest = Version.ZERO
+    var latest = Version.ZERO
     private var dev = Version.ZERO
     private var isCorrect = false
     init {
@@ -41,10 +37,7 @@ object UpdateChecker {
         }
     }
 
-    private val downloadUrl
-        get() = "https://github.com/hahaha98757/zombies-addon/releases/download/$latest/ZombiesAddon1.8.9-$latest.jar"
-
-    private var ctx: SSLContext?
+    internal var ctx: SSLContext?
     init {
         try {
             val myKeyStore = KeyStore.getInstance("JKS")
@@ -144,73 +137,6 @@ object UpdateChecker {
         VersionType.PRE_RELEASE -> "zombiesaddon.update.pre"
         VersionType.RELEASE_CANDIDATE -> "zombiesaddon.update.rc"
         VersionType.RELEASE -> ""
-    }
-
-    fun autoUpdate() = Thread {
-        val tempMod = File(modFile.parentFile, ".temp/ZombiesAddon1.8.9-$latest.jar.temp")
-        val newMod = File(modFile.parentFile, "ZombiesAddon1.8.9-$latest.jar")
-        try {
-            tempMod.parentFile.mkdirs()
-            val connection = URL(downloadUrl).openConnection() as HttpsURLConnection?
-            if (connection != null && ctx != null) connection.sslSocketFactory = ctx!!.socketFactory
-
-            connection!!.requestMethod = "GET"
-            connection.connect()
-
-            Files.copy(connection.inputStream, tempMod.toPath(), StandardCopyOption.REPLACE_EXISTING)
-
-            if (!verifyModFile(tempMod)) throw Exception("다운로드한 파일의 무결성 검사에 실패했습니다.")
-
-            Files.move(tempMod.toPath(), newMod.toPath(),
-                StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE)
-
-            mc.addScheduledTask {
-                logger.info("배치 파일 실행 및 게임 종료를 시작합니다.")
-                runBatchFileAndQuit(File(mc.mcDataDir, "mods/deleter_zombiesaddon.bat"), """
-                    @echo off
-                    chcp 65001
-                    cls
-                    echo This is a mod deleter. It should continue after Minecraft quits.
-                    echo 이것은 모드 제거 프로그램 입니다. 마인크래프트가 종료된 후 계속 진행되어야 합니다.
-                    timeout /t 2 /nobreak
-                    pause
-                    echo Deleting old mod file...
-                    echo 이전 모드 파일을 삭제하는 중...
-                    del "${modFile.absolutePath}"
-                    exit
-                """.trimIndent())
-            }
-        } catch (e: Exception) {
-            if (newMod.exists()) newMod.delete()
-            logger.error("자동 업데이트 중 오류 발생.", e)
-            GuiDownloadWaiting.failed = true
-        } finally {
-            if (tempMod.exists()) tempMod.delete()
-            tempMod.parentFile.delete()
-        }
-    }.start()
-
-    private fun verifyModFile(file: File): Boolean {
-        val connection = URL("$downloadUrl.sha256").openConnection() as HttpsURLConnection?
-        if (connection != null && ctx != null) connection.sslSocketFactory = ctx!!.socketFactory
-
-        connection!!.requestMethod = "GET"
-        connection.connect()
-
-        val expectedHash = IOUtils.toString(connection.inputStream, StandardCharsets.UTF_8).trim()
-        logger.info("예상되는 SHA-256: $expectedHash")
-        val actualHash = calculateSHA256(file)
-        return expectedHash.equals(actualHash, ignoreCase = true)
-    }
-
-    private fun calculateSHA256(file: File): String {
-        val digest = java.security.MessageDigest.getInstance("SHA-256")
-        file.inputStream().use { input ->
-            val buffer = ByteArray(8192)
-            var bytesRead: Int
-            while (input.read(buffer).also { bytesRead = it } > 0) digest.update(buffer, 0, bytesRead)
-        }
-        return digest.digest().joinToString("") { "%02x".format(it) }.also { logger.info("실제 SHA-256: $it") }
     }
 
     private fun getVersion(url: String): Version {
