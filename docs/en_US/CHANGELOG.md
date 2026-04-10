@@ -1,5 +1,10 @@
 # Change log
 
+## 4.7.2
+04-10-2026
+- Modification: Translation string
+  - Remove Windows-only text from automatic updates.
+
 ## 4.7.1
 04-10-2026
 - Change: Automatic updates are now available on other operating systems.
