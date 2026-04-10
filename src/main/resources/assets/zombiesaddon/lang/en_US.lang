@@ -94,7 +94,7 @@ zombiesaddon.gui.comment=Click "Done" to save your current HUD position settings
 
 zombiesaddon.gui.detectedUnlegitMods.title=Detected Unlegit Mods
 zombiesaddon.gui.detectedUnlegitMods.list=Unlegit Mods:
-zombiesaddon.gui.detectedUnlegitMods.button.remove=Remove Unlegit Mods(Windows only)
+zombiesaddon.gui.detectedUnlegitMods.button.remove=Remove Unlegit Mods
 
 zombiesaddon.gui.downloadWaiting.title=Downloading...
 zombiesaddon.gui.downloadWaiting.failed=Failed download the update.
@@ -102,7 +102,7 @@ zombiesaddon.gui.downloadWaiting.failed=Failed download the update.
 zombiesaddon.gui.updateScreen.title.normal=The new recommended version has been released.
 zombiesaddon.gui.updateScreen.title.mandatory=§cThe mandatory update has been released.
 zombiesaddon.gui.updateScreen.message.mandatory=You should update this mod or can't play the game.
-zombiesaddon.gui.updateScreen.button.autoupdate=Auto update(Windows only)
+zombiesaddon.gui.updateScreen.button.autoupdate=Auto update
 zombiesaddon.gui.updateScreen.button.url=Open download URL
 zombiesaddon.gui.updateScreen.button.continue=Continue
 
