@@ -1,5 +1,10 @@
 # Change log
 
+## 4.7.1
+04-10-2026
+- Change: Automatic updates are now available on other operating systems.
+- Code fix: Removed meaningless super.initGui().
+
 ## 4.7.0
 03-04-2026
 - No changes.
