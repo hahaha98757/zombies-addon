@@ -21,7 +21,6 @@ object GuiDetectedUnlegitMods: GuiScreen() {
     }
 
     override fun initGui() {
-        super.initGui()
         buttonList.clear()
         buttonList.add(GuiButton(0, width / 2 - 100, height / 2, getTranslatedString("zombiesaddon.gui.detectedUnlegitMods.button.remove")))
         buttonList.add(GuiButton(1, width / 2 - 100, height / 2 + 30, getTranslatedString("menu.quit")))

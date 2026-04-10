@@ -22,7 +22,6 @@ object GuiDownloadWaiting: GuiScreen() {
     }
 
     override fun initGui() {
-        super.initGui()
         buttonList.clear()
         backButton = GuiButton(0, width / 2 - 100, height / 2, getTranslatedString("gui.back"))
         buttonList.add(backButton)

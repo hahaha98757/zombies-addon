@@ -6,8 +6,6 @@ import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.gui.GuiScreen
-import net.minecraftforge.client.event.GuiScreenEvent
-import net.minecraftforge.common.MinecraftForge
 import org.lwjgl.input.Mouse
 
 object ConfigGui: GuiScreen() {
@@ -29,9 +27,6 @@ object ConfigGui: GuiScreen() {
     }
 
     override fun initGui() {
-        MinecraftForge.EVENT_BUS.register(GuiScreenEvent.InitGuiEvent.Pre(this, buttonList))
-        super.initGui()
-        MinecraftForge.EVENT_BUS.post(GuiScreenEvent.InitGuiEvent.Post(this, buttonList))
         val widthAutoSplits = fr.getStringWidth("0:00.0")
         val widthWaveDelays = fr.getStringWidth("➤ ${ZombiesAddon.instance.config.waveDelaysTextStyle}")
         val widthPowerupPatterns = fr.getStringWidth("Shopping Spree: Round 105")
