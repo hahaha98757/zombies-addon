@@ -1,5 +1,13 @@
 # 업데이트 로그
 
+## 4.7.3
+2026-04-26
+- 변경: Better Zombies Left
+  - Feather Client 등 스코어보드 관련 모드에서도 작동함.
+- 버그 수정: Internal Timer
+  - Server 모드에서 게임 오버 시 항상 Client 모드를 사용하는 버그 수정.
+- 코드 수정: WaveDelays.playSound() 호출 조건
+
 ## 4.7.2
 2026-04-10
 - 수정: 번역 문자열

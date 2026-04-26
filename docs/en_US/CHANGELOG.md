@@ -1,5 +1,13 @@
 # Change log
 
+## 4.7.3
+04-26-2026
+- Change: Better Zombies Left
+  - Works in scoreboard-related modes such as Feather Client.
+- Bug fix: Internal Timer
+  - Fixed a bug where Client mode was always used upon game over in Server mode.
+- Code modification: Condition for calling WaveDelays.playSound()
+
 ## 4.7.2
 04-10-2026
 - Modification: Translation string
