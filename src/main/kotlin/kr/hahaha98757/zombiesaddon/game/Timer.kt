@@ -83,7 +83,7 @@ class Timer(private val world: World) {
         @SubscribeEvent
         fun onServerTick(@Suppress("unused") event: ServerTickEvent) {
             serverTickCounter++
-            if (isClientMode) return
+            if (isClientMode || source != TimerSource.SERVER) return
             WaveDelays.playSound()
         }
 
