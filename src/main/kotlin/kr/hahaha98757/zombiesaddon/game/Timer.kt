@@ -16,6 +16,7 @@ class Timer(private val world: World) {
     private val clientTimer = ClientTimer()
     var source = TimerSource.SERVER
         private set
+    private var stop = false
 
     private val isClientMode get() = ZombiesAddon.instance.config.internalTimerMode == Mode.CLIENT
 
@@ -31,6 +32,7 @@ class Timer(private val world: World) {
     }
 
     fun stop() {
+        stop = true
         serverTimer.stop = true
         clientTimer.stop = true
     }
@@ -61,6 +63,7 @@ class Timer(private val world: World) {
     }
 
     private fun refreshSource() {
+        if (stop) return
         if (world != mc.theWorld) {
             if (source != TimerSource.CLIENT) source = TimerSource.CLIENT
             return
@@ -92,6 +95,10 @@ class Timer(private val world: World) {
         private var lastTick = 0L
         var lastCorrectedTick = 0L
         var stop = false
+            set(value) {
+                if (value) currentTick
+                field = value
+            }
 
         val gameTick get() = (currentTick - startTick).toInt()
 
@@ -120,6 +127,10 @@ class Timer(private val world: World) {
         private var lastTick = 0L
         var lastCorrectedTick = 0L
         var stop = false
+            set(value) {
+                if (value) currentTick
+                field = value
+            }
 
         val gameTick get() = (currentTick - startTick).toInt()
 
