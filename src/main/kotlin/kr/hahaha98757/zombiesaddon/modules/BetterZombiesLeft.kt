@@ -3,9 +3,8 @@ package kr.hahaha98757.zombiesaddon.modules
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.utils.Scoreboard
+import kr.hahaha98757.zombiesaddon.utils.mc
 import kr.hahaha98757.zombiesaddon.utils.withoutColor
-import net.minecraft.scoreboard.Score
-import net.minecraft.scoreboard.ScorePlayerTeam
 
 object BetterZombiesLeft: Module("Better Zombies Left") {
 
@@ -45,14 +44,21 @@ object BetterZombiesLeft: Module("Better Zombies Left") {
         isWork = true
     }
 
-    fun getName(team: ScorePlayerTeam?, score: Score): String {
-        val text = ScorePlayerTeam.formatPlayerName(team, score.playerName)
-        if (!isEnable()) return text
-        if (!isWork) return text
-        if (score.scorePoints != 12) return text
+    fun modifyFormattedName(original: String, formatted: String): String {
+        if (!isEnable()) return formatted
+        if (!isWork) return formatted
 
-        val base = if (":" in text) text.substringBefore(":") + ": " else text.substringBefore("：") + "："
+        val scoreboard = mc.theWorld?.scoreboard ?: return formatted
+        val objective = scoreboard.getObjectiveInDisplaySlot(1) ?: return formatted
+        val score = scoreboard.getValueFromObjective(original, objective) ?: return formatted
 
+        if (score.scorePoints != 12) return formatted
+
+        val base = when {
+            ":" in formatted -> formatted.substringBefore(":") + ": "
+            "：" in formatted -> formatted.substringBefore("：") + "："
+            else -> return formatted
+        }
         return "$base§a$leftOnCurrentWave§f + §c$leftAfterWave"
     }
 

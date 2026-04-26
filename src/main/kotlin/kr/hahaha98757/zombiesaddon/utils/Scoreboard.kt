@@ -2,7 +2,6 @@ package kr.hahaha98757.zombiesaddon.utils
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.commands.CommandZaDebug
-import net.minecraft.scoreboard.ScorePlayerTeam
 
 object Scoreboard {
     private val emojiPattern = Regex("[\uD83D\uDD2B\uD83C\uDF6B\uD83D\uDCA3\uD83D\uDC7D\uD83D\uDD2E\uD83D\uDC0D\uD83D\uDC7E\uD83C\uDF20\uD83C\uDF6D\u26BD\uD83C\uDFC0\uD83D\uDC79\uD83C\uDF81\uD83C\uDF89\uD83C\uDF82]+")
@@ -22,7 +21,15 @@ object Scoreboard {
         lines.clear()
         for (score in scores) {
             val team = scoreboard.getPlayersTeam(score.playerName)
-            lines += ScorePlayerTeam.formatPlayerName(team, score.playerName).trim().replace(emojiPattern, "").withoutColor().trim()
+
+            // Better Zombies Left에서 사용되는 Mixin 때문에, ScorePlayerTeam.formatPlayerName을 사용할 수 없음
+            val raw = buildString {
+                if (team != null) append(team.colorPrefix)
+                append(score.playerName)
+                if (team != null) append(team.colorSuffix)
+            }
+
+            lines += raw.trim().replace(emojiPattern, "").withoutColor().trim()
         }
     }
 
