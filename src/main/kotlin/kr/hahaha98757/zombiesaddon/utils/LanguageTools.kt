@@ -22,6 +22,8 @@ val eh = arrayOf("Extra Health", "추가 체력", "最大体力増加")
 val postUlt = arrayOf("Ultimate", "アルチィメット")
 val preUlt = arrayOf("레벨")
 
+val zombiesLeft = arrayOf("Zombies Left", "남은 좀비", "残りゾンビ")
+
 
 fun getLevel(itemName: String): Int {
     var name = ""

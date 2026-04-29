@@ -13,7 +13,7 @@ public class MixinScorePlayerTeam {
     @Inject(method = "formatPlayerName", at = @At("RETURN"), cancellable = true)
     private static void formatPlayerName(Team team, String string, CallbackInfoReturnable<String> cir) {
         String original = cir.getReturnValue();
-        String modified = BetterZombiesLeft.INSTANCE.modifyFormattedName(string, cir.getReturnValue());
+        String modified = BetterZombiesLeft.INSTANCE.modifyFormattedName(cir.getReturnValue());
 
         if (!original.equals(modified)) cir.setReturnValue(modified);
     }
