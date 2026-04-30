@@ -1,7 +1,5 @@
 package kr.hahaha98757.zombiesaddon.mixins;
 
-import com.github.stachelbeere1248.zombiesutils.ZombiesUtils;
-import com.github.stachelbeere1248.zombiesutils.timer.RecordMessageSender;
 import kr.hahaha98757.zombiesaddon.ZombiesAddon;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,6 +8,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import xyz.stachel.zombiesutils.ZombiesUtils;
+import xyz.stachel.zombiesutils.timer.RecordMessageSender;
 
 @Mixin(value = RecordMessageSender.class, remap = false)
 public abstract class MixinRecordMessageSender {

@@ -1,11 +1,11 @@
 package kr.hahaha98757.zombiesaddon.mixins;
 
-import com.github.stachelbeere1248.zombiesutils.timer.Game;
 import kr.hahaha98757.zombiesaddon.ZombiesAddon;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import xyz.stachel.zombiesutils.timer.Game;
 
 @Mixin(value = Game.class, remap = false)
 public class MixinGame {

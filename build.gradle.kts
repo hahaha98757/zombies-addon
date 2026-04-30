@@ -87,7 +87,7 @@ dependencies {
     minecraft("com.mojang:minecraft:1.8.9")
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
-    implementation(files("libs/zombies-utils-1.3.7.jar", "libs/ShowSpawnTime-2.1.1.jar"))
+    implementation(files("libs/zombiesutils-1.4.2.jar", "libs/ShowSpawnTime-2.1.1.jar"))
 
     shadowImpl(kotlin("stdlib-jdk8"))
 
