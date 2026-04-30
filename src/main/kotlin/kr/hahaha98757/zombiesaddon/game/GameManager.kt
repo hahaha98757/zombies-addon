@@ -28,6 +28,10 @@ class GameManager {
 
     private fun newGame(serverNumber: ServerNumber, round: Int = 0, doNotCorrectTimer: Boolean = false) {
         val game = Game(getMap()?.getNormalGameMode() ?: throw IllegalStateException("알 수 없는 맵(Unknown Map)"), serverNumber, if (round == 0) 1 else round, doNotCorrectTimer)
+        games[serverNumber]?.let {
+            it.remove()
+            MinecraftForge.EVENT_BUS.post(GameRemoveEvent(it))
+        }
         games[serverNumber] = game
         AutoSplits.startOrSplit()
         RepeatedTask(100) {
@@ -63,5 +67,12 @@ class GameManager {
             games.remove(game.serverNumber)
             MinecraftForge.EVENT_BUS.post(GameRemoveEvent(game))
         }
+    }
+
+    fun removeGame(serverNumber: ServerNumber) {
+        val game = games[serverNumber] ?: return
+        game.remove()
+        games.remove(serverNumber)
+        MinecraftForge.EVENT_BUS.post(GameRemoveEvent(game))
     }
 }

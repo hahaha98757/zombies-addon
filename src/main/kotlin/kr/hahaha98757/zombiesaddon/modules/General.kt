@@ -47,6 +47,9 @@ object General: AlwaysEnableModule("General") {
     override fun onLastTick(event: LastClientTickEvent) {
         Scoreboard.refresh()
         if (!ZombiesAddon.instance.debug) ZombiesAddon.instance.gameManager.removeGame()
+        if (isNotPlayZombies()) return
+        if (Scoreboard.round != 0) return
+        ZombiesAddon.instance.gameManager.removeGame(getServerNumber() ?: return)
     }
 }
 

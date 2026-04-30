@@ -455,7 +455,7 @@ private class ManualTimer {
 
     @SubscribeEvent
     fun onTick(@Suppress("unused") event: ServerTickEvent) {
-        if (--timer <= 0) MinecraftForge.EVENT_BUS.register(this)
+        if (--timer <= 0) MinecraftForge.EVENT_BUS.unregister(this)
     }
 }
 
