@@ -67,9 +67,7 @@ class Timer(private val world: World) {
         if (world != mc.theWorld) {
             if (source != TimerSource.CLIENT) source = TimerSource.CLIENT
             return
-        }
-        if (mc.thePlayer?.isInvisible == true) source = TimerSource.CLIENT
-        else if (source == TimerSource.CLIENT) source = TimerSource.WAITING_PACKET
+        } else if (source == TimerSource.CLIENT) source = TimerSource.WAITING_PACKET
     }
 
     fun unregister() {

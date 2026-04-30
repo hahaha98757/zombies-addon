@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.entity.Entity
 import net.minecraft.network.play.server.S03PacketTimeUpdate
 import net.minecraft.network.play.server.S29PacketSoundEffect
+import net.minecraft.network.play.server.S32PacketConfirmTransaction
 import net.minecraft.network.play.server.S45PacketTitle
 import net.minecraftforge.common.MinecraftForge
 import org.lwjgl.opengl.GL11
@@ -60,9 +61,9 @@ fun onTitle(packet: S45PacketTitle) {
     ZombiesAddon.instance.gameManager.endGame(serverNumber, isWin)
 }
 
-fun onXpPacket() {
+fun onInventoryPacket(packet: S32PacketConfirmTransaction) {
     if (!mc.isCallingFromMinecraftThread) return
-    MinecraftForge.EVENT_BUS.post(ServerTickEvent())
+    if (packet.windowId == 0) MinecraftForge.EVENT_BUS.post(ServerTickEvent())
 }
 
 fun onTimeUpdate(packet: S03PacketTimeUpdate) {
