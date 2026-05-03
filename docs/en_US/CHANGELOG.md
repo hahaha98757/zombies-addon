@@ -1,5 +1,17 @@
 # Change log
 
+## 4.7.4
+05-03-2026
+- Changes
+  - Compatible Zombies Utils version: 1.3.7 -> 1.4.2
+  - Internal Timer: Server mode persists even when downed or dead.
+- Fix: Better Zombies Left
+  - Detect remaining zombie lines based on string content rather than score.
+  - Rolled back to 4.7.2.
+- Bug fixes
+  - Powerup Patterns: Timer progresses below 0.
+  - Remove existing game if attempting to start a new game with an existing game's server number.
+
 ## 4.7.3
 04-26-2026
 - Change: Better Zombies Left
