@@ -59,7 +59,7 @@
 #### コマンド
 - autosplits <コマンド>：LiveSplitにコマンドを渡します。
 
-#### 사용법
+#### 使い方
 1. [ここ](https://livesplit.org/downloads/)からLiveSplitをダウンロードしてください。
 2. LiveSplitを実行し、右クリック→SettingsでServer Portを0〜65535の間で目的の数字（デフォルトは16834）で入力します。
 3. Minecraftの実行→Mods→Zombies Addon→Config→Auto Splitsで、手順2で入力したポート番号（デフォルトは16834）をそのまま入力します。
@@ -69,12 +69,12 @@
 ----
 ### Internal Timer
 - ラウンド開始時に初期化される内部タイマーを表示します。
-- Client モードは Zombies Addon v4.6.4、Zombies Utils 1.3.7 バージョンと同じです。
+- Client モードは Zombies Addon v4.6.4、Zombies Utils v1.3.7と同じです。
 サーバーの速度に関係なく、クライアントに基づいて時間を測定します。サーバーごとに、20ティックごとにサーバーと同期されます。
-- Server モードは Zombies Utils 1.4.1 バージョンに基づいています。サーバーの速度をすぐに反映して時間を測定します。
-倒れ、死亡、または再接続すると、サーバーの速度が不明になり、クライアントモードに切り替わります。その後、タイマーを校正してサーバーモードに戻ります。
+- Server モードは Zombies Utils v1.4.1に基づいています。サーバーの速度をすぐに反映して時間を測定します。
+再接続すると、サーバーの速度が不明になり、クライアントモードに切り替わります。その後、タイマーを校正してサーバーモードに戻ります。
 
-#### 컨피그
+#### コンフィグ
 - Internal Timerを有効化：Internal Timerを有効または無効にします。
 - モード：ServerはHypixelのTPSを即座に反映します。Clientは、サーバーベースの20ティックごとにHypixelのTPSを反映しています。
 
@@ -181,7 +181,6 @@
 ----
 ### Better Zombies Left
 - 残りのゾンビ数が現在のウェーブまでの残りのゾンビと、その後ウェーブの残りのゾンビに分かれて表示されます。
-- 現在、Prison RIPでは動作しません。
 - 動作中は、SSTのWave 3rd Left Noticeが無効になります。
 - Feather Clientなどのスコアボードを設定するほとんどのモードと互換性がありません。
 
@@ -239,7 +238,6 @@
 
 ## その他
 - Zombies Utilsの/sla コマンドが/sla_zombiesutilsに変わります。
-- 最新バージョンに限り、Windowsのみの自動更新をサポートします。
 
 
 ## バージョンシステム

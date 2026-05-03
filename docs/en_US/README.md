@@ -72,10 +72,10 @@ A mod that integrates several Zombies mods and provides them as modules.
 ----
 ### Internal Timer
 - Displays the elapsed time since the game started.
-- Client mode is identical to Zombies Addon v4.6.4 and Zombies Utils 1.3.7.
+- Client mode is identical to Zombies Addon v4.6.4 and Zombies Utils v1.3.7.
 Time is measured based on the client, regardless of server speed. It synchronizes with the server every 20 ticks.
-- Server mode is based on Zombies Utils 1.4.1. Time is measured based on the server speed.
-If you knocked down, die, or rejoin, the server speed becomes unknown, and you will switch to client mode.
+- Server mode is based on Zombies Utils v1.4.1. Time is measured based on the server speed.
+If you rejoin, the server speed becomes unknown, and you will switch to client mode.
 After the timer is adjusted, you will switch back to server mode.
 
 #### Config
@@ -187,7 +187,6 @@ After the timer is adjusted, you will switch back to server mode.
 ----
 ### Better Zombies Left
 - The number of remaining zombies is displayed divided into the remaining zombies from the current wave and the remaining zombies from subsequent waves.
-- Currently not working in Prison RIP.
 - While in operation, the SST's Wave 3rd Left Notice is disabled.
 - Not compatible with most mods that set up scoreboards, such as Feather Client.
 
@@ -237,7 +236,6 @@ You can test the mod without connecting to an actual game. The commands below mu
 
 ## Others
 - The /sla command in Zombies Utils is renamed to /sla_zombiesutils.
-- Supports automatic updates for Windows only, limited to the latest version.
 
 
 ## Version system
