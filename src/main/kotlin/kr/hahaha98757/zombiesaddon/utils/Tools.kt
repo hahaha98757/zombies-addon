@@ -34,6 +34,8 @@ val modFile: File by lazy {
 val unlegitMods = arrayOf("zombiesatellite", "zombiesexplorer", "TeammatesOutline", "zombieshelper")
 val logger get() = ZombiesAddon.instance.logger
 
+val emojiPattern = Regex("[\uD83D\uDD2B\uD83C\uDF6B\uD83D\uDCA3\uD83D\uDC7D\uD83D\uDD2E\uD83D\uDC0D\uD83D\uDC7E\uD83C\uDF20\uD83C\uDF6D\u26BD\uD83C\uDFC0\uD83D\uDC79\uD83C\uDF81\uD83C\uDF89\uD83C\uDF82]+")
+
 // 출력 관련 함수
 fun addLine() = mc.thePlayer?.addChatMessage(ChatComponentText(LINE)) ?: logger.info("[addLine] $LINE")
 
@@ -51,6 +53,8 @@ fun sendChat(text: String) = mc.thePlayer?.sendChatMessage(text) ?: logger.info(
 
 // 문자열 관련 함수
 fun String.withoutColor() = EnumChatFormatting.getTextWithoutFormattingCodes(this)!!
+
+fun String.removeEmoji() = this.replace(emojiPattern, "")
 
 @JvmOverloads
 fun getTranslatedString(key: String, withColor: Boolean = true, vararg any: Any): String {

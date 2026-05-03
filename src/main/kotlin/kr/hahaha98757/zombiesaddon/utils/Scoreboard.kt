@@ -4,9 +4,7 @@ import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.commands.CommandZaDebug
 
 object Scoreboard {
-    private val emojiPattern = Regex("[\uD83D\uDD2B\uD83C\uDF6B\uD83D\uDCA3\uD83D\uDC7D\uD83D\uDD2E\uD83D\uDC0D\uD83D\uDC7E\uD83C\uDF20\uD83C\uDF6D\u26BD\uD83C\uDFC0\uD83D\uDC79\uD83C\uDF81\uD83C\uDF89\uD83C\uDF82]+")
-
-    var title: String? = null
+    private var title: String? = null
     val lines = mutableListOf<String>()
 
     fun refresh() {
@@ -29,7 +27,7 @@ object Scoreboard {
                 if (team != null) append(team.colorSuffix)
             }
 
-            lines += raw.trim().replace(emojiPattern, "").withoutColor().trim()
+            lines += raw.trim().removeEmoji().withoutColor().trim()
         }
     }
 

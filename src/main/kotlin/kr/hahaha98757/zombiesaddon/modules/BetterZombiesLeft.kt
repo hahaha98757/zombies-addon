@@ -2,10 +2,7 @@ package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
-import kr.hahaha98757.zombiesaddon.utils.Scoreboard
-import kr.hahaha98757.zombiesaddon.utils.inContains
-import kr.hahaha98757.zombiesaddon.utils.withoutColor
-import kr.hahaha98757.zombiesaddon.utils.zombiesLeft
+import kr.hahaha98757.zombiesaddon.utils.*
 
 object BetterZombiesLeft: Module("Better Zombies Left") {
 
@@ -45,16 +42,30 @@ object BetterZombiesLeft: Module("Better Zombies Left") {
         isWork = true
     }
 
+//    fun modifyFormattedName(formatted: String): String {
+//        if (!isEnable()) return formatted
+//        if (!isWork) return formatted
+//        if (!(formatted.withoutColor() inContains zombiesLeft)) return formatted
+//
+//        val base = when {
+//            ":" in formatted -> formatted.substringBefore(":") + ": "
+//            "：" in formatted -> formatted.substringBefore("：") + "："
+//            else -> return formatted
+//        }
+//        return "$base§a$leftOnCurrentWave§f + §c$leftAfterWave"
+//    }
+
     fun modifyFormattedName(formatted: String): String {
         if (!isEnable()) return formatted
         if (!isWork) return formatted
-        if (!(formatted.withoutColor() inContains zombiesLeft)) return formatted
+        if (!(formatted.removeEmoji().withoutColor() inContains zombiesLeft)) return formatted
 
         val base = when {
             ":" in formatted -> formatted.substringBefore(":") + ": "
             "：" in formatted -> formatted.substringBefore("：") + "："
             else -> return formatted
         }
+
         return "$base§a$leftOnCurrentWave§f + §c$leftAfterWave"
     }
 
