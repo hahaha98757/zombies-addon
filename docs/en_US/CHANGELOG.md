@@ -1,5 +1,15 @@
 # Change log
 
+## 4.8.0-rc1
+05-04-2026
+- Change: Practice Server Compatibility
+  - Recorder does not save records.
+  - Uses the old method for difficulty detection.
+  - Last Weapons recognizes levels in Arabic numerals.
+  - Modules do not work in rounds without information.
+  - Removed scoreboard information from the lobby.
+
+
 ## 4.7.4
 05-03-2026
 - Changes
