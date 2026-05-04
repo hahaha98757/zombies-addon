@@ -19,14 +19,20 @@ class Recorder(val game: Game) {
         category = Category()
     }
 
-    fun record() {
-        if (game.round != 1 || isCorrected) compareSegment()
-        if (isFullRecorded && isCorrected) comparePb()
-        gameFile.segments[game.round] = game.timer.roundTick
+    fun record(save: Boolean) {
+        if (game.round != 1 || isCorrected) compareSegment(save)
+        if (isFullRecorded && isCorrected) comparePb(save)
+        if (save) gameFile.segments[game.round] = game.timer.roundTick
     }
 
-    private fun compareSegment() {
+    private fun compareSegment(save: Boolean) {
         if (game.escape) return
+        if (!save) {
+            val sender = MessageSender(category.name, game.round, game.timer.roundTick, 0)
+            sender.roundSplit()
+            sender.send()
+            return
+        }
         val categoryFile = category.getByGameMode(game.gameMode)
         val bestSegment = categoryFile.bestSegments[game.round]
         val roundTick = game.timer.roundTick
@@ -37,7 +43,14 @@ class Recorder(val game: Game) {
         sender.send()
     }
 
-    private fun comparePb() {
+    private fun comparePb(save: Boolean) {
+        if (!save) {
+            val sender = MessageSender(category.name, if (game.escape) 31 else game.round, game.timer.gameTick, 0)
+            if (game.escape) sender.helicopterSplit()
+            else sender.gameSplit()
+            sender.send()
+            return
+        }
         val categoryFile = category.getByGameMode(game.gameMode)
         val round = if (game.escape) 31 else game.round
         val pb = categoryFile.personalBests[round]

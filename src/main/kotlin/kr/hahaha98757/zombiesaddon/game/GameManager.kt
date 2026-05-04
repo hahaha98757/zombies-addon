@@ -2,6 +2,7 @@ package kr.hahaha98757.zombiesaddon.game
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
+import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.GameEndEvent
 import kr.hahaha98757.zombiesaddon.events.GameRemoveEvent
@@ -12,6 +13,8 @@ import net.minecraftforge.common.MinecraftForge
 
 class GameManager {
     private val games = mutableMapOf<ServerNumber, Game>()
+    private var queuedServerNumber: ServerNumber? = null
+    private var queuedDifficulty: Difficulty? = null
 
     val game get() = games[getServerNumber()]
 
@@ -39,7 +42,10 @@ class GameManager {
             game.changeDifficulty(difficulty)
             RepeatedTask.stop()
         }
+        if (!isPractice()) return
         MinecraftForge.EVENT_BUS.post(RoundStartEvent(game))
+        if (serverNumber == queuedServerNumber) queuedDifficulty?.let { game.changeDifficulty(it) }
+        queuedDifficulty = null
     }
 
     fun endGame(serverNumber: ServerNumber, isWin: Boolean) {
@@ -74,5 +80,11 @@ class GameManager {
         game.remove()
         games.remove(serverNumber)
         MinecraftForge.EVENT_BUS.post(GameRemoveEvent(game))
+    }
+
+    fun setDifficulty(difficulty: Difficulty) {
+        if (!isPractice()) return
+        queuedServerNumber = getServerNumber()
+        games[queuedServerNumber]?.changeDifficulty(difficulty) ?: run { queuedDifficulty = difficulty }
     }
 }

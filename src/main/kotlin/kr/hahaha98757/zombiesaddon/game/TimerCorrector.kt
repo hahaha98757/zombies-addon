@@ -1,9 +1,7 @@
 package kr.hahaha98757.zombiesaddon.game
 
-import kr.hahaha98757.zombiesaddon.utils.Scoreboard
-import kr.hahaha98757.zombiesaddon.utils.getServerNumber
-import kr.hahaha98757.zombiesaddon.utils.logger
-import kr.hahaha98757.zombiesaddon.utils.mc
+import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
+import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.entity.monster.EntityZombie
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.event.entity.EntityJoinWorldEvent
@@ -26,5 +24,18 @@ class TimerCorrector(private val game: Game) {
             logger.debug("타이머를 $ticks 틱으로 보정했습니다.")
         }
         MinecraftForge.EVENT_BUS.unregister(this)
+    }
+
+    @SubscribeEvent
+    fun onRoundStart(event: RoundStartEvent) {
+        if (event.game != game) return
+        if (isPractice()) {
+            game.recorder.isCorrected = true
+            return
+        }
+        if (event.game.round != 1) {
+            logger.info("게임 ${game.serverNumber}의 타이머 보정을 취소합니다. (라운드 1에서 시작되었으나, 다른 라운드로 넘어감)")
+            MinecraftForge.EVENT_BUS.unregister(this)
+        }
     }
 }

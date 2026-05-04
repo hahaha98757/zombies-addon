@@ -20,7 +20,7 @@ import java.nio.charset.StandardCharsets
 import java.util.*
 
 // private 필드
-private val serverNumberPattern = Regex(".*([mLM][0-9A-Z]+)")
+private val serverNumberPattern = Regex("\\d{2}/\\d{2}/\\d{2}\\s+([mLM][0-9A-Z]+|#\\d+)")
 
 // 상수
 const val LINE = "§e-----------------------------------------------------"
@@ -77,6 +77,20 @@ fun isHypixel(): Boolean {
     return ip.matches(Regex("(.+\\.)?(hypixel\\.net)(:25565)?"))
 }
 
+fun isPractice(): Boolean {
+    val ip = mc.currentServerData?.serverIP ?: return false
+    return ip.matches(Regex("(zombies\\.santoss\\.wtf)(:25565)?"))
+}
+
+fun isPracticeLobby(): Boolean {
+    if (mc.thePlayer == null || mc.theWorld == null) return false
+    if (!isPractice()) return false
+    val world = mc.theWorld
+    val pos = BlockPos(0, 44, 0)
+    if (!world.isBlockLoaded(pos)) return false
+    return world.getBlockState(pos).block.unlocalizedName == "tile.glass"
+}
+
 fun isNotPlayZombies(): Boolean {
     if (mc.thePlayer == null || mc.theWorld == null) return true
     if (Scoreboard.isNotZombies) return true
@@ -118,14 +132,18 @@ fun getDifficulty(): Difficulty? {
 }
 
 fun getPlayerStatus(): Array<Status> {
-    val playerState = arrayOf(Status.SURVIVE, Status.SURVIVE, Status.SURVIVE, Status.SURVIVE)
-
+    val playerState = Array(4) { Status.QUIT }
     val lines = Scoreboard.lines
 
-    for (i in 5..8) {
-        val status = runCatching { lines[i].split(":")[1].trim() }.getOrNull() ?: run { playerState[i - 5] = Status.QUIT }
+    val playerCount = (lines.size - 11).coerceIn(0, 4)
 
-        playerState[i - 5] = when (status) {
+    for (i in 0..<playerCount) {
+        val lineIndex = i + 5
+
+        val status = runCatching { lines[lineIndex].split(":")[1].trim() }.getOrNull()
+
+        playerState[i] = when (status) {
+            null -> Status.QUIT
             in rev -> Status.REVIVE
             in dead ->  Status.DEAD
             in quit ->  Status.QUIT

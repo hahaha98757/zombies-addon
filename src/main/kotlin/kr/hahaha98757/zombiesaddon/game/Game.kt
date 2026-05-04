@@ -7,13 +7,10 @@ import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.modules.AutoSplits
 import kr.hahaha98757.zombiesaddon.modules.recorder.Recorder
-import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
-import kr.hahaha98757.zombiesaddon.utils.logger
-import kr.hahaha98757.zombiesaddon.utils.mc
+import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.common.MinecraftForge
 
 class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: Int, doNotCorrectTimer: Boolean = false) {
-
     val timer = Timer(mc.theWorld).apply(MinecraftForge.EVENT_BUS::register)
     var gameEnd = false
     var isWin = false
@@ -26,24 +23,32 @@ class Game(var gameMode: GameMode, val serverNumber: ServerNumber, var round: In
         if (!doNotCorrectTimer) MinecraftForge.EVENT_BUS.register(timerCorrector)
     }
 
-    val roundData get() = gameMode.rounds[round - 1]
+    val roundData get() = runCatching { gameMode.rounds[round - 1] }.getOrNull()
 
     fun changeDifficulty(difficulty: Difficulty) {
         gameMode = gameMode.appliedDifficulty(difficulty)
     }
 
     fun pass(round: Int) {
-        if (round == 0) return
-        if (round > gameMode.rounds.size) return
-        recorder.runCatching { record() }.onFailure {
+        if (round != 0) recorder.runCatching { record(!isPractice()) }.onFailure {
+            if (isPractice()) return
             logger.error("게임 기록을 실패했습니다.", it)
             addTranslatedChat("zombiesaddon.modules.recorder.failed", it.message ?: "알 수 없음(Unknown)")
         }
         if (gameEnd) return
         timer.split()
-        this.round = round + 1
         AutoSplits.startOrSplit()
-        MinecraftForge.EVENT_BUS.post(RoundStartEvent(this))
+        if (!isPractice()) {
+            this.round = round + 1
+            MinecraftForge.EVENT_BUS.post(RoundStartEvent(this))
+            return
+        }
+        DelayedTask(10, true) {
+            val round = Scoreboard.round
+            if (round == 0) return@DelayedTask
+            this.round = round
+            MinecraftForge.EVENT_BUS.post(RoundStartEvent(this))
+        }
     }
 
     fun helicopter() {

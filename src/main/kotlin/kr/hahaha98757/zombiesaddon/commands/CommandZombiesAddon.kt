@@ -17,6 +17,7 @@ object CommandZombiesAddon: CustomCommandBase() {
         when (args[0]) {
             "hud" -> DelayedTask { mc.displayGuiScreen(ConfigGui) }
             "checkUpdate" -> UpdateChecker.initAndCheck()
+            "test" -> onTest()
             else -> throw WrongUsageException(getCommandUsage(null))
         }
     }
@@ -24,4 +25,8 @@ object CommandZombiesAddon: CustomCommandBase() {
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?): List<String>? =
         if (args.size == 1) getListOfStringsMatchingLastWord(args, "hud", "checkUpdate")
         else null
+
+    private fun onTest() {
+        throw WrongUsageException(getCommandUsage(null))
+    }
 }

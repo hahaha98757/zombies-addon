@@ -31,7 +31,7 @@ object WaveDelays: Module("Wave Delays") {
 
         val round = game.round
         val roundData = game.roundData
-        val waves = roundData.waves
+        val waves = roundData?.waves ?: return
         val roundTicks = game.timer.roundTick
         val size = waves.size
         var faded: Boolean
@@ -114,7 +114,7 @@ object WaveDelays: Module("Wave Delays") {
 
         val roundData = game.roundData
 
-        val waves = roundData.waves
+        val waves = roundData?.waves ?: return
         val roundTicks = game.timer.roundTick
         val lastIndex = waves.lastIndex
 
