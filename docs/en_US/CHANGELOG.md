@@ -1,5 +1,10 @@
 # Change log
 
+## 4.8.0
+05-05-2026
+- Fix: Last Weapons
+  - Does not recognize levels in Arabic numerals: Reflects fixes from the practice server.
+
 ## 4.8.0-rc1
 05-04-2026
 - Change: Practice Server Compatibility
