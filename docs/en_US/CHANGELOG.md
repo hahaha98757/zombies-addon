@@ -1,5 +1,10 @@
 # Change log
 
+## 4.8.2
+05-06-2026
+- Bug fix: Timer correction
+  - Timer correction was not canceled on the practice server.
+
 ## 4.8.1
 05-06-2026
 - Change: Zombies Utils settings

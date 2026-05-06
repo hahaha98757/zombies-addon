@@ -29,7 +29,7 @@ import java.io.FileWriter
 
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
-const val VERSION = "4.8.1"
+const val VERSION = "4.8.2"
 const val SST_VERSION = "2.1.1"
 const val ZU_VERSION = "1.4.4"
 
