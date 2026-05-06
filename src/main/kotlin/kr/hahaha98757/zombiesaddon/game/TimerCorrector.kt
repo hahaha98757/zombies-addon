@@ -31,10 +31,11 @@ class TimerCorrector(private val game: Game) {
         if (event.game != game) return
         if (isPractice()) {
             game.recorder.isCorrected = true
+            MinecraftForge.EVENT_BUS.unregister(this)
             return
         }
         if (event.game.round != 1) {
-            logger.info("게임 ${game.serverNumber}의 타이머 보정을 취소합니다. (라운드 1에서 시작되었으나, 다른 라운드로 넘어감)")
+            logger.info("게임 ${game.serverNumber}의 타이머 보정을 취소합니다. (라운드 1에서 시작되었으나, 보정 전에 다른 라운드로 넘어감)")
             MinecraftForge.EVENT_BUS.unregister(this)
         }
     }
