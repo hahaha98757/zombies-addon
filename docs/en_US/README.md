@@ -74,7 +74,7 @@ A mod that integrates several Zombies mods and provides them as modules.
 - Displays the elapsed time since the game started.
 - Client mode is identical to Zombies Addon v4.6.4 and Zombies Utils v1.3.7.
 Time is measured based on the client, regardless of server speed. It synchronizes with the server every 20 ticks.
-- Server mode is based on Zombies Utils v1.4.1. Time is measured based on the server speed.
+- Server mode is based on Zombies Utils v1.4.4. Time is measured based on the server speed.
 If you rejoin, the server speed becomes unknown, and you will switch to client mode.
 After the timer is adjusted, you will switch back to server mode.
 
@@ -173,8 +173,9 @@ After the timer is adjusted, you will switch back to server mode.
   If not in Hypixel or in debug mode, they are saved in the practice-splits folder.
 - For each game, segments are saved in the format of YYYY-MM-DD_HH-MM-SS_(Server Number).seg
  as UTF-16 encoded files in the .minecraft/zombies/runs folder.
-- There may be a 1 tick difference from the records of Zombies Utils, and the records of Zombies Utils are disabled.
+- The records of Zombies Utils are disabled.
 - Saved records can be used in Zombies Utils, and vice versa.
+- Records are not saved in practice servers.
 
 #### Config
 - Enable Recorder: Enable or disable Recorder.

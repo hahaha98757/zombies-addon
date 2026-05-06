@@ -72,7 +72,7 @@
 - 라운드 시작 시 초기화되는 내부 타이머를 표시합니다.
 - Client 모드는 Zombies Addon v4.6.4, Zombies Utils v1.3.7과 동일합니다.
 서버 속도와 무관하게 클라이언트를 기준으로 시간을 측정합니다. 서버 기준, 20틱 마다 서버와 동기화됩니다.
-- Server 모드는 Zombies Utils v1.4.2을 기반으로 합니다. 서버 속도를 즉시 반영하여 시간을 측정합니다.
+- Server 모드는 Zombies Utils v1.4.4을 기반으로 합니다. 서버 속도를 즉시 반영하여 시간을 측정합니다.
 재접속 시 서버 속도를 알 수 없게 되어 클라이언트 모드로 전환됩니다. 이후 타이머를 보정하여 다시 서버 모드로 전환됩니다.
 
 #### 컨피그
@@ -168,8 +168,9 @@
 - PB와 구간 최고 기록은 .minecraft/zombies/splits/(카테고리) 폴더에 UTF-16 인코딩된 .times 파일로 저장됩니다.
  하이픽셀이 아니거나 디버그 모드에서는 practise-splits 폴더에 저장됩니다.
 - 매 게임마다 구간 기록이 .minecraft/zombies/runs 폴더에 UTF-16 인코딩된 YYYY-MM-DD_HH-MM-SS_(서버 번호).seg 파일로 저장됩니다.
-- Zombies Utils의 기록과 1틱의 차이가 있을 수 있으며, Zombies Utils의 기록이 비활성화됩니다.
+- Zombies Utils의 기록은 비활성화됩니다.
 - 저장된 기록은 Zombies Utils에서 사용될 수 있으며, 반대도 가능합니다.
+- 연습 서버에서는 기록을 저장하지 않습니다.
 
 #### 컨피그
 - Recorder 활성화: Recorder를 활성화 또는 비활성화합니다.

@@ -1,5 +1,10 @@
 # Change log
 
+## 4.8.1
+05-06-2026
+- Change: Zombies Utils settings
+  - Recommended compatible version: 1.4.2 → 1.4.4
+
 ## 4.8.0
 05-05-2026
 - Fix: Last Weapons
