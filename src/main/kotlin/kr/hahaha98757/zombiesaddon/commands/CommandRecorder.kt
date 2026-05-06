@@ -25,8 +25,9 @@ object CommandRecorder: CustomCommandBase() {
     }
 
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?) =
-        if (args.size == 1) getListOfStringsMatchingLastWord(args, "category")
-        else if (args.size == 2 && args[0] == "category")
-            getListOfStringsMatchingLastWord(args, ZombiesAddon.instance.config.recorderDefaultCategory)
-        else null
+        when (args.size) {
+            1 -> getListOfStringsMatchingLastWord(args, "category")
+            2 if args[0] == "category" -> getListOfStringsMatchingLastWord(args, ZombiesAddon.instance.config.recorderDefaultCategory)
+            else -> null
+        }
 }

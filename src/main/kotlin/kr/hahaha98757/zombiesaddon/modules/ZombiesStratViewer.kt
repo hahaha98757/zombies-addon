@@ -26,7 +26,7 @@ object ZombiesStratViewer: Module("Zombies Strat Viewer") {
             if (i >= stratLines.size) continue
             var line = stratLines[i]
             if (line.isEmpty()) {
-                actualLines += "\$CONTROL EMPTY$"
+                actualLines += $$"$CONTROL EMPTY$"
                 height += 10
             } else {
                 line = WordUtils.wrap(line, 55)
@@ -38,7 +38,7 @@ object ZombiesStratViewer: Module("Zombies Strat Viewer") {
                     if (width > this.width) this.width = width
                     height += 10
                 }
-                actualLines += "\$HEY CONTROL$"
+                actualLines += $$"$HEY CONTROL$"
                 height += 5
             }
         }
@@ -64,8 +64,8 @@ object ZombiesStratViewer: Module("Zombies Strat Viewer") {
 
         for (str in actualLines)
             when (str) {
-                "\$HEY CONTROL$" -> y += 5
-                "\$CONTROL EMPTY$" -> y += 10
+                $$"$HEY CONTROL$" -> y += 5
+                $$"$CONTROL EMPTY$" -> y += 10
                 else -> {
                     y += 10
                     fr.drawStringWithShadow(str, 5f, y.toFloat(), 0xffffff)
