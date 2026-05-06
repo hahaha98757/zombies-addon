@@ -17,7 +17,7 @@ public class MixinLanguageSupport {
 
     /**
      * @author hahaha98757
-     * @reason 한국어 추가.
+     * @reason 일본어 추가.
      */
     @Overwrite
     public static boolean isLoss(@NotNull String input) {
@@ -33,7 +33,7 @@ public class MixinLanguageSupport {
 
     /**
      * @author hahaha98757
-     * @reason 한국어 추가.
+     * @reason 일본어 추가.
      */
     @Overwrite
     public static boolean isWin(@NotNull String input) {
@@ -49,7 +49,7 @@ public class MixinLanguageSupport {
 
     /**
      * @author hahaha98757
-     * @reason 한국어 추가.
+     * @reason 일본어 추가.
      */
     @Overwrite
     public static boolean containsHard(@NotNull String input) {
@@ -67,7 +67,7 @@ public class MixinLanguageSupport {
 
     /**
      * @author hahaha98757
-     * @reason 한국어 추가.
+     * @reason 일본어 추가.
      */
     @Overwrite
     public static boolean containsRIP(@NotNull String input) {
@@ -84,7 +84,7 @@ public class MixinLanguageSupport {
 
     /**
      * @author hahaha98757
-     * @reason 한국어 추가.
+     * @reason 일본어 추가.
      */
     @Overwrite
     public static @NotNull Pattern roundPattern(@NotNull String language) {
@@ -106,7 +106,7 @@ public class MixinLanguageSupport {
 
     /**
      * @author hahaha98757
-     * @reason 한국어 추가.
+     * @reason 일본어 추가.
      */
     @Overwrite
     public static String[] getLanguages() {

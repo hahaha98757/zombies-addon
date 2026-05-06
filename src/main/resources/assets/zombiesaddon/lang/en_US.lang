@@ -22,8 +22,8 @@ zombiesaddon.messages.offBlockUnlegitMods=blockUnlegitMods is turned off.
 zombiesaddon.messages.offBlockUnlegitSst=blockUnlegitSst is turned off.
 zombiesaddon.messages.blockUnlegitSst=The unlegit features of SST have been blocked by Zombies Addon. (Block Unlegit SST is enabled)
 zombiesaddon.messages.disableWave3LeftNotice=Wave 3rd Left Notice has been disabled by Zombies Addon. (Better Zombies Left is enabled)
-zombiesaddon.messages.sstDiffVer=SST version is incorrect. Current version: %s, required version: 2.1.1
-zombiesaddon.messages.zuDiffVer=Zombies Utils version is incorrect. Current version: %s, required version: 1.4.2
+zombiesaddon.messages.sstDiffVer=SST version is incorrect. Current version: %s, required version: %s
+zombiesaddon.messages.zuDiffVer=Zombies Utils version is incorrect. Current version: %s, required version: %s
 zombiesaddon.messages.featherDetected=Feather Client detected. Better Zombies Left is not working and may cause other compatibility issues.
 
 zombiesaddon.message.failed.splitOrNew=§eZombies Addon: §cFailed to start game or round: %s
@@ -262,8 +262,6 @@ zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
 zombiesaddon.config.koreanPatchersZombiesOverlay.description=Enable or disable Korean Patchers for Zombies Overlay.
 zombiesaddon.config.koreanPatchersSst=SST
 zombiesaddon.config.koreanPatchersSst.description=Enable or disable Korean Patchers for SST.
-zombiesaddon.config.koreanPatchersZombiesUtils=Zombies Utils
-zombiesaddon.config.koreanPatchersZombiesUtils.description=Enable or disable Korean Patchers for Zombies Utils.
 
 zombiesaddon.config.disableSpawnTimeOfSst=Disable Spawn Time of SST
 zombiesaddon.config.disableSpawnTimeOfSst.description=Disable the spawn time of SST.

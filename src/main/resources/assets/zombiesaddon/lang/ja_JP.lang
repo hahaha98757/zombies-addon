@@ -22,8 +22,8 @@ zombiesaddon.messages.offBlockUnlegitMods=Unlegit Modをブロックはオフに
 zombiesaddon.messages.offBlockUnlegitSst=Unlegit SSTをブロックはオフになっています。
 zombiesaddon.messages.blockUnlegitSst=SSTのUnlegit機能はZombies Addonによってブロックされました。(Block Unlegit SSTが有効になっています)
 zombiesaddon.messages.disableWave3LeftNotice=Wave 3rd Left NoticeはZombies Addonによって無効化されました。(Better Zombies Leftが有効になっています)
-zombiesaddon.messages.sstDiffVer=SSTバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：2.1.1
-zombiesaddon.messages.zuDiffVer=Zombies Utilsバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：1.4.2
+zombiesaddon.messages.sstDiffVer=SSTバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：%s
+zombiesaddon.messages.zuDiffVer=Zombies Utilsバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：%s
 zombiesaddon.messages.featherDetected=Feather Clientが検出されました。Better Zombies Leftは動作しておらず、その他の互換性の問題が発生する可能性があります。
 
 zombiesaddon.message.failed.splitOrNew=§eZombies Addon：§cラウンドまたはゲームの開始に失敗しました：%s
@@ -262,8 +262,6 @@ zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
 zombiesaddon.config.koreanPatchersZombiesOverlay.description=Zombies OverlayにKorean Patchersを有効または無効にします。
 zombiesaddon.config.koreanPatchersSst=SST
 zombiesaddon.config.koreanPatchersSst.description=SSTにKorean Patchersを有効または無効にします。
-zombiesaddon.config.koreanPatchersZombiesUtils=Zombies Utils
-zombiesaddon.config.koreanPatchersZombiesUtils.description=Zombies UtilsにKorean Patchersを有効または無効にします。
 
 zombiesaddon.config.disableSpawnTimeOfSst=SSTのスポーン時間を無効化
 zombiesaddon.config.disableSpawnTimeOfSst.description=SSTのスポーン時間を無効化します。

@@ -30,6 +30,8 @@ import java.io.FileWriter
 const val MODID = "zombiesaddon"
 const val NAME = "Zombies Addon"
 const val VERSION = "4.8.0"
+const val SST_VERSION = "2.1.1"
+const val ZU_VERSION = "1.4.4"
 
 @Mod(modid = MODID, name = NAME, version = VERSION, guiFactory = "kr.hahaha98757.zombiesaddon.config.ZAGuiFactory", clientSideOnly = true)
 class ZombiesAddon {
@@ -86,11 +88,11 @@ class ZombiesAddon {
         if (Loader.isModLoaded("showspawntime")) {
             hasSST = true
             runCatching { ShowSpawnTime.getMainConfiguration().ConfigLoad() }
-            logger.info("ShowSpawnTime 모드가 감지되었습니다. 2.1.1 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
+            logger.info("ShowSpawnTime 모드가 감지되었습니다. $SST_VERSION 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
         }
         if (Loader.isModLoaded("zombiesutils")) {
             hasZombiesUtils = true
-            logger.info("Zombies Utils 모드가 감지되었습니다. 1.4.2 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
+            logger.info("Zombies Utils 모드가 감지되었습니다. $ZU_VERSION 버전이 아닐 경우, 문제가 발생할 수 있습니다.")
         }
         if (Loader.isModLoaded("feather")) {
             hasFeather = true

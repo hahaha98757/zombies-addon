@@ -1,8 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.NAME
-import kr.hahaha98757.zombiesaddon.VERSION
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.*
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.utils.*
@@ -70,11 +68,11 @@ class ThePlayerJoinHandler {
 
         if (za.hasSST) {
             val sstVer = runCatching { Loader.instance().indexedModList["showspawntime"]!!.metadata.version }.getOrNull() ?: "Unknown"
-            if (sstVer != "2.1.1") addTranslatedChatLine("zombiesaddon.messages.sstDiffVer", sstVer)
+            if (sstVer != SST_VERSION) addTranslatedChatLine("zombiesaddon.messages.sstDiffVer", sstVer, SST_VERSION)
         }
         if (za.hasZombiesUtils) {
             val zuVer = runCatching { Loader.instance().indexedModList["zombiesutils"]!!.metadata.version }.getOrNull() ?: "Unknown"
-            if (zuVer != "1.4.2") addTranslatedChatLine("zombiesaddon.messages.zuDiffVer", zuVer)
+            if (zuVer != ZU_VERSION) addTranslatedChatLine("zombiesaddon.messages.zuDiffVer", zuVer, ZU_VERSION)
         }
 
         if (za.hasFeather) addTranslatedChatLine("zombiesaddon.messages.featherDetected")

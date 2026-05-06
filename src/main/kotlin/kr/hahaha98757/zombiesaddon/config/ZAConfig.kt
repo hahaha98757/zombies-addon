@@ -91,7 +91,6 @@ class ZAConfig(val config: Configuration) {
     var koreanPatchersIngame = false
     var koreanPatchersZombiesOverlay = false
     var koreanPatchersSst = false
-    var koreanPatchersZombiesUtils = false
 
     var disableSpawnTimeOfSst = true
     var disableTimerOfZombiesUtils = true
@@ -516,14 +515,6 @@ class ZAConfig(val config: Configuration) {
             "koreanPatchersSst",
             false,
             "$koreanPatchersSstKey.description"
-        )).boolean
-
-        val koreanPatchersZombiesUtilsKey = "zombiesaddon.config.koreanPatchersZombiesUtils"
-        koreanPatchersZombiesUtils = addOption(categoryKoreanPatchers.map, koreanPatchersZombiesUtilsKey, config.get(
-            categoryKoreanPatchers.name,
-            "koreanPatchersZombiesUtils",
-            false,
-            "$koreanPatchersZombiesUtilsKey.description"
         )).boolean
 
 
