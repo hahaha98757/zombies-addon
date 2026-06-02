@@ -85,3 +85,7 @@ enum class Mode(val text: String) {
         val arrays get() = entries.map { it.text }.toTypedArray()
     }
 }
+
+enum class OffsetMode(val text: String) {
+    NONE("None"), RL_MODE("RL Mode"), WRATH_MODE("Wrath Mode")
+}

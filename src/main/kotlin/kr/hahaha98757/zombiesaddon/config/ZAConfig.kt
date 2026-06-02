@@ -68,6 +68,7 @@ class ZAConfig(val config: Configuration) {
     var waveDelaysHighlightStyle = HighlightStyle.ZOMBIES_ADDON
     var waveDelaysHidePassedWave = false
     var waveDelaysRlModeOffset = -28
+    var waveDelaysWrathModeOffset = -40
     
     var slaAutoSla = false
     var slaTextColor = true
@@ -373,6 +374,15 @@ class ZAConfig(val config: Configuration) {
             "waveDelaysRlModeOffset",
             -28,
             "$waveDelaysRlModeOffsetKey.description",
+            -1000, 1000
+        )).int
+
+        val waveDelaysWrathModeOffsetKey = "zombiesaddon.config.waveDelaysWrathModeOffset"
+        waveDelaysWrathModeOffset = addOption(categoryWaveDelays.map, waveDelaysWrathModeOffsetKey, config.get(
+            categoryWaveDelays.name,
+            "waveDelaysWrathModeOffset",
+            -40,
+            "$waveDelaysWrathModeOffsetKey.description",
             -1000, 1000
         )).int
 

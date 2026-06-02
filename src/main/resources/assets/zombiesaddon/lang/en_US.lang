@@ -223,6 +223,8 @@ zombiesaddon.config.waveDelaysHidePassedWave=Hide Passed Wave
 zombiesaddon.config.waveDelaysHidePassedWave.description=Hides passed waves from the screen.
 zombiesaddon.config.waveDelaysRlModeOffset=RL Mode Offset
 zombiesaddon.config.waveDelaysRlModeOffset.description=Adds an offset to the wave delay in RL Mode.
+zombiesaddon.config.waveDelaysWrathModeOffset=Wrath Mode Offset
+zombiesaddon.config.waveDelaysWrathModeOffset.description=Adds an offset to the wave delay in Wrath Mode.
 
 zombiesaddon.config.slaAutoSla=Auto SLA
 zombiesaddon.config.slaAutoSla.description=Turns on SLA when the game starts.

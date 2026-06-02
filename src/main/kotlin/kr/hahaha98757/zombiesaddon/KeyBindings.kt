@@ -13,6 +13,7 @@ object KeyBindings {
     val zsvScrollDown = KeyBinding("zombiesaddon.key.zsvScrollDown", Keyboard.KEY_RBRACKET, NAME)
 
     val toggleRlMode = KeyBinding("zombiesaddon.key.toggleRlMode", Keyboard.KEY_UP, NAME)
+    val toggleWrathMode = KeyBinding("zombiesaddon.key.toggleWrathMode", Keyboard.KEY_DOWN, NAME)
 
     val textMacro = KeyBinding("zombiesaddon.key.textMacro", Keyboard.KEY_Q, NAME)
 
@@ -31,6 +32,7 @@ object KeyBindings {
         ClientRegistry.registerKeyBinding(zsvScrollUp)
         ClientRegistry.registerKeyBinding(zsvScrollDown)
         ClientRegistry.registerKeyBinding(toggleRlMode)
+        ClientRegistry.registerKeyBinding(toggleWrathMode)
         ClientRegistry.registerKeyBinding(textMacro)
         ClientRegistry.registerKeyBinding(insTimer)
         ClientRegistry.registerKeyBinding(maxTimer)

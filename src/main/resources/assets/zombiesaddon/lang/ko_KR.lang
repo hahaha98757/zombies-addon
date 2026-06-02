@@ -220,8 +220,10 @@ zombiesaddon.config.waveDelaysHighlightStyle=하이라이트 스타일
 zombiesaddon.config.waveDelaysHighlightStyle.description=현재 웨이브, 지난 웨이브, 다음 웨이브에 대한 하이라이트 방식입니다.
 zombiesaddon.config.waveDelaysHidePassedWave=지난 웨이브 숨기기
 zombiesaddon.config.waveDelaysHidePassedWave.description=화면에서 지나간 웨이브를 숨깁니다.
-zombiesaddon.config.waveDelaysRlModeOffset=RL 모드 오프셋
-zombiesaddon.config.waveDelaysRlModeOffset.description=RL 모드에서 웨이브 딜레이에 오프셋을 추가합니다.
+zombiesaddon.config.waveDelaysRlModeOffset=RL Mode 오프셋
+zombiesaddon.config.waveDelaysRlModeOffset.description=RL Mode에서 웨이브 딜레이에 오프셋을 추가합니다.
+zombiesaddon.config.waveDelaysWrathModeOffset=Wrath Mode 오프셋
+zombiesaddon.config.waveDelaysWrathModeOffset.description=Wrath Mode에서 웨이브 딜레이에 오프셋을 추가합니다.
 
 zombiesaddon.config.slaAutoSla=자동 SLA
 zombiesaddon.config.slaAutoSla.description=게임 시작 시 SLA를 자동으로 켭니다.
