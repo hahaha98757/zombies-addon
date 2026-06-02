@@ -18,9 +18,7 @@ zombiesaddon.key.bgTimer=보너스 골드 타이머
 zombiesaddon.key.autoTimer=자동 타이머
 
 
-zombiesaddon.messages.offBlockUnlegitMods=언레짓 모드 차단이 꺼져 있습니다.
-zombiesaddon.messages.offBlockUnlegitSst=SST 언레짓 기능 차단이 꺼져 있습니다.
-zombiesaddon.messages.blockUnlegitSst=SST의 언레짓 기능이 Zombies Addon에 의해 차단되었습니다. (Block Unlegit SST가 켜져 있음)
+zombiesaddon.messages.disableUnlegitSst=SST의 언레짓 기능이 Zombies Addon에 의해 비활성화되었습니다. (스피드런 모드가 켜져 있음)
 zombiesaddon.messages.disableWave3LeftNotice=Wave 3rd Left Notice가 Zombies Addon에 의해 비활성화되었습니다. (Better Zombies Left가 켜져 있음)
 zombiesaddon.messages.sstDiffVer=SST의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: %s
 zombiesaddon.messages.zuDiffVer=Zombies Utils의 버전이 맞지 않습니다. 현재 버전: %s, 필요한 버전: %s
@@ -160,6 +158,8 @@ zombiesaddon.config.enableMod=모드 활성화
 zombiesaddon.config.enableMod.description=Zombies Addon 모드를 활성화 또는 비활성화합니다.
 zombiesaddon.config.language=언어
 zombiesaddon.config.language.description=모드에 사용할 언어입니다.
+zombiesaddon.config.speedrunMode=스피드런 모드
+zombiesaddon.config.speedrunMode.description=스피드런 모드를 활성화 또는 비활성화합니다. speedrun.com 규칙에서 금지된 일부 기능을 비활성화합니다.
 
 zombiesaddon.config.toggleNotLast=Not Last 활성화
 zombiesaddon.config.toggleNotLast.description=Not Last를 활성화 또는 비활성화합니다.

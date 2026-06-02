@@ -18,9 +18,7 @@ zombiesaddon.key.bgTimer=Bonus Gold Timer
 zombiesaddon.key.autoTimer=Auto Timer
 
 
-zombiesaddon.messages.offBlockUnlegitMods=blockUnlegitMods is turned off.
-zombiesaddon.messages.offBlockUnlegitSst=blockUnlegitSst is turned off.
-zombiesaddon.messages.blockUnlegitSst=The unlegit features of SST have been blocked by Zombies Addon. (Block Unlegit SST is enabled)
+zombiesaddon.messages.disableUnlegitSst=The unlegit features of SST have been disabled by Zombies Addon. (Speedrun Mode is enabled)
 zombiesaddon.messages.disableWave3LeftNotice=Wave 3rd Left Notice has been disabled by Zombies Addon. (Better Zombies Left is enabled)
 zombiesaddon.messages.sstDiffVer=SST version is incorrect. Current version: %s, required version: %s
 zombiesaddon.messages.zuDiffVer=Zombies Utils version is incorrect. Current version: %s, required version: %s
@@ -161,6 +159,8 @@ zombiesaddon.config.enableMod=Enable Mod
 zombiesaddon.config.enableMod.description=Enable or disable Zombies Addon mod.
 zombiesaddon.config.language=Language
 zombiesaddon.config.language.description=The language for the mod.
+zombiesaddon.config.speedrunMode=Speedrun Mode
+zombiesaddon.config.speedrunMode.description=Enable or disable Speedrun Mode. It disables some features prohibited by speedrun.com rules.
 
 zombiesaddon.config.toggleNotLast=Enable Not Last
 zombiesaddon.config.toggleNotLast.description=Enable or disable Not Last.

@@ -29,10 +29,10 @@ class ZAConfig(val config: Configuration) {
     private val categoryRecorder = Category("Recorder")
     private val categoryKoreanPatchers = Category("Korean Patchers")
     private val categoryOtherMods = Category("Other Mods")
-    private val categoryHidden = Category("Hidden")
 
     var enableMod = true
     var language = Language.AUTO
+    var speedrunMode = false
 
     var toggleNotLast = false
     var togglePowerupPatterns = true
@@ -95,9 +95,6 @@ class ZAConfig(val config: Configuration) {
     var disableSpawnTimeOfSst = true
     var disableTimerOfZombiesUtils = true
 
-    var blockUnlegitMods = true
-    var blockUnlegitSst = true
-
     init {
         loadConfig()
     }
@@ -123,6 +120,14 @@ class ZAConfig(val config: Configuration) {
             "$languageKey.description",
             Language.arrays
         )).string)
+
+        val speedrunModeKey = "zombiesaddon.config.speedrunMode"
+        speedrunMode = addOption(categoryGeneral.map, speedrunModeKey, config.get(
+            categoryGeneral.name,
+            "speedrunMode",
+            false,
+            "$speedrunModeKey.description"
+        )).boolean
 
 
         // 모듈
@@ -533,22 +538,6 @@ class ZAConfig(val config: Configuration) {
             "disableTimerOfZombiesUtils",
             true,
             "$disableTimerOfZombiesUtilsKey.description"
-        )).boolean
-
-
-        // 숨겨짐
-        blockUnlegitMods = addOption(categoryHidden.map, "zombiesaddon.config.blockUnlegitMods", config.get(
-            categoryHidden.name,
-            "blockUnlegitMods",
-            true,
-            "언레짓 모드를 차단합니다."
-        )).boolean
-
-        blockUnlegitSst = addOption(categoryHidden.map, "zombiesaddon.config.blockUnlegitSst", config.get(
-            categoryHidden.name,
-            "blockUnlegitSst",
-            true,
-            "SST의 언레짓 기능을 차단합니다."
         )).boolean
 
         HudUtils.autoSplitsX = config.get("HUD", "autoSplitsX", -1.0).double

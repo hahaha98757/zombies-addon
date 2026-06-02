@@ -18,9 +18,7 @@ zombiesaddon.key.bgTimer=ボーナスゴールドのタイマー
 zombiesaddon.key.autoTimer=自動タイマー
 
 
-zombiesaddon.messages.offBlockUnlegitMods=Unlegit Modをブロックはオフになっています。
-zombiesaddon.messages.offBlockUnlegitSst=Unlegit SSTをブロックはオフになっています。
-zombiesaddon.messages.blockUnlegitSst=SSTのUnlegit機能はZombies Addonによってブロックされました。(Block Unlegit SSTが有効になっています)
+zombiesaddon.messages.disableUnlegitSst=SSSTのUnlegit機能はZombies Addonによって無効化されました。(スピードランモードが有効になっています)
 zombiesaddon.messages.disableWave3LeftNotice=Wave 3rd Left NoticeはZombies Addonによって無効化されました。(Better Zombies Leftが有効になっています)
 zombiesaddon.messages.sstDiffVer=SSTバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：%s
 zombiesaddon.messages.zuDiffVer=Zombies Utilsバージョンが正しくありません。現在のバージョン：%s 必要なバージョン：%s
@@ -161,6 +159,8 @@ zombiesaddon.config.enableMod=modを有効化
 zombiesaddon.config.enableMod.description=Zombie Addon modを有効化または無効化します。
 zombiesaddon.config.language=言語
 zombiesaddon.config.language.description=このmodの言語
+zombiesaddon.config.speedrunMode=スピードランモード
+zombiesaddon.config.speedrunMode.description=スピードランモードを有効または無効にします。speedrun.comルールで禁止されている機能の一部を無効にします。
 
 zombiesaddon.config.toggleNotLast=Not Lastを有効化
 zombiesaddon.config.toggleNotLast.description=Not Lastを有効または無効にします。

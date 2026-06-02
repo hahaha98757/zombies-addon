@@ -17,9 +17,8 @@ object General: AlwaysEnableModule("General") {
         var i = 1
 
         val color = when {
-            !ZombiesAddon.instance.config.blockUnlegitSst -> 0xff5555
-            !ZombiesAddon.instance.config.blockUnlegitMods -> 0xff5555
             ZombiesAddon.instance.debug -> 0x55ff55
+            !ZombiesAddon.instance.config.speedrunMode -> 0x55ffff
             else -> 0xffff55
         }
         var str = "$NAME v$VERSION"
@@ -59,9 +58,6 @@ class ThePlayerJoinHandler {
         MinecraftForge.EVENT_BUS.unregister(this)
 
         val za = ZombiesAddon.instance
-
-        if (!za.config.blockUnlegitMods) addTranslatedChatLine("zombiesaddon.messages.offBlockUnlegitMods")
-        if (za.hasSST && !za.config.blockUnlegitSst) addTranslatedChatLine("zombiesaddon.messages.offBlockUnlegitSST")
 
         if (za.hasSST) {
             val sstVer = runCatching { Loader.instance().indexedModList["showspawntime"]!!.metadata.version }.getOrNull() ?: "Unknown"

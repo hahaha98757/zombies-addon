@@ -20,7 +20,7 @@ public class MixinMainConfiguration {
     @Inject(method = "ConfigLoad", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/common/config/Configuration;save()V"))
     private void beforeSave(CallbackInfo ci) {
         try {
-            if (ZombiesAddon.getInstance().getConfig().getBlockUnlegitSst()) {
+            if (ZombiesAddon.getInstance().getConfig().getSpeedrunMode()) {
                 Property propertyPowerupAlertToggle = config.get(Configuration.CATEGORY_GENERAL, "Powerup Alert", true, "Remind you when this is a powerup-round. Start counting down when a powerup spawns");
                 propertyPowerupAlertToggle.set(false);
                 MainConfiguration.PowerupAlertToggle = false;
@@ -56,8 +56,8 @@ public class MixinMainConfiguration {
     @Inject(method = "ConfigLoad", at = @At("TAIL"))
     private void afterSave(CallbackInfo ci) {
         try {
-            if (ZombiesAddon.getInstance().getConfig().getBlockUnlegitSst())
-                ToolsKt.addTranslatedChat("zombiesaddon.messages.blockUnlegitSst");
+            if (ZombiesAddon.getInstance().getConfig().getSpeedrunMode())
+                ToolsKt.addTranslatedChat("zombiesaddon.messages.disableUnlegitSst");
         } catch (Throwable ignored) {}
 
         try {

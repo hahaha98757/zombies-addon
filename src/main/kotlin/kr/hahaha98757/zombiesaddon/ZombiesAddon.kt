@@ -8,12 +8,10 @@ import kr.hahaha98757.zombiesaddon.data.CustomPlaySound
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.game.GameManager
-import kr.hahaha98757.zombiesaddon.gui.GuiDetectedUnlegitMods
 import kr.hahaha98757.zombiesaddon.modules.*
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker
 import kr.hahaha98757.zombiesaddon.update.UpdateCheckerHandler
 import kr.hahaha98757.zombiesaddon.utils.mc
-import kr.hahaha98757.zombiesaddon.utils.unlegitMods
 import net.minecraftforge.client.event.GuiScreenEvent
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.common.config.Configuration
@@ -50,7 +48,6 @@ class ZombiesAddon {
     val keyBindings = KeyBindings
     val gameManager = GameManager()
 
-    private var hasUnlegitMod = false
     var hasSST = false
     var hasZombiesUtils = false
     var hasFeather = false
@@ -81,10 +78,6 @@ class ZombiesAddon {
     @Mod.EventHandler
     fun postInit(event: FMLPostInitializationEvent) {
         logger.info("postInit 시작.")
-        if (config.blockUnlegitMods) for (mod in unlegitMods) if (Loader.isModLoaded(mod)) {
-            logger.info("언레짓 모드 ${mod}가 감지되었습니다.")
-            hasUnlegitMod = true
-        }
         if (Loader.isModLoaded("showspawntime")) {
             hasSST = true
             runCatching { ShowSpawnTime.getMainConfiguration().ConfigLoad() }
@@ -108,8 +101,7 @@ class ZombiesAddon {
         logger.info("게임 시작.")
         MinecraftForge.EVENT_BUS.unregister(this)
 
-        if (hasUnlegitMod) mc.displayGuiScreen(GuiDetectedUnlegitMods)
-        else UpdateChecker.initAndCheck()
+        UpdateChecker.initAndCheck()
     }
 
     private fun writeFile(file: File) {

@@ -31,7 +31,6 @@ val fr get() = mc.fontRendererObj!!
 val modFile: File by lazy {
     Loader.instance().activeModContainer().source
 }
-val unlegitMods = arrayOf("zombiesatellite", "zombiesexplorer", "TeammatesOutline", "zombieshelper")
 val logger get() = ZombiesAddon.instance.logger
 
 val emojiPattern = Regex("[\uD83D\uDD2B\uD83C\uDF6B\uD83D\uDCA3\uD83D\uDC7D\uD83D\uDD2E\uD83D\uDC0D\uD83D\uDC7E\uD83C\uDF20\uD83C\uDF6D\u26BD\uD83C\uDFC0\uD83D\uDC79\uD83C\uDF81\uD83C\uDF89\uD83C\uDF82]+")
