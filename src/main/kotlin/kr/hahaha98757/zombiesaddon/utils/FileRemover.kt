@@ -42,7 +42,7 @@ object FileRemover {
         true
     }
 
-    private fun deleteWithRetry(file: File) = repeat(10) {
+    private fun deleteWithRetry(file: File): Unit = repeat(10) {
         if (!file.exists() || file.delete()) return
         Thread.sleep(500)
     }

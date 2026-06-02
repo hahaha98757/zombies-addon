@@ -53,7 +53,7 @@ object NotLast: Module("Not Last") {
         }
     }
 
-    private fun printLast(players: List<String>) = StringBuilder().run {
+    private fun printLast(players: List<String>): Unit = StringBuilder().run {
         append(players[0].withNameColor())
 
         if (players.size == 2) {

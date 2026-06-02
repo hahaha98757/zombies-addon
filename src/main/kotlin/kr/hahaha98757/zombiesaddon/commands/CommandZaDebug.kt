@@ -161,4 +161,4 @@ object CommandZaDebug: CustomCommandBase() {
 
 private fun Boolean.withColor() = if (this) "§atrue" else "§cfalse"
 
-private fun ServerNumber?.withColor() = this?.let { return "§a$it" } ?: "§cnull"
+private fun ServerNumber?.withColor() = this?.let { "§a$it" } ?: "§cnull"
