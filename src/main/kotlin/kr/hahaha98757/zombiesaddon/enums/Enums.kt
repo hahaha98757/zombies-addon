@@ -97,6 +97,6 @@ enum class ITTextStyle(val text: String) {
     }
 }
 
-enum class OffsetMode(val text: String) {
-    NONE("None"), RL_MODE("RL Mode"), WRATH_MODE("Wrath Mode")
+enum class OffsetMode {
+    OFF, RL_MODE, WRATH_MODE
 }

@@ -18,7 +18,7 @@ object General: AlwaysEnableModule("General") {
 
         val color = when {
             ZombiesAddon.instance.debug -> 0x55ff55
-            !ZombiesAddon.instance.config.speedrunMode -> 0x55ffff
+            ZombiesAddon.instance.config.speedrunMode -> 0x55ffff
             else -> 0xffff55
         }
         var str = "$NAME v$VERSION"

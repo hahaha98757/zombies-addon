@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent
 
 object WaveDelays: Module("Wave Delays") {
     private const val DESPAWN_TICK: Short = 6000
-    private var offsetMode = OffsetMode.NONE
+    private var offsetMode = OffsetMode.OFF
     private var offset = 0
 
     override fun onKeyInput(event: KeyInputEvent) {
@@ -23,16 +23,16 @@ object WaveDelays: Module("Wave Delays") {
             if (!isEnable()) return
 
             offset = if (offsetMode != OffsetMode.RL_MODE) ZombiesAddon.instance.config.waveDelaysRlModeOffset else 0
-            addChat("§eWave Delays: " + getTranslatedString("zombiesaddon.modules.general.toggled", true, "RL Mode", if (offsetMode != OffsetMode.RL_MODE) "§aon" else "§coff"))
-            offsetMode = if (offsetMode != OffsetMode.RL_MODE) OffsetMode.RL_MODE else OffsetMode.NONE
+            addChat("§eWave Delays: " + getTranslatedString("zombiesaddon.modules.general.toggled", true, "Offset Mode", if (offsetMode != OffsetMode.RL_MODE) "§aRL Mode" else "§coff"))
+            offsetMode = if (offsetMode != OffsetMode.RL_MODE) OffsetMode.RL_MODE else OffsetMode.OFF
         }
         if (keys.toggleWrathMode.isPressed) {
             if (isDisable()) return
             if (!isEnable()) return
 
             offset = if (offsetMode != OffsetMode.WRATH_MODE) ZombiesAddon.instance.config.waveDelaysWrathModeOffset else 0
-            addChat("§eWave Delays: " + getTranslatedString("zombiesaddon.modules.general.toggled", true, "Wrath Mode", if (offsetMode != OffsetMode.WRATH_MODE) "§aon" else "§coff"))
-            offsetMode = if (offsetMode != OffsetMode.WRATH_MODE) OffsetMode.WRATH_MODE else OffsetMode.NONE
+            addChat("§eWave Delays: " + getTranslatedString("zombiesaddon.modules.general.toggled", true, "Offset Mode", if (offsetMode != OffsetMode.WRATH_MODE) "§aWrath Mode" else "§coff"))
+            offsetMode = if (offsetMode != OffsetMode.WRATH_MODE) OffsetMode.WRATH_MODE else OffsetMode.OFF
         }
     }
 
