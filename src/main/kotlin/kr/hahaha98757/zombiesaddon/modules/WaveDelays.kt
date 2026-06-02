@@ -70,10 +70,9 @@ object WaveDelays: Module("Wave Delays") {
             }
 
             val waveText = when (ZombiesAddon.instance.config.waveDelaysTextStyle) {
-                TextStyle.NEW_COLON -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
-                TextStyle.NEW -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
-                TextStyle.OLD_COLON -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
-                TextStyle.OLD -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
+                WDTextStyle.ZOMBIES_ADDON -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getTenthSecondsString(waveTicks)}"
+                WDTextStyle.DETAILS -> "W${i+1}: ${bossColor[0] + getMinutesString(waveTicks)}:${bossColor[1] + getSecondsString(waveTicks)}.${getHundredthSecondsString(waveTicks)}"
+                WDTextStyle.SST -> "W${i+1} ${bossColor[0] + getMinutesString(waveTicks, true)}:${bossColor[1] + getSecondsString(waveTicks)}"
             }
 
             if (ZombiesAddon.instance.config.waveDelaysHighlightStyle == HighlightStyle.ZOMBIES_ADDON) {
@@ -175,6 +174,11 @@ object WaveDelays: Module("Wave Delays") {
         var tenthSeconds = ((ticks % 1200) % 20) / 2
         if (tenthSeconds < 0) tenthSeconds = 0
         return String.format("%d", tenthSeconds)
+    }
+    private fun getHundredthSecondsString(ticks: Int): String {
+        var hundredthSeconds = ((ticks % 1200) % 20) * 5
+        if (hundredthSeconds < 0) hundredthSeconds = 0
+        return String.format("%02d", hundredthSeconds)
     }
 
     override fun isEnable() = ZombiesAddon.instance.config.waveDelaysToggle

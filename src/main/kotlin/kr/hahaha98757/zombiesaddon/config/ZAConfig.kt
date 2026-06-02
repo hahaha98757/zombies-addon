@@ -57,6 +57,7 @@ class ZAConfig(val config: Configuration) {
     var autoSplitsPort = 16384
 
     var internalTimerToggle = true
+    var internalTimerTextStyle = ITTextStyle.ZOMBIES_ADDON
     var internalTimerMode = Mode.SERVER
 
     var waveDelaysToggle = true
@@ -64,7 +65,7 @@ class ZAConfig(val config: Configuration) {
     var waveDelaysCustomPlaySound = false
     var waveDelaysPrefix = true
     var waveDelaysBossColor = true
-    var waveDelaysTextStyle = TextStyle.NEW_COLON
+    var waveDelaysTextStyle = WDTextStyle.ZOMBIES_ADDON
     var waveDelaysHighlightStyle = HighlightStyle.ZOMBIES_ADDON
     var waveDelaysHidePassedWave = false
     var waveDelaysRlModeOffset = -28
@@ -290,6 +291,15 @@ class ZAConfig(val config: Configuration) {
             "$internalTimerToggleKey.description"
         )).boolean
 
+        val internalTimerTextStyleKey = "zombiesaddon.config.internalTimerTextStyle"
+        internalTimerTextStyle = ITTextStyle.fromText(addOption(categoryInternalTimer.map, internalTimerTextStyleKey, config.get(
+            categoryInternalTimer.name,
+            "internalTimerTextStyle",
+            ITTextStyle.ZOMBIES_ADDON.toString(),
+            "$internalTimerTextStyleKey.description",
+            ITTextStyle.arrays
+        )).string)
+
         val internalTimerModeKey = "zombiesaddon.config.internalTimerMode"
         internalTimerMode = Mode.fromText(addOption(categoryInternalTimer.map, internalTimerModeKey, config.get(
             categoryInternalTimer.name,
@@ -343,12 +353,12 @@ class ZAConfig(val config: Configuration) {
         )).boolean
 
         val waveDelaysTextStyleKey = "zombiesaddon.config.waveDelaysTextStyle"
-        waveDelaysTextStyle = TextStyle.fromText(addOption(categoryWaveDelays.map, waveDelaysTextStyleKey, config.get(
+        waveDelaysTextStyle = WDTextStyle.fromText(addOption(categoryWaveDelays.map, waveDelaysTextStyleKey, config.get(
             categoryWaveDelays.name,
             "waveDelaysTextStyle",
-            TextStyle.NEW_COLON.toString(),
+            WDTextStyle.ZOMBIES_ADDON.toString(),
             "$waveDelaysTextStyleKey.description",
-            TextStyle.arrays
+            WDTextStyle.arrays
         )).string)
 
         val waveDelaysHighlightStyleKey = "zombiesaddon.config.waveDelaysHighlightStyle"

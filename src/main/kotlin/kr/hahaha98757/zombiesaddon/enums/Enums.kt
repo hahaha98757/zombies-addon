@@ -28,13 +28,13 @@ enum class Status {
     SURVIVE, REVIVE, DEAD, QUIT
 }
 
-enum class TextStyle(val text: String) {
-    NEW_COLON("W1: 0:10.0"), NEW("W1 0:10.0"), OLD_COLON("W1: 10:00"), OLD("W1 10:00");
+enum class WDTextStyle(val text: String) {
+    ZOMBIES_ADDON("W1: 0:10.0"), DETAILS("W1: 0:10.00"), SST("W1 10:00");
 
     override fun toString() = text
 
     companion object {
-        fun fromText(text: String) = entries.firstOrNull { it.text == text } ?: NEW_COLON
+        fun fromText(text: String) = entries.firstOrNull { it.text == text } ?: ZOMBIES_ADDON
         val arrays get() = entries.map { it.text }.toTypedArray()
     }
 }
@@ -82,6 +82,17 @@ enum class Mode(val text: String) {
 
     companion object {
         fun fromText(text: String) = entries.firstOrNull { it.text == text } ?: SERVER
+        val arrays get() = entries.map { it.text }.toTypedArray()
+    }
+}
+
+enum class ITTextStyle(val text: String) {
+    ZOMBIES_ADDON("0:10.0"), DETAILS("0:10.00"), SST("00:10");
+
+    override fun toString() = text
+
+    companion object {
+        fun fromText(text: String) = entries.firstOrNull { it.text == text } ?: ZOMBIES_ADDON
         val arrays get() = entries.map { it.text }.toTypedArray()
     }
 }

@@ -202,6 +202,8 @@ zombiesaddon.config.autoSplitsPort.description=LiveSplitサーバーのポート
 
 zombiesaddon.config.internalTimerToggle=Internal Timerを有効化
 zombiesaddon.config.internalTimerToggle.description=Internal Timerを有効または無効にします。
+zombiesaddon.config.internalTimerTextStyle=テキストスタイル
+zombiesaddon.config.internalTimerTextStyle.description=画面に表示されるテキストのスタイルです。
 zombiesaddon.config.internalTimerMode=モード
 zombiesaddon.config.internalTimerMode.description=ServerはHypixel lagをすぐに反映しますが、再接続時に影響を受ける可能性があります。Clientは領収書を受け取りません。
 
