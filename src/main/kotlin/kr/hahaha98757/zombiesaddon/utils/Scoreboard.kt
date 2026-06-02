@@ -19,7 +19,11 @@ object Scoreboard {
         }
 
         title = objective.displayName.withoutColor()
-        val scores = scoreboard.getSortedScores(objective)?.filter { it.playerName != null && !it.playerName.startsWith("#") }?.takeLast(15)?.asReversed() ?: return
+        val rawScores = scoreboard.getSortedScores(objective)
+        val scores = rawScores
+            .filter { it.playerName != null && !it.playerName.startsWith("#") }
+            .let { if (it.size > 15) it.drop(rawScores.size - 15) else it }
+            .asReversed()
 
         lines.clear()
         for (score in scores) {

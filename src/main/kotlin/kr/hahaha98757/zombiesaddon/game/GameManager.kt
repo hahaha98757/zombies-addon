@@ -42,8 +42,8 @@ class GameManager {
             game.changeDifficulty(difficulty)
             RepeatedTask.stop()
         }
-        if (!isPractice()) return
         MinecraftForge.EVENT_BUS.post(RoundStartEvent(game))
+        if (!isPractice()) return
         if (serverNumber == queuedServerNumber) queuedDifficulty?.let { game.changeDifficulty(it) }
         queuedDifficulty = null
     }
@@ -73,13 +73,6 @@ class GameManager {
             games.remove(game.serverNumber)
             MinecraftForge.EVENT_BUS.post(GameRemoveEvent(game))
         }
-    }
-
-    fun removeGame(serverNumber: ServerNumber) {
-        val game = games[serverNumber] ?: return
-        game.remove()
-        games.remove(serverNumber)
-        MinecraftForge.EVENT_BUS.post(GameRemoveEvent(game))
     }
 
     fun setDifficulty(difficulty: Difficulty) {
