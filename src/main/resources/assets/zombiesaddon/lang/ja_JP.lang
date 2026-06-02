@@ -6,6 +6,7 @@ zombiesaddon.key.zsvScrollUp=ZSVを上にスクロール
 zombiesaddon.key.zsvScrollDown=ZSVを下にスクロール
 
 zombiesaddon.key.toggleRlMode=RL Mode切り替え
+zombiesaddon.key.toggleWrathMode=Wrath Mode切り替え
 
 zombiesaddon.key.textMacro=Text Macro
 
