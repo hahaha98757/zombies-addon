@@ -1,5 +1,21 @@
 # Change log
 
+## 4.8.3
+06-02-2026
+- Added
+  - Speedrun Mode
+  - Internal Timer: Text Style Options
+- Removed: blockUnlegitMods, detectUnlegitMods Options
+- Changed: Wave Delays
+  - Text Style Options
+  - Wrath Mode Added.
+- Bug Fixes
+  - RoundStartEvent does not fire at game start.
+  - Game uninstalled immediately upon start.
+- Code Modifications
+  - Kotlin Update: 2.2.20 → 2.3.21
+  - Gradle Update: 8.8 → 8.14.4
+
 ## 4.8.2
 05-06-2026
 - Bug fix: Timer correction

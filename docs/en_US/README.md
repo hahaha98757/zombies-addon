@@ -80,18 +80,20 @@ After the timer is adjusted, you will switch back to server mode.
 
 #### Config
 - Enable Internal Timer: Enable or disable Internal Timer.
+- Text Style: The style of texts that are displayed on the screen.
 - Mode: Server reflects Hypixel lag immediately but is affected by knockdowns, death, or rejoining. Client is not.
 
 ----
 ### Wave Delays
 - Displays wave delays.
 - Prefixes indicate the characteristics of the wave. Bosses can also be distinguished by wave color.
-- Text styles include the default "W1: 0.10.0", "W1 0.10.0", "W1: 00:10", and "W1 00:10".
+- Text styles include the default "W1: 0.10.0", "W1: 0.10.00", and "W1 00:10".
 - Highlight styles of wave delay include:
   - The default "Zombies Addon" will show waves that will start in 3 seconds in yellow,
    waves that have started in green, waves that haven't started in dark gray, and the current wave with a purple arrow.
   - "Zombies Utils" is the same as the wave delay of Zombies Utils.
-- Toggle RL mode with the hotkey (default Up). Wave delay will be displayed with the specified number of ticks added.
+- Toggle RL Mode with the hotkey (default Up). Wave delay will be displayed with the specified number of ticks added.
+- Toggle Wrath Mode with the hotkey (default Down). Wave delay will be displayed with the specified number of ticks added.
 
 #### Config
 - Enable Wave Delays: Enable or disable Wave Delays.
@@ -103,6 +105,7 @@ After the timer is adjusted, you will switch back to server mode.
 - Highlight Style: The Highlight method for a current wave, passed waves, and next waves.
 - Hide Passed Wave: Hides passed waves from the screen.
 - RL Mode Offset: Adds an offset to the wave delay in RL Mode.
+- Wrath Mode Offset: Adds an offset to the wave delay in Wrath Mode.
 
 ----
 ### Zombies Strat Viewer
@@ -209,6 +212,7 @@ After the timer is adjusted, you will switch back to server mode.
 ### General
 - Enable Mod: Enable or disable Zombies Addon mod.
 - Language: The language for the mod.
+- Speedrun Mode: Enable or disable Speedrun Mode. It disables some features prohibited by speedrun.com rules.
 
 ### Modules
 - Other modules options.
@@ -216,10 +220,6 @@ After the timer is adjusted, you will switch back to server mode.
 ### Other Mods
 - Disable Spawn Time of SST: Disable the spawn time of SST.
 - Disable Timer of Zombies Utils: Disable the timer of Zombies Utils.
-
-### Hidden(Visible only in config file)
-- blockUnlegitMods: Blocks unlegit Mods.
-- blockUnlegitSst: Blocks the unlegit feature of SST.
 
 
 ## Debug mode

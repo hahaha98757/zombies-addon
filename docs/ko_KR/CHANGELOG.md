@@ -1,5 +1,21 @@
 # 업데이트 로그
 
+## 4.8.3
+2026-06-02
+- 추가
+  - 스피드런 모드
+  - Internal Timer: 텍스트 스타일 옵션
+- 제거: blockUnlegitMods, detectUnlegitMods 옵션
+- 변경: Wave Delays
+  - 텍스트 스타일 옵션
+  - Wrath Mode 추가.
+- 버그 수정
+  - 게임 시작 시 RoundStartEvent가 발생하지 않음
+  - 게임 시작 시 즉시 게임이 제거됨.
+- 코드 수정
+  - Kotlin 업데이트: 2.2.20 - > 2.3.21
+  - Gradle 업데이트: 8.8 - > 8.14.4
+
 ## 4.8.2
 2026-05-06
 - 버그 수정: 타이머 보정
