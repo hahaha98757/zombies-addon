@@ -1,5 +1,10 @@
 # Change log
 
+## 4.8.4
+06-21-2026
+- Code Modifications
+  - Gradle Update Rollback: 8.14.4 → 8.8
+
 ## 4.8.3
 06-02-2026
 - Added
