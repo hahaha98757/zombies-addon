@@ -1,10 +1,12 @@
-package kr.hahaha98757.zombiesaddon.modules
+package kr.hahaha98757.zombiesaddon
 
-import kr.hahaha98757.zombiesaddon.*
 import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
 import kr.hahaha98757.zombiesaddon.game.GameManager
+import kr.hahaha98757.zombiesaddon.modules.AutoRejoin
+import kr.hahaha98757.zombiesaddon.modules.BlockAlarm
+import kr.hahaha98757.zombiesaddon.modules.PlayerVisibility
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.client.event.RenderGameOverlayEvent
@@ -13,9 +15,15 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent
 import net.minecraftforge.fml.common.Loader
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
-object General: AlwaysEnableModule("General") {
+object System {
 
-    override fun onRender(event: RenderGameOverlayEvent.Text) {
+    fun registerAll() {
+        MinecraftForge.EVENT_BUS.register(this)
+        MinecraftForge.EVENT_BUS.register(ThePlayerJoinHandler)
+    }
+
+    @SubscribeEvent
+    fun onRender(@Suppress("unused") event: RenderGameOverlayEvent.Text) {
         var i = 1
 
         val color = when {
@@ -36,7 +44,8 @@ object General: AlwaysEnableModule("General") {
         if (ZAConfig.autoRejoinText) fr.drawStringWithShadow(str, HudUtils.getToggleTextStrX(str), HudUtils.getToggleTextStrY(i), 0xffff55)
     }
 
-    override fun onChat(event: ClientChatReceivedEvent) {
+    @SubscribeEvent
+    fun onChat(event: ClientChatReceivedEvent) {
         val message = event.message.unformattedText
         if (">" in message) return
 
@@ -46,13 +55,14 @@ object General: AlwaysEnableModule("General") {
         else if ("RIP Difficulty" in message) GameManager.setDifficulty(Difficulty.RIP)
     }
 
-    override fun onLastTick(event: LastClientTickEvent) {
+    @SubscribeEvent
+    fun onLastTick(@Suppress("unused") event: LastClientTickEvent) {
         Scoreboard.refresh()
         if (!ZombiesAddon.instance.debug) GameManager.removeGame()
     }
 }
 
-class ThePlayerJoinHandler {
+object ThePlayerJoinHandler {
     @SubscribeEvent
     fun onPlayerJoin(event: EntityJoinWorldEvent) {
         if (event.entity != mc.thePlayer) return

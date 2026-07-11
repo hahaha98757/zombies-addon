@@ -62,16 +62,14 @@ class ZombiesAddon {
         CustomPlaySoundLoader.loadFile()
     }
 
-    @Suppress("unused")
     @Mod.EventHandler
-    fun init(event: FMLInitializationEvent) {
+    fun init(@Suppress("unused") event: FMLInitializationEvent) {
         logger.info("init 시작.")
         registerAll()
     }
 
-    @Suppress("unused")
     @Mod.EventHandler
-    fun postInit(event: FMLPostInitializationEvent) {
+    fun postInit(@Suppress("unused") event: FMLPostInitializationEvent) {
         logger.info("postInit 시작.")
         if (Loader.isModLoaded("showspawntime")) {
             hasSST = true
@@ -90,9 +88,8 @@ class ZombiesAddon {
         logger.info("$NAME v${VERSION}이 로드되었습니다.")
     }
 
-    @Suppress("unused")
     @SubscribeEvent
-    fun startGame(event: GuiScreenEvent.DrawScreenEvent.Post) {
+    fun startGame(@Suppress("unused") event: GuiScreenEvent.DrawScreenEvent.Post) {
         logger.info("게임 시작.")
         MinecraftForge.EVENT_BUS.unregister(this)
 
@@ -139,17 +136,16 @@ class ZombiesAddon {
 
     private fun registerAll() {
         KeyBindings.registerAll()
+        System.registerAll()
 
         Commands.registerCommands()
 
         MinecraftForge.EVENT_BUS.register(this)
         MinecraftForge.EVENT_BUS.register(ZAConfig)
-        MinecraftForge.EVENT_BUS.register(UpdateCheckerHandler())
-        MinecraftForge.EVENT_BUS.register(LastClientTickEvent.EventBridge())
-        MinecraftForge.EVENT_BUS.register(ModuleListener())
-        MinecraftForge.EVENT_BUS.register(ThePlayerJoinHandler())
+        MinecraftForge.EVENT_BUS.register(UpdateCheckerHandler)
+        MinecraftForge.EVENT_BUS.register(LastClientTickEvent.EventBridge)
+        MinecraftForge.EVENT_BUS.register(ModuleListener)
 
-        ModuleListener.registerModule(General)
         ModuleListener.registerModule(PlayerVisibility)
         ModuleListener.registerModule(BlockAlarm)
         ModuleListener.registerModule(NotLast)

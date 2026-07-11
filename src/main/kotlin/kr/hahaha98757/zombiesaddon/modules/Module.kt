@@ -59,13 +59,11 @@ open class AlwaysEnableModule(name: String): Module(name) {
     final override fun isEnable() = true
 }
 
-class ModuleListener {
-    companion object {
-        private val modules = mutableListOf<Module>()
+object ModuleListener {
+    private val modules = mutableListOf<Module>()
 
-        fun registerModule(module: Module) {
-            modules += module
-        }
+    fun registerModule(module: Module) {
+        modules += module
     }
 
     @SubscribeEvent

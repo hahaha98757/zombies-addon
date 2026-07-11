@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
 
 class LastClientTickEvent: Event() {
-    class EventBridge {
+    object EventBridge {
         @SubscribeEvent
         fun onTick(event: TickEvent.ClientTickEvent) {
             if (event.phase == TickEvent.Phase.END) MinecraftForge.EVENT_BUS.post(LastClientTickEvent())
