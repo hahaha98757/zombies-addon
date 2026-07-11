@@ -1,7 +1,8 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.MODID
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.renderer.GlStateManager
@@ -17,9 +18,9 @@ object LastWeapons: Module("Last Weapons") {
 
     val isWork: Boolean get() {
         if (!isEnable()) return false
-        val game = ZombiesAddon.instance.gameManager.game ?: return false
+        val game = GameManager.game ?: return false
         if (!game.gameEnd) return false
-        if (!game.isWin && !ZombiesAddon.instance.config.lwWorkInGameOver) return false
+        if (!game.isWin && !ZAConfig.lwWorkInGameOver) return false
         return true
     }
 
@@ -38,7 +39,7 @@ object LastWeapons: Module("Last Weapons") {
                 val weapon = weapons[i]
 
                 weapon?.let {
-                    if (i == 4 && ZombiesAddon.instance.config.lwDisplayCooledDownSkill && it.item == Items.dye && it.itemDamage == 8) {
+                    if (i == 4 && ZAConfig.lwDisplayCooledDownSkill && it.item == Items.dye && it.itemDamage == 8) {
                         val name = it.displayName.withoutColor()
                         val replaced = when (name) {
                             in heal -> displayTexture("textures/items/heal_cool.png", x + 20 * i, y)
@@ -56,7 +57,7 @@ object LastWeapons: Module("Last Weapons") {
 
                     renderItem.renderItemAndEffectIntoGUI(it, x + 20 * i, y)
 
-                    if (ZombiesAddon.instance.config.lwDisplayWeaponsLevel && level != 0)
+                    if (ZAConfig.lwDisplayWeaponsLevel && level != 0)
                         displayTexture("textures/items/level$level.png", x + 20 * i, y)
                     renderItem.renderItemOverlayIntoGUI(fr, it, x + 20 * i, y, null)
                 }
@@ -64,7 +65,7 @@ object LastWeapons: Module("Last Weapons") {
 
             GlStateManager.popAttrib()
 
-            if (ZombiesAddon.instance.config.lwDisplayArmors) {
+            if (ZAConfig.lwDisplayArmors) {
                 x = (getX() / 2 + 12).toInt()
                 y = (getY() - 60).toInt()
 
@@ -98,5 +99,5 @@ object LastWeapons: Module("Last Weapons") {
         return true
     }
 
-    override fun isEnable() = ZombiesAddon.instance.config.lwToggle
+    override fun isEnable() = ZAConfig.lwToggle
 }

@@ -7,7 +7,6 @@ import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySound
 import kr.hahaha98757.zombiesaddon.data.CustomPlaySoundLoader
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
-import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.modules.*
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker
 import kr.hahaha98757.zombiesaddon.update.UpdateCheckerHandler
@@ -41,12 +40,8 @@ class ZombiesAddon {
     init {
         instance = this
     }
-    lateinit var config: ZAConfig
-        private set
     lateinit var logger: Logger
         private set
-    val keyBindings = KeyBindings
-    val gameManager = GameManager()
 
     var hasSST = false
     var hasZombiesUtils = false
@@ -62,7 +57,7 @@ class ZombiesAddon {
         val directory = File(event.modConfigurationDirectory, MODID)
         if (!directory.exists()) directory.mkdir()
 
-        config = ZAConfig(Configuration(File(directory, "$MODID.cfg")))
+        ZAConfig.init(Configuration(File(directory, "$MODID.cfg")))
         writeFile(directory)
         CustomPlaySoundLoader.loadFile()
     }
@@ -143,12 +138,12 @@ class ZombiesAddon {
     }
 
     private fun registerAll() {
-        keyBindings.registerAll()
+        KeyBindings.registerAll()
 
         Commands.registerCommands()
 
         MinecraftForge.EVENT_BUS.register(this)
-        MinecraftForge.EVENT_BUS.register(config)
+        MinecraftForge.EVENT_BUS.register(ZAConfig)
         MinecraftForge.EVENT_BUS.register(UpdateCheckerHandler())
         MinecraftForge.EVENT_BUS.register(LastClientTickEvent.EventBridge())
         MinecraftForge.EVENT_BUS.register(ModuleListener())

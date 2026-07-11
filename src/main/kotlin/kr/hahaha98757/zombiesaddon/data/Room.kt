@@ -1,18 +1,18 @@
 package kr.hahaha98757.zombiesaddon.data
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 
 class Room(val name: String, private val alias: String, val windows: Array<Window>) {
     var activeWindows = 0
 
     override fun toString(): String {
-        if (!ZombiesAddon.instance.config.slaActivatedWindows && !ZombiesAddon.instance.config.slaUnactivatedWindows) return "${color('6')}$name${color('e')}: ${color('d')}$activeWindows"
+        if (!ZAConfig.slaActivatedWindows && !ZAConfig.slaUnactivatedWindows) return "${color('6')}$name${color('e')}: ${color('d')}$activeWindows"
         val strBuilder = StringBuilder("${color('6')}$name${color('d')} $activeWindows${color('e')}:")
         for (window in windows)
-            if (!window.active && ZombiesAddon.instance.config.slaUnactivatedWindows) strBuilder.append("${color('c')} $alias${window.id}")
-            else if (window.active && ZombiesAddon.instance.config.slaActivatedWindows) strBuilder.append("${color('2')} $alias${window.id}")
+            if (!window.active && ZAConfig.slaUnactivatedWindows) strBuilder.append("${color('c')} $alias${window.id}")
+            else if (window.active && ZAConfig.slaActivatedWindows) strBuilder.append("${color('2')} $alias${window.id}")
         return strBuilder.toString()
     }
 
-    private fun color(code: Char): String = if (ZombiesAddon.instance.config.slaTextColor) "§$code" else ""
+    private fun color(code: Char): String = if (ZAConfig.slaTextColor) "§$code" else ""
 }

@@ -2,7 +2,7 @@ package kr.hahaha98757.zombiesaddon.utils
 
 import kr.hahaha98757.zombiesaddon.NAME
 import kr.hahaha98757.zombiesaddon.VERSION
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 
 object HudUtils {
     private var _autoSplitsX = 0.0
@@ -22,7 +22,7 @@ object HudUtils {
 
     private var _waveDelaysX = 0.0
     var waveDelaysX = 0.0
-        get() = if (field < 0) 1.0 - (fr.getStringWidth("➤ ${ZombiesAddon.instance.config.waveDelaysTextStyle}") + 0.9) / getX() else field
+        get() = if (field < 0) 1.0 - (fr.getStringWidth("➤ ${ZAConfig.waveDelaysTextStyle}") + 0.9) / getX() else field
         set(value) {
             field = value
             _waveDelaysX = value

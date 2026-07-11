@@ -3,11 +3,13 @@ package kr.hahaha98757.zombiesaddon.utils
 import kr.hahaha98757.zombiesaddon.MODID
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.commands.CommandZaDebug
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.Language
 import kr.hahaha98757.zombiesaddon.enums.Status
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.ScaledResolution
 import net.minecraft.client.resources.I18n
@@ -69,7 +71,7 @@ fun getY(): Float = ScaledResolution(mc).scaledHeight.toFloat()
 fun getYFont(): Float = getY() - fr.FONT_HEIGHT - 1
 
 // 상태 관련 함수
-fun isDisable() = !ZombiesAddon.instance.config.enableMod
+fun isDisable() = !ZAConfig.enableMod
 
 fun isHypixel(): Boolean {
     val ip = mc.currentServerData?.serverIP ?: return false
@@ -93,7 +95,7 @@ fun isPracticeLobby(): Boolean {
 fun isNotPlayZombies(): Boolean {
     if (mc.thePlayer == null || mc.theWorld == null) return true
     if (Scoreboard.isNotZombies) return true
-    return ZombiesAddon.instance.gameManager.game == null
+    return GameManager.game == null
 }
 
 fun getServerNumber(): ServerNumber? {
@@ -174,7 +176,7 @@ fun String.withNameColor(): String {
 private val cachedLang = mutableMapOf<String, Properties>()
 
 private fun String.translate(vararg any: Any): String {
-    val lang = ZombiesAddon.instance.config.language
+    val lang = ZAConfig.language
     val langCode = when (lang) {
         Language.AUTO -> return I18n.format(this, *any)
         Language.KO_KR -> "ko_KR"

@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules.recorder
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.enums.GameMode
 import kr.hahaha98757.zombiesaddon.modules.recorder.files.CategoryFile
 import kr.hahaha98757.zombiesaddon.utils.isHypixel
@@ -33,6 +33,6 @@ class Category {
     fun getByGameMode(gameMode: GameMode) = categoryFiles.first { it.gameMode == gameMode }
 
     companion object {
-        var selectedCategory = ZombiesAddon.instance.config.recorderDefaultCategory
+        var selectedCategory = ZAConfig.recorderDefaultCategory
     }
 }

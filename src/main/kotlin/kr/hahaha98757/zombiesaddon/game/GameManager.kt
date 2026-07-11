@@ -11,7 +11,7 @@ import kr.hahaha98757.zombiesaddon.modules.AutoSplits
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraftforge.common.MinecraftForge
 
-class GameManager {
+object GameManager {
     private val games = mutableMapOf<ServerNumber, Game>()
     private var queuedServerNumber: ServerNumber? = null
     private var queuedDifficulty: Difficulty? = null

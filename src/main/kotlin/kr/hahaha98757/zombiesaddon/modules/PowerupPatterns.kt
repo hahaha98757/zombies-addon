@@ -1,13 +1,11 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.KeyBindings
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
-import kr.hahaha98757.zombiesaddon.events.GameEndEvent
-import kr.hahaha98757.zombiesaddon.events.GameRemoveEvent
-import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
-import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
-import kr.hahaha98757.zombiesaddon.events.ServerTickEvent
+import kr.hahaha98757.zombiesaddon.events.*
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.entity.item.EntityArmorStand
 import net.minecraft.entity.player.EntityPlayer
@@ -52,7 +50,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
 
     override fun onRender(event: RenderGameOverlayEvent.Text) {
         if (isNotPlayZombies()) return
-        val game = ZombiesAddon.instance.gameManager.game ?: return
+        val game = GameManager.game ?: return
         val fields = fieldsStorage[game.serverNumber] ?: return
         drawTimers(fields)
         drawPatterns(fields)
@@ -116,7 +114,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
     }
 
     private fun drawPatterns(fields: FieldsStorage) {
-        val game = ZombiesAddon.instance.gameManager.game ?: return
+        val game = GameManager.game ?: return
         val round = if (game.gameEnd) 0 else game.round
         val map = game.gameMode.map
 
@@ -198,7 +196,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
 
     override fun onLastTick(event: LastClientTickEvent) {
         if (isNotPlayZombies()) return
-        val game = ZombiesAddon.instance.gameManager.game ?: return
+        val game = GameManager.game ?: return
         if (game.gameEnd) return
         val fields = fieldsStorage[game.serverNumber] ?: return
         val round = game.round
@@ -289,27 +287,25 @@ object PowerupPatterns: Module("Powerup Patterns") {
             resetKeys()
             return
         }
-        val fields = fieldsStorage[ZombiesAddon.instance.gameManager.game?.serverNumber] ?: return
+        val fields = fieldsStorage[GameManager.game?.serverNumber] ?: return
 
-        val keys = ZombiesAddon.instance.keyBindings
-        if (keys.insTimer.isPressed) fields.insTimer = true
-        if (keys.maxTimer.isPressed) fields.maxTimer = true
-        if (keys.ssTimer.isPressed) fields.ssTimer = true
-        if (keys.dgTimer.isPressed) fields.dgTimer = true
-        if (keys.carTimer.isPressed) fields.carTimer = true
-        if (keys.bgTimer.isPressed) fields.bgTimer = true
-        if (keys.autoTimer.isPressed) autoTimer(fields)
+        if (KeyBindings.insTimer.isPressed) fields.insTimer = true
+        if (KeyBindings.maxTimer.isPressed) fields.maxTimer = true
+        if (KeyBindings.ssTimer.isPressed) fields.ssTimer = true
+        if (KeyBindings.dgTimer.isPressed) fields.dgTimer = true
+        if (KeyBindings.carTimer.isPressed) fields.carTimer = true
+        if (KeyBindings.bgTimer.isPressed) fields.bgTimer = true
+        if (KeyBindings.autoTimer.isPressed) autoTimer(fields)
     }
 
     private fun resetKeys() {
-        val keys = ZombiesAddon.instance.keyBindings
-        keys.insTimer.isPressed
-        keys.maxTimer.isPressed
-        keys.ssTimer.isPressed
-        keys.dgTimer.isPressed
-        keys.carTimer.isPressed
-        keys.bgTimer.isPressed
-        keys.autoTimer.isPressed
+        KeyBindings.insTimer.isPressed
+        KeyBindings.maxTimer.isPressed
+        KeyBindings.ssTimer.isPressed
+        KeyBindings.dgTimer.isPressed
+        KeyBindings.carTimer.isPressed
+        KeyBindings.bgTimer.isPressed
+        KeyBindings.autoTimer.isPressed
     }
 
     private fun autoTimer(fields: FieldsStorage) {
@@ -355,7 +351,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
 
     override fun onChat(event: ClientChatReceivedEvent) {
         if (isNotPlayZombies()) return
-        val fields = fieldsStorage[ZombiesAddon.instance.gameManager.game?.serverNumber] ?: return
+        val fields = fieldsStorage[GameManager.game?.serverNumber] ?: return
         val message = event.message.unformattedText.withoutColor()
         if (">" in message) return
 
@@ -374,7 +370,7 @@ object PowerupPatterns: Module("Powerup Patterns") {
         fieldsStorage.remove(event.game.serverNumber)
     }
 
-    override fun isEnable() = ZombiesAddon.instance.config.togglePowerupPatterns
+    override fun isEnable() = ZAConfig.togglePowerupPatterns
 
     class FieldsStorage {
         val spawnedEntities = mutableSetOf<EntityArmorStand>()

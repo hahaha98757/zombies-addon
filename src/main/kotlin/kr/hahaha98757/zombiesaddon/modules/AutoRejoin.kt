@@ -1,14 +1,15 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.KeyBindings
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.RepeatedTask
 import kr.hahaha98757.zombiesaddon.utils.Scoreboard
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.sendChat
 
-object AutoRejoin: ToggleableModule("Auto Rejoin", ZombiesAddon.instance.config.autoRejoinDefault) {
-    override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.toggleAutoRejoin
+object AutoRejoin: ToggleableModule("Auto Rejoin", ZAConfig.autoRejoinDefault) {
+    override fun getKeyBinding() = KeyBindings.toggleAutoRejoin
     override fun addToggleText(enabled: Boolean) =
         addTranslatedChat("zombiesaddon.modules.general.toggled", "Auto Rejoin", if (enabled) "§aon" else "§coff")
 

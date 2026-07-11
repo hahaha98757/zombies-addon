@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.utils
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
 import kr.hahaha98757.zombiesaddon.events.ServerTickEvent
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.modules.PvUtils
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.entity.Entity
@@ -33,7 +33,7 @@ fun onSound(packet: S29PacketSoundEffect) {
     if (!mc.isCallingFromMinecraftThread) return
     if (Scoreboard.isNotZombies) return
     val sound = packet.soundName
-    ZombiesAddon.instance.gameManager.runCatching {
+    GameManager.runCatching {
         if (sound == "mob.wither.spawn") {
             aaR10 = false
             splitOrNew(Scoreboard.round)
@@ -58,7 +58,7 @@ fun onTitle(packet: S45PacketTitle) {
         in lose -> false
         else -> return
     }
-    ZombiesAddon.instance.gameManager.endGame(serverNumber, isWin)
+    GameManager.endGame(serverNumber, isWin)
 }
 
 fun onInventoryPacket(packet: S32PacketConfirmTransaction) {
@@ -68,5 +68,5 @@ fun onInventoryPacket(packet: S32PacketConfirmTransaction) {
 
 fun onTimeUpdate(packet: S03PacketTimeUpdate) {
     if (!mc.isCallingFromMinecraftThread) return
-    ZombiesAddon.instance.gameManager.game?.timer?.onPacket(packet)
+    GameManager.game?.timer?.onPacket(packet)
 }

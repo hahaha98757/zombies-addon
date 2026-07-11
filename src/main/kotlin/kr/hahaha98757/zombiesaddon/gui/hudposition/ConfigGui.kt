@@ -2,7 +2,7 @@ package kr.hahaha98757.zombiesaddon.gui.hudposition
 
 import kr.hahaha98757.zombiesaddon.NAME
 import kr.hahaha98757.zombiesaddon.VERSION
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.gui.GuiScreen
@@ -28,7 +28,7 @@ object ConfigGui: GuiScreen() {
 
     override fun initGui() {
         val widthAutoSplits = fr.getStringWidth("0:00.0")
-        val widthWaveDelays = fr.getStringWidth("➤ ${ZombiesAddon.instance.config.waveDelaysTextStyle}")
+        val widthWaveDelays = fr.getStringWidth("➤ ${ZAConfig.waveDelaysTextStyle}")
         val widthPowerupPatterns = fr.getStringWidth("Shopping Spree: Round 105")
         val widthModName = fr.getStringWidth("$NAME v$VERSION")
         val widthToggleText = fr.getStringWidth("Player Visibility: off")
@@ -62,62 +62,62 @@ object ConfigGui: GuiScreen() {
                     0 -> {
                         if (!box.isDefault) {
                             HudUtils.waveDelaysX = box.x
-                            ZombiesAddon.instance.config.config.get("HUD", "waveDelaysX", -1).set(box.x)
+                            ZAConfig.config.get("HUD", "waveDelaysX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
                             HudUtils.waveDelaysY = box.y
-                            ZombiesAddon.instance.config.config.get("HUD", "waveDelaysY", -1).set(box.y)
+                            ZAConfig.config.get("HUD", "waveDelaysY", -1).set(box.y)
                         }
                     }
                     1 -> {
                         if (!box.isDefault) {
                             HudUtils.powerupPatternsX = box.x
-                            ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsX", -1).set(box.x)
+                            ZAConfig.config.get("HUD", "powerupPatternsX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
                             HudUtils.powerupPatternsY = box.y
-                            ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsY", -1).set(box.y)
+                            ZAConfig.config.get("HUD", "powerupPatternsY", -1).set(box.y)
                         }
                     }
                     2 -> {
                         if (!box.isDefault) {
                             HudUtils.autoSplitsX = box.x
-                            ZombiesAddon.instance.config.config.get("HUD", "autoSplitsX", -1).set(box.x)
+                            ZAConfig.config.get("HUD", "autoSplitsX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
                             HudUtils.autoSplitsY = box.y
-                            ZombiesAddon.instance.config.config.get("HUD", "autoSplitsY", -1).set(box.y)
+                            ZAConfig.config.get("HUD", "autoSplitsY", -1).set(box.y)
                         }
                     }
                     3 -> {
                         if (!box.isDefault) {
                             HudUtils.modNameX = box.x
-                            ZombiesAddon.instance.config.config.get("HUD", "modNameX", -1).set(box.x)
+                            ZAConfig.config.get("HUD", "modNameX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
                             HudUtils.modNameY = box.y
-                            ZombiesAddon.instance.config.config.get("HUD", "modNameY", -1).set(box.y)
+                            ZAConfig.config.get("HUD", "modNameY", -1).set(box.y)
                         }
                     }
                     4 -> {
                         if (!box.isDefault) {
                             HudUtils.toggleTextX = box.x
-                            ZombiesAddon.instance.config.config.get("HUD", "toggleTextX", -1).set(box.x)
+                            ZAConfig.config.get("HUD", "toggleTextX", -1).set(box.x)
                         }
                         if (!box.isDefault) {
                             HudUtils.toggleTextY = box.y
-                            ZombiesAddon.instance.config.config.get("HUD", "toggleTextY", -1).set(box.y)
+                            ZAConfig.config.get("HUD", "toggleTextY", -1).set(box.y)
                         }
                     }
                 }
-                ZombiesAddon.instance.config.config.save()
+                ZAConfig.config.save()
                 mc.displayGuiScreen(null)
             }
             2 -> {
                 for (box in boxes) when (box.contents) {
                     0 -> {
-                        ZombiesAddon.instance.config.config.get("HUD", "waveDelaysX", -1).set(-1)
-                        ZombiesAddon.instance.config.config.get("HUD", "waveDelaysY", -1).set(-1)
+                        ZAConfig.config.get("HUD", "waveDelaysX", -1).set(-1)
+                        ZAConfig.config.get("HUD", "waveDelaysY", -1).set(-1)
                         HudUtils.waveDelaysX = -1.0
                         HudUtils.waveDelaysY = -1.0
                         box.isDefault = true
@@ -129,8 +129,8 @@ object ConfigGui: GuiScreen() {
                         }
                     }
                     1 -> {
-                        ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsX", -1).set(-1)
-                        ZombiesAddon.instance.config.config.get("HUD", "powerupPatternsY", -1).set(-1)
+                        ZAConfig.config.get("HUD", "powerupPatternsX", -1).set(-1)
+                        ZAConfig.config.get("HUD", "powerupPatternsY", -1).set(-1)
                         HudUtils.powerupPatternsX = -1.0
                         HudUtils.powerupPatternsY = -1.0
                         box.isDefault = true
@@ -142,8 +142,8 @@ object ConfigGui: GuiScreen() {
                         }
                     }
                     2 -> {
-                        ZombiesAddon.instance.config.config.get("HUD", "autoSplitsX", -1).set(-1)
-                        ZombiesAddon.instance.config.config.get("HUD", "autoSplitsY", -1).set(-1)
+                        ZAConfig.config.get("HUD", "autoSplitsX", -1).set(-1)
+                        ZAConfig.config.get("HUD", "autoSplitsY", -1).set(-1)
                         HudUtils.autoSplitsX = -1.0
                         HudUtils.autoSplitsY = -1.0
                         box.isDefault = true
@@ -155,8 +155,8 @@ object ConfigGui: GuiScreen() {
                         }
                     }
                     3 -> {
-                        ZombiesAddon.instance.config.config.get("HUD", "modNameX", -1).set(-1)
-                        ZombiesAddon.instance.config.config.get("HUD", "modNameY", -1).set(-1)
+                        ZAConfig.config.get("HUD", "modNameX", -1).set(-1)
+                        ZAConfig.config.get("HUD", "modNameY", -1).set(-1)
                         HudUtils.modNameX = -1.0
                         HudUtils.modNameY = -1.0
                         box.isDefault = true
@@ -168,8 +168,8 @@ object ConfigGui: GuiScreen() {
                         }
                     }
                     4 -> {
-                        ZombiesAddon.instance.config.config.get("HUD", "toggleTextX", -1).set(-1)
-                        ZombiesAddon.instance.config.config.get("HUD", "toggleTextY", -1).set(-1)
+                        ZAConfig.config.get("HUD", "toggleTextX", -1).set(-1)
+                        ZAConfig.config.get("HUD", "toggleTextY", -1).set(-1)
                         HudUtils.toggleTextX = -1.0
                         HudUtils.toggleTextY = -1.0
                         box.isDefault = true
@@ -181,9 +181,9 @@ object ConfigGui: GuiScreen() {
                         }
                     }
                 }
-                ZombiesAddon.instance.config.config.save()
+                ZAConfig.config.save()
             }
-            else -> ZombiesAddon.instance.config.config.save()
+            else -> ZAConfig.config.save()
         }
     }
 }

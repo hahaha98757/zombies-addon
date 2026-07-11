@@ -2,7 +2,7 @@ package kr.hahaha98757.zombiesaddon.gui.hudposition
 
 import kr.hahaha98757.zombiesaddon.NAME
 import kr.hahaha98757.zombiesaddon.VERSION
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.utils.fr
 import kr.hahaha98757.zombiesaddon.utils.getX
 import net.minecraft.client.gui.Gui
@@ -24,9 +24,9 @@ class HudCoordinate(val contents: Int, var x: Double, var y: Double, private val
             0 -> {
                 val widthDirector = fr.getStringWidth("➤ ")
                 fr.drawStringWithShadow("§5➤ ", absoluteX.toFloat(), absoluteY.toFloat(), 0)
-                fr.drawStringWithShadow("§a${ZombiesAddon.instance.config.waveDelaysTextStyle}", (absoluteX + widthDirector).toFloat(), absoluteY.toFloat(), 0)
-                fr.drawStringWithShadow("§e${ZombiesAddon.instance.config.waveDelaysTextStyle}", (absoluteX + widthDirector).toFloat(), (absoluteY + fr.FONT_HEIGHT).toFloat(), 0)
-                for (i in 2..7) fr.drawStringWithShadow("§8${ZombiesAddon.instance.config.waveDelaysTextStyle}", (absoluteX + widthDirector).toFloat(), (absoluteY + fr.FONT_HEIGHT * i).toFloat(), 0)
+                fr.drawStringWithShadow("§a${ZAConfig.waveDelaysTextStyle}", (absoluteX + widthDirector).toFloat(), absoluteY.toFloat(), 0)
+                fr.drawStringWithShadow("§e${ZAConfig.waveDelaysTextStyle}", (absoluteX + widthDirector).toFloat(), (absoluteY + fr.FONT_HEIGHT).toFloat(), 0)
+                for (i in 2..7) fr.drawStringWithShadow("§8${ZAConfig.waveDelaysTextStyle}", (absoluteX + widthDirector).toFloat(), (absoluteY + fr.FONT_HEIGHT * i).toFloat(), 0)
             }
             1 -> {
                 fr.drawStringWithShadow("§cInsta Kill: §fRound 24", (absoluteX + (if (absoluteX + width / 2 >= getX() / 2) width - fr.getStringWidth("Insta Kill: Round 24") else 0)).toFloat(), absoluteY.toFloat(), 0)

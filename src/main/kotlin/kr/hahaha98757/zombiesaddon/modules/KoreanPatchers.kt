@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.events.ClientChatPrintedEvent
 import kr.hahaha98757.zombiesaddon.utils.addChat
 import kr.hahaha98757.zombiesaddon.utils.isNotPlayZombies
@@ -17,7 +17,7 @@ object KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
     }
 
     private fun ingame(message: String, event: ClientChatReceivedEvent) {
-        if (!ZombiesAddon.instance.config.koreanPatchersIngame) return
+        if (!ZAConfig.koreanPatchersIngame) return
         if (isNotPlayZombies()) return
 
         when (message) {
@@ -31,7 +31,7 @@ object KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
     }
 
     private fun zombiesOverlay(message: String) {
-        if (!ZombiesAddon.instance.config.koreanPatchersZombiesOverlay) return
+        if (!ZAConfig.koreanPatchersZombiesOverlay) return
 
         if (message.startsWith("온라인: ")) addChat("ONLINE: ${message.split(":")[1].trim()}")
         if ("님이 참여했습니다!" in message) {
@@ -54,7 +54,7 @@ object KoreanPatchers: AlwaysEnableModule("Korean Patchers") {
         if (isNotPlayZombies()) return
         val message = event.message.unformattedText.withoutColor() // 왜인지 모르겠지만 색깔 코드가 제거가 안된다.
         if ("<" in message) return
-        if (ZombiesAddon.instance.config.koreanPatchersSst) sst(event, message)
+        if (ZAConfig.koreanPatchersSst) sst(event, message)
     }
 
     private fun sst(event: ClientChatPrintedEvent, message: String) {

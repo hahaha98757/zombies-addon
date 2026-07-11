@@ -15,7 +15,9 @@ import net.minecraftforge.fml.client.config.IConfigElement
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
-class ZAConfig(val config: Configuration) {
+object ZAConfig {
+    lateinit var config: Configuration
+
     private val categoryGeneral = Category("General")
     private val categoryModules = Category("Modules")
     private val categoryPv = Category("Player Visibility")
@@ -97,7 +99,8 @@ class ZAConfig(val config: Configuration) {
     var disableSpawnTimeOfSst = true
     var disableTimerOfZombiesUtils = true
 
-    init {
+    fun init(config: Configuration) {
+        this.config = config
         loadConfig()
     }
 

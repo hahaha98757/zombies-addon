@@ -1,6 +1,7 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.KeyBindings
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.enums.SemiPvMode
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.isDisable
@@ -12,8 +13,8 @@ import net.minecraftforge.client.event.RenderPlayerEvent
 import net.minecraftforge.fml.common.eventhandler.Event
 import kotlin.math.sqrt
 
-object PlayerVisibility: ToggleableModule("Player Visibility", ZombiesAddon.instance.config.pvDefault) {
-    override fun getKeyBinding() = ZombiesAddon.instance.keyBindings.togglePv
+object PlayerVisibility: ToggleableModule("Player Visibility", ZAConfig.pvDefault) {
+    override fun getKeyBinding() = KeyBindings.togglePv
     override fun addToggleText(enabled: Boolean) =
         addTranslatedChat("zombiesaddon.modules.general.toggled", "Player Visibility", if (enabled) "§aon" else "§coff")
 
@@ -33,13 +34,13 @@ object PvUtils {
     fun isSemiPv(other: Entity): Boolean {
         if (isDisable()) return false
         if (!PlayerVisibility.isEnable()) return false
-        if (!ZombiesAddon.instance.config.pvToggleSemiPv) return false
+        if (!ZAConfig.pvToggleSemiPv) return false
         if (isNotPlayZombies()) return false
         if (other !is EntityPlayer) return false
         if (other == mc.thePlayer) return false
         if (other.isPlayerSleeping) return false
         if (!withoutRange(other)) return false
-        if (mc.thePlayer.getDistanceToEntity(other) > ZombiesAddon.instance.config.pvSemiPvRange) return false
+        if (mc.thePlayer.getDistanceToEntity(other) > ZAConfig.pvSemiPvRange) return false
         if (other.isInvisibleToPlayer(mc.thePlayer)) return false
         return true
     }
@@ -47,15 +48,15 @@ object PvUtils {
     /** isSemiPv가 true인 경우에만 호출해야 함. */
     fun getAlpha(other: Entity): Float {
         if (!isSemiPv(other)) return 1.0f // 보험. 원래는 호출 전에 isSemiPv로 걸러야 함.
-        val mode = ZombiesAddon.instance.config.pvSemiPvMode
+        val mode = ZAConfig.pvSemiPvMode
         if (mode == SemiPvMode.FIXED)
-            return ZombiesAddon.instance.config.pvSemiPvMinAlpha.toFloat()
+            return ZAConfig.pvSemiPvMinAlpha.toFloat()
 
         val distance = mc.thePlayer.getDistanceToEntity(other)
-        val pvRange = ZombiesAddon.instance.config.pvRange
-        val semiPvRange = ZombiesAddon.instance.config.pvSemiPvRange
-        val minAlpha = ZombiesAddon.instance.config.pvSemiPvMinAlpha
-        val maxAlpha = ZombiesAddon.instance.config.pvSemiPvMaxAlpha
+        val pvRange = ZAConfig.pvRange
+        val semiPvRange = ZAConfig.pvSemiPvRange
+        val minAlpha = ZAConfig.pvSemiPvMinAlpha
+        val maxAlpha = ZAConfig.pvSemiPvMaxAlpha
 
         val ratio = (pvRange - distance) / (pvRange - semiPvRange)
         val factor = when (mode) {
@@ -68,5 +69,5 @@ object PvUtils {
         return (minAlpha + (maxAlpha - minAlpha) * factor).toFloat()
     }
 
-    fun withoutRange(other: EntityPlayer) = mc.thePlayer.getDistanceToEntity(other) > ZombiesAddon.instance.config.pvRange
+    fun withoutRange(other: EntityPlayer) = mc.thePlayer.getDistanceToEntity(other) > ZAConfig.pvRange
 }

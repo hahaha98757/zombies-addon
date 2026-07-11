@@ -5,6 +5,7 @@ import kr.hahaha98757.zombiesaddon.data.ServerNumber
 import kr.hahaha98757.zombiesaddon.enums.Difficulty
 import kr.hahaha98757.zombiesaddon.enums.GameMode
 import kr.hahaha98757.zombiesaddon.enums.ZombiesMap
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.modules.NotLast
 import kr.hahaha98757.zombiesaddon.utils.*
 import net.minecraft.command.ICommandSender
@@ -77,16 +78,16 @@ object CommandZaDebug: CustomCommandBase() {
                 }
                 gameMode = map.getNormalGameMode().appliedDifficulty(difficulty)
                 addTranslatedChat("zombiesaddon.debug.setFlag", getTranslatedString("zombiesaddon.debug.gameMode"), "§a${gameMode}")
-                val game = ZombiesAddon.instance.gameManager.game ?: return
+                val game = GameManager.game ?: return
                 game.gameMode = gameMode
             }
             "new" -> {
-                runCatching { ZombiesAddon.instance.gameManager.splitOrNew(0, true) }.onSuccess {
+                runCatching { GameManager.splitOrNew(0, true) }.onSuccess {
                     addTranslatedChat("zombiesaddon.debug.new", gameMode, serverNumber!!)
                 }.onFailure { addTranslatedChat("zombiesaddon.message.failed.splitOrNew", it.message ?: "알 수 없음(Unknown)") }
             }
             "pass" -> {
-                val game = ZombiesAddon.instance.gameManager.game ?: run {
+                val game = GameManager.game ?: run {
                     addTranslatedChat("zombiesaddon.debug.noGame")
                     return
                 }
@@ -103,7 +104,7 @@ object CommandZaDebug: CustomCommandBase() {
                 }
             }
             "helicopter" -> {
-                val game = ZombiesAddon.instance.gameManager.game ?: run {
+                val game = GameManager.game ?: run {
                     addTranslatedChat("zombiesaddon.debug.noGame")
                     return
                 }
@@ -115,7 +116,7 @@ object CommandZaDebug: CustomCommandBase() {
                 addTranslatedChat("zombiesaddon.debug.helicopter.called")
             }
             "end" -> {
-                val game = ZombiesAddon.instance.gameManager.game ?: run {
+                val game = GameManager.game ?: run {
                     addTranslatedChat("zombiesaddon.debug.noGame")
                     return
                 }
@@ -125,11 +126,11 @@ object CommandZaDebug: CustomCommandBase() {
                     "lose" -> false
                     else -> throw WrongUsageException("/za_debug end <win|lose>")
                 }
-                ZombiesAddon.instance.gameManager.endGame(game.serverNumber, isWin)
+                GameManager.endGame(game.serverNumber, isWin)
                 addTranslatedChat("zombiesaddon.debug.end", if (isWin) "§awin" else "§close")
             }
             "remove" -> {
-                ZombiesAddon.instance.gameManager.removeGame()
+                GameManager.removeGame()
                 addTranslatedChat("zombiesaddon.debug.remove")
             }
             else -> throw WrongUsageException(getCommandUsage(null))

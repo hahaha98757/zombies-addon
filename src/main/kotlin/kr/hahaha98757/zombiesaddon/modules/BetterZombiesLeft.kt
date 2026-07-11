@@ -1,7 +1,8 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.events.LastClientTickEvent
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.utils.*
 
 object BetterZombiesLeft: Module("Better Zombies Left") {
@@ -12,7 +13,7 @@ object BetterZombiesLeft: Module("Better Zombies Left") {
 
     override fun onLastTick(event: LastClientTickEvent) {
         isWork = false
-        val game = ZombiesAddon.instance.gameManager.game ?: return
+        val game = GameManager.game ?: return
         val left = (Scoreboard.lines.getOrNull(3) ?: return).withoutColor().replace(Regex("[^0-9]"), "").toIntOrNull() ?: return
 
         val waves = game.roundData?.waves ?: return
@@ -69,5 +70,5 @@ object BetterZombiesLeft: Module("Better Zombies Left") {
         return "$base§a$leftOnCurrentWave§f + §c$leftAfterWave"
     }
 
-    override fun isEnable() = ZombiesAddon.instance.config.toggleBetterZombiesLeft
+    override fun isEnable() = ZAConfig.toggleBetterZombiesLeft
 }

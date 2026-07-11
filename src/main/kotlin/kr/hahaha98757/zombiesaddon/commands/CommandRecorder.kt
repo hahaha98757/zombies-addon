@@ -1,6 +1,7 @@
 package kr.hahaha98757.zombiesaddon.commands
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
+import kr.hahaha98757.zombiesaddon.game.GameManager
 import kr.hahaha98757.zombiesaddon.modules.recorder.Category
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import net.minecraft.command.ICommandSender
@@ -20,14 +21,14 @@ object CommandRecorder: CustomCommandBase() {
             if ("/" in category || "\\" in category) throw SyntaxErrorException("zombiesaddon.commands.recorder.error.category")
             Category.selectedCategory = args[1]
             addTranslatedChat("zombiesaddon.commands.recorder.set", Category.selectedCategory)
-            ZombiesAddon.instance.gameManager.game?.recorder?.reloadCategory()
+            GameManager.game?.recorder?.reloadCategory()
         }
     }
 
     override fun addTabCompletionOptions(sender: ICommandSender?, args: Array<String?>, pos: BlockPos?) =
         when (args.size) {
             1 -> getListOfStringsMatchingLastWord(args, "category")
-            2 if args[0] == "category" -> getListOfStringsMatchingLastWord(args, ZombiesAddon.instance.config.recorderDefaultCategory)
+            2 if args[0] == "category" -> getListOfStringsMatchingLastWord(args, ZAConfig.recorderDefaultCategory)
             else -> null
         }
 }

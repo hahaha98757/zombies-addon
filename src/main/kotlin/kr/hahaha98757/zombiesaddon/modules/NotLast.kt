@@ -1,6 +1,7 @@
 package kr.hahaha98757.zombiesaddon.modules
 
 import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.enums.Status
 import kr.hahaha98757.zombiesaddon.events.RoundStartEvent
 import kr.hahaha98757.zombiesaddon.utils.*
@@ -68,7 +69,7 @@ object NotLast: Module("Not Last") {
         addTranslatedChat("zombiesaddon.modules.notLast.printLast", toString())
     }
 
-    override fun isEnable() = ZombiesAddon.instance.config.toggleNotLast
+    override fun isEnable() = ZAConfig.toggleNotLast
 
     private fun getComma() = getTranslatedString("zombiesaddon.modules.notLast.comma").let {
         if (it.endsWith("{space}")) "${it.removeSuffix("{space}")} "

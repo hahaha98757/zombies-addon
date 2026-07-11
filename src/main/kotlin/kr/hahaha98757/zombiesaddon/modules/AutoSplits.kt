@@ -1,6 +1,6 @@
 package kr.hahaha98757.zombiesaddon.modules
 
-import kr.hahaha98757.zombiesaddon.ZombiesAddon
+import kr.hahaha98757.zombiesaddon.config.ZAConfig
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
@@ -9,18 +9,18 @@ import java.net.Socket
 
 object AutoSplits {
     fun startOrSplit() {
-        if (!ZombiesAddon.instance.config.autoSplitsToggle) return
+        if (!ZAConfig.autoSplitsToggle) return
         sendCommand("startorsplit")
     }
 
     fun pause() {
-        if (!ZombiesAddon.instance.config.autoSplitsToggle) return
+        if (!ZAConfig.autoSplitsToggle) return
         sendCommand("pause")
     }
 
     fun sendCommand(command: String) = Thread {
         try {
-            Socket(ZombiesAddon.instance.config.autoSplitsHost, ZombiesAddon.instance.config.autoSplitsPort).use {
+            Socket(ZAConfig.autoSplitsHost, ZAConfig.autoSplitsPort).use {
                 val output = it.getOutputStream().bufferedWriter()
 
                 output.write("$command\r\n")
