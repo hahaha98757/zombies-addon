@@ -2,7 +2,7 @@ package kr.hahaha98757.zombiesaddon.mixins;
 
 import com.seosean.showspawntime.config.MainConfiguration;
 import com.seosean.showspawntime.features.frcooldown.FastReviveCoolDown.RenderType;
-import kr.hahaha98757.zombiesaddon.ZombiesAddon;
+import kr.hahaha98757.zombiesaddon.config.ZAConfig;
 import kr.hahaha98757.zombiesaddon.utils.ToolsKt;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
@@ -12,7 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static com.seosean.showspawntime.config.MainConfiguration.*;
+import static com.seosean.showspawntime.config.MainConfiguration.FastReviveCoolDownRenderType;
+import static com.seosean.showspawntime.config.MainConfiguration.config;
 
 @Mixin(value = MainConfiguration.class, remap = false)
 public class MixinMainConfiguration {
@@ -20,7 +21,7 @@ public class MixinMainConfiguration {
     @Inject(method = "ConfigLoad", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/common/config/Configuration;save()V"))
     private void beforeSave(CallbackInfo ci) {
         try {
-            if (ZombiesAddon.getInstance().getConfig().getSpeedrunMode()) {
+            if (ZAConfig.INSTANCE.getSpeedrunMode()) {
                 Property propertyPowerupAlertToggle = config.get(Configuration.CATEGORY_GENERAL, "Powerup Alert", true, "Remind you when this is a powerup-round. Start counting down when a powerup spawns");
                 propertyPowerupAlertToggle.set(false);
                 MainConfiguration.PowerupAlertToggle = false;
@@ -44,7 +45,7 @@ public class MixinMainConfiguration {
         } catch (Throwable ignored) {}
 
         try {
-            if (ZombiesAddon.getInstance().getConfig().getToggleBetterZombiesLeft()) {
+            if (ZAConfig.INSTANCE.getToggleBetterZombiesLeft()) {
                 Property propertyWave3LeftNotice = config.get(Configuration.CATEGORY_GENERAL, "Wave 3rd Left Notice", true, "Enhance the Sidebar which shows the amount of zombies in wave 3rd in DE/BB.");
                 propertyWave3LeftNotice.set(false);
                 MainConfiguration.Wave3LeftNotice = false;
@@ -56,12 +57,12 @@ public class MixinMainConfiguration {
     @Inject(method = "ConfigLoad", at = @At("TAIL"))
     private void afterSave(CallbackInfo ci) {
         try {
-            if (ZombiesAddon.getInstance().getConfig().getSpeedrunMode())
+            if (ZAConfig.INSTANCE.getSpeedrunMode())
                 ToolsKt.addTranslatedChat("zombiesaddon.messages.disableUnlegitSst");
         } catch (Throwable ignored) {}
 
         try {
-            if (ZombiesAddon.getInstance().getConfig().getToggleBetterZombiesLeft())
+            if (ZAConfig.INSTANCE.getToggleBetterZombiesLeft())
                 ToolsKt.addTranslatedChat("zombiesaddon.messages.disableWave3LeftNotice");
         } catch (Throwable ignored) {}
     }

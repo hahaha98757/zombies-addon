@@ -1,7 +1,7 @@
 package kr.hahaha98757.zombiesaddon.mixins;
 
 import com.seosean.showspawntime.features.spawntimes.SpawnTimeRenderer;
-import kr.hahaha98757.zombiesaddon.ZombiesAddon;
+import kr.hahaha98757.zombiesaddon.config.ZAConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinSpawnTimeRenderer {
     @Inject(method = "onRender", at = @At("HEAD"), cancellable = true)
     private void onRender(CallbackInfo ci) {
-        if (ZombiesAddon.getInstance().getConfig().getEnableMod() && ZombiesAddon.getInstance().getConfig().getDisableSpawnTimeOfSst()) ci.cancel();
+        if (ZAConfig.INSTANCE.getEnableMod() && ZAConfig.INSTANCE.getDisableSpawnTimeOfSst()) ci.cancel();
     }
 }
