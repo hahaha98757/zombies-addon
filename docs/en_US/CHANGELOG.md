@@ -1,5 +1,13 @@
 # Change log
 
+## 4.8.5
+07-24-2026
+- Bug fix: ZSV no longer works.
+- Code modifications
+  - Modified parts to make them directly accessible
+  - Cleaned up modules and changed some classes to objects
+  - Modified config code
+
 ## 4.8.4
 06-21-2026
 - Code Modifications
