@@ -1,5 +1,6 @@
 package kr.hahaha98757.zombiesaddon.commands
 
+import kr.hahaha98757.zombiesaddon.VERSION
 import kr.hahaha98757.zombiesaddon.modules.ZombiesStratViewer
 import kr.hahaha98757.zombiesaddon.utils.addTranslatedChat
 import kr.hahaha98757.zombiesaddon.utils.mc
@@ -9,6 +10,7 @@ import net.minecraft.command.WrongUsageException
 import net.minecraft.util.BlockPos
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.StandardCharsets
 
@@ -33,7 +35,9 @@ object CommandZsv: CustomCommandBase() {
             try {
                 val list = mutableListOf("")
                 val url = URL(args[0])
-                val connection = url.openConnection()
+                val connection = (url.openConnection() as HttpURLConnection).apply {
+                    setRequestProperty("User-Agent", "ZombiesAddon/$VERSION (+https://github.com/hahaha98757/zombies-addon)")
+                }
                 connection.doInput = true
                 connection.connect()
                 BufferedReader(InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)).use { reader ->
@@ -48,7 +52,8 @@ object CommandZsv: CustomCommandBase() {
                     ZombiesStratViewer.refreshActualLines()
                     addTranslatedChat("zombiesaddon.commands.zsv.success", "§aon")
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                e.printStackTrace()
                 mc.addScheduledTask { addTranslatedChat("zombiesaddon.commands.zsv.failed") }
             }
         }.start()
