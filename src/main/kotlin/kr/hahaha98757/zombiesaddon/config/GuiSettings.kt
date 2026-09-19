@@ -10,8 +10,8 @@ import net.minecraftforge.fml.client.config.GuiConfig
 @Suppress("unused")
 class ZAGuiFactory: IModGuiFactory {
     override fun initialize(minecraft: Minecraft?) = Unit
-    override fun mainConfigGuiClass(): Class<out GuiScreen> = ZAGuiConfig::class.java
-    override fun runtimeGuiCategories(): MutableSet<IModGuiFactory.RuntimeOptionCategoryElement>? = null
-    override fun getHandlerFor(runtimeOptionCategoryElement: IModGuiFactory.RuntimeOptionCategoryElement?): IModGuiFactory.RuntimeOptionGuiHandler? = null
+    override fun mainConfigGuiClass() = ZAGuiConfig::class.java
+    override fun runtimeGuiCategories() = null
+    override fun getHandlerFor(runtimeOptionCategoryElement: IModGuiFactory.RuntimeOptionCategoryElement?) = null
 }
 class ZAGuiConfig(parentScreen: GuiScreen): GuiConfig(parentScreen, ZAConfig.getElements(), MODID, false, false, "$NAME Configuration")

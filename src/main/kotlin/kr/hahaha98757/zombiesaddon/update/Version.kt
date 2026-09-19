@@ -34,32 +34,18 @@ data class Version(val x: Int, val y: Int, val z: Int, val versionType: VersionT
     override fun toString() = if (versionType == RELEASE) "$x.$y.$z"
     else "$x.$y.$z-${versionType.str}$w"
 
-    override fun compareTo(other: Version): Int {
-        if (this.x > other.x) return 1
-        if (this.x < other.x) return -1
-        if (this.y > other.y) return 1
-        if (this.y < other.y) return -1
-        if (this.z > other.z) return 1
-        if (this.z < other.z) return -1
-        val thisType = when (this.versionType) {
-            ALPHA -> 0
-            BETA -> 1
-            PRE_RELEASE -> 2
-            RELEASE_CANDIDATE -> 3
-            RELEASE -> 4
-        }
-        val otherType = when (other.versionType) {
-            ALPHA -> 0
-            BETA -> 1
-            PRE_RELEASE -> 2
-            RELEASE_CANDIDATE -> 3
-            RELEASE -> 4
-        }
-        if (thisType > otherType) return 1
-        if (thisType < otherType) return -1
-        if (this.w > other.w) return 1
-        if (this.w < other.w) return -1
-        return 0
+    override fun compareTo(other: Version) = when {
+        this.x > other.x -> 1
+        this.x < other.x -> -1
+        this.y > other.y -> 1
+        this.y < other.y -> -1
+        this.z > other.z -> 1
+        this.z < other.z -> -1
+        this.versionType > other.versionType -> 1
+        this.versionType < other.versionType -> -1
+        this.w > other.w -> 1
+        this.w < other.w -> -1
+        else -> 0
     }
 }
 

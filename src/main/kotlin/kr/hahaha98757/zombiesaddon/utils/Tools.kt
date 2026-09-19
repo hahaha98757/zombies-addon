@@ -23,6 +23,7 @@ import java.util.*
 
 // private 필드
 private val serverNumberPattern = Regex("\\d{2}/\\d{2}/\\d{2}\\s+([mLM][0-9A-Z]+|#\\d+)")
+private val emojiPattern = Regex("[\uD83D\uDD2B\uD83C\uDF6B\uD83D\uDCA3\uD83D\uDC7D\uD83D\uDD2E\uD83D\uDC0D\uD83D\uDC7E\uD83C\uDF20\uD83C\uDF6D\u26BD\uD83C\uDFC0\uD83D\uDC79\uD83C\uDF81\uD83C\uDF89\uD83C\uDF82]+")
 
 // 상수
 const val LINE = "§e-----------------------------------------------------"
@@ -30,12 +31,8 @@ const val LINE = "§e-----------------------------------------------------"
 // public 필드
 val mc get() = Minecraft.getMinecraft()!!
 val fr get() = mc.fontRendererObj!!
-val modFile: File by lazy {
-    Loader.instance().activeModContainer().source
-}
+val modFile: File by lazy { Loader.instance().activeModContainer().source }
 val logger get() = ZombiesAddon.instance.logger
-
-val emojiPattern = Regex("[\uD83D\uDD2B\uD83C\uDF6B\uD83D\uDCA3\uD83D\uDC7D\uD83D\uDD2E\uD83D\uDC0D\uD83D\uDC7E\uD83C\uDF20\uD83C\uDF6D\u26BD\uD83C\uDFC0\uD83D\uDC79\uD83C\uDF81\uD83C\uDF89\uD83C\uDF82]+")
 
 // 출력 관련 함수
 fun addLine() = mc.thePlayer?.addChatMessage(ChatComponentText(LINE)) ?: logger.info("[addLine] $LINE")

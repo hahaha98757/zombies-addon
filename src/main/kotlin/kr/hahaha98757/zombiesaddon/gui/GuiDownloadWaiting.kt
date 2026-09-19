@@ -14,10 +14,7 @@ object GuiDownloadWaiting: GuiScreen() {
 
         drawDefaultBackground()
         if (!failed) drawCenteredString(fontRendererObj, getTranslatedString("zombiesaddon.gui.downloadWaiting.title"), width / 2, height / 2 - 40, 0xffffff)
-        else {
-            drawCenteredString(fontRendererObj, getTranslatedString("zombiesaddon.gui.downloadWaiting.failed"), width / 2, height / 2 - 40, 0xff5555)
-            drawCenteredString(fontRendererObj, "", width / 2, height / 2 - 31, 0xff5555)
-        }
+        else drawCenteredString(fontRendererObj, getTranslatedString("zombiesaddon.gui.downloadWaiting.failed"), width / 2, height / 2 - 40, 0xff5555)
         super.drawScreen(mouseX, mouseY, partialTicks)
     }
 
