@@ -4,6 +4,7 @@ import kr.hahaha98757.zombiesaddon.gui.GuiDownloadWaiting
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker.ctx
 import kr.hahaha98757.zombiesaddon.update.UpdateChecker.latest
 import kr.hahaha98757.zombiesaddon.utils.FileRemoverLauncher
+import kr.hahaha98757.zombiesaddon.utils.FileRemoverLauncher.requireMainMethod
 import kr.hahaha98757.zombiesaddon.utils.logger
 import kr.hahaha98757.zombiesaddon.utils.mc
 import kr.hahaha98757.zombiesaddon.utils.modFile
@@ -37,11 +38,12 @@ object AutoUpdater {
             Files.move(tempMod.toPath(), newMod.toPath(),
                 StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE)
 
+            requireMainMethod(newMod, "kr.hahaha98757.zombiesaddon.utils.FileRemover")
             mc.addScheduledTask { FileRemoverLauncher.runAndQuit(arrayOf(modFile), newMod) }
         } catch (e: Exception) {
             if (newMod.exists()) newMod.delete()
             logger.error("자동 업데이트 중 오류 발생.", e)
-            GuiDownloadWaiting.failed = true
+            mc.addScheduledTask { GuiDownloadWaiting.failed = true }
         } finally {
             if (tempMod.exists()) tempMod.delete()
             tempMod.parentFile.delete()
