@@ -1,5 +1,11 @@
 # Change log
 
+## 4.8.6
+09-19-2026
+- Modification: FileRemover
+  - Verified existence of main function
+- Code modification: Refactoring
+
 ## 4.8.5
 07-24-2026
 - Bug fix: ZSV no longer works.
