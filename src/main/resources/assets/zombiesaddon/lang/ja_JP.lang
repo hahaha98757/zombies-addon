@@ -151,8 +151,8 @@ zombiesaddon.config.category.lw=Last Weapons
 zombiesaddon.config.category.lw.tooltip=Last Weapons 設定
 zombiesaddon.config.category.recorder=Recorder
 zombiesaddon.config.category.recorder.tooltip=Recorder 設定
-zombiesaddon.config.category.koreanPatchers=韓国語パッチ
-zombiesaddon.config.category.koreanPatchers.tooltip=ハングルパッチ 設定
+zombiesaddon.config.category.patcher=Patcher
+zombiesaddon.config.category.patcher.tooltip=Patcher 設定
 zombiesaddon.config.category.otherMods=その他のmod
 zombiesaddon.config.category.otherMods.tooltip=Zombies Utils、 SST 設定
 
@@ -261,12 +261,12 @@ zombiesaddon.config.recorderDefaultCategory.description=コマンドで指定し
 zombiesaddon.config.recorderPbNotice=PB通知
 zombiesaddon.config.recorderPbNotice.description=新しい個人新記録や区間新記録が達成されたときに通知します。
 
-zombiesaddon.config.koreanPatchersIngame=ゲーム内
-zombiesaddon.config.koreanPatchersIngame.description=ゲーム内にKorean Patchersを有効または無効にします。
-zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
-zombiesaddon.config.koreanPatchersZombiesOverlay.description=Zombies OverlayにKorean Patchersを有効または無効にします。
-zombiesaddon.config.koreanPatchersSst=SST
-zombiesaddon.config.koreanPatchersSst.description=SSTにKorean Patchersを有効または無効にします。
+zombiesaddon.config.patcherFixRifleSound=ライフルの音を修正
+zombiesaddon.config.patcherFixRifleSound.description=ライフルの音が聞こえない問題を修正します。
+zombiesaddon.config.patcherKoreanPatch=韓国語パッチ
+zombiesaddon.config.patcherKoreanPatch.description=ゲーム内の誤った韓国語翻訳を修正しました。
+zombiesaddon.config.patcherZombiesOverlayInKo=Zombies Overlayの韓国語パッチ
+zombiesaddon.config.patcherZombiesOverlayInKo.description=韓国語環境でZombies Overlayを使用できます。
 
 zombiesaddon.config.disableSpawnTimeOfSst=SSTのスポーン時間を無効化
 zombiesaddon.config.disableSpawnTimeOfSst.description=SSTのスポーン時間を無効化します。

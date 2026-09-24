@@ -157,7 +157,7 @@ class ZombiesAddon {
         ModuleListener.registerModule(PowerupPatterns)
         ModuleListener.registerModule(LastWeapons)
         ModuleListener.registerModule(TextMacro)
-        ModuleListener.registerModule(KoreanPatchers)
+        ModuleListener.registerModule(Patcher)
         ModuleListener.registerModule(BetterZombiesLeft)
     }
 }

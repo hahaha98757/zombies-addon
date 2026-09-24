@@ -28,7 +28,7 @@ object ZAConfig {
     private val categoryAutoRejoin = Category("Auto Rejoin")
     private val categoryLastWeapons = Category("Last Weapons")
     private val categoryRecorder = Category("Recorder")
-    private val categoryKoreanPatchers = Category("Korean Patchers")
+    private val categoryPatcher = Category("Patcher")
     private val categoryOtherMods = Category("Other Mods")
 
     var enableMod = true
@@ -91,9 +91,9 @@ object ZAConfig {
         get() = if ("/" in field || "\\" in field) "general" else field
     var recorderPbNotice = true
 
-    var koreanPatchersIngame = false
-    var koreanPatchersZombiesOverlay = false
-    var koreanPatchersSst = false
+    var patcherFixRifleSound = true
+    var patcherKoreanPatch = false
+    var patcherZombiesOverlayInKo = true
 
     var disableSpawnTimeOfSst = true
     var disableTimerOfZombiesUtils = true
@@ -517,29 +517,29 @@ object ZAConfig {
         )).boolean
 
 
-        // 한글 패치
-        val koreanPatchersIngameKey = "zombiesaddon.config.koreanPatchersIngame"
-        koreanPatchersIngame = addOption(categoryKoreanPatchers, koreanPatchersIngameKey, config.get(
-            categoryKoreanPatchers.name,
-            "koreanPatchersIngame",
-            false,
-            "$koreanPatchersIngameKey.description"
+        // Patcher
+        val patcherFixRifleSoundKey = "zombiesaddon.config.patcherFixRifleSound"
+        patcherFixRifleSound = addOption(categoryPatcher, patcherFixRifleSoundKey, config.get(
+            categoryPatcher.name,
+            "patcherFixRifleSound",
+            true,
+            "$patcherFixRifleSoundKey.description"
         )).boolean
 
-        val koreanPatchersZombiesOverlayKey = "zombiesaddon.config.koreanPatchersZombiesOverlay"
-        koreanPatchersZombiesOverlay = addOption(categoryKoreanPatchers, koreanPatchersZombiesOverlayKey, config.get(
-            categoryKoreanPatchers.name,
-            "koreanPatchersZombiesOverlay",
+        val patcherKoreanPatchKey = "zombiesaddon.config.patcherKoreanPatch"
+        patcherKoreanPatch = addOption(categoryPatcher, patcherKoreanPatchKey, config.get(
+            categoryPatcher.name,
+            "patcherKoreanPatch",
             false,
-            "$koreanPatchersZombiesOverlayKey.description"
+            "$patcherKoreanPatchKey.description"
         )).boolean
 
-        val koreanPatchersSstKey = "zombiesaddon.config.koreanPatchersSst"
-        koreanPatchersSst = addOption(categoryKoreanPatchers, koreanPatchersSstKey, config.get(
-            categoryKoreanPatchers.name,
-            "koreanPatchersSst",
-            false,
-            "$koreanPatchersSstKey.description"
+        val patcherZombiesOverlayInKoKey = "zombiesaddon.config.patcherZombiesOverlayInKo"
+        patcherZombiesOverlayInKo = addOption(categoryPatcher, patcherZombiesOverlayInKoKey, config.get(
+            categoryPatcher.name,
+            "patcherZombiesOverlayInKo",
+            true,
+            "$patcherZombiesOverlayInKoKey.description"
         )).boolean
 
 
@@ -590,7 +590,7 @@ object ZAConfig {
         DummyCategoryElement(categorySla.name, "zombiesaddon.config.category.sla", categorySla.options),
         DummyCategoryElement(categoryLastWeapons.name, "zombiesaddon.config.category.lw", categoryLastWeapons.options),
         DummyCategoryElement(categoryRecorder.name, "zombiesaddon.config.category.recorder", categoryRecorder.options),
-        DummyCategoryElement(categoryKoreanPatchers.name, "zombiesaddon.config.category.koreanPatchers", categoryKoreanPatchers.options),
+        DummyCategoryElement(categoryPatcher.name, "zombiesaddon.config.category.patcher", categoryPatcher.options),
         DummyCategoryElement(categoryOtherMods.name, "zombiesaddon.config.category.otherMods", categoryOtherMods.options)
     )
 

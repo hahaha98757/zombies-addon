@@ -150,8 +150,8 @@ zombiesaddon.config.category.lw=Last Weapons
 zombiesaddon.config.category.lw.tooltip=Last Weapons 설정
 zombiesaddon.config.category.recorder=Recorder
 zombiesaddon.config.category.recorder.tooltip=Recorder 설정
-zombiesaddon.config.category.koreanPatchers=한글 패치
-zombiesaddon.config.category.koreanPatchers.tooltip=한글 패치 설정
+zombiesaddon.config.category.patcher=Patcher
+zombiesaddon.config.category.patcher.tooltip=Patcher 설정
 zombiesaddon.config.category.otherMods=다른 모드
 zombiesaddon.config.category.otherMods.tooltip=Zombies Utils, SST 설정
 
@@ -260,12 +260,12 @@ zombiesaddon.config.recorderDefaultCategory.description=명령어를 사용하�
 zombiesaddon.config.recorderPbNotice=PB 알림
 zombiesaddon.config.recorderPbNotice.description=새로운 개인 최고 기록이나 구간 최고 기록이 달성되면 알려줍니다.
 
-zombiesaddon.config.koreanPatchersIngame=인게임
-zombiesaddon.config.koreanPatchersIngame.description=인게임에 대한 한글 패치를 활성화 또는 비활성화합니다.
-zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
-zombiesaddon.config.koreanPatchersZombiesOverlay.description=Zombies Overlay에 대한 한글 패치를 활성화 또는 비활성화합니다.
-zombiesaddon.config.koreanPatchersSst=SST
-zombiesaddon.config.koreanPatchersSst.description=SST에 대한 한글 패치를 활성화 또는 비활성화합니다.
+zombiesaddon.config.patcherFixRifleSound=소총 소리 수정
+zombiesaddon.config.patcherFixRifleSound.description=소총 소리가 들리지 않는 문제를 수정합니다.
+zombiesaddon.config.patcherKoreanPatch=한글 패치
+zombiesaddon.config.patcherKoreanPatch.description=인게임에서 잘못된 번역을 수정합니다.
+zombiesaddon.config.patcherZombiesOverlayInKo=Zombies Overlay 한글 패치
+zombiesaddon.config.patcherZombiesOverlayInKo.description=한국어 환경에서 Zombies Overlay를 사용할 수 있습니다.
 
 zombiesaddon.config.disableSpawnTimeOfSst=SST의 스폰 시간 비활성화
 zombiesaddon.config.disableSpawnTimeOfSst.description=SST의 스폰 시간을 비활성화합니다.

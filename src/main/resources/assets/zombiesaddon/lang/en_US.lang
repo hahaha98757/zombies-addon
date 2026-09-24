@@ -151,8 +151,8 @@ zombiesaddon.config.category.lw=Last Weapons
 zombiesaddon.config.category.lw.tooltip=Last Weapons options.
 zombiesaddon.config.category.recorder=Recorder
 zombiesaddon.config.category.recorder.tooltip=Recorder options.
-zombiesaddon.config.category.koreanPatchers=Korean Patchers
-zombiesaddon.config.category.koreanPatchers.tooltip=Korean Patchers options.
+zombiesaddon.config.category.patcher=Patcher
+zombiesaddon.config.category.patcher.tooltip=Patcher options.
 zombiesaddon.config.category.otherMods=Other Mods
 zombiesaddon.config.category.otherMods.tooltip=Zombies Utils and SST options.
 
@@ -261,12 +261,12 @@ zombiesaddon.config.recorderDefaultCategory.description=Category to use when not
 zombiesaddon.config.recorderPbNotice=PB Notice
 zombiesaddon.config.recorderPbNotice.description=Notifies when a new personal best or best segment is achieved.
 
-zombiesaddon.config.koreanPatchersIngame=Ingame
-zombiesaddon.config.koreanPatchersIngame.description=Enable or disable Korean Patchers for ingame.
-zombiesaddon.config.koreanPatchersZombiesOverlay=Zombies Overlay
-zombiesaddon.config.koreanPatchersZombiesOverlay.description=Enable or disable Korean Patchers for Zombies Overlay.
-zombiesaddon.config.koreanPatchersSst=SST
-zombiesaddon.config.koreanPatchersSst.description=Enable or disable Korean Patchers for SST.
+zombiesaddon.config.patcherFixRifleSound=Fix Rifle Sound
+zombiesaddon.config.patcherFixRifleSound.description=Fixes an issue where rifle sounds could not be heard.
+zombiesaddon.config.patcherKoreanPatch=Korean Patch
+zombiesaddon.config.patcherKoreanPatch.description=Corrects incorrect Korean translations in the game.
+zombiesaddon.config.patcherZombiesOverlayInKo=Zombies Overlay in Korean
+zombiesaddon.config.patcherZombiesOverlayInKo.description=Zombies Overlay works in Korean.
 
 zombiesaddon.config.disableSpawnTimeOfSst=Disable Spawn Time of SST
 zombiesaddon.config.disableSpawnTimeOfSst.description=Disable the spawn time of SST.
