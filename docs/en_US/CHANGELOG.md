@@ -1,7 +1,13 @@
 # Change log
 
+## 4.8.7
+09-24-2026
+- Added: Patcher
+  - Fixed an issue where rifle sounds were not audible.
+- Removed: SST Korean patch
+
 ## 4.8.6
-09-19-2026
+09-23-2026
 - Modification: FileRemover
   - Verified existence of main function
 - Code modification: Refactoring

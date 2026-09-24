@@ -189,18 +189,17 @@
 - Feather Clientなどのスコアボードを設定するほとんどのモードと互換性がありません。
 
 ----
-### Text Macro
-- ショートカット（デフォルトQ）を押してチャットにテキストを送信します。
-
-----
-### Korean Patchers
-- いくつかのフレーズを韓国語に翻訳します。
+### Patcher
+- いくつかの修正を適用します。
 
 #### コンフィグ
-- ゲーム内：ゲーム内にKorean Patchersを有効または無効にします。
-- Zombies Overlay：[Zombies Overlay](https://github.com/TheExploration/zombies-overlay)にKorean Patchersを有効または無効にします。
-- SST：SSTにKorean Patchersを有効または無効にします。
-- Zombies Utils：Zombies UtilsにKorean Patchersを有効または無効にします。
+- ライフルの音を修正：ライフルの音が聞こえない問題を修正します。
+- 韓国語パッチ：ゲーム内の誤った韓国語翻訳を修正しました。
+- Zombies Overlayの韓国語パッチ：韓国語環境でZombies Overlayを使用できます。
+
+----
+### Text Macro
+- ショートカット（デフォルトQ）を押してチャットにテキストを送信します。
 
 ----
 ## コマンド

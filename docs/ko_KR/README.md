@@ -190,17 +190,17 @@
 - Feather Client 같이 스코어보드를 설정하는 대부분의 모드와 호환되지 않습니다.
 
 ----
-### Text Macro
-- 단축키(기본값 Q)를 눌러 채팅에 텍스트를 보냅니다.
-
-----
-### 한글 패치
-- 일부 문구를 한국어로 번역합니다.
+### Patcher
+- 여러 수정 사항을 적용합니다.
 
 #### 컨피그
-- 인게임: 인게임에 대한 한글 패치를 활성화 또는 비활성화합니다.
-- Zombies Overlay: [Zombies Overlay](https://github.com/TheExploration/zombies-overlay)에 대한 한글 패치를 활성화 또는 비활성화합니다.
-- SST: SST에 대한 한글 패치를 활성화 또는 비활성화합니다.
+- 소총 소리 수정: 소총 소리가 들리지 않는 문제를 수정합니다.
+- 한글 패치: 인게임에서 잘못된 번역을 수정합니다.
+- Zombies Overlay 한글 패치: 한국어 환경에서 [Zombies Overlay](https://github.com/TheExploration/zombies-overlay)를 사용할 수 있습니다.
+
+----
+### Text Macro
+- 단축키(기본값 Q)를 눌러 채팅에 텍스트를 보냅니다.
 
 ----
 ## 명령어

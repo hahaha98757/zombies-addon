@@ -195,12 +195,17 @@ After the timer is adjusted, you will switch back to server mode.
 - Not compatible with most mods that set up scoreboards, such as Feather Client.
 
 ----
-### Text Macro
-- Press the hotkey (default Q) to send text to chat.
+### Patcher
+- Applies several modifications.
+
+#### Config
+- Fix Rifle Sound: Fixes an issue where rifle sounds could not be heard.
+- Korean Patch: Corrects incorrect Korean translations in the game.
+- Zombies Overlay in Korean: [Zombies Overlay](https://github.com/TheExploration/zombies-overlay) works in Korean.
 
 ----
-### Korean Patcher
-- Translate some phrases into Korean.
+### Text Macro
+- Press the hotkey (default Q) to send text to chat.
 
 ----
 ## Commands
